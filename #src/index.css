@@ -1,0 +1,10 @@
+@import '~normalize.css';
+
+h1 {
+  color: red;
+  font-size: 20px;
+}
+
+h2 {
+  color: yellow;
+}

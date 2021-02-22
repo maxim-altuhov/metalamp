@@ -1,0 +1,14 @@
+//если руками будем подключать font
+
+@font-face {
+  font-family: 'Uni Neue';
+  font-display: fallback;
+  src: url('../fonts/UniNeueHeavy.eot');
+  src: local('Uni Neue Heavy'), local('UniNeueHeavy'),
+    url('../fonts/UniNeueHeavy.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/UniNeueHeavy.woff2') format('woff2'),
+    url('../fonts/UniNeueHeavy.woff') format('woff'),
+    url('../fonts/UniNeueHeavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
