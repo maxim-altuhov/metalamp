@@ -1,15 +1,12 @@
-import $ from 'jquery';
-window.jQuery = $;
-window.$ = $;
-
 import {
   testLog
-} from '@page/test1/test.js';
+} from './test.js.js';
 import './index.css';
-import './scss.scss';
+import './index.scss';
 
 function contentLoaded() {
   testLog();
+  // комментарий
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);

@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const fs = require('fs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,9 +8,17 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const pathDir = {
+  src: path.join(__dirname, './#src'),
+  dist: path.join(__dirname, './dist'),
+  base: path.join(__dirname, './#src/base'),
+  comp: path.join(__dirname, './#src/components'),
+  pages: path.join(__dirname, './#src/pages')
+};
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 const filename = ext => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
+
 const cssLoaders = add => {
   const loaders = [
     {
@@ -20,7 +29,9 @@ const cssLoaders = add => {
         }
       }
     },
-    'css-loader',
+    {
+      loader: 'css-loader'
+    },
     {
       loader: 'postcss-loader',
       options: {
@@ -38,13 +49,18 @@ const cssLoaders = add => {
           ]
         }
       }
+    },
+    {
+      loader: 'resolve-url-loader'
     }
   ];
+
   if (add) {
     loaders.push(add);
   }
   return loaders;
 };
+
 const babelOptions = presets => {
   const option = {
     presets: [
@@ -60,20 +76,24 @@ const babelOptions = presets => {
   }
   return option;
 };
+
 const plugins = () => {
+  const pagesDir = pathDir.pages;
+  const allPages = fs.readdirSync(pagesDir);
   const base = [
-    new HTMLWebpackPlugin({
-      template: './index.html',
+    ...allPages.map((page) => new HTMLWebpackPlugin({
+      filename: `${page}.html`,
+      template: `${pagesDir}/${page}/${page}.pug`,
       minify: {
         collapseWhitespace: isProd
       },
       inject: 'body',
       scriptLoading: 'blocking'
-    }),
+    })),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [{
-        from: path.resolve(__dirname, '#src/favicon.png'),
+        from: path.resolve(__dirname, `${pathDir.base}/favicon.png`),
         to: path.resolve(__dirname, 'dist')
       }]
     }),
@@ -91,6 +111,7 @@ const plugins = () => {
   }
   return base;
 };
+
 const optimization = () => {
   const config = {
     splitChunks: {
@@ -103,11 +124,12 @@ const optimization = () => {
   }
   return config;
 };
+
 module.exports = {
   context: path.resolve(__dirname, '#src'),
   mode: 'development',
   entry: {
-    main: ['./index.js']
+    main: ['./pages/index/index.js']
     // add: ['./base/js/add.js']
   },
   output: {
@@ -115,13 +137,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-    // extensions: ['.js', '.json', '.html'], // форматы файлов
+    extensions: ['.js', '.json', '.css', '.scss', '.html', '.pug'],
     alias: {
-      '@base': path.resolve(__dirname, '#src/base'),
-      '@fonts': path.resolve(__dirname, '#src/base/assets/fonts'),
-      '@img': path.resolve(__dirname, '#src/base/assets/img'),
-      '@page': path.resolve(__dirname, '#src/pages'),
-      '@comp': path.resolve(__dirname, '#src/components')
+      base: path.resolve(__dirname, '#src/base'),
+      fonts: path.resolve(__dirname, '#src/base/fonts'),
+      libs: path.resolve(__dirname, '#src/base/libs'),
+      page: path.resolve(__dirname, '#src/pages'),
+      comp: path.resolve(__dirname, '#src/components')
     }
   },
   optimization: optimization(),
@@ -135,6 +157,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.pug$/i,
+        loader: 'pug-loader',
+        options: {
+          pretty: isDev
+        }
+      },
+      {
         test: /\.html$/i,
         loader: 'html-loader'
       },
@@ -144,32 +173,26 @@ module.exports = {
       },
       {
         test: /\.(sass|scss)$/,
-        use: cssLoaders('sass-loader')
+        use: cssLoaders({
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true,
+            webpackImporter: false
+          }
+        })
       },
       {
-        test: /\.(?:ico|png|jpg|jpeg|svg|gif|webp)$/,
-        loader: 'file-loader',
-        options: {
-          outputPath: '@img',
-          name() {
-            if (isDev) {
-              return '[name].[ext]';
-            }
-            return '[name].[fullhash].[ext]';
-          }
+        test: /\.(?:ico|png|jpg|jpeg|svg|gif|webp)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'img/[name][ext]'
         }
       },
       {
-        test: /\.(ttf|woff|woff2|eot|otf)$/,
-        loader: 'file-loader',
-        options: {
-          outputPath: '@fonts',
-          name() {
-            if (isDev) {
-              return '[name].[ext]';
-            }
-            return '[name].[fullhash].[ext]';
-          }
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
         }
       },
       {

@@ -1,0 +1,14 @@
+$color: red;
+
+//комментарий
+h4 {
+  color: $color;
+}
+
+.black {
+  color: #000;
+
+  &-link {
+    color: purple;
+  }
+}

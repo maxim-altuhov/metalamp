@@ -1,14 +1,15 @@
-//если руками будем подключать font
-
+// ручное подключение шрифтов
 @font-face {
-  font-family: 'Uni Neue';
-  font-display: fallback;
-  src: url('../fonts/UniNeueHeavy.eot');
-  src: local('Uni Neue Heavy'), local('UniNeueHeavy'),
-    url('../fonts/UniNeueHeavy.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/UniNeueHeavy.woff2') format('woff2'),
-    url('../fonts/UniNeueHeavy.woff') format('woff'),
-    url('../fonts/UniNeueHeavy.ttf') format('truetype');
-  font-weight: 800;
+  font-family: Roboto;
+  font-display: swap;
+  src:
+    url('../fonts/Roboto-Regular.eot'),
+    url('../fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Roboto-Regular.woff2') format('woff2'),
+    url('../fonts/Roboto-Regular.woff') format('woff'),
+    url('../fonts/Roboto-Regular.ttf') format('truetype'),
+    url('../fonts/Roboto-Regular.otf') format("opentype"),
+    url('../fonts/Roboto-Regular.svg') format('svg');
+  font-weight: 400;
   font-style: normal;
 }
