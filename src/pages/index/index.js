@@ -1,12 +1,9 @@
-import {
-  testLog
-} from './test.js.js';
-import './index.css';
+import '@base/base';
+import '@comp/block/block';
 import './index.scss';
 
 function contentLoaded() {
-  testLog();
-  // комментарий
+  console.log('тестовый index.js');
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);

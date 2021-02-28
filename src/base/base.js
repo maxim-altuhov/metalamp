@@ -1,8 +1,7 @@
-import 'base/base';
-import './index.scss';
+import './base.scss';
 
 function contentLoaded() {
-  console.log('тестовый index.js');
+  console.log('базовый base.js');
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);

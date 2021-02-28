@@ -4,17 +4,21 @@ const fs = require('fs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+// const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const pathDir = {
-  src: path.join(__dirname, './#src'),
+  src: path.join(__dirname, './src'),
   dist: path.join(__dirname, './dist'),
-  base: path.join(__dirname, './#src/base'),
-  comp: path.join(__dirname, './#src/components'),
-  pages: path.join(__dirname, './#src/pages')
+  base: path.join(__dirname, './src/base'),
+  comp: path.join(__dirname, './src/components'),
+  pages: path.join(__dirname, './src/pages')
 };
+const pagesDir = pathDir.pages;
+const allPages = fs.readdirSync(pagesDir);
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 const filename = ext => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
@@ -24,9 +28,7 @@ const cssLoaders = add => {
     {
       loader: MiniCssExtractPlugin.loader,
       options: {
-        publicPath: (resourcePath, context) => {
-          return path.relative(path.dirname(resourcePath), context) + '/';
-        }
+        publicPath: '../'
       }
     },
     {
@@ -78,12 +80,11 @@ const babelOptions = presets => {
 };
 
 const plugins = () => {
-  const pagesDir = pathDir.pages;
-  const allPages = fs.readdirSync(pagesDir);
   const base = [
-    ...allPages.map((page) => new HTMLWebpackPlugin({
+    ...allPages.map(page => new HTMLWebpackPlugin({
       filename: `${page}.html`,
       template: `${pagesDir}/${page}/${page}.pug`,
+      chunks: [`${page}`],
       minify: {
         collapseWhitespace: isProd
       },
@@ -97,6 +98,7 @@ const plugins = () => {
         to: path.resolve(__dirname, 'dist')
       }]
     }),
+    // new FaviconsWebpackPlugin(`${pathDir.base}/favicon.png`),
     new MiniCssExtractPlugin({
       filename: `css/${filename('css')}`
     }),
@@ -108,6 +110,26 @@ const plugins = () => {
   ];
   if (isDev) {
     base.push(new ESLintPlugin());
+  } else {
+    base.push(new ImageMinimizerPlugin({
+      minimizerOptions: {
+        plugins: [
+          ['gifsicle', { interlaced: true }],
+          ['jpegtran', { progressive: true }],
+          ['optipng', { optimizationLevel: 5 }],
+          [
+            'svgo',
+            {
+              plugins: [
+                {
+                  removeViewBox: false
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    }));
   }
   return base;
 };
@@ -125,13 +147,19 @@ const optimization = () => {
   return config;
 };
 
+const entryPoint = () => {
+  const obj = {};
+  allPages.forEach(page => {
+    obj[`${page}`] = `./pages/${page}/${page}.js`;
+  });
+
+  return obj;
+};
+
 module.exports = {
-  context: path.resolve(__dirname, '#src'),
+  context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: {
-    main: ['./pages/index/index.js']
-    // add: ['./base/js/add.js']
-  },
+  entry: entryPoint(),
   output: {
     filename: `js/${filename('js')}`,
     path: path.resolve(__dirname, 'dist')
@@ -139,11 +167,12 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.css', '.scss', '.html', '.pug'],
     alias: {
-      base: path.resolve(__dirname, '#src/base'),
-      fonts: path.resolve(__dirname, '#src/base/fonts'),
-      libs: path.resolve(__dirname, '#src/base/libs'),
-      page: path.resolve(__dirname, '#src/pages'),
-      comp: path.resolve(__dirname, '#src/components')
+      '@base': path.resolve(__dirname, 'src/base'),
+      '@scss': path.resolve(__dirname, 'src/base/scss'),
+      '@fonts': path.resolve(__dirname, 'src/base/fonts'),
+      '@libs': path.resolve(__dirname, 'src/base/libs'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
+      '@comp': path.resolve(__dirname, 'src/components')
     }
   },
   optimization: optimization(),
@@ -157,10 +186,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.pug$/i,
-        loader: 'pug-loader',
-        options: {
-          pretty: isDev
+        test: /\.js$/i,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: babelOptions()
         }
       },
       {
@@ -168,16 +198,22 @@ module.exports = {
         loader: 'html-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.pug$/i,
+        loader: 'pug-loader',
+        options: {
+          pretty: isDev
+        }
+      },
+      {
+        test: /\.css$/i,
         use: cssLoaders()
       },
       {
-        test: /\.(sass|scss)$/,
+        test: /\.(sass|scss)$/i,
         use: cssLoaders({
           loader: 'sass-loader',
           options: {
-            sourceMap: true,
-            webpackImporter: false
+            sourceMap: true
           }
         })
       },
@@ -193,14 +229,6 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'fonts/[name][ext]'
-        }
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: babelOptions()
         }
       }
     ]
