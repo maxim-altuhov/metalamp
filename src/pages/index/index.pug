@@ -3,10 +3,8 @@ html(lang="ru")
   head
     meta(charset="utf-8")
     title Шаблон для MetaLamp
-    link(rel="shortcut icon", href="favicon.png", type="image/x-icon")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="Шаблон для MetaLamp")
+    meta(name="keywords", content="metalamp")
+    link(rel="icon", href="/favicon.png", type="image/png")
   body
-    include ~@comp/block/block.pug
-    h1 ЗАГОЛОВОК ТЕСТОВЫЙ! 
-    div.block
-      img(src=require("./img/work15.jpg"), alt="work15")
-    img(src=require("./img/img2.png"), alt="img2")

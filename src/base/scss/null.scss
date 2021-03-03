@@ -12,16 +12,6 @@
   box-sizing: border-box;
 }
 
-:focus,
-:active {
-  outline: none;
-}
-
-a:focus,
-a:active {
-  outline: none;
-}
-
 aside,
 nav,
 footer,
@@ -49,11 +39,6 @@ input::-ms-clear {
 
 :not(output):-moz-ui-invalid {
   box-shadow: none;
-}
-
-input:empty,
-a:empty {
-  outline: 0px solid;
 }
 
 button {

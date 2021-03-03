@@ -1,0 +1,35 @@
+include ./mixins.pug
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    title UI Kit - Colors & Type
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="UI Kit - Colors & Type")
+    meta(name="keywords", content="ui-kit, metalamp")
+    link(rel="icon", href="/favicon.png", type="image/png")
+  body
+    include ~@comp/ui-kit/logo/logo.pug
+    .container__colors-type
+      .colors__wrapper
+        +colors("Dark Shade 100%", "#1F2041", "dark")
+        +colors("Dark Shade 75%", "#1F2041", "dark75")
+        +colors("Dark Shade 50%", "#1F2041", "dark50")
+        +colors("Dark Shade 25%", "#1F2041", "dark25")
+        +colors("Dark Shade 5%", "#1F2041", "dark5")
+        +colors("Purple", "#BC9CFF", "purple")
+        +colors("Green", "#6FCF97", "green")
+      .type__wrapper 
+        h1.type__elem
+          span H1
+          | This one is the sub-section or widget title 
+        h2.type__elem
+          span H2
+          | Next one is the item title inside widgets
+        h3.type__elem
+          span H3
+          | This is a label or CTA text
+        p.type__elem
+          span Body
+          | This is the body text which is used for most of the design, like paragraphs, lists, etc.

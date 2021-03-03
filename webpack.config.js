@@ -1,5 +1,5 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
 const fs = require('fs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
-// const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const postcssFlexbugs = require('postcss-flexbugs-fixes');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const pathDir = {
@@ -21,8 +21,11 @@ const pagesDir = pathDir.pages;
 const allPages = fs.readdirSync(pagesDir);
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
+
+// формируем имя файла в зависимости от режима сборки
 const filename = ext => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
 
+// лоадеры
 const cssLoaders = add => {
   const loaders = [
     {
@@ -39,6 +42,7 @@ const cssLoaders = add => {
       options: {
         postcssOptions: {
           plugins: [
+            postcssFlexbugs,
             [
               'postcss-preset-env',
               {
@@ -63,6 +67,7 @@ const cssLoaders = add => {
   return loaders;
 };
 
+// настройки для babel
 const babelOptions = presets => {
   const option = {
     presets: [
@@ -79,6 +84,7 @@ const babelOptions = presets => {
   return option;
 };
 
+// плагины
 const plugins = () => {
   const base = [
     ...allPages.map(page => new HTMLWebpackPlugin({
@@ -94,11 +100,10 @@ const plugins = () => {
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [{
-        from: path.resolve(__dirname, `${pathDir.base}/favicon.png`),
+        from: path.resolve(__dirname, `${pathDir.base}/assets/`),
         to: path.resolve(__dirname, 'dist')
       }]
     }),
-    // new FaviconsWebpackPlugin(`${pathDir.base}/favicon.png`),
     new MiniCssExtractPlugin({
       filename: `css/${filename('css')}`
     }),
@@ -134,6 +139,7 @@ const plugins = () => {
   return base;
 };
 
+// параметры оптимизации
 const optimization = () => {
   const config = {
     splitChunks: {
@@ -147,15 +153,26 @@ const optimization = () => {
   return config;
 };
 
+// определение входных точек
 const entryPoint = () => {
   const obj = {};
   allPages.forEach(page => {
     obj[`${page}`] = `./pages/${page}/${page}.js`;
   });
-
   return obj;
 };
+// определение target для фикса ошибки dev server
+const getTarget = () => {
+  let result;
+  if (process.env.NODE_ENV === undefined || isDev === true) {
+    result = 'web';
+  } else {
+    result = 'browserslist';
+  }
+  return result;
+};
 
+// модули и настройки
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
@@ -180,7 +197,7 @@ module.exports = {
     port: 4200,
     open: true
   },
-  target: isDev === true ? 'web' : 'browserslist',
+  target: getTarget(),
   devtool: isDev === true ? 'source-map' : false,
   plugins: plugins(),
   module: {
@@ -227,6 +244,9 @@ module.exports = {
       {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
         type: 'asset/resource',
+        include: [
+          path.resolve(__dirname, 'src/base/fonts')
+        ],
         generator: {
           filename: 'fonts/[name][ext]'
         }
