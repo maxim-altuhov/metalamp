@@ -1,0 +1,30 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    title UI Kit - Form Elements
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="UI Kit - Form Elements")
+    meta(name="keywords", content="ui-kit, metalamp")
+    link(rel="icon", href="/favicon.png", type="image/png")
+  body
+    include ~@comp/ui-kit/logo/logo.pug
+    .container__form-elements
+      .form__item
+        .form__tag Default
+        .form__group
+          label Text Field
+            input(name="text" type="text" placeholder="Email")
+      .form__item
+        .form__tag Hover / Focus
+        .form__group
+          label Text Field
+            input(name="text2" type="text" placeholder="Email" value="This is pretty awesome")
+      .form__item
+        .form__group
+          label Dropdown
+            input.form__dropdown-input(name="dropdown" type="text" autocomplete="off" value="0")
+          .form__dropdown
+            span Сколько гостей 
+            span.form__dropdown-arrow.material-icons keyboard_arrow_down
+          .form__dropdown-block
