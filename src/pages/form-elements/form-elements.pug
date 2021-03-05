@@ -1,3 +1,5 @@
+include ~@comp/input/input.pug
+
 doctype html
 html(lang="ru")
   head
@@ -8,23 +10,13 @@ html(lang="ru")
     meta(name="keywords", content="ui-kit, metalamp")
     link(rel="icon", href="/favicon.png", type="image/png")
   body
-    include ~@comp/ui-kit/logo/logo.pug
+    include ~@comp/logo/logo.pug
     .container__form-elements
       .form__item
         .form__tag Default
-        .form__group
-          label Text Field
-            input(name="text" type="text" placeholder="Email")
+        +input("Text Field", "email", "email", "Email")
       .form__item
         .form__tag Hover / Focus
-        .form__group
-          label Text Field
-            input(name="text2" type="text" placeholder="Email" value="This is pretty awesome")
+        +input("Text Field", "text", "text", "Text", "This is pretty awesome")
       .form__item
-        .form__group
-          label Dropdown
-            input.form__dropdown-input(name="dropdown" type="text" autocomplete="off" value="0")
-          .form__dropdown
-            span Сколько гостей 
-            span.form__dropdown-arrow.material-icons keyboard_arrow_down
-          .form__dropdown-block
+        include ~@comp/dropdown/dropdown.pug

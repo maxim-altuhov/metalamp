@@ -1,5 +1,5 @@
 import '@base/base';
-import '@comp/ui-kit/logo/logo';
+import '@comp/logo/logo';
 import './colors-type.scss';
 
 function contentLoaded() {}

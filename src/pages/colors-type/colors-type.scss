@@ -61,7 +61,7 @@
   &__descr {
     margin-left: 40px;
     font-size: 19px;
-    line-height: 28px;
+    line-height: 28 / 19 * 100%;
     align-items: center;
     color: $dark;
   }

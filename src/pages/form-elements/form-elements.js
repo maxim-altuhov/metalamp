@@ -1,7 +1,10 @@
 import '@base/base';
-import '@comp/ui-kit/logo/logo';
+import '@comp/logo/logo';
+import '@comp/input/input';
+import '@comp/dropdown/dropdown';
 import './form-elements.scss';
-import dropdown from './js/dropdown.js';
+
+import dropdown from '@comp/dropdown/dropdown';
 
 function contentLoaded() {
   dropdown();

@@ -1,0 +1,92 @@
+@import '@scss/variables';
+
+.form__group-input {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15 / 12 * 100%;
+    text-transform: uppercase;
+    color: $dark;
+  }
+
+  input {
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    background: #FFFFFF;
+    border: 1px solid $dark25;
+    border-radius: 4px;
+    padding: 13px 15px;
+    font-size: 13.6px;
+    color: $dark75;
+    transition: border 0.3s ease-in;
+    ;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $dark50;
+    }
+
+  }
+
+  input {
+    &::-webkit-input-placeholder {
+      color: $dark25;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18 / 14 * 100%;
+      transition: color 0.3s ease-in;
+      ;
+    }
+
+    &:focus::-webkit-input-placeholder {
+      color: transparent;
+    }
+  }
+
+  /* Firefox < 19 */
+  input {
+    &:-moz-placeholder {
+      color: $dark25;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18 / 14 * 100%;
+    }
+
+    &:focus:-moz-placeholder {
+      color: transparent;
+    }
+  }
+
+  /* Firefox > 19 */
+  input {
+    &::-moz-placeholder {
+      color: $dark25;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18 / 14 * 100%;
+    }
+
+    &:focus::-moz-placeholder {
+      color: transparent;
+    }
+  }
+
+  /* Internet Explorer 10 */
+  input {
+    &:-ms-input-placeholder {
+      color: $dark25;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18 / 14 * 100%;
+    }
+
+    &:focus:-ms-input-placeholder {
+      color: transparent;
+    }
+  }
+}
