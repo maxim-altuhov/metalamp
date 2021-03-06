@@ -1,4 +1,4 @@
-mixin input(labelText, name, inputType, placeholder, value="")
+mixin input(labelText, name, inputType, placeholder, value, typeMask)
   .form__group-input
     label= labelText
-      input(name=name type=inputType placeholder=placeholder value=value)
+      input(name=name type=inputType placeholder=placeholder value=value data-typemask=typeMask)

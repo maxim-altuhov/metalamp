@@ -1,12 +1,9 @@
-import '@base/base';
-import '@comp/logo/logo';
-import '@comp/input/input';
-import '@comp/dropdown/dropdown';
 import './form-elements.scss';
-
+import MaskForInput from '@comp/input/input';
 import dropdown from '@comp/dropdown/dropdown';
 
 function contentLoaded() {
+  MaskForInput();
   dropdown();
 }
 

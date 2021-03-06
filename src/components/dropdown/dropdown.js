@@ -1,5 +1,3 @@
-import './dropdown.scss';
-
 function dropdown() {
   const dropdownInput = document.querySelector('.form__dropdown-input');
   const dropdownSelector = document.querySelector('.form__dropdown');

@@ -1,28 +1,18 @@
-.form__group-dropdown
-  label Dropdown
-    input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
-  .form__dropdown
-    .form__dropdown-result Сколько гостей
-    span.form__dropdown-arrow.material-icons keyboard_arrow_down
-  .form__dropdown-block
-    .form__dropdown-elem
-      span Взрослые
-      .form__dropdown-counter
-        button#dropdown-minus(disabled type="button") -
-        span 0
-        button(type="button") +
-    .form__dropdown-elem
-      span Дети
-      .form__dropdown-counter
-        button#dropdown-minus(disabled type="button") -
-        span 0
-        button(type="button") +
-    .form__dropdown-elem
-      span Младенцы
-      .form__dropdown-counter
-        button#dropdown-minus(disabled type="button") -
-        span 0
-        button(type="button") +
-    .form__dropdown-control
-      button.form__dropdown-clear.hidden(type="button") Очистить
-      button.form__dropdown-apply(type="button") Применить
+mixin dropdown(labelText, inputName, ...items)
+  .form__group-dropdown
+    label= labelText
+      input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
+    .form__dropdown
+      .form__dropdown-result= inputName
+      span.form__dropdown-arrow.material-icons keyboard_arrow_down
+    .form__dropdown-block
+      each item in items
+       .form__dropdown-elem
+        span= item
+        .form__dropdown-counter
+          button#dropdown-minus(disabled type="button") -
+          span 0
+          button(type="button") +
+      .form__dropdown-control
+        button.form__dropdown-clear.hidden(type="button") Очистить
+        button.form__dropdown-apply(type="button") Применить 

@@ -1,4 +1,7 @@
-@import '@scss/variables';
+@import '@base/base';
+@import '@comp/logo/logo';
+@import '@comp/input/input';
+@import '@comp/dropdown/dropdown';
 
 .container__form-elements {
   max-width: 1654px;

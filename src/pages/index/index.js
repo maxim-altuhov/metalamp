@@ -1,4 +1,3 @@
-import '@base/base';
 import './index.scss';
 
 function contentLoaded() {}
