@@ -2,6 +2,28 @@
   display: flex;
   flex-direction: column;
 
+  &_dropdown {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    label {
+      position: relative;
+    }
+
+    span {
+      position: absolute;
+      top: 32px;
+      right: 9px;
+      color: $dark50;
+
+      &.active {
+        transform: rotate(180deg);
+        top: 29px;
+      }
+    }
+  }
+
   label {
     font-weight: 700;
     font-size: 12px;
@@ -21,70 +43,25 @@
     padding: 13px 15px;
     font-size: 13.6px;
     color: $dark75;
-    transition: border 0.3s ease-in;
-    ;
+    transition: border 0.2s ease-in;
 
     &:hover,
     &:focus {
       border: 1px solid $dark50;
     }
 
+    @include placeholder($dark25, 13.6);
+
+    @include focus(transparent);
   }
 
-  input {
-    &::-webkit-input-placeholder {
-      color: $dark25;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 18 / 14 * 100%;
-      transition: color 0.3s ease-in;
-      ;
-    }
+  input.date-dropdown {
+    max-width: 150px;
 
-    &:focus::-webkit-input-placeholder {
-      color: transparent;
-    }
+    @include placeholder($dark75, 13.6);
+
+    @include focus($dark75);
+
   }
 
-  /* Firefox < 19 */
-  input {
-    &:-moz-placeholder {
-      color: $dark25;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 18 / 14 * 100%;
-    }
-
-    &:focus:-moz-placeholder {
-      color: transparent;
-    }
-  }
-
-  /* Firefox > 19 */
-  input {
-    &::-moz-placeholder {
-      color: $dark25;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 18 / 14 * 100%;
-    }
-
-    &:focus::-moz-placeholder {
-      color: transparent;
-    }
-  }
-
-  /* Internet Explorer 10 */
-  input {
-    &:-ms-input-placeholder {
-      color: $dark25;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 18 / 14 * 100%;
-    }
-
-    &:focus:-ms-input-placeholder {
-      color: transparent;
-    }
-  }
 }

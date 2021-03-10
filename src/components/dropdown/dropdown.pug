@@ -1,18 +1,23 @@
-mixin dropdown(labelText, inputName, ...items)
+//- components
+include ~@comp/button/button.pug
+//-
+//- options = { labelText, textInInput, ...elements }
+mixin dropdown(options, ...elements)
   .form__group-dropdown
-    label= labelText
-      input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
-    .form__dropdown
-      .form__dropdown-result= inputName
-      span.form__dropdown-arrow.material-icons keyboard_arrow_down
-    .form__dropdown-block
-      each item in items
-       .form__dropdown-elem
-        span= item
-        .form__dropdown-counter
-          button#dropdown-minus(disabled type="button") -
-          span 0
-          button(type="button") +
+    label= options.labelText
+      input.form__dropdown-input.js-form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
+    .form__dropdown.js-form__dropdown
+      .form__dropdown-result.js-form__dropdown-result= options.textInInput
+      span.form__dropdown-arrow.js-form__dropdown-arrow.material-icons keyboard_arrow_down
+    .form__dropdown-block.js-form__dropdown-block
+      .form__dropdown-wrapper
+        each element in elements
+          .form__dropdown-elem
+            span= element
+            .form__dropdown-counter.js-form__dropdown-counter
+              button#dropdown-minus(disabled type="button") -
+              span 0
+              button(type="button") +
       .form__dropdown-control
-        button.form__dropdown-clear.hidden(type="button") Очистить
-        button.form__dropdown-apply(type="button") Применить 
+        +button({mod:"simple", text:"Очистить", type:"button", function:"clear"}, " hidden")
+        +button({mod:"simple", text:"Применить", type:"button", function:"apply"})

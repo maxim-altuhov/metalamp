@@ -1,7 +1,10 @@
+@import '@comp/button/button';
+
 .form {
   &__group-dropdown {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     label {
       font-weight: 700;
@@ -25,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: border 0.3s ease-in;
+    transition: border 0.2s ease-in;
 
     &:hover {
       border: 1px solid $dark50;
@@ -42,27 +45,36 @@
   }
 
   &__dropdown-block {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    z-index: 99;
     display: none;
-    max-width: 320px;
-    min-height: 158px;
+    width: 100%;
     background: #FFFFFF;
     border: 1px solid $dark50;
     border-top: 0;
     border-radius: 0 0 4px 4px;
     box-shadow: 0px 10px 20px $dark5;
-    padding: 4px 6px 10px 15px;
+    padding: 4px 6px 12px 14px;
 
     &_active {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
+  }
+
+  &__dropdown-wrapper {
+    display: flex;
+    flex-direction: column;
   }
 
   &__dropdown-elem {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 6px;
+    margin-bottom: 6.5px;
 
     &:last-child {
       margin-bottom: 0;
@@ -82,6 +94,11 @@
       text-align: center;
       background-color: #FFFFFF;
       color: $dark50;
+      transition: border 0.2s ease-in;
+
+      &:focus {
+        border: 1px solid $dark75;
+      }
 
       &:disabled {
         color: $dark50;
@@ -112,22 +129,8 @@
   }
 
   &__dropdown-control {
-    margin-top: 15px;
+    margin-top: 22px;
     display: flex;
     justify-content: space-between;
-
-    button {
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 15 / 12 * 100%;
-      text-transform: uppercase;
-      color: $purple;
-      background: #FFFFFF;
-      transition: color 0.3s ease-in;
-
-      &:hover {
-        color: $dark50;
-      }
-    }
   }
 }

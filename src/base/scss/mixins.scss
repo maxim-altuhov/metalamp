@@ -1,4 +1,5 @@
-// добавление шрифтов, @include font('Roboto', 'RobotoSlab-Bold', '700', 'normal');
+// добавление шрифтов
+// пример:  @include font('Roboto', 'RobotoSlab-Bold', '700', 'normal');
 @mixin font($font_name, $file_name, $weight, $style) {
   @font-face {
     font-family: $font_name;
@@ -11,5 +12,61 @@
     url('../fonts/#{$file_name}.svg') format('svg');
     font-weight: #{$weight};
     font-style: #{$style};
+  }
+}
+
+// Стилизация placeholder
+// пример: @include placeholder($dark);
+@mixin placeholder($placeholder-color, $font-size) {
+  &::-webkit-input-placeholder {
+    color: $placeholder-color;
+    font-weight: 400;
+    font-size: $font-size + 'px';
+    line-height: 18 / $font-size * 100%;
+    transition: color 0.2s ease-in;
+  }
+
+  &::-moz-placeholder {
+    color: $placeholder-color;
+    font-weight: 400;
+    font-size: $font-size + 'px';
+    line-height: 18 / $font-size * 100%;
+    transition: color 0.2s ease-in;
+  }
+
+  &:-moz-placeholder {
+    color: $placeholder-color;
+    font-weight: 400;
+    font-size: $font-size + 'px';
+    line-height: 18 / $font-size * 100%;
+    transition: color 0.2s ease-in;
+  }
+
+  &:-ms-input-placeholder {
+    color: $placeholder-color;
+    font-weight: 400;
+    font-size: $font-size + 'px';
+    line-height: 18 / $font-size * 100%;
+    transition: color 0.2s ease-in;
+  }
+}
+
+// Стилизация focus
+// пример: @include focus($dark);
+@mixin focus($focus-color) {
+  &:focus::-webkit-input-placeholder {
+    color: $focus-color;
+  }
+
+  &:focus:-moz-placeholder {
+    color: $focus-color;
+  }
+
+  &:focus::-moz-placeholder {
+    color: $focus-color;
+  }
+
+  &:focus:-ms-input-placeholder {
+    color: $focus-color;
   }
 }

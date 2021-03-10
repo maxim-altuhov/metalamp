@@ -1,0 +1,74 @@
+.button {
+  background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+  min-width: 99px;
+  height: 44px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 22px;
+  line-height: 44px;
+  color: #FFFFFF;
+  font-size: 11.4px;
+
+  &_colored {
+    transition: opacity 0.2s ease-in;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+  }
+
+  &_transparent {
+    background: transparent;
+    border: 2px solid $purple;
+    line-height: 42px;
+    color: $purple;
+    transition: border 0.2s ease-in;
+
+    &:hover,
+    &:focus {
+      border: 2px solid rgba($color: $purple, $alpha: 0.5);
+    }
+  }
+
+
+  &_simple {
+    min-width: auto;
+    height: auto;
+    font-size: 12px;
+    line-height: 1;
+    color: $purple;
+    background: #FFFFFF;
+    transition: color 0.2s ease-in;
+
+    &:hover,
+    &:focus {
+      color: $dark50;
+    }
+  }
+
+  &_big {
+    position: relative;
+    min-width: 320px;
+    font-size: 12px;
+    transition: opacity 0.2s ease-in;
+
+    &:hover,
+    &:focus {
+      opacity: 0.75;
+    }
+
+    &::before {
+      content: '';
+      background-image: url('./img/arrow-forward.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 10px;
+      right: 11px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

@@ -1,20 +1,34 @@
+@import '~air-datepicker/dist/css/datepicker.css';
 @import '@base/base';
 @import '@comp/logo/logo';
 @import '@comp/input/input';
 @import '@comp/dropdown/dropdown';
 
-.container__form-elements {
-  max-width: 1654px;
-  margin: 65px auto 0 auto;
-  padding: 0 15px;
+.form-elements {
+
+  &__header {
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+
+  &__container {
+    max-width: 1654px;
+    margin: 65px auto 0 auto;
+    padding: 0 15px;
+  }
+
 }
 
 .form {
 
   &__item {
-    margin-bottom: 20px;
+    margin-bottom: 20.5px;
     max-width: 320px;
     position: relative;
+
+    &:nth-child(4) {
+      margin-bottom: 40px;
+    }
   }
 
   &__tag {

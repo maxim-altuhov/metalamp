@@ -1,9 +1,11 @@
 import './form-elements.scss';
-import MaskForInput from '@comp/input/input';
+import maskForInput from '@comp/input/input-date';
+import inputDatePicker from '@comp/input/input-datepicker';
 import dropdown from '@comp/dropdown/dropdown';
 
 function contentLoaded() {
-  MaskForInput();
+  maskForInput();
+  inputDatePicker();
   dropdown();
 }
 

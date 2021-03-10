@@ -1,0 +1,7 @@
+//- options = { name, hex, color }
+mixin color(options)
+  .colors__elem
+    div(class="colors__sample colors__sample_" +options.color)
+    .colors__descr
+      p.colors__descr-title= options.name 
+      span.colors__descr-subtitle= options.hex 

@@ -1,0 +1,3 @@
+//- options = { mod[coloured, transparent, simple, big], text, type }
+mixin button(options, ...addclass)
+  button(class="button button_" +options.mod +addclass type= options.type data-function=options.function)= options.text

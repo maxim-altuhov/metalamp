@@ -1,12 +1,20 @@
 @import '@base/base';
 @import '@comp/logo/logo';
+@import '@comp/color/color';
 
-.container__colors-type {
-  max-width: 1635px;
-  margin: 0 auto;
-  padding: 0 15px;
-  display: flex;
-  justify-content: space-between;
+.colors-type {
+  &__header {
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+
+  &__container {
+    max-width: 1635px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .colors {
@@ -15,64 +23,12 @@
     margin-top: 68px;
   }
 
-  &__elem {
-    display: flex;
-    align-items: center;
+  &__item {
     margin-bottom: 19.9px;
 
     &:last-child {
       margin-bottom: 0;
     }
-  }
-
-  &__sample {
-    width: 70px;
-    height: 70px;
-    border-radius: 6px;
-
-    &_dark {
-      background: $dark;
-    }
-
-    &_dark75 {
-      background: $dark75;
-    }
-
-    &_dark50 {
-      background: $dark50;
-    }
-
-    &_dark25 {
-      background: $dark25;
-    }
-
-    &_dark5 {
-      background: $dark5;
-    }
-
-    &_purple {
-      background: $purple;
-    }
-
-    &_green {
-      background: $green;
-    }
-  }
-
-  &__descr {
-    margin-left: 40px;
-    font-size: 19px;
-    line-height: 28 / 19 * 100%;
-    align-items: center;
-    color: $dark;
-  }
-
-  &__descr-title {
-    font-weight: 700;
-  }
-
-  &__descr-subtitle {
-    font-weight: 400;
   }
 }
 
