@@ -1,6 +1,6 @@
 import Inputmask from 'inputmask';
 
-function maskForInput() {
+function addMaskForInput() {
   const selector = document.querySelectorAll('[data-typemask="date"]');
 
   Inputmask({
@@ -10,4 +10,4 @@ function maskForInput() {
   }).mask(selector);
 }
 
-export default maskForInput;
+export default addMaskForInput;

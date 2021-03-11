@@ -1,11 +1,11 @@
-function dropdown() {
-  const dropdownInput = document.querySelector('.js-form__dropdown-input');
-  const dropdownSelector = document.querySelector('.js-form__dropdown');
-  const dropdownResult = document.querySelector('.js-form__dropdown-result');
-  const dropdownArrow = document.querySelector('.js-form__dropdown-arrow');
-  const dropdownBlock = document.querySelector('.js-form__dropdown-block');
-  const dropdownCounters = document.querySelectorAll('.js-form__dropdown-counter span');
-  const dropdownCounterBtns = document.querySelectorAll('.js-form__dropdown-counter button');
+function initDropdown() {
+  const dropdownInput = document.querySelector('.form__dropdown-input');
+  const dropdownSelector = document.querySelector('.form__dropdown');
+  const dropdownResult = document.querySelector('.form__dropdown-result');
+  const dropdownArrow = document.querySelector('.form__dropdown-arrow');
+  const dropdownBlock = document.querySelector('.form__dropdown-block');
+  const dropdownCounters = document.querySelectorAll('.form__dropdown-counter span');
+  const dropdownCounterBtns = document.querySelectorAll('.form__dropdown-counter button');
   const dropdownMinus = document.querySelectorAll('#dropdown-minus');
   const dropdownClear = document.querySelector('[data-function="clear"]');
   const dropdownApply = document.querySelector('[data-function="apply"]');
@@ -85,4 +85,4 @@ function dropdown() {
   });
 }
 
-export default dropdown;
+export default initDropdown;

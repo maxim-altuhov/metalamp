@@ -1,0 +1,198 @@
+.datepicker {
+  width: 318px;
+  min-height: 367px;
+  background: #FFFFFF;
+  border: 1px solid $dark25;
+  box-shadow: 0px 10px 20px $dark50;
+  border-radius: 4px;
+
+  &--nav {
+    display: flex;
+    border-bottom: 0px;
+    min-height: 60px;
+    padding: 4px 17px;
+  }
+
+  &--nav-action {
+    span {
+      color: $purple;
+    }
+  }
+
+  &--nav-title {
+    font-family: $font-family;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 23 / 19 * 100%;
+    color: $dark;
+
+    i {
+      color: inherit;
+    }
+  }
+
+
+  &--day-name {
+    font-family: $font-family;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15 / 12 * 100%;
+    color: $purple;
+    text-transform: capitalize;
+  }
+
+  &--content {
+    padding: 18px 19px;
+  }
+
+  &--cells {
+    margin-top: 11px;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15 / 12 * 100%;
+    color: $dark50;
+  }
+
+  &--cell-day {
+    height: 40px;
+  }
+
+  &--cell-day.-focus- {
+    border-radius: 22px;
+    font-weight: 700;
+    border: 1px solid $purple;
+    background: transparent;
+  }
+
+  &--cell-day.-other-month-,
+  &--cell-year.-other-decade- {
+    color: $dark25;
+  }
+
+  &--cell-day.-current- {
+    background: linear-gradient(180deg, $green 0%, $blue 100%);
+    width: 40px;
+    height: 40px;
+    border-radius: 22px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #FFFFFF;
+  }
+
+  &--cell-day.-current-.-focus- {
+    border: 1px solid $purple;
+    background: transparent;
+    color: #4eb5e6;
+  }
+
+  &--cell-month.-current-,
+  &--cell-year.-current-,
+  &--cell-month.-current-.-focus-,
+  &--cell-year.-current-.-focus-,
+  &--cell-month.-current-.-selected-,
+  &--cell-year.-current-.-selected-,
+  &--cell-month.-selected-,
+  &--cell-year.-selected-,
+  &--cell-month.-selected-.-focus- {
+    color: #fff;
+    font-weight: 700;
+    background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+  }
+
+  &--cell-day.-selected-,
+  &--cell-day.-selected-.-current-,
+  &--cell-day.-selected-.-focus-,
+  &--cell-day.-other-month-.-selected-,
+  &--cell-day.-other-month-.-selected-.-focus- {
+    background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+    font-weight: 700;
+  }
+
+  &--cell-day.-disabled- {
+    border: 0;
+  }
+
+  &--cell-day.-disabled-.-focus- {
+    background: none;
+    border: 0;
+  }
+
+  &--cell-day.-in-range-,
+  &--cell-day.-in-range-.-focus- {
+    background: linear-gradient(180deg, rgba($color: $purple, $alpha: 0.25) 0%, rgba($color: $purple-gradient, $alpha: 0.25) 100%);
+    border-radius: 0px;
+    border: 0;
+  }
+
+  &--cell-day.-in-range-.-disabled- {
+    background: none;
+  }
+
+  &--cell-day.-current-.-in-range- {
+    color: #4eb5e6;
+    border-radius: 0;
+  }
+
+  &--cell-day.-range-from-.-disabled- {
+    border: none;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  &--cell-day.-range-to-,
+  &--cell-day.-range-from- {
+    border: 1px solid $purple;
+    background-color: transparent;
+    border-radius: 22px;
+  }
+
+  &--cell-day.-range-to-.-current-.-selected-.-focus-,
+  &--cell-day.-range-from-.-current-.-selected-.-focus- {
+    color: #ffffff;
+  }
+
+  &--cell-day.-range-from-.-selected- {
+    border: 0px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba($color: $purple, $alpha: 0.25) 0%, rgba($color: $purple-gradient, $alpha: 0.25) 100%);
+    }
+  }
+
+  &--cell-day.-range-to-.-selected- {
+    border: 0px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 50%;
+      height: 100%;
+      border: 0;
+      background: linear-gradient(180deg, rgba($color: $purple, $alpha: 0.25) 0%, rgba($color: $purple-gradient, $alpha: 0.25) 100%);
+    }
+  }
+
+  .-in-range-.datepicker--cell-day.-other-month-,
+  .-in-range-.datepicker--cell-year.-other-decade- {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  &__control {
+    margin-top: 5px;
+    padding: 0 19px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -5,16 +5,16 @@ include ~@comp/button/button.pug
 mixin dropdown(options, ...elements)
   .form__group-dropdown
     label= options.labelText
-      input.form__dropdown-input.js-form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
-    .form__dropdown.js-form__dropdown
-      .form__dropdown-result.js-form__dropdown-result= options.textInInput
-      span.form__dropdown-arrow.js-form__dropdown-arrow.material-icons keyboard_arrow_down
-    .form__dropdown-block.js-form__dropdown-block
+      input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
+    .form__dropdown
+      .form__dropdown-result= options.textInInput
+      span.form__dropdown-arrow.material-icons keyboard_arrow_down
+    .form__dropdown-block
       .form__dropdown-wrapper
         each element in elements
           .form__dropdown-elem
             span= element
-            .form__dropdown-counter.js-form__dropdown-counter
+            .form__dropdown-counter
               button#dropdown-minus(disabled type="button") -
               span 0
               button(type="button") +
