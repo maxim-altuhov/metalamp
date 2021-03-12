@@ -3,10 +3,10 @@ mixin input(options)
   if options.dateWithDropdown == true
     div(class="form__group-input form__group-input_dropdown")
       label= options.labelText
-        input(class="date-dropdown js-date-dropdown" name=options.attributeName type=options.attributeType placeholder=options.placeholder value=options.valueInInput data-typemask=options.typeMask)
+        input#start_datepicker(class="date-dropdown js-date-dropdown" name=options.attributeName type=options.attributeType placeholder=options.placeholder value=options.valueInInput data-typemask=options.typeMask)
         span.material-icons keyboard_arrow_down
       label= options.labelText
-        input(class="date-dropdown js-date-dropdown" name=options.attributeName type=options.attributeType placeholder=options.placeholder value=options.valueInInput data-typemask=options.typeMask)
+        input#end_datepicker(class="date-dropdown" name=options.attributeName type=options.attributeType placeholder=options.placeholder value=options.valueInInput data-typemask=options.typeMask)
         span.material-icons keyboard_arrow_down
   else
     .form__group-input

@@ -5,7 +5,9 @@ import initDropdown from '@comp/dropdown/dropdown';
 
 function contentLoaded() {
   addMaskForInput();
-  addDatePicker();
+  addDatePicker({
+    selector: '.js-date-dropdown'
+  });
   initDropdown();
 }
 
