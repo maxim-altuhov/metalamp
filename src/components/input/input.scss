@@ -16,20 +16,13 @@
       top: 32px;
       right: 9px;
       color: $dark50;
+      cursor: pointer;
 
       &.active {
         transform: rotate(180deg);
         top: 29px;
       }
     }
-  }
-
-  label {
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15 / 12 * 100%;
-    text-transform: uppercase;
-    color: $dark;
   }
 
   input {
@@ -56,12 +49,31 @@
   }
 
   input.date-dropdown {
-    max-width: 150px;
+    width: 150px;
 
     @include placeholder($dark75, 13.6);
 
     @include focus($dark75);
 
+    &_middle {
+      width: 266px;
+    }
   }
 
+  input.date-subscription {
+    &_middle {
+      width: 266px;
+    }
+
+    &+button {
+      position: absolute;
+      top: 23px;
+      right: 55px;
+      height: 40px;
+      width: 40px;
+      background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
 }

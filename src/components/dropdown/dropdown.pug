@@ -1,23 +1,24 @@
 //- components
 include ~@comp/button/button.pug
 //-
-//- options = { labelText, textInInput, ...elements }
-mixin dropdown(options, ...elements)
-  .form__group-dropdown
-    label= options.labelText
-      input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
-    .form__dropdown
-      .form__dropdown-result= options.textInInput
-      span.form__dropdown-arrow.material-icons keyboard_arrow_down
-    .form__dropdown-block
-      .form__dropdown-wrapper
-        each element in elements
-          .form__dropdown-elem
-            span= element
-            .form__dropdown-counter
-              button#dropdown-minus(disabled type="button") -
-              span 0
-              button(type="button") +
-      .form__dropdown-control
-        +button({mod:"simple", text:"Очистить", type:"button", function:"clear"}, " hidden")
-        +button({mod:"simple", text:"Применить", type:"button", function:"apply"})
+//- const { labelText, textInInput }, ...elements = options;
+mixin dropdown(options,  ...elements)
+  - const { labelText, textInInput } = options;
+    .form__group-dropdown
+      label.label= labelText
+        input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
+      .form__dropdown
+        .form__dropdown-result= textInInput
+        span.form__dropdown-arrow.material-icons keyboard_arrow_down
+      .form__dropdown-block
+        .form__dropdown-wrapper
+          each element in elements
+            .form__dropdown-elem
+              span= element
+              .form__dropdown-counter
+                button#dropdown-minus(disabled type="button") -
+                span 0
+                button(type="button") +
+        .form__dropdown-control
+          +button({mod:"simple", text:"Очистить", type:"button", btnFunction:"clear"}, " hidden")
+          +button({mod:"simple", text:"Применить", type:"button", btnFunction:"apply"})

@@ -4,58 +4,50 @@ window.$ = $;
 
 import datepicker from 'air-datepicker';
 
-function addDatePicker({ selector }) {
-  const $selector = $(selector);
-  const myDatepicker = $selector.datepicker().data('datepicker');
+function addDatePicker({
+  $selector,
+  $secondSelector,
+  options
+}) {
+  const currentDatepicker = $selector.datepicker().data('datepicker');
 
   // инициализация календаря
-  $selector.datepicker({
-    range: true,
-    inline: true,
-    multipleDatesSeparator: '-',
-    prevHtml: '<span class="material-icons">arrow_back</span>',
-    nextHtml: '<span class="material-icons">arrow_forward</span>',
-    navTitles: {
-      days: 'MM <i>yyyy</i>'
-    },
-    offset: 5,
-    onSelect: (fd) => {
-      $('#start_datepicker').val(fd.split('-')[0]);
-      $('#end_datepicker').val(fd.split('-')[1]);
-    },
-    minDate: new Date()
-  });
+  $selector.datepicker(options);
 
   // функция добавляющая кнопки управления в календарь
   function creatControlBtn() {
-    const datepickerBlock = document.querySelector('.datepicker');
-    const buttonBlock = `<div class="datepicker__control">
+    const buttonBlock = `<div class="datepicker--control">
     <button class="button button_simple datepicker__clear js-datepicker__clear" type="button">Очистить</button>
     <button class="button button_simple datepicker__apply js-datepicker__apply" type="button">Применить</button>
     </div>`;
-    datepickerBlock.insertAdjacentHTML('beforeend', buttonBlock);
+
+    $(`.${options.classes}`).append(buttonBlock);
   }
 
-  // функция очистки календаря
+  // очистка календаря
   function clearDatepicker() {
-    myDatepicker.clear();
+    currentDatepicker.clear();
   }
 
-  // функция применения значений календаря
+  // применение значений календаря
   function applyDatepicker() {
-    myDatepicker.hide();
+    currentDatepicker.hide();
   }
 
   // показать календарь
   function showDatepicker() {
-    myDatepicker.show();
+    currentDatepicker.show();
   }
 
-  // обработчики
+  // вызов функций
   creatControlBtn();
+
+  // обработчики
   $('.js-datepicker__clear').on('click', clearDatepicker);
   $('.js-datepicker__apply').on('click', applyDatepicker);
-  $('#end_datepicker').on('click', showDatepicker);
+  if ($secondSelector !== undefined) {
+    $secondSelector.on('click', showDatepicker);
+  }
 }
 
 export default addDatePicker;

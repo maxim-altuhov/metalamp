@@ -1,6 +1,8 @@
 //- components
 include ~@comp/input/input.pug
 include ~@comp/dropdown/dropdown.pug
+include ~@comp/checkbox/checkbox.pug
+include ~@comp/radiobtn/radiobtn.pug
 //-
 doctype html
 html(lang="ru")
@@ -15,17 +17,33 @@ html(lang="ru")
     .form-elements__header
       include ~@comp/logo/logo.pug
     .form-elements__container
-      .form__item
-        .form__tag Default
-        +input({labelText:"text field", attributeName:"email", attributeType:"email", placeholder:"Email"})
-      .form__item
-        .form__tag Hover / Focus
-        +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome"})
-      .form__item
-        +dropdown({labelText:"dropdown", textInInput:"Сколько гостей"}, elements="Взрослые", "Дети", "Младенцы")
-      .form__item
-        +input({labelText:"masked text field", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
-      .form__item
-        +input({labelText:"date dropdown", attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
-      .form__item
-        div#id
+      .form-elements__wrapper
+        .form-elements__block
+          .form-elements__item.form-elements__item_min-margin
+            .form-elements__tag Default
+            +input({labelText:"text field", attributeName:"email", attributeType:"email", placeholder:"Email"})
+          .form-elements__item.form-elements__item_min-margin
+            .form-elements__tag Hover / Focus
+            +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome"})
+          .form-elements__item.form-elements__item_min-margin
+            +dropdown({labelText:"dropdown", textInInput:"Сколько гостей"}, elements="Взрослые", "Дети", "Младенцы")
+          .form-elements__item
+            +input({labelText:"masked text field", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
+          .form-elements__item
+            +input({labelText:"date dropdown", attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
+          .form-elements__item
+            +input({labelText:"filter date dropdown", attributeName:"text", attributeType:"text", placeholder:"Date", dateWithFilter: true, addClass:'date-dropdown_middle'})
+          .form-elements__item
+            +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", addClass:'date-subscription date-subscription_middle', addBtn:'arrow_forward'})
+        .form-elements__block
+          .form-elements__item
+            span.label Checkbox Buttons
+            .form-elements__checkbox-wrapper
+              +checkbox({text:"Можно курить", idAndName:"checkbox-1"})
+              +checkbox({text:"Можно с питомцами", idAndName:"checkbox-2", checked: true})
+              +checkbox({text:"Можно пригласить гостей (до 10 человек)", idAndName:"checkbox-3", checked: true})
+          .form-elements__item
+            span.label Radio Buttons
+            .form-elements__radiobtn-wrapper
+              +radiobtn({text:"Мужчина", id:"radio-1", attributeName:"radio-btn", checked: true})
+              +radiobtn({text:"Женщина", id:"radio-2", attributeName:"radio-btn"})

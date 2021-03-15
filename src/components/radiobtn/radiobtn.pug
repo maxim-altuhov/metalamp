@@ -1,0 +1,11 @@
+//- const { text, id, attributeName, checked } = options;
+mixin radiobtn(options)
+  - const { text, id, attributeName, checked } = options;
+      if checked
+        .radiobtn__elem
+          input.radiobtn__field.visuallyhidden(type="radio", name=attributeName, id=id, checked)
+          label(for=id)= text
+      else
+        .radiobtn__elem
+          input.radiobtn__field.visuallyhidden(type="radio", name=attributeName, id=id)
+          label(for=id)= text

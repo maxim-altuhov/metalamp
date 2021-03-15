@@ -12,13 +12,12 @@
     max-width: 1635px;
     margin: 0 auto;
     padding: 0 15px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(min-content, 696px) auto;
   }
 }
 
 .colors {
-
   &__wrapper {
     margin-top: 68px;
   }
@@ -36,7 +35,6 @@
 
   &__wrapper {
     margin-top: 68px;
-    margin-right: 469px;
     max-width: 440px;
   }
 

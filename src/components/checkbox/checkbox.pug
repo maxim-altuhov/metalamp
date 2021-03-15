@@ -1,0 +1,11 @@
+//- const { text, id, attributeName, checked } = options;
+mixin checkbox(options)
+  - const { text, idAndName, checked } = options;
+      if checked
+        .checkbox__elem
+          input.checkbox__field.visuallyhidden(type="checkbox", name=idAndName, id=idAndName, checked)
+          label(for=idAndName)= text
+      else
+        .checkbox__elem
+          input.checkbox__field.visuallyhidden(type="checkbox", name=idAndName, id=idAndName)
+          label(for=idAndName)= text

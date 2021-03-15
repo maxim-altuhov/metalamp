@@ -37,6 +37,14 @@ h3 {
   text-transform: uppercase;
 }
 
+.label {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15 / 12 * 100%;
+  text-transform: uppercase;
+  color: $dark;
+}
+
 .visuallyhidden {
   position: absolute;
   width: 1px;

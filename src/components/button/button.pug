@@ -1,3 +1,4 @@
-//- options = { mod[coloured, transparent, simple, big], text, type }
+//- options = { mod[coloured, transparent, simple, big], text, btnType, btnFunction }
 mixin button(options, ...addclass)
-  button(class="button button_" +options.mod +addclass type= options.type data-function=options.function)= options.text
+  - const {mod, text, btnType, btnFunction} = options;
+    button(class="button button_" +mod +addclass type= btnType data-function= btnFunction)= text
