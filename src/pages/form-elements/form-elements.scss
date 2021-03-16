@@ -6,6 +6,8 @@
 @import '@comp/dropdown/dropdown';
 @import '@comp/checkbox/checkbox';
 @import '@comp/radiobtn/radiobtn';
+@import '@comp/toggle/toggle';
+@import '@comp/likebtn/likebtn';
 
 .form-elements {
 
@@ -51,16 +53,14 @@
     color: $dark50
   }
 
-  &__checkbox-wrapper {
-    margin-top: 18px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__radiobtn-wrapper {
+  &__flex-wrapper {
     margin-top: 17px;
     display: flex;
-    flex-wrap: wrap;
-  }
+    flex-direction: column;
 
+    &_row {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
 }

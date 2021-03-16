@@ -3,6 +3,8 @@ include ~@comp/input/input.pug
 include ~@comp/dropdown/dropdown.pug
 include ~@comp/checkbox/checkbox.pug
 include ~@comp/radiobtn/radiobtn.pug
+include ~@comp/toggle/toggle.pug
+include ~@comp/likebtn/likebtn.pug
 //-
 doctype html
 html(lang="ru")
@@ -38,12 +40,22 @@ html(lang="ru")
         .form-elements__block
           .form-elements__item
             span.label Checkbox Buttons
-            .form-elements__checkbox-wrapper
+            .form-elements__flex-wrapper
               +checkbox({text:"Можно курить", idAndName:"checkbox-1"})
               +checkbox({text:"Можно с питомцами", idAndName:"checkbox-2", checked: true})
               +checkbox({text:"Можно пригласить гостей (до 10 человек)", idAndName:"checkbox-3", checked: true})
           .form-elements__item
             span.label Radio Buttons
-            .form-elements__radiobtn-wrapper
+            .form-elements__flex-wrapper.form-elements__flex-wrapper_row
               +radiobtn({text:"Мужчина", id:"radio-1", attributeName:"radio-btn", checked: true})
               +radiobtn({text:"Женщина", id:"radio-2", attributeName:"radio-btn"})
+          .form-elements__item
+            span.label Toggle
+            .form-elements__flex-wrapper
+              +toggle({text:"Получать спецпредложения", checked: true})
+              +toggle({text:"Получать спецпредложения"})
+          .form-elements__item
+            span.label Like Button
+            .form-elements__flex-wrapper.form-elements__flex-wrapper_row
+              +likebtn({counter:2})
+              +likebtn({counter:12, active: true})

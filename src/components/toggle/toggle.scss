@@ -1,0 +1,58 @@
+.toggle__elem {
+  margin-bottom: 12px;
+  backface-visibility: hidden;
+  outline: 1px solid transparent;
+  position: relative;
+  cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  input {
+    appearance: none;
+    display: none;
+  }
+
+  .toggle__name {
+    color: $dark75;
+    margin-left: 10px;
+    vertical-align: 6px;
+  }
+
+  .toggle__block {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background: #FFFFFF;
+    border: 1px solid $dark25;
+    border-radius: 10px;
+  }
+
+  .toggle__indicator {
+    position: absolute;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 10px;
+    transition: left 0.2s linear;
+  }
+
+  input:not(:checked)~.toggle__indicator {
+    left: 4px;
+    background: $dark25;
+  }
+
+  input:checked {
+    &~.toggle__indicator {
+      left: 24px;
+      background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+    }
+
+    &~.toggle__block {
+      border: 1px solid $purple;
+    }
+  }
+
+}

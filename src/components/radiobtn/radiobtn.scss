@@ -2,11 +2,9 @@
 
   &__elem {
     margin-right: 20px;
-    margin-bottom: 15px;
 
     &:last-child {
       margin-right: 0;
-      margin-bottom: 0px;
     }
   }
 
@@ -22,6 +20,10 @@ input.radiobtn__field:not(:checked)+label {
   font-size: 14px;
   line-height: 129%;
   color: $dark50;
+}
+
+input.radiobtn__field:checked+label {
+  color: $dark75;
 }
 
 input.radiobtn__field:not(:checked)+label:before {

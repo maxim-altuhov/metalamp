@@ -1,0 +1,11 @@
+//- const { counter, active } = options;
+mixin likebtn(options)
+  - const { counter, active } = options;
+      if active
+        .like__btn.like__btn_active
+          i.material-icons favorite
+          span.like__counter= counter
+      else
+        .like__btn
+          i.material-icons favorite_border
+          span.like__counter= counter

@@ -1,0 +1,40 @@
+.like__btn {
+  width: 40px;
+  height: 20px;
+  background: #FFFFFF;
+  border: 1px solid $dark25;
+  border-radius: 10px;
+  color: $dark25;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  padding: 0 10px 0 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: color 0.2s linear, background 0.2s linear;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    color: $purple;
+    border: 1px solid;
+    background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  i {
+    font-size: 10px;
+  }
+
+  &_active {
+    color: $purple;
+    border: 1px solid;
+    background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
