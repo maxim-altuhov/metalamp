@@ -8,6 +8,7 @@ import addMaskForInput from '@comp/input/input-mask';
 import addDatePicker from '@comp/input/input-datepicker';
 import initDropdown from '@comp/dropdown/dropdown';
 import toggleLikes from '@comp/likebtn/likebtn';
+import setRating from '@comp/rating/rating';
 
 function contentLoaded() {
   addMaskForInput();
@@ -64,6 +65,7 @@ function contentLoaded() {
   });
   initDropdown();
   toggleLikes();
+  setRating();
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);

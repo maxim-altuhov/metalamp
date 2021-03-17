@@ -8,6 +8,8 @@
 @import '@comp/radiobtn/radiobtn';
 @import '@comp/toggle/toggle';
 @import '@comp/likebtn/likebtn';
+@import '@comp/simple-rating/simple-rating';
+@import '@comp/rating/rating';
 
 .form-elements {
 
@@ -61,6 +63,14 @@
     &_row {
       flex-direction: row;
       flex-wrap: wrap;
+    }
+  }
+
+  &__rating {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

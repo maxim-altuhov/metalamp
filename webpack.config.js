@@ -242,6 +242,13 @@ module.exports = {
         }
       },
       {
+        test: /\.(?:json)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'json/[name][ext]'
+        }
+      },
+      {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
         type: 'asset/resource',
         include: [

@@ -5,6 +5,8 @@ include ~@comp/checkbox/checkbox.pug
 include ~@comp/radiobtn/radiobtn.pug
 include ~@comp/toggle/toggle.pug
 include ~@comp/likebtn/likebtn.pug
+include ~@comp/simple-rating/simple-rating.pug
+include ~@comp/rating/rating.pug
 //-
 doctype html
 html(lang="ru")
@@ -59,3 +61,10 @@ html(lang="ru")
             .form-elements__flex-wrapper.form-elements__flex-wrapper_row
               +likebtn({counter:2})
               +likebtn({counter:12, active: true})
+          .form-elements__item
+            span.label Rate Button
+            .form-elements__flex-wrapper.form-elements__flex-wrapper_row
+              .form-elements__rating
+                +simpleRating({value: 4})
+              .form-elements__rating
+                +simpleRating({value: 5})
