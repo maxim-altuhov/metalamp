@@ -20,6 +20,7 @@ const pathDir = {
 const pagesDir = pathDir.pages;
 const allPages = fs.readdirSync(pagesDir);
 const isDev = process.env.NODE_ENV === 'development';
+const isDevServer = process.env.SECOND_ENV === 'devserver';
 const isProd = !isDev;
 
 // формируем имя файла в зависимости от режима сборки
@@ -113,9 +114,9 @@ const plugins = () => {
       'window.jQuery': 'jquery'
     })
   ];
-  if (isDev) {
+  if (isDev && !isDevServer) {
     base.push(new ESLintPlugin());
-  } else {
+  } else if (isProd) {
     base.push(new ImageMinimizerPlugin({
       minimizerOptions: {
         plugins: [
@@ -161,16 +162,6 @@ const entryPoint = () => {
   });
   return obj;
 };
-// определение target для фикса ошибки dev server
-const getTarget = () => {
-  let result;
-  if (process.env.NODE_ENV === undefined || isDev === true) {
-    result = 'web';
-  } else {
-    result = 'browserslist';
-  }
-  return result;
-};
 
 // модули и настройки
 module.exports = {
@@ -197,7 +188,7 @@ module.exports = {
     port: 4200,
     open: true
   },
-  target: getTarget(),
+  target: isDev === true ? 'web' : 'browserslist',
   devtool: isDev === true ? 'source-map' : false,
   plugins: plugins(),
   module: {

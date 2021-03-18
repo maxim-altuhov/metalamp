@@ -26,8 +26,10 @@ function setRating() {
       ratingElem.forEach((elem, index) => {
         // обновление данных
         function refreshRating() {
-          initRatingVars(currentRating);
-          setValueRating(elem.value);
+          if (currentRating.classList.contains('rating_set')) {
+            initRatingVars(currentRating);
+            setValueRating(elem.value);
+          }
         }
 
         // показать рейтинг по умолчанию
@@ -62,11 +64,15 @@ function setRating() {
 
               // обновляем кол-во звезд
               setValueRating();
-
+              rating.classList.remove('rating_set');
+              rating.removeAttribute('data-ajax');
               rating.classList.remove('rating_sending');
             } else {
               const ratingInfo = rating.querySelector('.rating__info');
               ratingInfo.textContent = 'Ошибка!';
+              setTimeout(() => {
+                ratingInfo.textContent = '';
+              }, 4000);
               rating.classList.remove('rating_sending');
             }
           }
@@ -74,13 +80,15 @@ function setRating() {
 
         // вывод нового значения рейтинга
         function setNewRating() {
-          initRatingVars(currentRating);
+          if (currentRating.classList.contains('rating_set')) {
+            initRatingVars(currentRating);
 
-          if (currentRating.dataset.ajax) {
-            getValueRating(elem.value, currentRating);
-          } else {
-            valueRating.innerHTML = index + 1;
-            getValueRating();
+            if (currentRating.dataset.ajax) {
+              getValueRating(elem.value, currentRating);
+            } else {
+              valueRating.innerHTML = index + 1;
+              getValueRating();
+            }
           }
         }
 

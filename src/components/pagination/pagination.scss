@@ -1,0 +1,56 @@
+.pagination {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 241px;
+    height: 40px;
+  }
+
+  &__btn {
+    flex: 0 0 40px;
+    height: 40px;
+    background: linear-gradient(180deg, $green 0%, $blue 100%);
+    border-radius: 22px;
+    color: #fff;
+  }
+
+  &__pages {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: $dark50;
+
+  }
+
+  &__page {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    line-height: 40px;
+    color: $dark50;
+    cursor: pointer;
+
+    &_off {
+      cursor: default;
+    }
+
+    &_active {
+      background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+      border-radius: 100%;
+      font-weight: bold;
+      color: #fff;
+      cursor: default;
+    }
+  }
+
+  &__info {
+    padding-top: 13px;
+    padding-left: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: lowercase;
+    color: $dark75;
+  }
+}

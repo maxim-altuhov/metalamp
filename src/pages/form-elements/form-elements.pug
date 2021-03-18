@@ -7,6 +7,9 @@ include ~@comp/toggle/toggle.pug
 include ~@comp/likebtn/likebtn.pug
 include ~@comp/simple-rating/simple-rating.pug
 include ~@comp/rating/rating.pug
+include ~@comp/range-slider/range-slider.pug
+include ~@comp/button/button.pug
+include ~@comp/pagination/pagination.pug
 //-
 doctype html
 html(lang="ru")
@@ -68,3 +71,31 @@ html(lang="ru")
                 +simpleRating({value: 4})
               .form-elements__rating
                 +simpleRating({value: 5})
+        .form-elements__block
+          .form-elements__item.form-elements__item_big-margin
+            +rangeSlider({textLabel: "Range Slider", id: "range-slider-1"})
+          .form-elements__item
+            span.label Buttons
+            .form-elements__flex-wrapper.form-elements__flex-wrapper_row
+              .form-elements__btn-row
+                .form-elements__btn-elem
+                  +button({mod:"colored", text:"click me", btnType:"button"})
+                .form-elements__btn-elem
+                  +button({mod:"colored", text:"click me", btnType:"button"}, addclass=" button_colored-hover")
+              .form-elements__btn-row
+                .form-elements__btn-elem
+                  +button({mod:"transparent", text:"click me", btnType:"button"})
+                .form-elements__btn-elem
+                  +button({mod:"transparent", text:"click me", btnType:"button"}, addclass=" button_transparent-hover")
+              .form-elements__btn-row
+                .form-elements__btn-elem
+                  +button({mod:"simple", text:"click me", btnType:"button"})
+                .form-elements__btn-elem
+                  +button({mod:"simple", text:"click me", btnType:"button"}, addclass=" button_simple-hover")
+              .form-elements__btn-row
+                .form-elements__btn-elem
+                  +button({mod:"big", text:"перейти к оплате", btnType:"button"})
+          .form-elements__item
+            span.label Pagination
+              .form-elements__pagination
+                  +pagination({ id:"pagination-1" })

@@ -1,0 +1,11 @@
+//-  const { textLabel, id } = options;
+mixin rangeSlider(options)
+  - const { textLabel, id } = options;
+      .range-slider__wrapper
+        .range-slider__title
+          span.label= textLabel
+          span.range-slider__info
+            span(data-range-min) 0
+            |  - 
+            span(data-range-max) 0
+        div(class="range-slider" id= id)

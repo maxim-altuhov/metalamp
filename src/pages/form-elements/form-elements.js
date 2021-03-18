@@ -9,6 +9,8 @@ import addDatePicker from '@comp/input/input-datepicker';
 import initDropdown from '@comp/dropdown/dropdown';
 import toggleLikes from '@comp/likebtn/likebtn';
 import setRating from '@comp/rating/rating';
+import rangeSlider from '@comp/range-slider/range-slider';
+import initPagination from '@comp/pagination/pagination';
 
 function contentLoaded() {
   addMaskForInput();
@@ -66,6 +68,13 @@ function contentLoaded() {
   initDropdown();
   toggleLikes();
   setRating();
+  rangeSlider({
+    selector: '#range-slider-1',
+    start: [5000, 10000],
+    min: 1000,
+    max: 16000
+  });
+  initPagination('#pagination-1');
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);

@@ -17,6 +17,11 @@
     &:focus {
       opacity: 0.5;
     }
+
+  }
+
+  &_colored-hover {
+    opacity: 0.5;
   }
 
   &_transparent {
@@ -30,8 +35,12 @@
     &:focus {
       border: 2px solid rgba($color: $purple, $alpha: 0.5);
     }
+
   }
 
+  &_transparent-hover {
+    border: 2px solid rgba($color: $purple, $alpha: 0.5);
+  }
 
   &_simple {
     min-width: auto;
@@ -46,6 +55,11 @@
     &:focus {
       color: $dark50;
     }
+
+  }
+
+  &_simple-hover {
+    color: $dark50;
   }
 
   &_big {

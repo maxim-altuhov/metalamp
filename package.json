@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
-    "start": "webpack serve --mode development --open"
+    "start": "cross-env NODE_ENV=development SECOND_ENV=devserver webpack serve --mode development --open"
   },
   "browserslist": "> 0.25%, not dead",
   "author": "Maxim Altuhov [max_work86@mail.ru]",
@@ -58,6 +57,8 @@
     "core-js": "^3.8.3",
     "inputmask": "^5.0.5",
     "jquery": "^3.5.1",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "nouislider": "^14.6.3",
+    "wnumb": "^1.2.0"
   }
 }
