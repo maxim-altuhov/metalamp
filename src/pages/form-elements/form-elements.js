@@ -74,7 +74,11 @@ function contentLoaded() {
     min: 1000,
     max: 16000
   });
-  initPagination('#pagination-1');
+  initPagination({
+    selector: '#pagination-1',
+    maxItemPerPage: 12,
+    maxPaginationElem: 5
+  });
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);

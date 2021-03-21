@@ -1,16 +1,12 @@
 mixin pagination(options)
   - const { id } = options;
-    div(class="pagination__wrapper" id= id)
-      button(class="pagination__btn pagination__btn_prev material-icons none" type="button") arrow_back
-      .pagination__pages
-        span.pagination__page.pagination__page_active 1
-        span.pagination__page 2
-        span.pagination__page 3
-        span.pagination__page.pagination__page_off ...
-        span.pagination__page.pagination__page_total 15
-      button(class="pagination__btn pagination__btn_next material-icons" type="button") arrow_forward
-    .pagination__info 
-      span.pagination__current 1 – 12
-      |  из 
-      span.pagination__total 100+
-      |  вариантов аренды
+    div(id= id)
+      .pagination__wrapper
+        button(class="pagination__btn pagination__btn_prev material-icons none" type="button") arrow_back
+        .pagination__pages
+        button(class="pagination__btn pagination__btn_next material-icons" type="button") arrow_forward
+      .pagination__info 
+        span.pagination__current
+        |  из 
+        span.pagination__total
+        |  вариантов аренды
