@@ -1,18 +1,18 @@
-//- const {labelText, attributeName, attributeType, placeholder, valueInInput, typeMask:{date}, dateWithDropdown(boolean), dateWithFilter(boolean), addClass:{date-dropdown_middle, date-subscription date-subscription_middle}, addBtn(material-icons):{arrow_forward}} = options;
+//- const {labelText, id, attributeName, attributeType, placeholder, valueInInput, typeMask:{date}, dateWithDropdown(boolean), dateWithFilter(boolean), addClass:{date-dropdown_middle, date-subscription date-subscription_middle}, addBtn(material-icons):{arrow_forward}} = options;
 mixin input(options)
-  - const {labelText, attributeName, attributeType, placeholder, valueInInput, typeMask, dateWithDropdown, dateWithFilter, addClass = '', addBtn} = options;
+  - const {labelText, id, attributeName, attributeType, placeholder, valueInInput, typeMask, dateWithDropdown, dateWithFilter, addClass = '', addBtn} = options;
     if dateWithDropdown == true
-      div(class="form__group-input form__group-input_dropdown")
+      div(class="form__group-input form__group-input_dropdown" data-selector= id)
         label.label= labelText
-          input#start_datepicker(class="date-dropdown js-date-dropdown js-date-dropdown__calendar" autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class="date-dropdown" id= id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
         label.label= labelText
-          input#end_datepicker(class="date-dropdown js-date-dropdown_second js-date-dropdown__calendar" autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class="date-dropdown" id= `${id}-second` data-end autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
     else if dateWithFilter == true
       div(class="form__group-input form__group-input_dropdown")
         label.label= labelText
-          input(class=`date-dropdown ${addClass} date-dropdown__filter js-date-dropdown__filter` autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class=`date-dropdown ${addClass}` id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
     else
       .form__group-input

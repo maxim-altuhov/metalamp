@@ -5,6 +5,10 @@
     display: flex;
     flex-direction: column;
     position: relative;
+
+    &_middle {
+      max-width: 266px;
+    }
   }
 
   &__dropdown {

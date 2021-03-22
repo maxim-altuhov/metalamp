@@ -5,14 +5,50 @@ window.$ = $;
 import datepicker from 'air-datepicker';
 
 function addDatePicker({
-  $selector,
-  $secondSelector,
-  options
+  $selectorId,
+  secondSelector = false
 }) {
-  const currentDatepicker = $selector.datepicker().data('datepicker');
+  const currentDatepicker = $($selectorId).datepicker().data('datepicker');
+  let $secondSelector;
+
+  if (secondSelector === true) {
+    $secondSelector = `${$selectorId}-second`;
+  }
+
+  let options = {
+    classes: $selectorId.substr(1),
+    range: true,
+    multipleDatesSeparator: ' - ',
+    prevHtml: '<span class="material-icons">arrow_back</span>',
+    nextHtml: '<span class="material-icons">arrow_forward</span>',
+    navTitles: {
+      days: 'MM <i>yyyy</i>'
+    },
+    offset: 5,
+    minDate: new Date(),
+    onSelect: (fd) => {
+      if ($secondSelector) {
+        $($selectorId).val(fd.split(' - ')[0]);
+        $($secondSelector).val(fd.split(' - ')[1]);
+      }
+    },
+    onShow: () => {
+      $('input', $(`[data-selector = ${options.classes}]`)).next('.material-icons').addClass('active');
+    },
+    onHide: () => {
+      $('input', $(`[data-selector = ${options.classes}]`)).next('.material-icons').removeClass('active');
+    }
+  };
+
+  if (!$secondSelector) {
+    options.language = {
+      dateFormat: 'dd M',
+      monthsShort: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
+    };
+  }
 
   // инициализация календаря
-  $selector.datepicker(options);
+  $($selectorId).datepicker(options);
 
   // функция добавляющая кнопки управления в календарь
   function creatControlBtn() {
@@ -43,10 +79,10 @@ function addDatePicker({
   creatControlBtn();
 
   // обработчики
-  $('.js-datepicker__clear').on('click', clearDatepicker);
-  $('.js-datepicker__apply').on('click', applyDatepicker);
-  if ($secondSelector !== undefined) {
-    $secondSelector.on('click', showDatepicker);
+  $('.js-datepicker__clear', $(`.${options.classes}`)).on('click', clearDatepicker);
+  $('.js-datepicker__apply', $(`.${options.classes}`)).on('click', applyDatepicker);
+  if ($($secondSelector) !== undefined) {
+    $($secondSelector).on('click', showDatepicker);
   }
 }
 

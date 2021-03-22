@@ -1,10 +1,10 @@
 //- components
 include ~@comp/button/button.pug
 //-
-//- const { labelText, textInInput }, ...elements = options;
+//- const { labelText, id, textInInput, addBtn, addClass:" form__group-dropdown_middle" }, ...elements = options;
 mixin dropdown(options,  ...elements)
-  - const { labelText, textInInput } = options;
-    .form__group-dropdown
+  - const { labelText, id, textInInput, addBtn, addClass } = options;
+    div(class="form__group-dropdown" +addClass id= id)
       label.label= labelText
         input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
       .form__dropdown
@@ -16,9 +16,10 @@ mixin dropdown(options,  ...elements)
             .form__dropdown-elem
               span= element
               .form__dropdown-counter
-                button#dropdown-minus(disabled type="button") -
+                button(disabled type="button" data-dropdown-minus) -
                 span 0
-                button(type="button") +
-        .form__dropdown-control
-          +button({mod:"simple", text:"Очистить", type:"button", btnFunction:"clear"}, " hidden")
-          +button({mod:"simple", text:"Применить", type:"button", btnFunction:"apply"})
+                button(type="button" data-dropdown-plus) +
+        if addBtn
+          .form__dropdown-control
+            +button({mod:"simple", text:"Очистить", type:"button", btnFunction:"clear"}, " hidden")
+            +button({mod:"simple", text:"Применить", type:"button", btnFunction:"apply"})

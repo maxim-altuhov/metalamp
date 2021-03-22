@@ -33,13 +33,13 @@ html(lang="ru")
             .form-elements__tag Hover / Focus
             +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome"})
           .form-elements__item.form-elements__item_min-margin
-            +dropdown({labelText:"dropdown", textInInput:"Сколько гостей"}, elements="Взрослые", "Дети", "Младенцы")
+            +dropdown({labelText:"dropdown", id:"dropdown-guest", textInInput:"Сколько гостей", addBtn: true}, elements="Взрослые", "Дети", "Младенцы")
           .form-elements__item
             +input({labelText:"masked text field", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
           .form-elements__item
-            +input({labelText:"date dropdown", attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
+            +input({labelText:"date dropdown", id:'date-dropdown', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
           .form-elements__item
-            +input({labelText:"filter date dropdown", attributeName:"text", attributeType:"text", placeholder:"Date", dateWithFilter: true, addClass:'date-dropdown_middle'})
+            +input({labelText:"filter date dropdown", id:'date-filter', attributeName:"text", attributeType:"text", placeholder:"Date", dateWithFilter: true, addClass:'date-dropdown_middle'})
           .form-elements__item
             +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", addClass:'date-subscription date-subscription_middle', addBtn:'arrow_forward'})
         .form-elements__block
@@ -98,4 +98,12 @@ html(lang="ru")
           .form-elements__item
             span.label Pagination
               .form-elements__pagination
-                  +pagination({ id:"pagination-1" })
+                +pagination({ id:"pagination-1" })
+        .form-elements__block
+          .form-elements__item.form-elements__item_middle.form-elements__item_min-margin
+            .form-elements__tag Default
+            +dropdown({labelText:"dropdown", id:"dropdown-room", textInInput:"Кол-во комнат", addClass:" form__group-dropdown_middle"}, elements="Взрослые", "Дети", "Младенцы")
+          .form-elements__item.form-elements__item_middle
+            .form-elements__tag Expanded
+            +dropdown({labelText:"dropdown", id:"dropdown-room-2", textInInput:"2 спальни, 2 кровати", addClass:" form__group-dropdown_middle"}, elements="Спальни", "Кровати", "Ванные комнаты")
+            

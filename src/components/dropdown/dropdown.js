@@ -1,41 +1,42 @@
-function initDropdown() {
-  const dropdownInput = document.querySelector('.form__dropdown-input');
-  const dropdownSelector = document.querySelector('.form__dropdown');
-  const dropdownResult = document.querySelector('.form__dropdown-result');
-  const dropdownArrow = document.querySelector('.form__dropdown-arrow');
-  const dropdownBlock = document.querySelector('.form__dropdown-block');
-  const dropdownCounters = document.querySelectorAll('.form__dropdown-counter span');
-  const dropdownCounterBtns = document.querySelectorAll('.form__dropdown-counter button');
-  const dropdownMinus = document.querySelectorAll('#dropdown-minus');
-  const dropdownClear = document.querySelector('[data-function="clear"]');
-  const dropdownApply = document.querySelector('[data-function="apply"]');
+function initDropdown({ selector }) {
+  const dSelector = document.querySelector(selector);
+  const dDropdown = dSelector.querySelector('.form__dropdown');
+  const dInput = dSelector.querySelector('.form__dropdown-input');
+  const dResult = dSelector.querySelector('.form__dropdown-result');
+  const dArrow = dSelector.querySelector('.form__dropdown-arrow');
+  const dBlock = dSelector.querySelector('.form__dropdown-block');
+  const dCounters = dSelector.querySelectorAll('.form__dropdown-counter span');
+  const dCounterBtns = dSelector.querySelectorAll('.form__dropdown-counter button');
+  const dMinus = dSelector.querySelectorAll('[data-dropdown-minus]');
+  const dClear = dSelector.querySelector('[data-function="clear"]');
+  const dApply = dSelector.querySelector('[data-function="apply"]');
   let dropdownTotalResult = 0;
 
   // функция открытия/закрытия dropdown
   function toggleDropdown() {
-    dropdownSelector.classList.toggle('form__dropdown_active');
-    dropdownBlock.classList.toggle('form__dropdown-block_active');
-    dropdownArrow.classList.toggle('active');
+    dDropdown.classList.toggle('form__dropdown_active');
+    dBlock.classList.toggle('form__dropdown-block_active');
+    dArrow.classList.toggle('active');
 
-    if (dropdownArrow.classList.contains('active')) {
-      dropdownArrow.textContent = 'keyboard_arrow_up';
+    if (dArrow.classList.contains('active')) {
+      dArrow.textContent = 'keyboard_arrow_up';
     } else {
-      dropdownArrow.textContent = 'keyboard_arrow_down';
+      dArrow.textContent = 'keyboard_arrow_down';
     }
   }
 
   // сброс значений dropdown
   function clearDropdown() {
     dropdownTotalResult = 0;
-    dropdownResult.textContent = 'Сколько гостей';
-    dropdownInput.value = dropdownTotalResult;
-    dropdownClear.classList.add('hidden');
+    dResult.textContent = 'Сколько гостей';
+    dInput.value = dropdownTotalResult;
+    dClear.classList.add('hidden');
 
-    dropdownMinus.forEach(elem => {
+    dMinus.forEach(elem => {
       elem.disabled = true;
     });
 
-    dropdownCounters.forEach(elem => {
+    dCounters.forEach(elem => {
       elem.textContent = 0;
     });
   }
@@ -44,7 +45,7 @@ function initDropdown() {
   function changeQuantity(e) {
     let countElem;
     let btnMinus;
-    dropdownClear.classList.remove('hidden');
+    dClear.classList.remove('hidden');
 
     if (e.target.textContent === '+') {
       countElem = e.target.previousElementSibling;
@@ -63,24 +64,24 @@ function initDropdown() {
     }
 
     if (dropdownTotalResult === 1) {
-      dropdownResult.textContent = `${dropdownTotalResult} гость`;
+      dResult.textContent = `${dropdownTotalResult} гость`;
     } else if (dropdownTotalResult > 1 && dropdownTotalResult < 5) {
-      dropdownResult.textContent = `${dropdownTotalResult} гостя`;
+      dResult.textContent = `${dropdownTotalResult} гостя`;
     } else if (dropdownTotalResult === 0) {
       clearDropdown();
     } else {
-      dropdownResult.textContent = `${dropdownTotalResult} гостей`;
+      dResult.textContent = `${dropdownTotalResult} гостей`;
     }
 
-    dropdownInput.value = dropdownTotalResult;
+    dInput.value = dropdownTotalResult;
   }
 
   // обработчики событий
-  dropdownSelector.addEventListener('click', toggleDropdown);
-  dropdownApply.addEventListener('click', toggleDropdown);
-  dropdownClear.addEventListener('click', clearDropdown);
-  dropdownInput.addEventListener('focus', toggleDropdown);
-  dropdownCounterBtns.forEach(elem => {
+  dDropdown.addEventListener('click', toggleDropdown);
+  dApply.addEventListener('click', toggleDropdown);
+  dClear.addEventListener('click', clearDropdown);
+  dInput.addEventListener('focus', toggleDropdown);
+  dCounterBtns.forEach(elem => {
     elem.addEventListener('click', changeQuantity);
   });
 }
