@@ -1,23 +1,26 @@
 //- components
 include ~@comp/button/button.pug
 //-
-//- const { labelText, id, textInInput, addBtn, addClass:" form__group-dropdown_middle" }, ...elements = options;
-mixin dropdown(options,  ...elements)
-  - const { labelText, id, textInInput, addBtn, addClass } = options;
+//- const {id, labelText, textInInput, addBtn, addClass: " form__group-dropdown_middle", arrow: "active" }, ...elements = options;
+mixin dropdown(options)
+  - const {id, elements, labelText, textInInput, addBtn, addClass = "", arrow } = options;
     div(class="form__group-dropdown" +addClass id= id)
       label.label= labelText
         input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
       .form__dropdown
         .form__dropdown-result= textInInput
-        span.form__dropdown-arrow.material-icons keyboard_arrow_down
+        if arrow == "active"
+          span(class="form__dropdown-arrow material-icons active") keyboard_arrow_up
+        else
+          span(class="form__dropdown-arrow material-icons") keyboard_arrow_down
       .form__dropdown-block
         .form__dropdown-wrapper
-          each element in elements
+          each value, element in elements
             .form__dropdown-elem
               span= element
               .form__dropdown-counter
                 button(disabled type="button" data-dropdown-minus) -
-                span 0
+                span= value
                 button(type="button" data-dropdown-plus) +
         if addBtn
           .form__dropdown-control

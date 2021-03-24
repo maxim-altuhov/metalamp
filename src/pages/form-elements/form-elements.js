@@ -21,9 +21,7 @@ function contentLoaded() {
   addDatePicker({
     $selectorId: '#date-filter'
   });
-  initDropdown({
-    selector: '#dropdown-guest'
-  });
+  initDropdown();
   toggleLikes();
   setRating();
   rangeSlider({
