@@ -106,9 +106,9 @@
       color: $dark50;
       transition: border 0.2s ease-in;
 
-      // &:focus {
-      //   border: 1px solid $dark75;
-      // }
+      &:focus {
+        border: 1px solid $dark50;
+      }
 
       &:disabled {
         color: $dark50;

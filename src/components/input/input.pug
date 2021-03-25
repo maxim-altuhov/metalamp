@@ -4,15 +4,15 @@ mixin input(options)
     if dateWithDropdown == true
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
         label.label= labelText
-          input(class="date-dropdown" id= id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class="date-dropdown" readonly id= id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
         label.label= labelText
-          input(class="date-dropdown" id= `${id}-second` data-end autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class="date-dropdown" readonly  id= `${id}-second` data-end autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
     else if dateWithFilter == true
-      div(class="form__group-input form__group-input_dropdown")
+      div(class="form__group-input form__group-input_dropdown" data-selector= id)
         label.label= labelText
-          input(class=`date-dropdown ${addClass}` id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class=`date-dropdown ${addClass}` readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
     else
       .form__group-input

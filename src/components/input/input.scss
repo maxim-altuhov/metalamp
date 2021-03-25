@@ -2,14 +2,15 @@
   display: flex;
   flex-direction: column;
 
+  label {
+    position: relative;
+    cursor: pointer;
+  }
+
   &_dropdown {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-
-    label {
-      position: relative;
-    }
 
     span {
       position: absolute;

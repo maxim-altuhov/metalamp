@@ -2,10 +2,10 @@
 mixin likebtn(options)
   - const { counter, active } = options;
       if active
-        .like__btn.like__btn_active
+        button.like__btn.like__btn_active(type="button") 
           i.material-icons favorite
           span.like__counter= counter
       else
-        .like__btn
+        button.like__btn(type="button") 
           i.material-icons favorite_border
           span.like__counter= counter

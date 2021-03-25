@@ -4,7 +4,7 @@ include ~@comp/button/button.pug
 //- const {id, labelText, textInInput, addBtn, addClass: " form__group-dropdown_middle", arrow: "active" }, ...elements = options;
 mixin dropdown(options)
   - const {id, elements, labelText, textInInput, addBtn, addClass = "", arrow } = options;
-    div(class="form__group-dropdown" +addClass id= id)
+    div(class="form__group-input form__group-dropdown" +addClass id= id)
       label.label= labelText
         input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
       .form__dropdown

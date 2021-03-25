@@ -102,6 +102,7 @@ function initDropdown() {
         }).join(', ');
 
         dResult.textContent = resultText;
+        dInput.value = resultText;
       }
     }
 
@@ -145,8 +146,13 @@ function initDropdown() {
       showResultText();
     }
 
+    // устанавливаем фокус на инпуте для возможности переключения tab
+    function setFocus() {
+      dInput.focus();
+    }
+
     // обработчики событий
-    dDropdown.addEventListener('click', toggleDropdown);
+    dDropdown.addEventListener('click', setFocus);
     dInput.addEventListener('focus', toggleDropdown);
     dCounterBtns.forEach(elem => {
       elem.addEventListener('click', changeQuantity);

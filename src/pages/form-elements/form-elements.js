@@ -15,11 +15,13 @@ import initPagination from '@comp/pagination/pagination';
 function contentLoaded() {
   addMaskForInput();
   addDatePicker({
-    $selectorId: '#date-dropdown',
+    $selectorId: '#date-dropdown-block',
     secondSelector: true
   });
   addDatePicker({
-    $selectorId: '#date-filter'
+    $selectorId: '#date-filter',
+    startDate: '2021-08-19',
+    finishDate: '2021-08-23'
   });
   initDropdown();
   toggleLikes();

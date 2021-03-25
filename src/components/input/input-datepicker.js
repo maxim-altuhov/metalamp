@@ -6,9 +6,13 @@ import datepicker from 'air-datepicker';
 
 function addDatePicker({
   $selectorId,
-  secondSelector = false
+  secondSelector = false,
+  startDate,
+  finishDate
 }) {
   const currentDatepicker = $($selectorId).datepicker().data('datepicker');
+  let date1 = new Date(startDate);
+  let date2 = new Date(finishDate);
   let $secondSelector;
 
   if (secondSelector === true) {
@@ -16,7 +20,8 @@ function addDatePicker({
   }
 
   let options = {
-    classes: $selectorId.substr(1),
+    classes: `${$selectorId.substr(1)}`,
+    inline: true,
     range: true,
     multipleDatesSeparator: ' - ',
     prevHtml: '<span class="material-icons">arrow_back</span>',
@@ -50,6 +55,12 @@ function addDatePicker({
   // инициализация календаря
   $($selectorId).datepicker(options);
 
+  // функция установки даты
+  function setDate() {
+    currentDatepicker.selectedDates.push(date1, date2);
+    currentDatepicker.selectDate(currentDatepicker.selectedDates);
+  }
+
   // функция добавляющая кнопки управления в календарь
   function creatControlBtn() {
     const buttonBlock = `<div class="datepicker--control">
@@ -77,12 +88,17 @@ function addDatePicker({
 
   // вызов функций
   creatControlBtn();
+  if (startDate || finishDate) {
+    setDate();
+  }
 
   // обработчики
   $('.js-datepicker__clear', $(`.${options.classes}`)).on('click', clearDatepicker);
   $('.js-datepicker__apply', $(`.${options.classes}`)).on('click', applyDatepicker);
   if ($($secondSelector) !== undefined) {
     $($secondSelector).on('click', showDatepicker);
+    $($secondSelector).on('focus', showDatepicker);
+    $($secondSelector).on('blur', applyDatepicker);
   }
 }
 
