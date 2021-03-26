@@ -49,3 +49,13 @@ input.checkbox__field:checked+label:after {
   background-size: auto;
   background-position: center 3px;
 }
+
+input.checkbox__field:focus+label:before {
+  outline: $purple auto 2px;
+}
+
+body.using-mouse {
+  input.checkbox__field:focus+label:before {
+    outline: none;
+  }
+}

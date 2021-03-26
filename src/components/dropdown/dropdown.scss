@@ -150,3 +150,11 @@
     justify-content: space-between;
   }
 }
+
+body.using-mouse {
+
+  .form__dropdown:focus,
+  .form__dropdown-block:focus {
+    outline: none;
+  }
+}

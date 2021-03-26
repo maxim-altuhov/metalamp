@@ -54,4 +54,14 @@
     }
   }
 
+  input:focus~.toggle__block {
+    outline: $purple auto 2px;
+  }
+
+}
+
+body.using-mouse {
+  input:focus~.toggle__block {
+    outline: none;
+  }
 }

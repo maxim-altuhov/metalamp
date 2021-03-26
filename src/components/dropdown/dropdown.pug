@@ -6,14 +6,14 @@ mixin dropdown(options)
   - const {id, elements, labelText, textInInput, addBtn, addClass = "", arrow } = options;
     div(class="form__group-input form__group-dropdown" +addClass id= id)
       label.label= labelText
-        input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0")
-      .form__dropdown
+        input.form__dropdown-input.visuallyhidden(name="dropdown" type="text" autocomplete="off" value="0" tabindex="-1")
+      .form__dropdown(tabindex="0")
         .form__dropdown-result= textInInput
         if arrow == "active"
           span(class="form__dropdown-arrow material-icons active") keyboard_arrow_up
         else
           span(class="form__dropdown-arrow material-icons") keyboard_arrow_down
-      .form__dropdown-block
+      .form__dropdown-block(tabindex="0")
         .form__dropdown-wrapper
           each value, element in elements
             .form__dropdown-elem
@@ -26,3 +26,4 @@ mixin dropdown(options)
           .form__dropdown-control
             +button({mod:"simple", text:"Очистить", type:"button", btnFunction:"clear"}, " hidden")
             +button({mod:"simple", text:"Применить", type:"button", btnFunction:"apply"})
+        .form__dropdown-limiter(tabindex="0")

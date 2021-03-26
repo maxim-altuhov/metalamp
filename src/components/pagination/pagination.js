@@ -21,6 +21,7 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
       for (let i = 1; i <= howManyPages && i <= visiblePaginationElem; i++) {
         const item = document.createElement('button');
+        item.setAttribute('type', 'button');
         item.classList.add('pagination__page');
 
         if (i === visiblePaginationElem) {
@@ -69,6 +70,7 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
     let pageNoNumber = pBlock.querySelector('.pagination__page_off');
     const fragment = document.createDocumentFragment();
     const item = document.createElement('button');
+    item.setAttribute('type', 'button');
     item.classList.add('pagination__page');
 
     if (pageNoNumber && pageActive === pageTotal) {

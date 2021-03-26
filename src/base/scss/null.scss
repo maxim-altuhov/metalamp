@@ -12,14 +12,31 @@
   box-sizing: border-box;
 }
 
-:focus,
-:active {
-  outline: none;
+:focus {
+  outline: $purple auto 2px;
 }
 
-a:focus,
-a:active {
-  outline: none;
+body.using-mouse {
+
+  &:focus,
+  :active {
+    outline: none;
+  }
+
+  a:focus,
+  a:active {
+    outline: none;
+  }
+
+  input:empty,
+  a:empty {
+    outline: 0px solid;
+  }
+
+  button:focus,
+  :active {
+    outline: none;
+  }
 }
 
 aside,
@@ -49,11 +66,6 @@ input::-ms-clear {
 
 :not(output):-moz-ui-invalid {
   box-shadow: none;
-}
-
-input:empty,
-a:empty {
-  outline: 0px solid;
 }
 
 button {

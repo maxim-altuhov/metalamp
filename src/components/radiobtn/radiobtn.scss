@@ -68,3 +68,13 @@ input.radiobtn__field:not(:checked)+label:after {
   content: "";
   opacity: 0;
 }
+
+input.radiobtn__field:focus+label:before {
+  outline: $purple auto 2px;
+}
+
+body.using-mouse {
+  input.radiobtn__field:focus+label:before {
+    outline: none;
+  }
+}

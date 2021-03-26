@@ -1,0 +1,10 @@
+//- components
+include ~@comp/checkbox/checkbox.pug
+//-
+mixin checkbox-list(options, ...elements)
+  - const { text } = options;
+      .checkbox-list.label= text
+        span(class="material-icons") keyboard_arrow_down
+      .checkbox-list__wrapper
+        each element in elements
+          +checkbox({text:`${element}`, idAndName:"checkbox-list-1", checked: true})

@@ -2,7 +2,7 @@ function initDropdown() {
   const dSelector = document.querySelectorAll('.form__group-dropdown');
 
   dSelector.forEach(item => {
-    const dDropdown = item.querySelector('.form__dropdown');
+    const dropdown = item.querySelector('.form__dropdown');
     const dInput = item.querySelector('.form__dropdown-input');
     const dResult = item.querySelector('.form__dropdown-result');
     const dArrow = item.querySelector('.form__dropdown-arrow');
@@ -12,6 +12,7 @@ function initDropdown() {
     const dMinus = item.querySelectorAll('[data-dropdown-minus]');
     const dClear = item.querySelector('[data-function="clear"]');
     const dApply = item.querySelector('[data-function="apply"]');
+    const dFocusLimiter = item.querySelector('.form__dropdown-limiter');
     const textInInput = dResult.textContent;
     let resultObj = {};
     let counterGuests = 0;
@@ -146,19 +147,27 @@ function initDropdown() {
       showResultText();
     }
 
-    // устанавливаем фокус на инпуте для возможности переключения tab
-    function setFocus() {
-      dInput.focus();
+    // функция отслеживания нажатия клавиши Enter для открытия/закрытия dropdown
+    function keydownEnter(e) {
+      if (e.key === 'Enter') toggleDropdown();
+    }
+
+    // функция отслеживания переключения полей с помощью клавиши tab
+    function checkedUseTab() {
+      if ((!document.body.classList.contains('using-mouse'))) toggleDropdown();
     }
 
     // обработчики событий
-    dDropdown.addEventListener('click', setFocus);
-    dInput.addEventListener('focus', toggleDropdown);
+    dropdown.addEventListener('click', toggleDropdown);
+    dropdown.addEventListener('keydown', keydownEnter);
+    dropdown.addEventListener('focus', checkedUseTab);
+    dFocusLimiter.addEventListener('focusout', toggleDropdown);
+
     dCounterBtns.forEach(elem => {
       elem.addEventListener('click', changeQuantity);
     });
 
-    if (dClear || dApply) {
+    if (dApply && dClear) {
       dApply.addEventListener('click', toggleDropdown);
       dClear.addEventListener('click', clearDropdown);
     }

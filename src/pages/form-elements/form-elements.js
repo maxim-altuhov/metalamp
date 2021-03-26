@@ -4,6 +4,7 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
+import { checkedFocus } from '@base/base';
 import addMaskForInput from '@comp/input/input-mask';
 import addDatePicker from '@comp/input/input-datepicker';
 import initDropdown from '@comp/dropdown/dropdown';
@@ -13,6 +14,7 @@ import rangeSlider from '@comp/range-slider/range-slider';
 import initPagination from '@comp/pagination/pagination';
 
 function contentLoaded() {
+  checkedFocus();
   addMaskForInput();
   addDatePicker({
     $selectorId: '#date-dropdown-block',

@@ -12,6 +12,7 @@
 @import '@comp/range-slider/range-slider';
 @import '@comp/button/button';
 @import '@comp/pagination/pagination';
+@import '@comp/checkbox-list/checkbox-list';
 
 .form-elements {
 
@@ -29,7 +30,7 @@
   &__wrapper {
     display: grid;
     grid-template-columns: minmax(min-content, 446px) minmax(min-content, 392px) auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 257px;
     grid-row-gap: 59px;
   }
 

@@ -1,0 +1,12 @@
+@import '@comp/checkbox/checkbox';
+
+.checkbox-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 256px;
+
+  &__wrapper {
+    margin-top: 13px;
+  }
+}
