@@ -12,6 +12,7 @@ import toggleLikes from '@comp/likebtn/likebtn';
 import setRating from '@comp/rating/rating';
 import rangeSlider from '@comp/range-slider/range-slider';
 import initPagination from '@comp/pagination/pagination';
+import toggleCheckboxList from '@comp/checkbox-list/checkbox-list';
 
 function contentLoaded() {
   checkedFocus();
@@ -25,20 +26,22 @@ function contentLoaded() {
     startDate: '2021-08-19',
     finishDate: '2021-08-23'
   });
-  initDropdown();
+  initDropdown({});
   toggleLikes();
   setRating();
   rangeSlider({
     selector: '#range-slider-1',
     start: [5000, 10000],
     min: 1000,
-    max: 16000
+    max: 16000,
+    step: 500
   });
   initPagination({
     selector: '#pagination-1',
     maxItemPerPage: 12,
     maxPaginationElem: 5
   });
+  toggleCheckboxList();
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);

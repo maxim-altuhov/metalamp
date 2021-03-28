@@ -1,7 +1,7 @@
-//- const {labelText, id, attributeName, attributeType, placeholder, valueInInput, typeMask:{date}, dateWithDropdown(boolean), dateWithFilter(boolean), addClass:{date-dropdown_middle, date-subscription date-subscription_middle}, addBtn(material-icons):{arrow_forward}} = options;
+//- const {labelText, id, attributeName, attributeType, placeholder, valueInInput, typeMask:{date}, dateWithDropdown(boolean), dateWithFilter(boolean), inputTypeEmail(boolean), addClass} = options;
 mixin input(options)
-  - const {labelText, id, attributeName, attributeType, placeholder, valueInInput, typeMask, dateWithDropdown, dateWithFilter, addClass = '', addBtn} = options;
-    if dateWithDropdown == true
+  - const {labelText, id, attributeName, attributeType, placeholder, valueInInput = "", typeMask, dateWithDropdown, dateWithFilter, inputTypeEmail, addClass = ""} = options;
+    if dateWithDropdown
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
         label.label= labelText
           input(class="date-dropdown" readonly id= id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
@@ -9,15 +9,18 @@ mixin input(options)
         label.label= labelText
           input(class="date-dropdown" readonly  id= `${id}-second` data-end autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
-    else if dateWithFilter == true
+    else if dateWithFilter
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
         label.label= labelText
-          input(class=`date-dropdown ${addClass}` readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class="date-dropdown date-dropdown_mini" readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
+    else if inputTypeEmail
+      .form__group-input
+        label.label= labelText
+          input(class="subscription subscription_mini" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          button(type="submit")
+            span.material-icons arrow_forward
     else
       .form__group-input
         label.label= labelText
           input(class=`${addClass}` name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
-          if addBtn
-            button(type="submit")
-              span.material-icons= addBtn

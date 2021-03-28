@@ -89,10 +89,11 @@
 
   &__btn-row {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 33px;
 
     &:nth-child(2) {
       margin-bottom: 31px;
+      margin-left: 1px;
     }
 
     &:nth-child(3) {
@@ -109,6 +110,10 @@
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &_big-margin {
+      margin-right: 25px;
     }
   }
 

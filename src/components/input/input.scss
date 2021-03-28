@@ -51,18 +51,19 @@
 
   input.date-dropdown {
     width: 150px;
+    cursor: pointer;
 
     @include placeholder($dark75, 13.6);
 
     @include focus($dark75);
 
-    &_middle {
+    &_mini {
       width: 266px;
     }
   }
 
-  input.date-subscription {
-    &_middle {
+  input.subscription {
+    &_mini {
       width: 266px;
     }
 

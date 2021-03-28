@@ -8,7 +8,8 @@ function addDatePicker({
   $selectorId,
   secondSelector = false,
   startDate,
-  finishDate
+  finishDate,
+  arrowToggle = false
 }) {
   const currentDatepicker = $($selectorId).datepicker().data('datepicker');
   let date1 = new Date(startDate);
@@ -38,10 +39,10 @@ function addDatePicker({
       }
     },
     onShow: () => {
-      $('input', $(`[data-selector = ${options.classes}]`)).next('.material-icons').addClass('active');
+      if (arrowToggle) $('input', $(`[data-selector = ${options.classes}]`)).next('.material-icons').addClass('active');
     },
     onHide: () => {
-      $('input', $(`[data-selector = ${options.classes}]`)).next('.material-icons').removeClass('active');
+      if (arrowToggle) $('input', $(`[data-selector = ${options.classes}]`)).next('.material-icons').removeClass('active');
     }
   };
 

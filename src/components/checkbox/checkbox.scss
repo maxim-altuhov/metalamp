@@ -1,20 +1,19 @@
 .checkbox {
-
   &__elem {
+    display: flex;
     margin-bottom: 12px;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
-
 }
 
-input.checkbox__field:checked+label,
-input.checkbox__field:not(:checked)+label {
+input.checkbox__field:checked+span,
+input.checkbox__field:not(:checked)+span {
   cursor: pointer;
+  display: block;
   max-width: 230px;
-  display: inline-block;
   position: relative;
   padding-left: 30px;
   font-size: 14px;
@@ -22,8 +21,8 @@ input.checkbox__field:not(:checked)+label {
   color: $dark50;
 }
 
-input.checkbox__field:checked+label:before,
-input.checkbox__field:not(:checked)+label:before {
+input.checkbox__field:checked+span:before,
+input.checkbox__field:not(:checked)+span:before {
   content: "";
   position: absolute;
   left: 0px;
@@ -35,7 +34,7 @@ input.checkbox__field:not(:checked)+label:before {
   border-radius: 4px;
 }
 
-input.checkbox__field:checked+label:after {
+input.checkbox__field:checked+span:after {
   content: "";
   position: absolute;
   left: 0px;
@@ -50,12 +49,12 @@ input.checkbox__field:checked+label:after {
   background-position: center 3px;
 }
 
-input.checkbox__field:focus+label:before {
+input.checkbox__field:focus+span:before {
   outline: $purple auto 2px;
 }
 
 body.using-mouse {
-  input.checkbox__field:focus+label:before {
+  input.checkbox__field:focus+span:before {
     outline: none;
   }
 }

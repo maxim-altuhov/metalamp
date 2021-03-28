@@ -1,10 +1,20 @@
 //- components
 include ~@comp/checkbox/checkbox.pug
 //-
-mixin checkbox-list(options, ...elements)
-  - const { text } = options;
-      .checkbox-list.label= text
-        span(class="material-icons") keyboard_arrow_down
-      .checkbox-list__wrapper
-        each element in elements
-          +checkbox({text:`${element}`, idAndName:"checkbox-list-1", checked: true})
+//- const { text, name, open = "false", elements } = options;
+mixin checkbox-list(options)
+  - const { text, name, open = "false", elements } = options;
+      .checkbox-list__block
+        .checkbox-list.js-checkbox-list.label(tabindex="0")= text
+          if open == true
+            span(class="material-icons active") keyboard_arrow_up
+          else
+            span(class="material-icons") keyboard_arrow_down
+        if open == true
+          .checkbox-list__wrapper.checkbox-list__wrapper_active
+            each value, element in elements
+              +checkbox({text:`${element}`, name:`${name}[]`, checked: value})
+        else
+          .checkbox-list__wrapper(style={display: "none"})
+            each value, element in elements
+              +checkbox({text:`${element}`, name:`${name}[]`, checked: value})

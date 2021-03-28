@@ -5,7 +5,8 @@ function rangeSlider({
   selector,
   start,
   min,
-  max
+  max,
+  step
 }) {
   const selectorSlider = document.querySelector(selector);
   const sliderInfo = selectorSlider.previousElementSibling;
@@ -14,7 +15,7 @@ function rangeSlider({
 
   noUiSlider.create(selectorSlider, {
     start: start,
-    step: 1000,
+    step: step,
     format: wNumb({
       thousand: ' ',
       decimals: 0

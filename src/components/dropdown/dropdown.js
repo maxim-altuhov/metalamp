@@ -1,4 +1,4 @@
-function initDropdown() {
+function initDropdown({ arrowToggle = false }) {
   const dSelector = document.querySelectorAll('.form__group-dropdown');
 
   dSelector.forEach(item => {
@@ -39,6 +39,13 @@ function initDropdown() {
           counterGuests += value;
           resultObj['гость'] = counterGuests;
         }
+
+        if (arrowToggle && item.classList.contains('form__group-dropdown_active')) {
+          dArrow.classList.add('active');
+          dArrow.textContent = 'keyboard_arrow_up';
+        } else {
+          dArrow.textContent = 'keyboard_arrow_down';
+        }
       });
       showResultText();
     }
@@ -50,7 +57,7 @@ function initDropdown() {
       item.classList.toggle('form__group-dropdown_active');
       dArrow.classList.toggle('active');
 
-      if (dArrow.classList.contains('active')) {
+      if (arrowToggle && dArrow.classList.contains('active')) {
         dArrow.textContent = 'keyboard_arrow_up';
       } else {
         dArrow.textContent = 'keyboard_arrow_down';

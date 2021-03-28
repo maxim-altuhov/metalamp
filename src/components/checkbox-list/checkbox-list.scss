@@ -4,9 +4,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 256px;
+  cursor: pointer;
+
+  span {
+    color: $dark50;
+  }
+
+  &__block {
+    max-width: 256px;
+  }
 
   &__wrapper {
-    margin-top: 13px;
+    padding: 13px 0;
+  }
+
+}
+
+body.using-mouse {
+  .checkbox-list:focus {
+    outline: none;
   }
 }

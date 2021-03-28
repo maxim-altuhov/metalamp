@@ -1,11 +1,13 @@
-//- const { text, idAndName, checked } = options;
+//- const { text, name, checked } = options;
 mixin checkbox(options)
-  - const { text, idAndName, checked } = options;
+  - const { text, name, checked } = options;
       if checked
         .checkbox__elem
-          input.checkbox__field.visuallyhidden(type="checkbox", name=idAndName, id=idAndName, checked)
-          label(for=idAndName)= text
+          label
+            input.checkbox__field.visuallyhidden(type="checkbox", name=name, value=text, checked)
+            span= text
       else
         .checkbox__elem
-          input.checkbox__field.visuallyhidden(type="checkbox", name=idAndName, id=idAndName)
-          label(for=idAndName)= text
+          label
+            input.checkbox__field.visuallyhidden(type="checkbox", name=name, value=text)
+            span= text

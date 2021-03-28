@@ -34,32 +34,32 @@ html(lang="ru")
             .form-elements__tag Hover / Focus
             +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome"})
           .form-elements__item.form-elements__item_min-margin
-            +dropdown({labelText:"dropdown", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
+            +dropdown({labelText:"dropdown", attributeName:"dropdown-guests", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
           .form-elements__item
             +input({labelText:"masked text field", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
           .form-elements__item
             +input({labelText:"date dropdown", id:'date-dropdown-block', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
           .form-elements__item
-            +input({labelText:"filter date dropdown", id:'date-filter', attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true, addClass:'date-dropdown_middle'})
+            +input({labelText:"filter date dropdown", id:'date-filter', attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true})
           .form-elements__item
-            +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", addClass:'date-subscription date-subscription_middle', addBtn:'arrow_forward'})
+            +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", inputTypeEmail: true})
         .form-elements__block
           .form-elements__item
             span.label Checkbox Buttons
             .form-elements__flex-wrapper
-              +checkbox({text:"Можно курить", idAndName:"checkbox-1"})
-              +checkbox({text:"Можно с питомцами", idAndName:"checkbox-2", checked: true})
-              +checkbox({text:"Можно пригласить гостей (до 10 человек)", idAndName:"checkbox-3", checked: true})
+              +checkbox({text:"Можно курить", name:"checkbox-1"})
+              +checkbox({text:"Можно с питомцами", name:"checkbox-2", checked: true})
+              +checkbox({text:"Можно пригласить гостей (до 10 человек)", name:"checkbox-3", checked: true})
           .form-elements__item
             span.label Radio Buttons
             .form-elements__flex-wrapper.form-elements__flex-wrapper_row
-              +radiobtn({text:"Мужчина", id:"radio-1", attributeName:"radio-btn", checked: true})
-              +radiobtn({text:"Женщина", id:"radio-2", attributeName:"radio-btn"})
+              +radiobtn({text:"Мужчина", name:"radio-btn", checked: true})
+              +radiobtn({text:"Женщина", name:"radio-btn"})
           .form-elements__item
             span.label Toggle
             .form-elements__flex-wrapper
-              +toggle({text:"Получать спецпредложения", checked: true})
-              +toggle({text:"Получать спецпредложения"})
+              +toggle({text:"Получать спецпредложения", name:"toggle-1", checked: true})
+              +toggle({text:"Получать спецпредложения", name:"toggle-2"})
           .form-elements__item
             span.label Like Button
             .form-elements__flex-wrapper.form-elements__flex-wrapper_row
@@ -82,17 +82,17 @@ html(lang="ru")
                 .form-elements__btn-elem
                   +button({mod:"colored", text:"click me", btnType:"button"})
                 .form-elements__btn-elem
-                  +button({mod:"colored", text:"click me", btnType:"button"}, addclass=" button_colored-hover")
+                  +button({mod:"colored", text:"click me", btnType:"button"}, addclass="button_colored-hover")
               .form-elements__btn-row
-                .form-elements__btn-elem
+                .form-elements__btn-elem.form-elements__btn-elem_big-margin
                   +button({mod:"transparent", text:"click me", btnType:"button"})
                 .form-elements__btn-elem
-                  +button({mod:"transparent", text:"click me", btnType:"button"}, addclass=" button_transparent-hover")
+                  +button({mod:"transparent", text:"click me", btnType:"button"}, addclass="button_transparent-hover")
               .form-elements__btn-row
                 .form-elements__btn-elem
                   +button({mod:"simple", text:"click me", btnType:"button"})
                 .form-elements__btn-elem
-                  +button({mod:"simple", text:"click me", btnType:"button"}, addclass=" button_simple-hover")
+                  +button({mod:"simple", text:"click me", btnType:"button"}, addclass="button_simple-hover")
               .form-elements__btn-row
                 .form-elements__btn-elem
                   +button({mod:"big", text:"перейти к оплате", btnType:"button"})
@@ -103,16 +103,18 @@ html(lang="ru")
         .form-elements__block
           .form-elements__item.form-elements__item_middle.form-elements__item_min-margin
             .form-elements__tag Default
-            +dropdown({labelText:"dropdown", textInInput:"Кол-во комнат", addClass:" form__group-dropdown_middle", elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
+            +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms", textInInput:"Кол-во комнат", mini: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
           .form-elements__item.form-elements__item_middle
             .form-elements__tag Expanded
-            +dropdown({labelText:"dropdown", textInInput:"Кол-во комнат", addClass:" form__group-dropdown_active form__group-dropdown_middle form__group-dropdown_below", arrow:"active", elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
+            +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms2", textInInput:"Кол-во комнат", mini: true, open: true, addClass:"form__group-dropdown_below", elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
         .form-elements__block
           .form-elements__item.form-elements__item_min-margin
-            +dropdown({labelText:"dropdown", textInInput:"Сколько гостей", addClass:" form__group-dropdown_active", addBtn: true, arrow:"active", elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
+            +dropdown({labelText:"dropdown", attributeName:"dropdown-guests2", textInInput:"Сколько гостей", open: true, addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
         .form-elements__block
           .form-elements__item.form-elements__item_big-margin
-            +dropdown({labelText:"dropdown", textInInput:"Сколько гостей", addClass:" form__group-dropdown_active", addBtn: true, arrow:"active", elements:{"Взрослые" : 2, "Дети" : 1, "Младенцы" : 0}})
+            +dropdown({labelText:"dropdown", attributeName:"dropdown-guests3", textInInput:"Сколько гостей", open: true, addBtn: true, elements:{"Взрослые" : 2, "Дети" : 1, "Младенцы" : 0}})
         .form-elements__block
-          .form-elements__item.form-elements__item_min-margin
-            +checkbox-list({text:"expandable checkbox list"}, elements = "Завтрак", "Письменный стол", "Стул для кормления", "Кроватка", "Телевизор", "Шампунь")         
+          .form-elements__item
+            +checkbox-list({text:"expandable checkbox list", name:"checkbox-list", elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
+          .form-elements__item
+            +checkbox-list({text:"expandable checkbox list", name:"checkbox-list-2", open: true, elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})

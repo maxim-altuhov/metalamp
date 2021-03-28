@@ -1,15 +1,15 @@
-//- const { text, checked(boolean) } = options;
+//- const { text, name, checked(boolean) } = options;
 mixin toggle(options)
-  - const { text, checked } = options;
+  - const { text, name, checked } = options;
       if checked
         label.toggle__elem 
-          input(class="visuallyhidden" type="checkbox" checked)
+          input(class="visuallyhidden" type="checkbox" name=name  value=text checked)
           span.toggle__block
           span.toggle__indicator
           span.toggle__name= text
       else
         label.toggle__elem
-          input(class="visuallyhidden" type="checkbox")
+          input(class="visuallyhidden" type="checkbox" value=text name=name)
           span.toggle__block
           span.toggle__indicator
           span.toggle__name= text

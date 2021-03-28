@@ -1,11 +1,12 @@
 function toggleLikes() {
-  const likeButtons = document.querySelectorAll('.like__btn');
+  const likeButtons = document.querySelectorAll('.like__block');
 
   function changedLikes(e) {
-    const targetElement = e.currentTarget.firstElementChild;
-    let targetCounter = e.currentTarget.lastElementChild;
+    const target = e.currentTarget.firstElementChild;
+    const targetElement = target.firstElementChild;
+    let targetCounter = target.lastElementChild;
 
-    if (e.currentTarget.classList.contains('like__btn_active')) {
+    if (e.currentTarget.classList.contains('like__block_active')) {
       targetElement.textContent = 'favorite_border';
       targetCounter.textContent = +targetCounter.textContent - 1;
     } else {
@@ -13,7 +14,7 @@ function toggleLikes() {
       targetCounter.textContent = +targetCounter.textContent + 1;
     }
 
-    e.currentTarget.classList.toggle('like__btn_active');
+    e.currentTarget.classList.toggle('like__block_active');
   }
 
   likeButtons.forEach((elem) => {
