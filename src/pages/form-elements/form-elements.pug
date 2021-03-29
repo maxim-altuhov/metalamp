@@ -11,6 +11,7 @@ include ~@comp/range-slider/range-slider.pug
 include ~@comp/button/button.pug
 include ~@comp/pagination/pagination.pug
 include ~@comp/checkbox-list/checkbox-list.pug
+include ~@comp/bullet-list/bullet-list.pug
 //-
 doctype html
 html(lang="ru")
@@ -94,17 +95,16 @@ html(lang="ru")
                 .form-elements__btn-elem
                   +button({mod:"simple", text:"click me", btnType:"button"}, addclass="button_simple-hover")
               .form-elements__btn-row
-                .form-elements__btn-elem
                   +button({mod:"big", text:"перейти к оплате", btnType:"button"})
           .form-elements__item
             span.label Pagination
               .form-elements__pagination
                 +pagination({ id:"pagination-1" })
         .form-elements__block
-          .form-elements__item.form-elements__item_middle.form-elements__item_min-margin
+          .form-elements__item.form-elements__item_limit-width.form-elements__item_min-margin
             .form-elements__tag Default
             +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms", textInInput:"Кол-во комнат", mini: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
-          .form-elements__item.form-elements__item_middle
+          .form-elements__item.form-elements__item_limit-width
             .form-elements__tag Expanded
             +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms2", textInInput:"Кол-во комнат", mini: true, open: true, addClass:"form__group-dropdown_below", elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
         .form-elements__block
@@ -118,3 +118,16 @@ html(lang="ru")
             +checkbox-list({text:"expandable checkbox list", name:"checkbox-list", elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
           .form-elements__item
             +checkbox-list({text:"expandable checkbox list", name:"checkbox-list-2", open: true, elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
+        .form-elements__block
+          .form-elements__item.form-elements__item_fix-margin
+            span.label Rich Checkbox Buttons
+            .form-elements__flex-wrapper
+              +checkbox({text:"Широкий коридор", addText:"Ширина коридоров в номере<br> не менее 91 см.", name:"rich-checkbox-1", expanded: true})
+              +checkbox({text:"Помощник для инвалидов", addText:"На 1 этаже вас встретит специалист и проводит до номера.", name:"rich-checkbox-2", expanded: true})
+        .form-elements__block
+          .form-elements__item.form-elements__item_fix-margin
+            span.label bullet list
+            +bullet-list("Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00")
+        .form-elements__block
+          .form-elements__item
+            

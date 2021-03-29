@@ -64,7 +64,7 @@
 
   input.subscription {
     &_mini {
-      width: 266px;
+      max-width: 266px;
     }
 
     &+button {

@@ -1,0 +1,34 @@
+.bullet-list {
+  &__wrapper {
+    margin-top: 13px;
+    display: flex;
+    flex-direction: column;
+    max-width: 260px;
+  }
+
+  &__elem {
+    margin-bottom: 11px;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 24 / 14 * 100%;
+    color: $dark75;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      background: $dark25;
+      border-radius: 50%;
+    }
+
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+}
