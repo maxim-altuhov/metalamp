@@ -1,7 +1,7 @@
 import './json/rating.json';
 
 function setRating() {
-  const ratings = document.querySelectorAll('.rating');
+  const ratings = document.querySelectorAll('.js-rating');
   let activeRating;
   let valueRating;
 
@@ -9,8 +9,8 @@ function setRating() {
   function initRatings() {
     // инициализация переменных
     function initRatingVars(currentRating) {
-      activeRating = currentRating.querySelector('.rating__active');
-      valueRating = currentRating.querySelector('.rating__value');
+      activeRating = currentRating.querySelector('.js-rating__active');
+      valueRating = currentRating.querySelector('.js-rating__value');
     }
 
     // изменение кол-ва звезд
@@ -21,7 +21,7 @@ function setRating() {
 
     // возможность самому указывать оценку
     function setCurrentRating(currentRating) {
-      const ratingElem = currentRating.querySelectorAll('.rating__elem');
+      const ratingElem = currentRating.querySelectorAll('.js-rating__elem');
 
       ratingElem.forEach((elem, index) => {
         // обновление данных
@@ -68,7 +68,7 @@ function setRating() {
               rating.removeAttribute('data-ajax');
               rating.classList.remove('rating_sending');
             } else {
-              const ratingInfo = rating.querySelector('.rating__info');
+              const ratingInfo = rating.querySelector('.js-rating__info');
               ratingInfo.textContent = 'Ошибка!';
               setTimeout(() => {
                 ratingInfo.textContent = '';
@@ -80,7 +80,7 @@ function setRating() {
 
         // вывод нового значения рейтинга
         function setNewRating() {
-          if (currentRating.classList.contains('rating_set')) {
+          if (currentRating.classList.contains('js-rating__info')) {
             initRatingVars(currentRating);
 
             if (currentRating.dataset.ajax) {
@@ -104,7 +104,7 @@ function setRating() {
       initRatingVars(currentRating);
       setValueRating();
 
-      if (currentRating.classList.contains('rating_set')) {
+      if (currentRating.classList.contains('js-rating__info')) {
         setCurrentRating(currentRating);
       }
     }

@@ -2,9 +2,11 @@
 
   &__elem {
     margin-right: 20px;
+    margin-bottom: 21px;
 
     &:last-child {
-      margin-right: 0;
+      margin-right: 0px;
+      margin-bottom: 0px;
     }
   }
 

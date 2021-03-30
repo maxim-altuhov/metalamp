@@ -12,6 +12,8 @@ include ~@comp/button/button.pug
 include ~@comp/pagination/pagination.pug
 include ~@comp/checkbox-list/checkbox-list.pug
 include ~@comp/bullet-list/bullet-list.pug
+include ~@comp/info-icon/info-icon.pug
+include ~@comp/feedback/feedback.pug
 //-
 doctype html
 html(lang="ru")
@@ -51,12 +53,12 @@ html(lang="ru")
               +checkbox({text:"Можно курить", name:"checkbox-1"})
               +checkbox({text:"Можно с питомцами", name:"checkbox-2", checked: true})
               +checkbox({text:"Можно пригласить гостей (до 10 человек)", name:"checkbox-3", checked: true})
-          .form-elements__item
+          .form-elements__item.form-elements__item_min-margin
             span.label Radio Buttons
             .form-elements__flex-wrapper.form-elements__flex-wrapper_row
               +radiobtn({text:"Мужчина", name:"radio-btn", checked: true})
               +radiobtn({text:"Женщина", name:"radio-btn"})
-          .form-elements__item
+          .form-elements__item.form-elements__item_big-margin
             span.label Toggle
             .form-elements__flex-wrapper
               +toggle({text:"Получать спецпредложения", name:"toggle-1", checked: true})
@@ -119,15 +121,19 @@ html(lang="ru")
           .form-elements__item
             +checkbox-list({text:"expandable checkbox list", name:"checkbox-list-2", open: true, elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
         .form-elements__block
-          .form-elements__item.form-elements__item_fix-margin
+          .form-elements__item.form-elements__item_add-margin
             span.label Rich Checkbox Buttons
             .form-elements__flex-wrapper
               +checkbox({text:"Широкий коридор", addText:"Ширина коридоров в номере<br> не менее 91 см.", name:"rich-checkbox-1", expanded: true})
               +checkbox({text:"Помощник для инвалидов", addText:"На 1 этаже вас встретит специалист и проводит до номера.", name:"rich-checkbox-2", expanded: true})
         .form-elements__block
-          .form-elements__item.form-elements__item_fix-margin
+          .form-elements__item.form-elements__item_add-margin
             span.label bullet list
             +bullet-list("Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00")
         .form-elements__block
+          .form-elements__item.form-elements__item_fix-margin
+            +info-icon({title: "Комфорт", subtitle: "Шумопоглощающие стены", icon: "insert_emoticon"})
+            +info-icon({title: "Удобство", subtitle: "Окно в каждой из спален", icon: "location_city"})
+        .form-elements__block
           .form-elements__item
-            
+            +feedback({name: "Мурад Сарафанов", avatarImg:"feedback-avatar-1.jpg", time:"5 дней назад", likeBtnNum: 12, text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."})

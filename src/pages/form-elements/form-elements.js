@@ -1,9 +1,5 @@
 import './form-elements.scss';
 
-import $ from 'jquery';
-window.jQuery = $;
-window.$ = $;
-
 import { checkedFocus } from '@base/base';
 import addMaskForInput from '@comp/input/input-mask';
 import addDatePicker from '@comp/input/input-datepicker';

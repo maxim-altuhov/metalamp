@@ -1,18 +1,18 @@
 function initDropdown({ arrowToggle = false }) {
-  const dSelector = document.querySelectorAll('.form__group-dropdown');
+  const dSelector = document.querySelectorAll('.js-form__group-dropdown');
 
   dSelector.forEach(item => {
-    const dropdown = item.querySelector('.form__dropdown');
-    const dInput = item.querySelector('.form__dropdown-input');
-    const dResult = item.querySelector('.form__dropdown-result');
-    const dArrow = item.querySelector('.form__dropdown-arrow');
-    const dElem = item.querySelectorAll('.form__dropdown-elem');
-    const dCounters = item.querySelectorAll('.form__dropdown-counter span');
-    const dCounterBtns = item.querySelectorAll('.form__dropdown-counter button');
+    const dropdown = item.querySelector('.js-form__dropdown');
+    const dInput = item.querySelector('.js-form__dropdown-input');
+    const dResult = item.querySelector('.js-form__dropdown-result');
+    const dArrow = item.querySelector('.js-form__dropdown-arrow');
+    const dElem = item.querySelectorAll('.js-form__dropdown-elem');
+    const dCounters = item.querySelectorAll('.js-form__dropdown-counter span');
+    const dCounterBtns = item.querySelectorAll('.js-form__dropdown-counter button');
     const dMinus = item.querySelectorAll('[data-dropdown-minus]');
     const dClear = item.querySelector('[data-function="clear"]');
     const dApply = item.querySelector('[data-function="apply"]');
-    const dFocusLimiter = item.querySelector('.form__dropdown-limiter');
+    const dFocusLimiter = item.querySelector('.js-form__dropdown-limiter');
     const textInInput = dResult.textContent;
     let resultObj = {};
     let counterGuests = 0;
@@ -28,7 +28,7 @@ function initDropdown({ arrowToggle = false }) {
 
       dElem.forEach(elem => {
         const name = elem.firstChild.textContent.toLowerCase();
-        const value = +elem.querySelector('.form__dropdown-counter > span').textContent;
+        const value = +elem.querySelector('.js-form__dropdown-counter > span').textContent;
         const isGuests = name === 'взрослые' || name === 'дети';
 
         if (value !== 0 && !isGuests) {
@@ -159,7 +159,7 @@ function initDropdown({ arrowToggle = false }) {
       if (e.key === 'Enter') toggleDropdown();
     }
 
-    // функция отслеживания переключения полей с помощью клавиши tab
+    // функция включения обводки при переключении с помощью клавиши tab
     function checkedUseTab() {
       if ((!document.body.classList.contains('using-mouse'))) toggleDropdown();
     }

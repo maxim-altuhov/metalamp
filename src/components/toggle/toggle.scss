@@ -4,6 +4,8 @@
   outline: 1px solid transparent;
   position: relative;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 
   &:last-child {
     margin-bottom: 0;
@@ -11,12 +13,6 @@
 
   input {
     appearance: none;
-  }
-
-  .toggle__name {
-    color: $dark75;
-    margin-left: 10px;
-    vertical-align: 6px;
   }
 
   .toggle__block {
@@ -27,6 +23,11 @@
     background: #FFFFFF;
     border: 1px solid $dark25;
     border-radius: 10px;
+    flex: 0 0 auto;
+  }
+
+  input:focus~.toggle__block {
+    outline: $purple auto 2px;
   }
 
   .toggle__indicator {
@@ -54,10 +55,11 @@
     }
   }
 
-  input:focus~.toggle__block {
-    outline: $purple auto 2px;
+  .toggle__name {
+    color: $dark75;
+    margin-left: 10px;
+    vertical-align: 6px;
   }
-
 }
 
 body.using-mouse {

@@ -1,11 +1,11 @@
 function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
   const pBlock = document.querySelector(selector);
-  const pPagesBlock = pBlock.querySelector('.pagination__pages');
-  const pBtn = pBlock.querySelectorAll('.pagination__btn');
-  const pBtnPrev = pBlock.querySelector('.pagination__btn_prev');
-  const pBtnNext = pBlock.querySelector('.pagination__btn_next');
-  const pInfoCurrent = pBlock.querySelector('.pagination__current');
-  const pInfoTotal = pBlock.querySelector('.pagination__total');
+  const pPagesBlock = pBlock.querySelector('.js-pagination__pages');
+  const pBtn = pBlock.querySelectorAll('.js-pagination__btn');
+  const pBtnPrev = pBlock.querySelector('.js-pagination__btn_prev');
+  const pBtnNext = pBlock.querySelector('.js-pagination__btn_next');
+  const pInfoCurrent = pBlock.querySelector('.js-pagination__current');
+  const pInfoTotal = pBlock.querySelector('.js-pagination__total');
   let pPages;
   let pageActive;
   let pageTotal;
@@ -22,12 +22,12 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
       for (let i = 1; i <= howManyPages && i <= visiblePaginationElem; i++) {
         const item = document.createElement('button');
         item.setAttribute('type', 'button');
-        item.classList.add('pagination__page');
+        item.classList.add('pagination__page', 'js-pagination__page');
 
         if (i === visiblePaginationElem) {
           item.textContent = howManyPages;
         } else if (i === visiblePaginationElem - 1 && howManyPages > visiblePaginationElem) {
-          item.classList.add('pagination__page_off');
+          item.classList.add('pagination__page_off', 'js-pagination__page_off');
           item.textContent = '...';
         } else {
           item.textContent = i;
@@ -35,8 +35,8 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
         fragment.append(item);
       }
-      fragment.lastElementChild.classList.add('pagination__page', 'pagination__page_total');
-      fragment.firstElementChild.classList.add('pagination__page_active');
+      fragment.lastElementChild.classList.add('pagination__page', 'js-pagination__page', 'pagination__page_total', 'js-pagination__page_total');
+      fragment.firstElementChild.classList.add('pagination__page_active', 'js-pagination__page_active');
       pPagesBlock.append(fragment);
       resolve();
     });
@@ -53,8 +53,8 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
   // обновление информации по кол-ву текущих элементов
   function refreshInfoPages() {
-    pageActive = pBlock.querySelector('.pagination__page_active');
-    pageTotal = pBlock.querySelector('.pagination__page_total');
+    pageActive = pBlock.querySelector('.js-pagination__page_active');
+    pageTotal = pBlock.querySelector('.js-pagination__page_total');
     let maxNum = maxElemenetsPerPage * +pageActive.textContent;
 
     if (maxNum > totalElements) {
@@ -67,20 +67,20 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
   // функция добавления нужных кнопок пагинации при переключении страниц
   function addPaginationPages() {
-    let pageNoNumber = pBlock.querySelector('.pagination__page_off');
+    let pageNoNumber = pBlock.querySelector('.js-pagination__page_off');
     const fragment = document.createDocumentFragment();
     const item = document.createElement('button');
     item.setAttribute('type', 'button');
-    item.classList.add('pagination__page');
+    item.classList.add('pagination__page', 'js-pagination__page');
 
     if (pageNoNumber && pageActive === pageTotal) {
       pageNoNumber.textContent = +pageTotal.textContent - 1;
-      pageNoNumber.classList.remove('pagination__page_off');
+      pageNoNumber.classList.remove('pagination__page_off', 'js-pagination__page_off');
     }
 
     if (pageNoNumber && +pageActive.textContent === +pageTotal.textContent - 3) {
       pageNoNumber.textContent = +pageTotal.textContent - 1;
-      pageNoNumber.classList.remove('pagination__page_off');
+      pageNoNumber.classList.remove('pagination__page_off', 'js-pagination__page_off');
     }
 
     if (pageNoNumber && pageActive === pPages[pPages.length - 3]) {
@@ -92,7 +92,7 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
     if (pageActive === pPages[0] && pPages[0].textContent !== '1') {
       pPages[pPages.length - 2].textContent = '...';
-      pPages[pPages.length - 2].classList.add('pagination__page_off');
+      pPages[pPages.length - 2].classList.add('pagination__page_off', 'js-pagination__page_off');
       pPages[pPages.length - 3].remove();
       item.textContent = +pageActive.textContent - 1;
       fragment.append(item);
@@ -112,7 +112,7 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
   // переключение видимости кнопок переключения страниц
   function toggleActiveBtn() {
-    pageActive = pBlock.querySelector('.pagination__page_active');
+    pageActive = pBlock.querySelector('.js-pagination__page_active');
 
     if (pageActive.textContent === '1') {
       pBtnPrev.classList.add('none');
@@ -128,11 +128,11 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
   // переключение активной страницы
   function changeActivePage(e) {
-    if (!e.target.classList.contains('pagination__page_off')) {
+    if (!e.target.classList.contains('js-pagination__page_off')) {
       pPages.forEach(elem => {
-        elem.classList.remove('pagination__page_active');
+        elem.classList.remove('pagination__page_active', 'js-pagination__page_active');
       });
-      e.target.classList.add('pagination__page_active');
+      e.target.classList.add('pagination__page_active', 'js-pagination__page_active');
       toggleActiveBtn();
       refreshInfoPages();
       addPaginationPages();
@@ -144,12 +144,12 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
     const nextPageLink = pageActive.nextElementSibling;
     const prevPageLink = pageActive.previousElementSibling;
 
-    if (e.target.classList.contains('pagination__btn_prev')) {
-      pageActive.classList.remove('pagination__page_active');
-      prevPageLink.classList.add('pagination__page_active');
+    if (e.target.classList.contains('js-pagination__btn_prev')) {
+      pageActive.classList.remove('pagination__page_active', 'js-pagination__page_active');
+      prevPageLink.classList.add('pagination__page_active', 'js-pagination__page_active');
     } else {
-      pageActive.classList.remove('pagination__page_active');
-      nextPageLink.classList.add('pagination__page_active');
+      pageActive.classList.remove('pagination__page_active', 'js-pagination__page_active');
+      nextPageLink.classList.add('pagination__page_active', 'js-pagination__page_active');
     }
     toggleActiveBtn();
     refreshInfoPages();
@@ -158,9 +158,9 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
   // навешиваем обработчик на кнопки
   function addEvent() {
-    pPages = pBlock.querySelectorAll('.pagination__page');
+    pPages = pBlock.querySelectorAll('.js-pagination__page');
     pPages.forEach(elem => {
-      if (!elem.classList.contains('pagination__page_off')) {
+      if (!elem.classList.contains('js-pagination__page_off')) {
         elem.addEventListener('click', changeActivePage);
       }
     });

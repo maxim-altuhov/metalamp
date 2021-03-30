@@ -1,5 +1,5 @@
 function toggleLikes() {
-  const likeButtons = document.querySelectorAll('.like__block');
+  const likeButtons = document.querySelectorAll('.js-like__block');
 
   function changedLikes(e) {
     const target = e.currentTarget.firstElementChild;
