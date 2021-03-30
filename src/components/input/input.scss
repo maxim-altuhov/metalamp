@@ -53,6 +53,10 @@
     width: 150px;
     cursor: pointer;
 
+    @media (max-width: 575px) {
+      width: 140px;
+    }
+
     @include placeholder($dark75, 13.6);
 
     @include focus($dark75);
@@ -77,6 +81,10 @@
       background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @media (max-width: 575px) {
+        right: 25px;
+      }
     }
   }
 }

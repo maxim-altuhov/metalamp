@@ -14,6 +14,11 @@
     padding: 0 15px;
     display: grid;
     grid-template-columns: minmax(min-content, 696px) auto;
+
+    @media (max-width: 767px) {
+      grid-template-columns: auto;
+      justify-items: center;
+    }
   }
 }
 
@@ -36,6 +41,10 @@
   &__wrapper {
     margin-top: 68px;
     max-width: 440px;
+
+    @media (max-width: 767px) {
+      margin-bottom: 70px;
+    }
   }
 
   &__elem {

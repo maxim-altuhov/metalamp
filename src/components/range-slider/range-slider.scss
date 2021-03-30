@@ -48,9 +48,16 @@
 .noUi-connect {
   background: linear-gradient(180deg, $green 0%, $blue 100%);
   border: 0px;
+  width: 97%;
 }
 
 .noUi-handle:after,
 .noUi-handle:before {
   display: none;
+}
+
+body.using-mouse {
+  .noUi-handle:focus {
+    outline: none;
+  }
 }

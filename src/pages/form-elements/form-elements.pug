@@ -108,7 +108,7 @@ html(lang="ru")
             +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms", textInInput:"Кол-во комнат", mini: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
           .form-elements__item.form-elements__item_limit-width
             .form-elements__tag Expanded
-            +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms2", textInInput:"Кол-во комнат", mini: true, open: true, addClass:"form__group-dropdown_below", elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
+            +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms2", textInInput:"Кол-во комнат", mini: true, open: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
         .form-elements__block
           .form-elements__item.form-elements__item_min-margin
             +dropdown({labelText:"dropdown", attributeName:"dropdown-guests2", textInInput:"Сколько гостей", open: true, addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
@@ -135,5 +135,5 @@ html(lang="ru")
             +info-icon({title: "Комфорт", subtitle: "Шумопоглощающие стены", icon: "insert_emoticon"})
             +info-icon({title: "Удобство", subtitle: "Окно в каждой из спален", icon: "location_city"})
         .form-elements__block
-          .form-elements__item
+          .form-elements__item.form-elements__item_full-width
             +feedback({name: "Мурад Сарафанов", avatarImg:"feedback-avatar-1.jpg", time:"5 дней назад", likeBtnNum: 12, text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."})

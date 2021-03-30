@@ -10,6 +10,10 @@
   box-shadow: 0px 10px 20px $dark5;
   border-radius: 4px;
 
+  @media (max-width: 575px) {
+    width: 290px;
+  }
+
   &--pointer {
     display: none;
   }
@@ -51,6 +55,10 @@
 
   &--content {
     padding: 18px 19px;
+
+    @media (max-width: 575px) {
+      padding: 18px 5px;
+    }
   }
 
   &--cells {

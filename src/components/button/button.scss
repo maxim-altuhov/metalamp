@@ -10,6 +10,7 @@
   color: #FFFFFF;
   font-size: 11.4px;
   transition: opacity 0.2s ease-in;
+  padding: 0 12px;
 
   &_colored {
 
@@ -33,7 +34,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 
     &::before {
       content: "";
@@ -74,12 +74,12 @@
     color: $purple;
     background: #FFFFFF;
     transition: color 0.2s ease-in;
+    padding: 0;
 
     &:hover,
     &:focus {
       color: $dark50;
     }
-
   }
 
   &_simple-hover {
@@ -90,6 +90,12 @@
     position: relative;
     min-width: 320px;
     font-size: 12px;
+    line-height: 105%;
+
+    @media (max-width: 575px) {
+      min-width: auto;
+      width: 290px;
+    }
 
     &:hover,
     &:focus {

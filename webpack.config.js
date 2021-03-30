@@ -166,6 +166,9 @@ const entryPoint = () => {
 // модули и настройки
 module.exports = {
   context: path.resolve(__dirname, 'src'),
+  stats: {
+    children: false
+  },
   mode: 'development',
   entry: entryPoint(),
   output: {

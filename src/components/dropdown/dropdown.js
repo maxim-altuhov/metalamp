@@ -1,7 +1,7 @@
 function initDropdown({ arrowToggle = false }) {
   const dSelector = document.querySelectorAll('.js-form__group-dropdown');
 
-  dSelector.forEach(item => {
+  dSelector.forEach((item, index) => {
     const dropdown = item.querySelector('.js-form__dropdown');
     const dInput = item.querySelector('.js-form__dropdown-input');
     const dResult = item.querySelector('.js-form__dropdown-result');
@@ -19,6 +19,8 @@ function initDropdown({ arrowToggle = false }) {
 
     // инициализируем dropdown
     function startInitDropdown() {
+      item.style.zIndex = 100 - index;
+
       dCounters.forEach(number => {
         if (number.textContent > 0) {
           number.previousElementSibling.disabled = false;
