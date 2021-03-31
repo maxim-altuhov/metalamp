@@ -1,0 +1,26 @@
+@import '@comp/input/input';
+@import '@comp/input/input-datepicker';
+@import '@comp/dropdown/dropdown';
+@import '@comp/button/button';
+
+.card-search {
+  &__wrapper {
+    margin-top: 22px;
+  }
+
+  &__elem {
+    margin-bottom: 21px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__elem-row {
+    display: flex;
+  }
+
+  &__btn {
+    margin-top: 31px;
+  }
+}

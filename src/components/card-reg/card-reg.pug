@@ -1,0 +1,30 @@
+//- components
+include ~@comp/input/input.pug
+include ~@comp/radiobtn/radiobtn.pug
+include ~@comp/toggle/toggle.pug
+include ~@comp/button/button.pug
+
+.card__block
+  .card__title Регистрация аккаунта
+  form(action="#", method="post", name="card-registration")
+    .card-reg__wrapper
+      .card-reg__elem
+        +input({attributeName:"name", attributeType:"text", placeholder:"Имя"})
+      .card-reg__elem
+        +input({attributeName:"surname", attributeType:"text", placeholder:"Фамилия"})
+      .card-reg__elem.card-reg__elem_row
+        +radiobtn({text:"Мужчина", name:"radio-btn", checked: true})
+        +radiobtn({text:"Женщина", name:"radio-btn"})
+      .card-reg__elem.card-reg__elem_big-margin
+        +input({labelText:"Дата рождения", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
+      .card-reg__elem
+        +input({labelText:"Данные для входа в сервис", attributeName:"email-reg", attributeType:"email", placeholder:"Email"})
+      .card-reg__elem
+        +input({attributeName:"password-reg", attributeType:"password", placeholder:"Пароль"})
+      .card-reg__elem.card-reg__elem_row
+        +toggle({text:"Получать спецпредложения", name:"toggle-subscribe"})
+      .card-reg__btn
+        +button({mod:"big", text:"перейти к оплате", btnType:"button"})
+      .card-reg__sign-in
+        span Уже есть аккаунт на Toxin
+        +button({mod:"transparent", text:"Войти", btnType:"submit"})

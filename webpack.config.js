@@ -150,6 +150,18 @@ const optimization = () => {
   if (isProd) {
     config.minimize = true;
     config.minimizer = [new CssMinimizerPlugin(), new TerserWebpackPlugin()];
+  } else if (isDev) {
+    config.minimize = true;
+    config.minimizer = [new CssMinimizerPlugin({
+      minimizerOptions: {
+        preset: [
+          'default',
+          {
+            normalizeWhitespace: false
+          }
+        ]
+      }
+    })];
   }
   return config;
 };

@@ -1,12 +1,12 @@
-//- const {labelText, id, attributeName, attributeType, placeholder, valueInInput, typeMask:{date}, dateWithDropdown(boolean), dateWithFilter(boolean), inputTypeEmail(boolean), addClass} = options;
+//- const {labelText, labelTextSecond, id, attributeName, attributeType, placeholder, valueInInput, typeMask:{date}, dateWithDropdown(boolean), dateWithFilter(boolean), inputTypeEmail(boolean), addClass} = options;
 mixin input(options)
-  - const {labelText, id, attributeName, attributeType, placeholder, valueInInput = "", typeMask, dateWithDropdown, dateWithFilter, inputTypeEmail, addClass = ""} = options;
+  - const {labelText, labelTextSecond, id, attributeName, attributeType, placeholder, valueInInput = "", typeMask, dateWithDropdown, dateWithFilter, inputTypeEmail, addClass = ""} = options;
     if dateWithDropdown
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
         label.label= labelText
           input(class="date-dropdown" readonly id= id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
-        label.label= labelText
+        label.label= labelTextSecond
           input(class="date-dropdown" readonly  id= `${id}-second` data-end autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
           span.material-icons keyboard_arrow_down
     else if dateWithFilter

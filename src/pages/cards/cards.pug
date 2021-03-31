@@ -1,0 +1,18 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    title UI Kit - Cards
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="UI Kit - Cards")
+    meta(name="keywords", content="ui-kit, metalamp")
+    link(rel="icon", href="./favicon.png", type="image/png")
+  body
+    .ui-header
+      include ~@comp/logo/logo.pug
+    .cards__container
+      .cards__column
+        .cards__cell
+          include ~@comp/card-search/card-search.pug
+        .cards__cell
+          include ~@comp/card-reg/card-reg.pug
