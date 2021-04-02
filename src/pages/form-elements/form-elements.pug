@@ -43,7 +43,7 @@ html(lang="ru")
           .form-elements__item
             +input({labelText:"date dropdown", labelTextSecond:"date dropdown", id:'date-dropdown-block', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
           .form-elements__item
-            +input({labelText:"filter date dropdown", id:'date-filter', attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true})
+            +input({labelText:"filter date dropdown", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true})
           .form-elements__item
             +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", inputTypeEmail: true})
         .form-elements__block
@@ -87,7 +87,7 @@ html(lang="ru")
                 .form-elements__btn-elem
                   +button({mod:"colored", text:"click me", btnType:"button"}, addclass="button_colored-hover")
               .form-elements__btn-row
-                .form-elements__btn-elem.form-elements__btn-elem_big-margin
+                .form-elements__btn-elem
                   +button({mod:"transparent", text:"click me", btnType:"button"})
                 .form-elements__btn-elem
                   +button({mod:"transparent", text:"click me", btnType:"button"}, addclass="button_transparent-hover")

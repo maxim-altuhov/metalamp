@@ -22,7 +22,6 @@ function addDatePicker({
 
   let options = {
     classes: `${$selectorId.substr(1)}`,
-    inline: true,
     range: true,
     multipleDatesSeparator: ' - ',
     prevHtml: '<span class="material-icons">arrow_back</span>',

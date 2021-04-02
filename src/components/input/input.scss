@@ -14,7 +14,7 @@
 
     span {
       position: absolute;
-      top: 32px;
+      bottom: 8px;
       right: 9px;
       color: $dark50;
       cursor: pointer;
@@ -74,7 +74,7 @@
 
     &+button {
       position: absolute;
-      top: 23px;
+      bottom: 1px;
       right: 55px;
       height: 40px;
       width: 40px;

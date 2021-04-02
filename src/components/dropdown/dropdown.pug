@@ -23,6 +23,6 @@ mixin dropdown(options)
                 button(type="button" data-dropdown-plus) +
         if addBtn
           .form__dropdown-control
-            +button({mod:"simple", text:"Очистить", type:"button", btnFunction:"clear"}, addclass="hidden")
-            +button({mod:"simple", text:"Применить", type:"button", btnFunction:"apply"})
+            +button({mod:"simple", text:"Очистить", btnType:"button", btnFunction:"clear"}, addclass="hidden")
+            +button({mod:"simple", text:"Применить", btnType:"button", btnFunction:"apply"})
         .form__dropdown-limiter.js-form__dropdown-limiter(tabindex="0")

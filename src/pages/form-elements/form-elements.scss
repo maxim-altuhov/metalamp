@@ -127,16 +127,16 @@
 
   &__btn-row {
     display: flex;
+    margin-left: 1px;
     margin-bottom: 31px;
 
-    &:nth-child(2) {
-      margin-left: 1px;
-      margin-bottom: 32px;
+    &:nth-child(1) {
+
+      margin-bottom: 29px;
     }
 
-    &:nth-child(3) {
-      margin-left: 1px;
-      margin-bottom: 32px;
+    &:nth-child(2) {
+      margin-bottom: 33px;
     }
 
     &:last-child {
@@ -149,10 +149,6 @@
 
     &:last-child {
       margin-right: 0;
-    }
-
-    &_big-margin {
-      margin-right: 25px;
     }
   }
 

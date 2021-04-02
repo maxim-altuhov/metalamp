@@ -1,0 +1,17 @@
+//- components
+include ~@comp/input/input.pug
+include ~@comp/button/button.pug
+
+.card__block
+  .card__title Войти
+  form(action="#", method="post", name="card-input")
+    .card-input__wrapper
+      .card-input__elem
+        +input({attributeName:"email-login", attributeType:"email", placeholder:"Email"})
+      .card-input__elem
+        +input({attributeName:"password-login", attributeType:"password", placeholder:"Пароль"})
+      .card-input__btn
+        +button({mod:"big", text:"войти", btnType:"submit"})
+  .card-input__sign-in
+    span Нет аккаунта на Toxin?
+    +button({mod:"transparent", text:"Создать", isLink: true, href: "404.html"})

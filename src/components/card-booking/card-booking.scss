@@ -1,0 +1,153 @@
+@import '@comp/input/input';
+@import '@comp/input/input-datepicker';
+@import '@comp/dropdown/dropdown';
+@import '@comp/button/button';
+
+.card-booking {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 121%;
+    color: $dark;
+    flex: 0 0 111px;
+
+    span:first-child {
+      font-size: 14px;
+      line-height: 122%;
+    }
+  }
+
+  &__number {
+    margin-left: 3px;
+  }
+
+  &__tag {
+    align-self: flex-end;
+    font-size: 12px;
+    line-height: 150%;
+    color: $purple;
+    text-transform: uppercase;
+  }
+
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 12px;
+    line-height: 150%;
+    color: rgba(31, 32, 65, 0.5);
+    flex: 0 0 100px;
+
+    span {
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+
+  &__wrapper {
+    margin-top: 22px;
+  }
+
+  &__elem {
+    margin-bottom: 21px;
+
+    &:nth-child(2) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__details {
+    margin-top: 19px;
+    font-size: 14px;
+    line-height: 20px;
+    color: $dark75;
+    padding-left: 2px;
+  }
+
+  &__details-elem {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+
+    &:nth-child(3) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__details-text {
+    max-width: 214px;
+  }
+
+  &__details-total {
+    margin-top: 29px;
+    font-weight: 700;
+    font-size: 19px;
+    color: $dark;
+
+    p {
+      display: flex;
+      align-items: baseline;
+
+      &::before {
+        content: '';
+        border-bottom: 1px dashed $dark25;
+        flex-grow: 1;
+        order: 2;
+        margin: 0 5px;
+      }
+    }
+
+    span {
+      order: 3;
+    }
+  }
+
+  &__btn {
+    margin-top: 22px;
+    margin-bottom: -2px;
+  }
+}
+
+.info {
+  &__point {
+    width: 20px;
+    height: 20px;
+    border: 1px solid $dark25;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 117%;
+    color: $dark25;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    margin: 0 auto 0 5px;
+    cursor: pointer;
+  }
+
+  &__tooltip {
+    z-index: 999;
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+    background-color: $dark;
+    padding: 10px;
+    font-weight: 700;
+    color: white;
+    opacity: 0.6;
+    border-radius: 5px;
+  }
+}

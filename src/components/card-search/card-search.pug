@@ -5,11 +5,11 @@ include ~@comp/button/button.pug
 
 .card__block
   .card__title Найдём номера под ваши пожелания
-  form(action="#", method="post", name="card-search")
+  form(action="#", method="get", name="card-search")
     .card-search__wrapper
       .card-search__elem
-        +input({labelText:"прибытие", labelTextSecond:"выезд", id:'date-dropdown-block', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
+        +input({labelText:"прибытие", labelTextSecond:"выезд", id:'card-search-date', attributeName:"card-search-date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", dateWithDropdown: true})
       .card-search__elem
-        +dropdown({labelText:"гости", attributeName:"dropdown-guests", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
+        +dropdown({labelText:"гости", attributeName:"card-search-guests", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
     .card-search__btn 
       +button({mod:"big", text:"подобрать номер", btnType:"submit"})

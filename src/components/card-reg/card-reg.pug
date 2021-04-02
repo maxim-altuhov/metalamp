@@ -20,11 +20,11 @@ include ~@comp/button/button.pug
       .card-reg__elem
         +input({labelText:"Данные для входа в сервис", attributeName:"email-reg", attributeType:"email", placeholder:"Email"})
       .card-reg__elem
-        +input({attributeName:"password-reg", attributeType:"password", placeholder:"Пароль"})
+        +input({attributeName:"password-reg", attributeType:"text", placeholder:"Пароль"})
       .card-reg__elem.card-reg__elem_row
         +toggle({text:"Получать спецпредложения", name:"toggle-subscribe"})
       .card-reg__btn
-        +button({mod:"big", text:"перейти к оплате", btnType:"button"})
-      .card-reg__sign-in
-        span Уже есть аккаунт на Toxin
-        +button({mod:"transparent", text:"Войти", btnType:"submit"})
+        +button({mod:"big", text:"перейти к оплате", btnType:"submit"})
+  .card-reg__sign-in
+    span Уже есть аккаунт на Toxin
+    +button({mod:"transparent", text:"Войти", isLink: true, href: "404.html"})

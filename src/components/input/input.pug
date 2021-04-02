@@ -4,20 +4,20 @@ mixin input(options)
     if dateWithDropdown
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
         label.label= labelText
-          input(class="date-dropdown" readonly id= id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class="date-dropdown" readonly id=id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder)
           span.material-icons keyboard_arrow_down
         label.label= labelTextSecond
-          input(class="date-dropdown" readonly  id= `${id}-second` data-end autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class="date-dropdown" readonly  id=`${id}-second` data-end autocomplete="off" name= `${attributeName}-2` type=attributeType placeholder=placeholder)
           span.material-icons keyboard_arrow_down
     else if dateWithFilter
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
         label.label= labelText
-          input(class="date-dropdown date-dropdown_mini" readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class="date-dropdown date-dropdown_mini" readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder)
           span.material-icons keyboard_arrow_down
     else if inputTypeEmail
       .form__group-input
         label.label= labelText
-          input(class="subscription subscription_mini" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask)
+          input(class="subscription subscription_mini" name=attributeName type=attributeType placeholder=placeholder value=valueInInput)
           button(type="submit")
             span.material-icons arrow_forward
     else
