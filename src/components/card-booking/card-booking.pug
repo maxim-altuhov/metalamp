@@ -10,8 +10,8 @@ include ~@comp/button/button.pug
       span.card-booking__number 888
       span.card-booking__tag люкс
     .card-booking__price
-      span 9 990₽
-      | в сутки
+      span(data-cost) 9990₽
+      |  в сутки
   form(action="#", method="get", name="card-booking")
     .card-booking__wrapper
       .card-booking__elem
@@ -21,23 +21,23 @@ include ~@comp/button/button.pug
       .card-booking__details
         .card-booking__details-elem
           p.card-booking__details-text
-            span#booking-cost 9 990₽
+            span#booking-cost(data-cost) 9990₽
             |  х 
             span#booking-day 4 суток
-          span#booking-cost-result 39 960₽
+          span#booking-cost-result(data-cost) 39960₽
         .card-booking__details-elem
           p.card-booking__details-text Сбор за услуги: скидка 
-            span#booking-sale 2 179₽
+            span#booking-sale(data-cost) 2179₽
           span(class="info__point" data-tooltip="Подсказка") i
             i#tooltip.info__tooltip
-          span#booking-services-result 0₽
+          span#booking-services-result(data-cost) 0₽
         .card-booking__details-elem
           p.card-booking__details-text Сбор за дополнительные услуги
           span(class="info__point" data-tooltip="Подсказка другая") i
             i#tooltip.info__tooltip
-          span#booking-addservices-result 300₽
+          span#booking-addservices-result(data-cost) 300₽
         .card-booking__details-total
           p Итого
-            span#booking-total 38 081₽
+            span#booking-total(data-cost) 38081₽
     .card-booking__btn 
       +button({mod:"big", text:"забронировать", btnType:"submit"})

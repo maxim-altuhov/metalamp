@@ -1,3 +1,4 @@
+// функция показывает посказку при наведении на элемент
 function showTooltip() {
   const tooltipsAll = document.querySelectorAll('[data-tooltip]');
 
@@ -7,7 +8,7 @@ function showTooltip() {
 
     function showBlock(e) {
       tooltip.textContent = tooltipText;
-      tooltip.style.cssText = `top: ${e.pageY + 10}px; left: ${e.pageX + 10}px; display: block`;
+      tooltip.style.cssText = 'top: 20px; left: 10px; display: block';
     }
 
     function hideBlock() {
@@ -20,4 +21,17 @@ function showTooltip() {
   });
 }
 
-export default showTooltip;
+// функция преобразует число к виду с разделителем (пробел)
+function convertCost() {
+  const selector = document.querySelectorAll('[data-cost]');
+
+  selector.forEach(elem => {
+    const numberText = elem.textContent;
+    const number = +numberText.substring(0, numberText.length - 1);
+    const result = number.toLocaleString('ru-RU');
+
+    elem.textContent = `${result}₽`;
+  });
+}
+
+export { showTooltip, convertCost };

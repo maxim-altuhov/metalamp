@@ -8,17 +8,14 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-top: 1px;
   }
 
   &__info {
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
     font-weight: 700;
     font-size: 24px;
     line-height: 121%;
     color: $dark;
-    flex: 0 0 111px;
 
     span:first-child {
       font-size: 14px;
@@ -27,34 +24,31 @@
   }
 
   &__number {
-    margin-left: 3px;
+    margin: 0 7px 0 5px;
   }
 
   &__tag {
-    align-self: flex-end;
     font-size: 12px;
     line-height: 150%;
     color: $purple;
+    text-align: right;
     text-transform: uppercase;
   }
 
   &__price {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
     font-size: 12px;
     line-height: 150%;
     color: rgba(31, 32, 65, 0.5);
-    flex: 0 0 100px;
 
     span {
       font-size: 14px;
       font-weight: 700;
+      margin-right: 2px;
     }
   }
 
   &__wrapper {
-    margin-top: 22px;
+    margin-top: 20px;
   }
 
   &__elem {
@@ -86,6 +80,10 @@
 
   &__details-text {
     max-width: 214px;
+
+    @media (max-width: 420px) {
+      max-width: 175px;
+    }
   }
 
   &__details-total {
@@ -133,11 +131,13 @@
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    margin: 0 auto 0 5px;
+    margin: 0 auto 0 8px;
     cursor: pointer;
+    position: relative;
   }
 
   &__tooltip {
+    max-width: 250px;
     z-index: 999;
     position: absolute;
     display: none;

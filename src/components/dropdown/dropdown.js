@@ -87,12 +87,12 @@ function initDropdown({ arrowToggle = false }) {
       const counterValue = Object.values(resultObj).reduce((a, b) => a + b, 0);
 
       function changingWordEndings(number, textForms) {
-        const NumberRemaining = number % 100;
-        const NumberRemainingSecond = NumberRemaining % 10;
+        const numberRemaining = number % 100;
+        const numberRemainingAfter = numberRemaining % 10;
 
-        if (NumberRemaining > 5) return textForms[2];
-        if (NumberRemainingSecond > 1 && NumberRemainingSecond < 5) return textForms[1];
-        if (NumberRemainingSecond === 1) return textForms[0];
+        if (numberRemaining > 5 && numberRemaining < 21) return textForms[2];
+        if (numberRemainingAfter > 1 && numberRemainingAfter < 5) return textForms[1];
+        if (numberRemainingAfter === 1) return textForms[0];
         return textForms[2];
       }
 

@@ -60,6 +60,7 @@
     "jquery": "^3.5.1",
     "normalize.css": "^8.0.1",
     "nouislider": "^14.6.3",
+    "swiper": "^6.5.3",
     "wnumb": "^1.2.0"
   }
 }

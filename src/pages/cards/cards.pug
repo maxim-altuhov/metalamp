@@ -1,3 +1,6 @@
+//- components
+include ~@comp/card-room/card-room.pug
+
 doctype html
 html(lang="ru")
   head
@@ -23,6 +26,8 @@ html(lang="ru")
           include ~@comp/card-input/card-input.pug
       .cards__column
         .cards__cell
-          div#date-filter-example
+          #date-filter-example
         .cards__cell
-          
+          +cardRoom({ number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room1.jpg", "room1.jpg", "room1.jpg", "room1.jpg")
+        .cards__cell
+          +cardRoom({arrow: false, number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room2.jpg", "room2.jpg", "room2.jpg", "room2.jpg")

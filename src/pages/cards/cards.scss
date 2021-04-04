@@ -4,6 +4,7 @@
 @import '@comp/card-reg/card-reg';
 @import '@comp/card-booking/card-booking';
 @import '@comp/card-input/card-input';
+@import '@comp/card-room/card-room';
 
 html {
   background: #F4F4F6;
@@ -18,13 +19,25 @@ html {
     max-width: 1657px;
     margin: 72px auto 0 auto;
     padding: 0 15px;
+
+    @media (max-width: 1199px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-row-gap: normal;
+      justify-items: left;
+    }
+
+    @media (max-width: 860px) {
+      grid-template-columns: auto;
+      justify-items: center;
+    }
+
+    @media (max-width: 420px) {
+      padding: 0 5px;
+    }
   }
 
   &__cell {
     margin-bottom: 40px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 }
