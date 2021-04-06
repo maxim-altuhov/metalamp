@@ -61,7 +61,7 @@ input.radiobtn__field:checked+span:after {
   height: 12px;
   border: 1px solid $purple;
   border-radius: 10px;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $background-gradient;
   opacity: 1;
   transition: opacity 0.2s ease-in;
 }

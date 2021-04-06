@@ -1,6 +1,6 @@
 .simple-rating {
   &__elem {
-    background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+    background: $background-gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     cursor: default;

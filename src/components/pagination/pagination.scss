@@ -38,7 +38,7 @@
     }
 
     &_active {
-      background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+      background: $background-gradient;
       border-radius: 100%;
       font-weight: bold;
       color: #fff;

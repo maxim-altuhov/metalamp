@@ -1,5 +1,5 @@
 .button {
-  background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+  background: $background-gradient;
   min-width: 99px;
   height: 44px;
   font-weight: 700;
@@ -28,7 +28,7 @@
   }
 
   &_transparent {
-    background: linear-gradient(180deg, $purple 0%, $purple-gradient 100%);
+    background: $background-gradient;
     color: $purple;
     padding: 2px;
     animation: opacityBtnOut 0.3s 1 linear forwards;

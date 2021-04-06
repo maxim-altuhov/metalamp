@@ -23,12 +23,6 @@
     }
   }
 
-  &__pagination {
-    position: absolute;
-    z-index: 99;
-    text-align: right;
-  }
-
   .swiper-container-horizontal>.swiper-pagination-bullets {
     bottom: 13px;
     padding-right: 10px;
@@ -52,6 +46,12 @@
   .swiper-pagination-bullet-active {
     background: #FFFFFF;
     box-shadow: 0px 5px 5px rgba(31, 32, 65, 0.3);
+  }
+
+  &__pagination {
+    position: absolute;
+    z-index: 99;
+    text-align: right;
   }
 
   &__btn {
@@ -82,7 +82,7 @@
     }
   }
 
-  .swiper-button-disabled {
+  .card-room__btn.swiper-button-disabled {
     display: none;
   }
 
