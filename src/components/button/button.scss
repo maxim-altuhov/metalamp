@@ -33,6 +33,11 @@
     padding: 2px;
     animation: opacityBtnOut 0.3s 1 linear forwards;
 
+    &-modif {
+      min-width: 86px;
+      height: 34px;
+    }
+
     &:hover,
     &:focus {
       animation: opacityBtn 0.3s 1 linear forwards;
@@ -106,6 +111,18 @@
       right: 11px;
       width: 24px;
       height: 24px;
+    }
+  }
+
+  &_mini {
+    font-size: 12px;
+    line-height: 14px;
+    height: 34px;
+    padding: 0 20px;
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
     }
   }
 }

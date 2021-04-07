@@ -1,0 +1,17 @@
+@import '@base/base';
+@import '@comp/logo/logo';
+@import '@comp/header/header';
+
+html {
+  background: $background-grey;
+}
+
+.headers {
+  &__container {
+    margin-top: 62px;
+  }
+
+  &__elem {
+    margin-top: 40px;
+  }
+}

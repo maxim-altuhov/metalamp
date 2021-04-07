@@ -1,0 +1,114 @@
+@import '@comp/button/button';
+
+.header {
+  &__block {
+    width: 100%;
+    min-height: 70px;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 20px $dark5;
+  }
+
+  &__wrapper {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    color: $dark50;
+
+  }
+
+  &__navigation {
+    margin: 0 0 0 auto;
+  }
+
+  &__menu {
+    display: flex;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 121%;
+  }
+
+  &__menu-link {
+    position: relative;
+    margin-right: 21px;
+    display: flex;
+    align-items: center;
+
+    a {
+      color: $dark50;
+      transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
+      text-transform: c;
+
+      &:hover,
+      &:focus {
+        text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
+        color: $dark75;
+      }
+    }
+
+    span {
+      font-size: 24px;
+      text-shadow: none;
+      color: $dark50;
+      padding-top: 1px;
+      cursor: pointer;
+    }
+
+    &:last-child {
+      margin-right: 20px;
+    }
+
+    &_active {
+      text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
+      color: $dark75;
+    }
+  }
+
+  &__submenu {
+    background-color: #FFFFFF;
+    width: auto;
+    padding: 20px;
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    z-index: 99;
+    box-shadow: 0px 10px 20px $dark5;
+    border-radius: 5px;
+
+    .header__menu-link {
+      padding: 5px;
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__btn {
+    display: flex;
+  }
+
+  &__btn-elem {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__login {
+    line-height: 30px;
+    height: 30px;
+    border-left: 1px solid $dark10;
+    padding-left: 20px;
+    color: $dark50;
+    transition: color 0.2s ease-in;
+
+    &:hover,
+    &:focus {
+      color: $dark;
+    }
+  }
+}

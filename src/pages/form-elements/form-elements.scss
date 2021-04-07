@@ -19,34 +19,46 @@
 
 .form-elements {
 
-  &__container {
-    max-width: 1654px;
-    margin: 65px auto 0 auto;
-    padding: 0 15px;
-  }
-
   &__wrapper {
+    margin-top: 65px;
     display: grid;
-    grid-template-columns: minmax(min-content, 446px) minmax(min-content, 392px) auto;
+    grid-template-columns: auto 375px auto;
+    justify-items: center;
     grid-template-rows: auto 257px;
-    grid-row-gap: 59px;
+    grid-gap: 59px 72px;
 
     @media (max-width: 1199px) {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
-      grid-row-gap: normal;
-      justify-items: left;
+      grid-gap: normal;
     }
 
     @media (max-width: 767px) {
       grid-template-columns: auto;
-      justify-items: center;
     }
   }
 
   &__block {
     flex: 1 0 auto;
     width: 320px;
+
+    &:nth-child(1n) {
+      justify-self: right;
+
+      @media (max-width: 1199px) {
+        justify-self: center;
+      }
+
+    }
+
+    &:nth-child(3n) {
+      justify-self: left;
+
+      @media (max-width: 1199px) {
+        justify-self: center;
+      }
+
+    }
 
     @media (max-width: 375px) {
       width: 290px;
@@ -91,6 +103,11 @@
 
     &_full-width {
       max-width: 100%;
+      padding-left: 55px;
+
+      @media (max-width: 767px) {
+        padding-left: 0;
+      }
     }
   }
 
@@ -127,7 +144,6 @@
 
   &__btn-row {
     display: flex;
-    margin-left: 1px;
     margin-bottom: 31px;
 
     &:nth-child(1) {

@@ -7,33 +7,43 @@
 @import '@comp/card-room/card-room';
 
 html {
-  background: #F4F4F6;
+  background: $background-grey;
 }
 
 .cards {
-
-  &__container {
+  &__wrapper {
+    margin-top: 72px;
     display: grid;
-    grid-template-columns: repeat(3, 380px);
-    grid-column-gap: 40px;
-    max-width: 1657px;
-    margin: 72px auto 0 auto;
-    padding: 0 15px;
+    grid-template-columns: auto 379px auto;
+    justify-items: center;
+    grid-gap: 40px;
 
     @media (max-width: 1199px) {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
-      grid-row-gap: normal;
-      justify-items: left;
+      grid-gap: normal;
     }
 
     @media (max-width: 860px) {
       grid-template-columns: auto;
-      justify-items: center;
+    }
+  }
+
+  &__column {
+    &:nth-child(1) {
+      justify-self: right;
+
+      @media (max-width: 1199px) {
+        justify-self: center;
+      }
     }
 
-    @media (max-width: 420px) {
-      padding: 0 5px;
+    &:nth-child(3) {
+      justify-self: left;
+
+      @media (max-width: 1199px) {
+        justify-self: center;
+      }
     }
   }
 

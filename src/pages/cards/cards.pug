@@ -11,23 +11,24 @@ html(lang="ru")
     meta(name="keywords", content="ui-kit, metalamp")
     link(rel="icon", href="./favicon.png", type="image/png")
   body
-    .ui-header
-      include ~@comp/logo/logo.pug
-    .cards__container
-      .cards__column
-        .cards__cell
-          include ~@comp/card-search/card-search.pug
-        .cards__cell
-          include ~@comp/card-reg/card-reg.pug
-      .cards__column
-        .cards__cell
-          include ~@comp/card-booking/card-booking.pug
-        .cards__cell
-          include ~@comp/card-input/card-input.pug
-      .cards__column
-        .cards__cell
-          #date-filter-example
-        .cards__cell
-          +cardRoom({ number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room1.jpg", "room1.jpg", "room1.jpg", "room1.jpg")
-        .cards__cell
-          +cardRoom({arrow: false, number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room2.jpg", "room2.jpg", "room2.jpg", "room2.jpg")
+    .container
+      .ui-header
+        include ~@comp/logo/logo.pug
+      .cards__wrapper
+        .cards__column
+          .cards__cell
+            include ~@comp/card-search/card-search.pug
+          .cards__cell
+            include ~@comp/card-reg/card-reg.pug
+        .cards__column
+          .cards__cell
+            include ~@comp/card-booking/card-booking.pug
+          .cards__cell
+            include ~@comp/card-input/card-input.pug
+        .cards__column
+          .cards__cell
+            #date-filter-example
+          .cards__cell
+            +cardRoom({ number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room1.jpg", "room1.jpg", "room1.jpg", "room1.jpg")
+          .cards__cell
+            +cardRoom({arrow: false, number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room2.jpg", "room2.jpg", "room2.jpg", "room2.jpg")

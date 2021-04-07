@@ -1,0 +1,20 @@
+//- components
+include ~@comp/header/header.pug
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    title UI Kit - Headers & Footers
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="UI Kit - Headers & Footers")
+    meta(name="keywords", content="ui-kit, metalamp")
+    link(rel="icon", href="./favicon.png", type="image/png")
+  body
+    .container
+      .ui-header
+        include ~@comp/logo/logo.pug
+    .headers__container
+      +header({addBtn: true })
+    .headers__elem
+      +header({addLogin: true })

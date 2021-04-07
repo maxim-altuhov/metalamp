@@ -4,16 +4,13 @@
 
 .colors-type {
 
-  &__container {
-    max-width: 1635px;
-    margin: 0 auto;
-    padding: 0 15px;
+  &__wrapper {
     display: grid;
     grid-template-columns: minmax(min-content, 696px) auto;
+    justify-items: center;
 
     @media (max-width: 767px) {
       grid-template-columns: auto;
-      justify-items: center;
     }
   }
 }
@@ -21,6 +18,11 @@
 .colors {
   &__wrapper {
     margin-top: 68px;
+    width: 425px;
+
+    @media (max-width: 1199px) {
+      width: auto;
+    }
   }
 
   &__item {
@@ -36,7 +38,7 @@
 
   &__wrapper {
     margin-top: 68px;
-    max-width: 440px;
+    max-width: 443px;
 
     @media (max-width: 767px) {
       margin-bottom: 70px;
