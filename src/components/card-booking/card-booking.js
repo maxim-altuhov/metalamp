@@ -6,7 +6,7 @@ function showTooltip() {
     const tooltip = elem.querySelector('#tooltip');
     const tooltipText = elem.dataset.tooltip;
 
-    function showBlock(e) {
+    function showBlock() {
       tooltip.textContent = tooltipText;
       tooltip.style.cssText = 'top: 20px; left: 10px; display: block';
     }

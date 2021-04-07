@@ -3,7 +3,7 @@ include ~@comp/button/button.pug
 
 mixin header(options)
   - const { addBtn, addLogin } = options;
-    .header__block
+    header.header__block
       .container-content
         .header__wrapper
           a(class="header__logo" href="/")
@@ -12,10 +12,10 @@ mixin header(options)
             ul.header__menu
               li.header__menu-link.header__menu-link_active
                 a(href="/address/change-me") О нас
-              li.header__menu-link.header__menu-dropdown
+              li.header__menu-link.header__menu-dropdown.js-header__menu-dropdown
                 a(href="#!") Услуги
                 span.material-icons expand_more
-                ul.header__submenu.none
+                ul.header__submenu.js-header__submenu.none
                   li.header__menu-link
                     a(href="/address/change-me") Ссылка1
                   li.header__menu-link
@@ -26,10 +26,10 @@ mixin header(options)
                 a(href="/address/change-me") Вакансии
               li.header__menu-link
                 a(href="/address/change-me") Новости
-              li.header__menu-link.header__menu-dropdown
+              li.header__menu-link.header__menu-dropdown.js-header__menu-dropdown
                 a(href="#!") Соглашения
                 span.material-icons expand_more
-                ul.header__submenu.none
+                ul.header__submenu.js-header__submenu.none
                   li.header__menu-link
                     a(href="/address/change-me") Ссылка1
                   li.header__menu-link

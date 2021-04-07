@@ -26,6 +26,10 @@
     }
   }
 
+  &_max-width {
+    max-width: 266px;
+  }
+
   input {
     margin-top: 5px;
     display: block;
@@ -71,6 +75,7 @@
   }
 
   input.subscription {
+
     &_mini {
       max-width: 266px;
       padding-right: 35px;
@@ -79,7 +84,7 @@
     &+button {
       position: absolute;
       bottom: 1px;
-      right: 55px;
+      right: 2px;
       height: 40px;
       width: 40px;
       background: $background-gradient;

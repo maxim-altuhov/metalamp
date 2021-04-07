@@ -1,5 +1,6 @@
 //- components
 include ~@comp/header/header.pug
+include ~@comp/footer-copyright/footer-copyright.pug
 
 doctype html
 html(lang="ru")
@@ -18,3 +19,8 @@ html(lang="ru")
       +header({addBtn: true })
     .headers__elem
       +header({addLogin: true })
+    .headers__elem
+      include ~@comp/footer/footer.pug
+    .headers__elem
+      +footerCopyright({mini: true})
+    .headers__elem &nbsp;

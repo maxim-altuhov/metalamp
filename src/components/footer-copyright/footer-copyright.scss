@@ -1,0 +1,52 @@
+@import './libs/fontawesome/scss/font-awesome.scss';
+
+.footer {
+  &__copyright {
+    margin-top: 1px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 20px $dark5;
+
+    &_mini {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+  }
+
+  &__copyright-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+
+    &_mini {
+      min-height: 367px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 120px 0;
+      margin-bottom: 150px;
+
+      P {
+        margin-bottom: 6px;
+      }
+    }
+  }
+
+  &__copyright-social {
+    font-size: 25px;
+
+    a {
+      margin-right: 23px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.footer__copyright-icon {
+  background: $background-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

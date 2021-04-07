@@ -1,14 +1,14 @@
 // открытие подменю при наведении
 function openingMenu() {
-  const links = document.querySelectorAll('.header__menu-dropdown');
+  const links = document.querySelectorAll('.js-header__menu-dropdown');
 
   function showBlockmenu(e) {
-    const blockLinks = e.currentTarget.querySelector('.header__submenu');
+    const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
     blockLinks.classList.remove('none');
   }
 
   function hideBlockmenu(e) {
-    const blockLinks = e.currentTarget.querySelector('.header__submenu');
+    const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
     blockLinks.classList.add('none');
   }
 

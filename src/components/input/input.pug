@@ -16,7 +16,7 @@ mixin input(options)
           input(class="date-dropdown date-dropdown_mini" readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
           span.material-icons keyboard_arrow_down
     else if inputTypeEmail
-      .form__group-input
+      .form__group-input.form__group-input_max-width
         label.label= labelText
           input(class="subscription subscription_mini" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-validate=`${validate}`)
           button(type="submit")

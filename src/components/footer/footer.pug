@@ -1,0 +1,51 @@
+//- components
+include ~@comp/input/input.pug
+include ~@comp/footer-copyright/footer-copyright.pug
+
+footer
+  .footer__block
+    .container-content
+      .footer__wrapper
+        .footer__column
+          .footer__logo
+            a(class="footer__logo" href="/")
+              img(src=require("./img/logo-main.svg"), alt="logo")
+          p.footer__descr Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+        .footer__column
+          span.footer__block-title Навигация
+          ul
+            li.footer__menu-link
+              a(href="/address/change-me") О нас
+            li.footer__menu-link
+              a(href="/address/change-me") Новости
+            li.footer__menu-link
+              a(href="/address/change-me") Служба поддержки
+            li.footer__menu-link
+              a(href="/address/change-me") Услуги
+        .footer__column
+          span.footer__block-title О нас
+          ul
+            li.footer__menu-link
+              a(href="/address/change-me") О сервисе
+            li.footer__menu-link
+              a(href="/address/change-me") Наша команда
+            li.footer__menu-link
+              a(href="/address/change-me") Вакансии
+            li.footer__menu-link
+              a(href="/address/change-me") Инвесторы
+        .footer__column
+          span.footer__block-title Служба поддержки
+          ul
+            li.footer__menu-link
+              a(href="/address/change-me") Соглашения
+            li.footer__menu-link
+              a(href="/address/change-me") Сообщества
+            li.footer__menu-link
+              a(href="/address/change-me") Связь с нами
+        .footer__column
+          span.footer__block-title.footer__block-title_fix-margin Подписка
+          p.footer__descr.footer__descr_no-margin Получайте специальные предложения и новости сервиса
+          .footer__sub-block
+            form(action="#", method="post", name="footer-subcribe")
+              +input({attributeName:"email-footer", attributeType:"email", placeholder:"Email", inputTypeEmail: true})
+  +footerCopyright({ })
