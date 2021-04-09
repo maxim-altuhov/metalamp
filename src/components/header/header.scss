@@ -1,6 +1,14 @@
 @import '@comp/button/button';
+@import './hamburger-menu';
 
 .header {
+  &__logo img {
+
+    @media (max-width: 575px) {
+      width: 90px;
+    }
+  }
+
   &__block {
     width: 100%;
     min-height: 70px;
@@ -13,7 +21,6 @@
     display: flex;
     align-items: center;
     color: $dark50;
-
   }
 
   &__navigation {
@@ -25,6 +32,30 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 121%;
+
+    @media (max-width:991px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: fixed;
+      background-image: $background-gradient;
+      transition: 0.6s;
+      top: 0;
+      left: -100%;
+      width: 345px;
+      height: 100%;
+      padding: 100px 30px 30px 30px;
+      z-index: 1999;
+    }
+
+    @media (max-width:575px) {
+      width: 100%;
+    }
+
+    &_active {
+      left: 0;
+      overflow: auto;
+    }
   }
 
   &__menu-link {
@@ -33,45 +64,101 @@
     display: flex;
     align-items: center;
 
+    @media (max-width:991px) {
+      margin-right: 0;
+      align-items: flex-start;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+
     a {
       color: $dark50;
       transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
+
+      @media (max-width:991px) {
+        margin-right: 0;
+        position: relative;
+        padding: 10px 0;
+        font-weight: 700;
+        color: $dark75;
+        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 16px;
+      }
 
       &:hover,
       &:focus {
         text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
         color: $dark75;
+
+        @media (max-width:991px) {
+          text-shadow: none;
+          color: $dark75;
+        }
       }
     }
 
-    span {
+    .header__link-arrow {
       font-size: 24px;
       text-shadow: none;
       color: $dark50;
       padding-top: 1px;
       cursor: pointer;
+
+      @media (max-width:991px) {
+        color: $dark75;
+        font-weight: 700;
+      }
     }
 
     &:last-child {
       margin-right: 20px;
+
+      @media (max-width:991px) {
+        margin-right: 0;
+      }
     }
 
-    &_active {
+    &__menu-link_active,
+    a.header__menu-link_active {
       text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
       color: $dark75;
+    }
+
+  }
+
+  &__menu-dropdown {
+    @media (max-width:991px) {
+      display: flex;
+      flex-direction: column;
     }
   }
 
   &__submenu {
     background-color: #FFFFFF;
     width: auto;
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     top: 100%;
-    left: 10%;
+    left: 30%;
     z-index: 99;
     box-shadow: 0px 10px 20px $dark5;
     border-radius: 5px;
+    transition: all 0.3s ease-out;
+
+    @media (max-width:991px) {
+      position: relative;
+      top: 0;
+      left: 0;
+      padding: 0;
+      background-color: transparent;
+      box-shadow: none;
+      border-radius: 0px;
+      overflow: hidden;
+    }
 
     .header__menu-link {
       padding: 5px;
@@ -79,9 +166,33 @@
       margin-bottom: 10px;
       text-align: center;
 
+      @media (max-width: 991px) {
+        text-align: left;
+        margin-bottom: 0;
+      }
+
       &:last-child {
         margin-bottom: 0;
       }
+
+      a {
+        @media (max-width: 991px) {
+          font-size: 14px;
+          line-height: 7px;
+        }
+      }
+    }
+  }
+
+  &__submenu_hide {
+    display: none;
+
+    @media (max-width: 991px) {
+      display: initial;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      z-index: -1;
     }
   }
 
@@ -92,9 +203,18 @@
   &__btn-elem {
     margin-right: 20px;
 
-    &:last-child {
+    @media (max-width: 575px) {
       margin-right: 0;
     }
+
+    &:last-child {
+      margin-right: 0;
+
+      @media (max-width: 575px) {
+        display: none;
+      }
+    }
+
   }
 
   &__login {
@@ -105,9 +225,34 @@
     color: $dark50;
     transition: color 0.2s ease-in;
 
+    @media (max-width: 575px) {
+      padding-left: 15px;
+    }
+
     &:hover,
     &:focus {
       color: $dark;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .menu__overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.75);
+    z-index: -1;
+    overflow: auto;
+    opacity: 0;
+    transition: 0.4s opacity;
+    visibility: hidden;
+
+    &_active {
+      opacity: 1;
+      z-index: 999;
+      visibility: visible;
     }
   }
 }
