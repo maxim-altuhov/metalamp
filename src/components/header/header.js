@@ -93,7 +93,7 @@ function initMenu() {
   function resizeChecker() {
     if (window.matchMedia('(min-width: 576px)').matches) {
       enableBodyScroll(menu);
-    } else {
+    } else if (hamburger.classList.contains('active')) {
       disableBodyScroll(menu);
     }
 
