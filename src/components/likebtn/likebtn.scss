@@ -15,7 +15,6 @@
     justify-content: center;
     align-items: center;
     transition: color 0.2s ease-in;
-    animation: likeBtnOut 0.2s 1 linear forwards;
 
     &:last-child {
       margin-right: 0;
@@ -77,31 +76,5 @@
 
   100% {
     background: linear-gradient(180deg, rgba($color: $purple, $alpha: 1) 0%, rgba($color: $purple-gradient, $alpha: 1) 100%);
-  }
-}
-
-@keyframes likeBtnOut {
-  0% {
-    background: linear-gradient(180deg, rgba($color: $purple, $alpha: 1) 0%, rgba($color: $purple-gradient, $alpha: 1) 100%);
-  }
-
-  20% {
-    background: linear-gradient(180deg, rgba($color: $purple, $alpha: 0.80) 0%, rgba($color: $purple-gradient, $alpha: 0.80) 100%);
-  }
-
-  40% {
-    background: linear-gradient(180deg, rgba($color: $purple, $alpha: 0.70) 0%, rgba($color: $purple-gradient, $alpha: 0.70) 100%);
-  }
-
-  60% {
-    background: linear-gradient(180deg, rgba($color: $purple, $alpha: 0.60) 0%, rgba($color: $purple-gradient, $alpha: 0.60) 100%);
-  }
-
-  80% {
-    background: linear-gradient(180deg, rgba($color: $purple, $alpha: 0.50) 0%, rgba($color: $purple-gradient, $alpha: 0.50) 100%);
-  }
-
-  100% {
-    background: $dark25;
   }
 }

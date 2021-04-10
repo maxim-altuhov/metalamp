@@ -69,10 +69,10 @@
       }
     }
   }
-}
 
-.footer__copyright-icon {
-  background: $background-gradient;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  &__copyright-icon {
+    background: $background-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

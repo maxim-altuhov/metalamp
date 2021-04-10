@@ -1,3 +1,4 @@
+// фокус с помощью TAB
 function checkedFocus() {
   document.body.classList.add('using-mouse');
 
