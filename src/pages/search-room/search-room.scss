@@ -1,14 +1,60 @@
 @import '@lo/page/page';
+@import '@comp/input/input';
+@import '@comp/input/input-datepicker';
+@import '@comp/dropdown/dropdown';
+@import '@comp/range-slider/range-slider';
+@import '@comp/checkbox/checkbox';
+@import '@comp/checkbox-list/checkbox-list';
+@import '@comp/card-room/card-room';
+@import '@comp/pagination/pagination';
 
 .search-room {
   &__wrapper {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: 325px auto;
+    grid-template-columns: 326px auto;
 
   }
 
-  &__aside {}
+  &__aside-elem {
+    margin-bottom: 30px;
 
-  &__content {}
+    &:first-child {
+      margin-bottom: 20px;
+    }
+
+    &:nth-child(6) {
+      margin-bottom: 25px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__aside-range-text {
+    display: block;
+    padding-top: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    color: $dark50;
+  }
+
+  &__aside-block {
+    padding-top: 18px;
+  }
+
+  &__content-wrapper {
+    margin-top: 22px;
+    margin-bottom: 42px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 12px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 76px;
+  }
 }

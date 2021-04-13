@@ -16,12 +16,12 @@ html {
     display: grid;
     grid-template-columns: auto 379px auto;
     justify-items: center;
-    grid-gap: 40px;
+    gap: 40px;
 
     @media (max-width: 1199px) {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
-      grid-gap: normal;
+      gap: normal;
     }
 
     @media (max-width: 860px) {

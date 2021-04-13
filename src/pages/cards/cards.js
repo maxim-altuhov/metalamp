@@ -18,14 +18,14 @@ function contentLoaded() {
   addDatePicker({
     $selectorId: '#card-booking-date',
     secondSelector: true,
-    startDate: '2021-08-19',
-    finishDate: '2021-08-23'
+    startDate: '2025-08-19',
+    finishDate: '2025-08-23'
   });
   showTooltip();
   addDatePicker({
     $selectorId: '#date-filter-example',
-    startDate: '2021-08-19',
-    finishDate: '2021-08-23'
+    startDate: '2025-08-19',
+    finishDate: '2025-08-23'
   });
   convertCost();
   convertComment();

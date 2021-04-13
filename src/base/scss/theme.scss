@@ -76,6 +76,11 @@ h3 {
   }
 }
 
+.line {
+  width: 100%;
+  border-bottom: 1px solid $dark25;
+}
+
 .visuallyhidden {
   position: absolute;
   width: 1px;

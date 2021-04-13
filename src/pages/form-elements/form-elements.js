@@ -5,7 +5,6 @@ import addMaskForInput from '@comp/input/input-mask';
 import addDatePicker from '@comp/input/input-datepicker';
 import initDropdown from '@comp/dropdown/dropdown';
 import toggleLikes from '@comp/likebtn/likebtn';
-import setRating from '@comp/rating/rating';
 import rangeSlider from '@comp/range-slider/range-slider';
 import initPagination from '@comp/pagination/pagination';
 import toggleCheckboxList from '@comp/checkbox-list/checkbox-list';
@@ -19,12 +18,11 @@ function contentLoaded() {
   });
   addDatePicker({
     $selectorId: '#date-filter',
-    startDate: '2021-08-19',
-    finishDate: '2021-08-23'
+    startDate: '2025-08-19',
+    finishDate: '2025-08-23'
   });
   initDropdown({});
   toggleLikes();
-  setRating();
   rangeSlider({
     selector: '#range-slider-1',
     start: [5000, 10000],

@@ -17,7 +17,7 @@
     padding: 100px 0;
     display: grid;
     grid-template-columns: 260px repeat(3, 1fr) 260px;
-    grid-gap: 0 40px;
+    gap: 0 40px;
 
     @media (max-width: 1199px) {
       grid-template-columns: 2fr repeat(3, 1fr) 2fr;
@@ -27,7 +27,7 @@
       padding: 50px 0;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      grid-gap: 40px 40px;
+      gap: 40px 40px;
       justify-items: center;
     }
 
