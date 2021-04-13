@@ -7,6 +7,16 @@
     cursor: pointer;
   }
 
+  .label_dropdown {
+    @media (max-width: 410px) {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
   &_dropdown {
     display: flex;
     justify-content: space-between;
@@ -15,9 +25,13 @@
     span {
       position: absolute;
       bottom: 8px;
-      right: 9px;
+      right: 10px;
       color: $dark50;
       cursor: pointer;
+
+      @media (max-width: 410px) {
+        right: 4px;
+      }
 
       &.active {
         transform: rotate(180deg);
@@ -43,8 +57,9 @@
     color: $dark75;
     transition: border 0.2s ease-in;
 
-    @media (max-width: 420px) {
+    @media (max-width: 410px) {
       font-size: 13px;
+      padding: 13px 11px;
     }
 
     &:hover,
@@ -58,11 +73,11 @@
   }
 
   input.date-dropdown {
-    width: 150px;
+    width: 151px;
     cursor: pointer;
 
-    @media (max-width: 420px) {
-      width: 130px;
+    @media (max-width: 410px) {
+      width: 100%;
     }
 
     @include placeholder($dark75, 13.6);
@@ -90,10 +105,6 @@
       background: $background-gradient;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-
-      @media (max-width: 375px) {
-        right: 25px;
-      }
     }
   }
 }

@@ -1,0 +1,12 @@
+extends ~@lo/page/page
+
+//- components
+include ~@comp/card-reg/card-reg
+
+block variables
+  - const title = "Регистрация аккаунта"
+  - const keywords = "регистрация"
+
+block content
+  .registration__block
+    +cardReg({ textBtn: "зарегистрироваться" })

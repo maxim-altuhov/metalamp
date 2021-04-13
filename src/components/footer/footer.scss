@@ -40,23 +40,22 @@
     &:nth-child(1) {
       @media (max-width: 991px) {
         grid-column-start: 1;
-        grid-column-end: 3;
+        grid-column-end: 2;
         grid-row-start: 1;
         grid-row-end: 2;
         text-align: center;
-        padding: 0 55px;
+        padding: 0 10px;
       }
 
       @media (max-width: 767px) {
         grid-column-start: 1;
         grid-column-end: 2;
-        padding: 0 10px;
       }
     }
 
     &:nth-child(5) {
       @media (max-width: 991px) {
-        grid-column-start: 3;
+        grid-column-start: 2;
         grid-column-end: 4;
         grid-row-start: 1;
         grid-row-end: 2;

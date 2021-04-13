@@ -5,7 +5,7 @@ import initDropdown from '@comp/dropdown/dropdown';
 import addMaskForInput from '@comp/input/input-mask';
 import addDatePicker from '@comp/input/input-datepicker';
 import { showTooltip, convertCost } from '@comp/card-booking/card-booking';
-import { sliderswiper, convertComment } from '@comp/card-room/card-room';
+import { sliderSwiper, convertComment } from '@comp/card-room/card-room';
 
 function contentLoaded() {
   checkedFocus();
@@ -29,7 +29,7 @@ function contentLoaded() {
   });
   convertCost();
   convertComment();
-  sliderswiper();
+  sliderSwiper();
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);

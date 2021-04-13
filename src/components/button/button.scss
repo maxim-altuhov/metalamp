@@ -91,9 +91,9 @@
     font-size: 12px;
     line-height: 105%;
 
-    @media (max-width: 420px) {
-      min-width: auto;
-      width: 270px;
+    @media (max-width: 410px) {
+      min-width: initial;
+      width: 100%;
     }
 
     &:hover,

@@ -1,0 +1,18 @@
+@import '@lo/page/page';
+@import '@comp/card-reg/card-reg';
+
+.registration__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./img/bg-page-reg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 683px;
+  padding: 0 15px;
+
+  @media (max-width: 380px) {
+    padding: 100px 15px;
+  }
+}

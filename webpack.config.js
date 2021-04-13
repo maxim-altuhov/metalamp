@@ -195,7 +195,8 @@ module.exports = {
       '@fonts': path.resolve(__dirname, 'src/base/fonts'),
       '@libs': path.resolve(__dirname, 'src/base/libs'),
       '@pages': path.resolve(__dirname, 'src/pages'),
-      '@comp': path.resolve(__dirname, 'src/components')
+      '@comp': path.resolve(__dirname, 'src/components'),
+      '@lo': path.resolve(__dirname, 'src/layout')
     }
   },
   optimization: optimization(),

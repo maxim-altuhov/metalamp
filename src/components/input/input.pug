@@ -4,10 +4,10 @@ mixin input(options)
   - const validate = isValidate ? true : false;
     if dateWithDropdown
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
-        label.label= labelText
+        label.label.label_dropdown= labelText
           input(class="date-dropdown" readonly id=id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
           span.material-icons keyboard_arrow_down
-        label.label= labelTextSecond
+        label.label.label_dropdown= labelTextSecond
           input(class="date-dropdown" readonly  id=`${id}-second` data-end autocomplete="off" name= `${attributeName}-2` type=attributeType placeholder=placeholder data-validate=`${validate}`)
           span.material-icons keyboard_arrow_down
     else if dateWithFilter

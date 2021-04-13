@@ -3,7 +3,7 @@ import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 SwiperCore.use([Navigation, Pagination]);
 
 // слайдер
-function sliderswiper() {
+function sliderSwiper() {
   const sliders = document.querySelectorAll('.js-card-room__images');
 
   sliders.forEach(elem => {
@@ -51,6 +51,6 @@ function convertComment() {
 }
 
 export {
-  sliderswiper,
+  sliderSwiper,
   convertComment
 };

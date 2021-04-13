@@ -37,19 +37,21 @@ function initMenu() {
   // открытие подменю при клике на мобильной версии
   function openSubmenu(e) {
     e.preventDefault();
-    const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
-    const blockArrow = e.currentTarget.querySelector('.js-header__link-arrow');
+    if (window.matchMedia('(max-width: 991px)').matches) {
+      const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
+      const blockArrow = e.currentTarget.querySelector('.js-header__link-arrow');
 
-    if (blockLinks.classList.contains('header__submenu_hide')) {
-      blockLinks.style.opacity = 1;
-      blockLinks.style.maxHeight = blockLinks.scrollHeight + 'px';
-      blockLinks.classList.remove('header__submenu_hide');
-      blockArrow.textContent = 'expand_less';
-    } else {
-      blockLinks.style.opacity = '';
-      blockLinks.style.maxHeight = '';
-      blockLinks.classList.add('header__submenu_hide');
-      blockArrow.textContent = 'expand_more';
+      if (blockLinks.classList.contains('header__submenu_hide')) {
+        blockLinks.style.opacity = 1;
+        blockLinks.style.maxHeight = blockLinks.scrollHeight + 'px';
+        blockLinks.classList.remove('header__submenu_hide');
+        blockArrow.textContent = 'expand_less';
+      } else {
+        blockLinks.style.opacity = '';
+        blockLinks.style.maxHeight = '';
+        blockLinks.classList.add('header__submenu_hide');
+        blockArrow.textContent = 'expand_more';
+      }
     }
   }
 
