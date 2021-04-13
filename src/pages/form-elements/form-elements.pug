@@ -48,28 +48,28 @@ html(lang="ru")
             +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", inputTypeEmail: true})
         .form-elements__block
           .form-elements__item
-            span.label Checkbox Buttons
+            h3 Checkbox Buttons
             .form-elements__flex-wrapper
               +checkbox({text:"Можно курить", name:"checkbox-1"})
               +checkbox({text:"Можно с питомцами", name:"checkbox-2", checked: true})
               +checkbox({text:"Можно пригласить гостей (до 10 человек)", name:"checkbox-3", checked: true})
           .form-elements__item.form-elements__item_min-margin
-            span.label Radio Buttons
+            h3 Radio Buttons
             .form-elements__flex-wrapper.form-elements__flex-wrapper_row
               +radiobtn({text:"Мужчина", name:"radio-btn", checked: true})
               +radiobtn({text:"Женщина", name:"radio-btn"})
           .form-elements__item.form-elements__item_big-margin
-            span.label Toggle
+            h3 Toggle
             .form-elements__flex-wrapper
               +toggle({text:"Получать спецпредложения", name:"toggle-1", checked: true})
               +toggle({text:"Получать спецпредложения", name:"toggle-2"})
           .form-elements__item
-            span.label Like Button
+            h3 Like Button
             .form-elements__flex-wrapper.form-elements__flex-wrapper_row
               +likebtn({counter:2})
               +likebtn({counter:12, active: true})
           .form-elements__item
-            span.label Rate Button
+            h3 Rate Button
             .form-elements__flex-wrapper.form-elements__flex-wrapper_row
               .form-elements__rating
                 +simpleRating({value: 4})
@@ -79,7 +79,7 @@ html(lang="ru")
           .form-elements__item.form-elements__item_big-margin
             +rangeSlider({textLabel: "Range Slider", id: "range-slider-1"})
           .form-elements__item
-            span.label Buttons
+            h3 Buttons
             .form-elements__flex-wrapper.form-elements__flex-wrapper_row
               .form-elements__btn-row
                 .form-elements__btn-elem
@@ -99,7 +99,7 @@ html(lang="ru")
               .form-elements__btn-row
                   +button({mod:"big", text:"перейти к оплате", btnType:"button"})
           .form-elements__item
-            span.label Pagination
+            h3 Pagination
               .form-elements__pagination
                 +pagination({ id:"pagination-1" })
         .form-elements__block
@@ -122,13 +122,13 @@ html(lang="ru")
             +checkbox-list({text:"expandable checkbox list", name:"checkbox-list-2", open: true, elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
         .form-elements__block
           .form-elements__item.form-elements__item_add-margin
-            span.label Rich Checkbox Buttons
+            h3 Rich Checkbox Buttons
             .form-elements__flex-wrapper
               +checkbox({text:"Широкий коридор", addText:"Ширина коридоров в номере<br> не менее 91 см.", name:"rich-checkbox-1", expanded: true})
               +checkbox({text:"Помощник для инвалидов", addText:"На 1 этаже вас встретит специалист и проводит до номера.", name:"rich-checkbox-2", expanded: true})
         .form-elements__block
           .form-elements__item.form-elements__item_add-margin
-            span.label bullet list
+            h3 bullet list
             +bullet-list("Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00")
         .form-elements__block
           .form-elements__item.form-elements__item_fix-margin

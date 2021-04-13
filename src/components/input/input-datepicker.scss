@@ -1,11 +1,6 @@
 @import '~air-datepicker/dist/css/datepicker.min.css';
 @import '@comp/button/button';
 
-.datepickers-container {
-  @media (max-width: 410px) {
-    width: 90%;
-  }
-}
 
 .datepicker {
   width: 318px;
@@ -16,8 +11,8 @@
   border-radius: 4px;
 
   @media (max-width: 410px) {
-    width: auto;
-    min-height: initial;
+    width: 245px;
+    min-height: auto;
   }
 
   &--pointer {
@@ -62,8 +57,8 @@
   &--content {
     padding: 18px 19px;
 
-    @media (max-width: 375px) {
-      padding: 18px 5px;
+    @media (max-width: 410px) {
+      padding: 18px 10px;
     }
   }
 
@@ -80,14 +75,13 @@
     height: 40px;
 
     @media (max-width: 410px) {
-      height: 35px;
-      width: auto;
-      flex: 1 0 14.28571%;
+      width: 14.28571%;
+      height: 33px;
     }
   }
 
   &--cell-day.-focus- {
-    border-radius: 22px;
+    border-radius: 100%;
     font-weight: 700;
     border: 1px solid $purple;
     background: transparent;
@@ -102,10 +96,15 @@
     background: linear-gradient(180deg, $green 0%, $blue 100%);
     width: 40px;
     height: 40px;
-    border-radius: 22px;
+    border-radius: 100%;
     font-weight: 700;
     font-size: 12px;
     color: #FFFFFF;
+
+    @media (max-width: 410px) {
+      width: 14.28571%;
+      height: 33px;
+    }
   }
 
   &--cell-day.-current-.-focus- {

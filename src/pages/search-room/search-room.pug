@@ -1,0 +1,16 @@
+extends ~@lo/page-aside/page-aside
+//- components
+include ~@comp/input/input.pug
+include ~@comp/dropdown/dropdown.pug
+
+block variables
+  - const title = "Toxin - Поиск номеров"
+  - const keywords = "номера, booking, бронирование"
+
+block content
+  .container-content
+    .search-room__wrapper
+      aside.search-room__aside
+        +input({labelText:"даты пребывания в отеле", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Выберите даты", dateWithFilter: true})
+      main.search-room__content
+        h1 Номера, которые мы для вас подобрали

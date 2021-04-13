@@ -5,7 +5,7 @@ include ~@comp/checkbox/checkbox.pug
 mixin checkbox-list(options)
   - const { text, name, open = "false", elements } = options;
       .checkbox-list__block
-        .checkbox-list.js-checkbox-list.label(tabindex="0")= text
+        h3.checkbox-list.js-checkbox-list(tabindex="0")= text
           if open == true
             span(class="material-icons active") keyboard_arrow_up
           else

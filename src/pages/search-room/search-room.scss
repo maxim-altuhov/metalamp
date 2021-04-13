@@ -1,0 +1,14 @@
+@import '@lo/page/page';
+
+.search-room {
+  &__wrapper {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 325px auto;
+
+  }
+
+  &__aside {}
+
+  &__content {}
+}

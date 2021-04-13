@@ -8,7 +8,7 @@ mixin dropdown(options)
   - const miniClass = mini ? "form__group-dropdown_mini" : "";
   - const validate = isValidate ? true : false;
     div(class="form__group-input form__group-dropdown js-form__group-dropdown" + ` ${openClass}` + ` ${miniClass}` +` ${addClass}` id= id)
-      label.label= labelText
+      label.label-text= labelText
         input.form__dropdown-input.js-form__dropdown-input.visuallyhidden(name=attributeName type="text" autocomplete="off" value="" tabindex="-1" data-validate=`${validate}`)
       .form__dropdown.js-form__dropdown(tabindex="0")
         .form__dropdown-result.js-form__dropdown-result= textInInput

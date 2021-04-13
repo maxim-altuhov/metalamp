@@ -80,17 +80,11 @@
   }
 
   &__block-title {
-    display: block;
-    margin-top: 6px;
-    margin-bottom: 21px;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 120%;
-    text-transform: uppercase;
-    color: $dark;
+    margin-top: 4px;
+    margin-bottom: 22px;
 
     &_fix-margin {
-      margin-bottom: 18px;
+      margin-bottom: 19px;
     }
   }
 

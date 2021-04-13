@@ -1,10 +1,12 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    title Шаблон для MetaLamp
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(name="description", content="Шаблон для MetaLamp")
-    meta(name="keywords", content="шаблон")
-    link(rel="icon", href="./favicon.png", type="image/png")
-  body
+extends ~@lo/page/page
+
+block variables
+  - const title = "Toxin - Бронирование отелей"
+  - const keywords = "номера, booking, бронь"
+
+block content
+  .main-page__block
+    .container-content
+      .main-page__content
+        include ~@comp/card-search/card-search
+        .main-page__text Лучшие номера для вашей работы, отдыха и просто вдохновения
