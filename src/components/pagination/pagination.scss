@@ -1,11 +1,9 @@
 .pagination {
   &__wrapper {
     display: flex;
-    justify-content: center;
-    max-width: 241px;
+    justify-content: flex-start;
     height: 40px;
   }
-
 
   &__btn {
     flex: 0 0 40px;

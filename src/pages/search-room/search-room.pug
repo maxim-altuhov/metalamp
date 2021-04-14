@@ -15,7 +15,8 @@ block variables
 block content
   .container-content
     .search-room__wrapper
-      aside.search-room__aside
+      button.search-room__aside-btn.js-search-room__aside-btn(type="button") Открыть фильтр
+      aside.search-room__aside.js-search-room__aside
         .search-room__aside-elem
           +input({labelText:"Даты пребывания в отеле", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Выберите даты", dateWithFilter: true})
         .search-room__aside-elem
@@ -43,7 +44,7 @@ block content
         .search-room__content-wrapper
           +cardRoom({ number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room1.jpg", "room1.jpg", "room1.jpg", "room1.jpg")
           +cardRoom({ arrow: false, number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room2.jpg", "room2.jpg", "room2.jpg", "room2.jpg")
-          +cardRoom({ arrow: false, number: 980, price: 8500, ratingValue: 3, numberOfReviews: 35 }, elements = "room3.jpg", "room3.jpg", "room3.jpg", "room3.jpg")
+          +cardRoom({ arrow: false, number: 980, tag: "люкс", price: 8500, ratingValue: 3, numberOfReviews: 35 }, elements = "room3.jpg", "room3.jpg", "room3.jpg", "room3.jpg")
           +cardRoom({ arrow: false, number: 856, price: 7300, ratingValue: 5, numberOfReviews: 19 }, elements = "room4.jpg", "room4.jpg", "room4.jpg", "room4.jpg")
           +cardRoom({ arrow: false, number: 740, price: 6000, ratingValue: 4, numberOfReviews: 44 }, elements = "room5.jpg", "room5.jpg", "room5.jpg", "room5.jpg")
           +cardRoom({ arrow: false, number: 982, price: 5800, ratingValue: 3, numberOfReviews: 56 }, elements = "room6.jpg", "room6.jpg", "room6.jpg", "room6.jpg")

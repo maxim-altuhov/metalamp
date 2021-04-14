@@ -1,6 +1,8 @@
 import './search-room.scss';
 
 import { checkedFocus } from '@base/base';
+import initMenu from '@comp/header/header';
+import initFilterToggle from './filter';
 import addDatePicker from '@comp/input/input-datepicker';
 import initDropdown from '@comp/dropdown/dropdown';
 import rangeSlider from '@comp/range-slider/range-slider';
@@ -11,6 +13,8 @@ import initPagination from '@comp/pagination/pagination';
 
 function contentLoaded() {
   checkedFocus();
+  initMenu();
+  initFilterToggle();
   addDatePicker({
     $selectorId: '#date-filter',
     startDate: '2025-08-19',

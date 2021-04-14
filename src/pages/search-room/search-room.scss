@@ -14,6 +14,77 @@
     display: grid;
     grid-template-columns: 326px auto;
 
+    @media (max-width: 950px) {
+      grid-template-columns: auto auto;
+      gap: 0 20px;
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: auto;
+    }
+  }
+
+  &__aside {
+    @media (max-width: 767px) {
+      position: fixed;
+      background-color: #fff;
+      transition: left 0.5s linear;
+      top: 0;
+      left: -326px;
+      width: 326px;
+      height: 100%;
+      z-index: 1000;
+      padding: 90px 10px 10px 20px;
+      box-shadow: 0 10px 20px $dark5;
+
+      @media (max-width: 367px) {
+        width: 100%;
+        left: -100%;
+      }
+    }
+
+    &_opened {
+      left: 0px;
+      overflow: auto;
+    }
+  }
+
+  &__aside-btn {
+    display: none;
+
+    @media (max-width: 767px) {
+      display: block;
+      position: fixed;
+      top: 50%;
+      left: -41px;
+      transform: rotate(-90deg) translateY(-50%);
+      height: 40px;
+      padding: 0 20px;
+      line-height: 40px;
+      background: $background-gradient;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      border-radius: 0 0 10px 10px;
+      color: #FFFFFF;
+      z-index: 1100;
+      transition: left 0.5s linear;
+
+      @media (max-width: 367px) {
+        transition: left 0s linear;
+      }
+    }
+
+    &_opened {
+      left: 326px - 41px;
+
+      @media (max-width: 367px) {
+        top: 0%;
+        left: 50%;
+        transform: rotate(0deg) translateX(-50%);
+        transition: left 0s linear;
+      }
+    }
   }
 
   &__aside-elem {
@@ -44,12 +115,19 @@
     padding-top: 18px;
   }
 
+  &__content {
+    @media (max-width: 910px) {
+      text-align: center;
+    }
+  }
+
   &__content-wrapper {
     margin-top: 22px;
     margin-bottom: 42px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, 270px);
     gap: 20px 12px;
+    justify-content: center;
   }
 
   &__pagination {
