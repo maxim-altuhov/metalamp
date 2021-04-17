@@ -10,7 +10,7 @@
 
   &__title {
     cursor: pointer;
-    display: block;
+    display: inline-block;
     max-width: 240px;
     position: relative;
     padding-left: 30px;
@@ -27,7 +27,7 @@
 
   &__subtitle {
     cursor: pointer;
-    display: block;
+    display: inline-block;
     font-size: 12px;
     line-height: 14 / 12 * 100%;
     color: $dark50;

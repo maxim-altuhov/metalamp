@@ -35,7 +35,7 @@
 
       &.active {
         transform: rotate(180deg);
-        top: 29px;
+        bottom: 10px;
       }
     }
   }
@@ -52,7 +52,7 @@
     background: #FFFFFF;
     border: 1px solid $dark25;
     border-radius: 4px;
-    padding: 13px 15px;
+    padding: 13px 16px;
     font-size: 13.6px;
     color: $dark75;
     transition: border 0.2s ease-in;
@@ -72,8 +72,12 @@
     @include focus(transparent);
   }
 
+  input.focused {
+    border: 1px solid $dark50;
+  }
+
   input.date-dropdown {
-    width: 151px;
+    width: 150px;
     cursor: pointer;
 
     @media (max-width: 410px) {
@@ -93,7 +97,7 @@
 
     &_mini {
       max-width: 266px;
-      padding-right: 35px;
+      padding: 13px 35px 13px 15px;
     }
 
     &+button {

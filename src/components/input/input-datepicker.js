@@ -9,7 +9,8 @@ function addDatePicker({
   secondSelector = false,
   startDate,
   finishDate,
-  arrowToggle = false
+  arrowToggle = false,
+  setMinDate = false
 }) {
   const currentDatepicker = $($selectorId).datepicker().data('datepicker');
   let date1 = new Date(startDate);
@@ -18,6 +19,14 @@ function addDatePicker({
 
   if (secondSelector === true) {
     $secondSelector = `${$selectorId}-second`;
+  }
+
+  // установить минимальной датой, текущую дату
+  function setLimitForDate() {
+    if (setMinDate) {
+      return new Date();
+    }
+    return '';
   }
 
   let options = {
@@ -30,7 +39,7 @@ function addDatePicker({
       days: 'MM <i>yyyy</i>'
     },
     offset: 5,
-    minDate: new Date(),
+    minDate: setLimitForDate(),
     onSelect: (fd) => {
       if ($secondSelector) {
         $($selectorId).val(fd.split(' - ')[0]);
@@ -59,6 +68,12 @@ function addDatePicker({
   function setDate() {
     currentDatepicker.selectedDates.push(date1, date2);
     currentDatepicker.selectDate(currentDatepicker.selectedDates);
+    if ($($selectorId).val() === 'NaN.NaN.NaN') {
+      $($selectorId).val('ДД.ММ.ГГГГ');
+    }
+    if ($($secondSelector).val() === 'NaN.NaN.NaN') {
+      $($secondSelector).val('ДД.ММ.ГГГГ');
+    }
   }
 
   // функция добавляющая кнопки управления в календарь

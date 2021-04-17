@@ -68,26 +68,6 @@
     }
   }
 
-  &__descr {
-    margin-top: 17px;
-    font-size: 14px;
-    line-height: 171%;
-    color: $dark75;
-
-    &_no-margin {
-      margin-top: 0;
-    }
-  }
-
-  &__block-title {
-    margin-top: 4px;
-    margin-bottom: 22px;
-
-    &_fix-margin {
-      margin-bottom: 19px;
-    }
-  }
-
   &__menu-link {
     margin-bottom: 21px;
     font-size: 14px;
@@ -107,6 +87,26 @@
         text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
         color: $dark75;
       }
+    }
+  }
+
+  &__block-title {
+    margin-top: 4px;
+    margin-bottom: 22px;
+
+    &_small-margin {
+      margin-bottom: 19px;
+    }
+  }
+
+  &__descr {
+    margin-top: 17px;
+    font-size: 14px;
+    line-height: 171%;
+    color: $dark75;
+
+    &_no-top-margin {
+      margin-top: 0;
     }
   }
 

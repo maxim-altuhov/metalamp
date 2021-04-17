@@ -9,7 +9,7 @@
   }
 
   &__elem {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 
     &:last-child {
       margin-bottom: 0;
@@ -23,6 +23,7 @@
   &__elem_row {
     display: flex;
     margin-top: 10px;
+    padding: 1px;
   }
 
   &__btn {
@@ -30,10 +31,11 @@
   }
 
   &__sign-in {
-    margin-top: 29px;
+    margin-top: 27px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1px;
 
     &>span {
       font-size: 14px;

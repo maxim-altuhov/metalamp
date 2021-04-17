@@ -26,10 +26,14 @@ block content
           +info-icon({title: "Уют", subtitle: "Номер оснащён камином", icon: "whatshot", line: false})
         .room-details__rating
           h2 Впечатления от номера
+          .room-details__rating-elem
+            .room-details__rating-diagram
+            
+            .room-details__rating-descr              
         .room-details__feedback
           .room-details__feedback-title
             h2 Отзывы посетителей номера
-            span 2 отзыва
+            span.room-details__feedback-counter 2 отзыва
           .room-details__feedback-elem
             +feedback({name: "Мурад Сарафанов", avatarImg:"feedback-avatar-1.jpg", time:"5 дней назад", likeBtnNum: 12, text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."})
           .room-details__feedback-elem
@@ -44,5 +48,4 @@ block content
             p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
       .room-details__booking
         include ~@comp/card-booking/card-booking.pug
-
   .line

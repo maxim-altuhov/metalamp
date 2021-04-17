@@ -26,10 +26,6 @@
 
       img {
         height: 50%;
-
-        &:nth-child(1) {
-          transform: matrix(-1, 0, 0, 1, 0, 0);
-        }
       }
     }
 
@@ -65,7 +61,7 @@
     justify-content: space-between;
     align-items: baseline;
 
-    span {
+    span.room-details__feedback-counter {
       color: $dark50;
     }
   }

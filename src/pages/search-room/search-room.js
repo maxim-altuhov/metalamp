@@ -17,8 +17,8 @@ function contentLoaded() {
   initFilterToggle();
   addDatePicker({
     $selectorId: '#date-filter',
-    startDate: '2025-08-19',
-    finishDate: '2025-08-23'
+    startDate: '2019-08-19',
+    finishDate: '2019-08-23'
   });
   initDropdown({});
   rangeSlider({

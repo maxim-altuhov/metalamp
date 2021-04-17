@@ -18,7 +18,7 @@ function initMenu() {
     if (window.matchMedia('(min-width: 992px)').matches) {
       const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
       const currentLink = e.currentTarget.querySelector('.js-header__menu-dropdown span a');
-      blockLinks.classList.remove('header__submenu_hide');
+      blockLinks.classList.remove('header__submenu_hided');
       currentLink.classList.add('header__menu-link_active');
     }
   }
@@ -29,7 +29,7 @@ function initMenu() {
     if (window.matchMedia('(min-width: 992px)').matches) {
       const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
       const currentLink = e.currentTarget.querySelector('.js-header__menu-dropdown span a');
-      blockLinks.classList.add('header__submenu_hide');
+      blockLinks.classList.add('header__submenu_hided');
       currentLink.classList.remove('header__menu-link_active');
     }
   }
@@ -41,15 +41,15 @@ function initMenu() {
       const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
       const blockArrow = e.currentTarget.querySelector('.js-header__link-arrow');
 
-      if (blockLinks.classList.contains('header__submenu_hide')) {
+      if (blockLinks.classList.contains('header__submenu_hided')) {
         blockLinks.style.opacity = 1;
         blockLinks.style.maxHeight = blockLinks.scrollHeight + 'px';
-        blockLinks.classList.remove('header__submenu_hide');
+        blockLinks.classList.remove('header__submenu_hided');
         blockArrow.textContent = 'expand_less';
       } else {
         blockLinks.style.opacity = '';
         blockLinks.style.maxHeight = '';
-        blockLinks.classList.add('header__submenu_hide');
+        blockLinks.classList.add('header__submenu_hided');
         blockArrow.textContent = 'expand_more';
       }
     }
@@ -67,7 +67,7 @@ function initMenu() {
     blockLinksAll.forEach(elem => {
       elem.style.opacity = '';
       elem.style.maxHeight = '';
-      elem.classList.add('header__submenu_hide');
+      elem.classList.add('header__submenu_hided');
     });
   }
 

@@ -14,8 +14,8 @@ function contentLoaded() {
   addDatePicker({
     $selectorId: '#card-booking-date',
     secondSelector: true,
-    startDate: '2025-08-19',
-    finishDate: '2025-08-23'
+    startDate: '2019-08-19',
+    finishDate: '2019-08-23'
   });
   toggleLikes();
   showTooltip();

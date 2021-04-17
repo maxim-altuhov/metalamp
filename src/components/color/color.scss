@@ -14,19 +14,19 @@
       background: $dark;
     }
 
-    &_dark75 {
+    &_dark-shade75 {
       background: $dark75;
     }
 
-    &_dark50 {
+    &_dark-shade50 {
       background: $dark50;
     }
 
-    &_dark25 {
+    &_dark-shade25 {
       background: $dark25;
     }
 
-    &_dark5 {
+    &_dark-shade5 {
       background: $dark5;
     }
 
@@ -42,7 +42,7 @@
   &__descr {
     margin-left: 40px;
     font-size: 19px;
-    line-height: 28 / 19 * 100%;
+    line-height: 28px;
     align-items: center;
     color: $dark;
   }

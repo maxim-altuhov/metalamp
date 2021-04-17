@@ -53,7 +53,7 @@
     display: none;
 
     @media (max-width: 767px) {
-      display: block;
+      display: inline-block;
       position: fixed;
       top: 50%;
       left: -41px;
@@ -104,7 +104,7 @@
   }
 
   &__aside-range-text {
-    display: block;
+    display: inline-block;
     padding-top: 15px;
     font-size: 12px;
     line-height: 14px;

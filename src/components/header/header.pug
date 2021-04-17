@@ -14,10 +14,10 @@ mixin header(options)
               li.header__menu-link
                 a(href="/address/change-me") О нас
               li.header__menu-link.header__menu-dropdown.js-header__menu-dropdown
-                span
+                span.header__link-dropdown
                   a(href="#") Услуги
                   span.header__link-arrow.js-header__link-arrow.material-icons expand_more
-                ul.header__submenu.js-header__submenu.header__submenu_hide
+                ul.header__submenu.js-header__submenu.header__submenu_hided
                   li.header__menu-link
                     a(href="/address/change-me") Ссылка1
                   li.header__menu-link
@@ -29,10 +29,10 @@ mixin header(options)
               li.header__menu-link
                 a(href="/address/change-me") Новости
               li.header__menu-link.header__menu-dropdown.js-header__menu-dropdown
-                span
+                span.header__link-dropdown
                   a(href="#") Соглашения
                   span.header__link-arrow.js-header__link-arrow.material-icons expand_more
-                ul.header__submenu.js-header__submenu.header__submenu_hide
+                ul.header__submenu.js-header__submenu.header__submenu_hided
                   li.header__menu-link
                     a(href="/address/change-me") Ссылка1
                   li.header__menu-link
@@ -48,8 +48,8 @@ mixin header(options)
           if addBtn
             .header__btn
               .header__btn-elem
-                +button({mod:"transparent", text:"Войти", isLink: true, href: "/address/change-me"}, addclass="button_transparent-modif")
+                +button({mod:"transparent-for-header", text:"Войти", isLink: true, href: "sign-in.html"})
               .header__btn-elem
-                +button({mod:"colored", text:"зарегистрироваться", isLink: true, href: "/address/change-me"}, addclass="button_mini")
+                +button({mod:"colored-for-header", text:"зарегистрироваться", isLink: true, href: "registration.html"})
           if addLogin
             a(class="header__login" href="/address/change-me") Юлий Цезарь

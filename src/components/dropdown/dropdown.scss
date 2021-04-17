@@ -34,7 +34,7 @@
     background: #FFFFFF;
     border: 1px solid $dark25;
     border-radius: 4px;
-    padding: 13px 10px 13px 14px;
+    padding: 11px 9px 13px 14px;
     color: $dark75;
     display: flex;
     justify-content: space-between;
@@ -68,7 +68,7 @@
     border-top: 0;
     border-radius: 0 0 4px 4px;
     box-shadow: 0px 10px 20px $dark5;
-    padding: 4px 6px 6px 14px;
+    padding: 4px 6px 7px 14px;
   }
 
   &__dropdown-wrapper {
@@ -80,7 +80,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 6.5px;
+    margin-bottom: 6px;
 
     &:last-child {
       margin-bottom: 0;
@@ -114,7 +114,7 @@
     }
 
     span {
-      display: block;
+      display: inline-block;
       font-weight: 700;
       font-size: 11.9px;
       line-height: 15 / 11.9 * 100%;

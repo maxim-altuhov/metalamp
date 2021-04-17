@@ -35,7 +35,7 @@ html(lang="ru")
             +input({labelText:"text field", attributeName:"email-simple", attributeType:"email", placeholder:"Email"})
           .form-elements__item.form-elements__item_min-margin
             .form-elements__tag Hover / Focus
-            +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome"})
+            +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome", addClass:"focused"})
           .form-elements__item.form-elements__item_min-margin
             +dropdown({labelText:"dropdown", attributeName:"dropdown-guests", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
           .form-elements__item
@@ -55,7 +55,7 @@ html(lang="ru")
               +checkbox({text:"Можно пригласить гостей (до 10 человек)", name:"checkbox-3", checked: true})
           .form-elements__item.form-elements__item_min-margin
             h3 Radio Buttons
-            .form-elements__flex-wrapper.form-elements__flex-wrapper_row
+            .form-elements__flex-wrapper.form-elements__flex-wrapper_flex-row
               +radiobtn({text:"Мужчина", name:"radio-btn", checked: true})
               +radiobtn({text:"Женщина", name:"radio-btn"})
           .form-elements__item.form-elements__item_big-margin
@@ -65,12 +65,12 @@ html(lang="ru")
               +toggle({text:"Получать спецпредложения", name:"toggle-2"})
           .form-elements__item
             h3 Like Button
-            .form-elements__flex-wrapper.form-elements__flex-wrapper_row
+            .form-elements__flex-wrapper.form-elements__flex-wrapper_flex-row
               +likebtn({counter:2})
               +likebtn({counter:12, active: true})
           .form-elements__item
             h3 Rate Button
-            .form-elements__flex-wrapper.form-elements__flex-wrapper_row
+            .form-elements__flex-wrapper.form-elements__flex-wrapper_flex-row
               .form-elements__rating
                 +simpleRating({value: 4})
               .form-elements__rating
@@ -80,7 +80,7 @@ html(lang="ru")
             +rangeSlider({textLabel: "Range Slider", id: "range-slider-1"})
           .form-elements__item
             h3 Buttons
-            .form-elements__flex-wrapper.form-elements__flex-wrapper_row
+            .form-elements__flex-wrapper.form-elements__flex-wrapper_flex-row
               .form-elements__btn-row
                 .form-elements__btn-elem
                   +button({mod:"colored", text:"click me", btnType:"button"})
@@ -103,11 +103,11 @@ html(lang="ru")
               .form-elements__pagination
                 +pagination({ id:"pagination-1" })
         .form-elements__block
-          .form-elements__item.form-elements__item_limit-width.form-elements__item_min-margin
-            .form-elements__tag Default
+          .form-elements__item.form-elements__item_limited-width.form-elements__item_min-margin
+            .form-elements__tag.form-elements__tag_fixed-position Default
             +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms", textInInput:"Кол-во комнат", mini: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
-          .form-elements__item.form-elements__item_limit-width
-            .form-elements__tag Expanded
+          .form-elements__item.form-elements__item_limited-width
+            .form-elements__tag.form-elements__tag_fixed-position Expanded
             +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms2", textInInput:"Кол-во комнат", mini: true, open: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
         .form-elements__block
           .form-elements__item.form-elements__item_min-margin
@@ -121,13 +121,13 @@ html(lang="ru")
           .form-elements__item
             +checkbox-list({text:"expandable checkbox list", name:"checkbox-list-2", open: true, elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
         .form-elements__block
-          .form-elements__item.form-elements__item_add-margin
+          .form-elements__item.form-elements__item_added-margin
             h3 Rich Checkbox Buttons
             .form-elements__flex-wrapper
               +checkbox({text:"Широкий коридор", addText:"Ширина коридоров в номере<br> не менее 91 см.", name:"rich-checkbox-1", expanded: true})
               +checkbox({text:"Помощник для инвалидов", addText:"На 1 этаже вас встретит специалист и проводит до номера.", name:"rich-checkbox-2", expanded: true})
         .form-elements__block
-          .form-elements__item.form-elements__item_add-margin
+          .form-elements__item.form-elements__item_added-margin
             h3 bullet list
             .form-elements__bullet-list
               +bullet-list("Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00")

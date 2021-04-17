@@ -17,6 +17,18 @@
 
   &_colored {
 
+    &-for-header {
+      font-size: 12px;
+      line-height: 14px;
+      height: 34px;
+      padding: 0 20px;
+
+      &:hover,
+      &:focus {
+        opacity: 0.8;
+      }
+    }
+
     &:hover,
     &:focus {
       opacity: 0.5;
@@ -33,11 +45,6 @@
     padding: 2px;
     animation: opacityBtnOut 0.3s 1 linear forwards;
 
-    &-modif {
-      min-width: 86px;
-      height: 34px;
-    }
-
     &:hover,
     &:focus {
       animation: opacityBtn 0.3s 1 linear forwards;
@@ -45,7 +52,7 @@
 
     .button__text {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
       background: #fff;
       width: 100%;
@@ -62,6 +69,31 @@
     &:hover,
     &:focus {
       animation: none;
+    }
+  }
+
+  &_transparent-for-header {
+    background: $background-gradient;
+    color: $purple;
+    padding: 2px;
+    animation: opacityBtnOut 0.3s 1 linear forwards;
+    min-width: 86px;
+    height: 34px;
+
+    &:hover,
+    &:focus {
+      animation: opacityBtn 0.3s 1 linear forwards;
+    }
+
+    .button__text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      padding: 0 12px;
     }
   }
 
@@ -111,18 +143,6 @@
       right: 11px;
       width: 24px;
       height: 24px;
-    }
-  }
-
-  &_mini {
-    font-size: 12px;
-    line-height: 14px;
-    height: 34px;
-    padding: 0 20px;
-
-    &:hover,
-    &:focus {
-      opacity: 0.8;
     }
   }
 }

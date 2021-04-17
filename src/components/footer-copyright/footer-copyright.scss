@@ -12,7 +12,7 @@
       margin: 0 auto;
     }
 
-    &_mini {
+    &_small {
       max-width: 768px;
       margin: 0 auto;
     }
@@ -36,7 +36,7 @@
       }
     }
 
-    &_mini {
+    &_small {
       min-height: 367px;
       flex-direction: column;
       justify-content: space-between;
@@ -63,6 +63,11 @@
 
     a {
       margin-right: 23px;
+
+      &:nth-child(1) {
+        font-size: 27px;
+        margin-right: 22px;
+      }
 
       &:last-child {
         margin-right: 0;
