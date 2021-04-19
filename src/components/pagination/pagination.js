@@ -115,14 +115,14 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
     pageActive = pBlock.querySelector('.js-pagination__page_active');
 
     if (pageActive.textContent === '1') {
-      pBtnPrev.classList.add('none');
-      pBtnNext.classList.remove('none');
+      pBtnPrev.classList.add('pagination__btn_hidden');
+      pBtnNext.classList.remove('pagination__btn_hidden');
     } else if (pageActive.textContent === pageTotal.textContent) {
-      pBtnNext.classList.add('none');
-      pBtnPrev.classList.remove('none');
+      pBtnNext.classList.add('pagination__btn_hidden');
+      pBtnPrev.classList.remove('pagination__btn_hidden');
     } else {
-      pBtnPrev.classList.remove('none');
-      pBtnNext.classList.remove('none');
+      pBtnPrev.classList.remove('pagination__btn_hidden');
+      pBtnNext.classList.remove('pagination__btn_hidden');
     }
   }
 

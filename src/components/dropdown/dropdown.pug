@@ -5,11 +5,11 @@ include ~@comp/button/button.pug
 mixin dropdown(options)
   - const { id, elements, attributeName, labelText, textInInput, addBtn, open, mini, isValidate, addClass = "" } = options;
   - const openClass = open ? "form__group-dropdown_active" : "";
-  - const miniClass = mini ? "form__group-dropdown_mini" : "";
+  - const miniClass = mini ? "form__group-dropdown_small" : "";
   - const validate = isValidate ? true : false;
     div(class="form__group-input form__group-dropdown js-form__group-dropdown" + ` ${openClass}` + ` ${miniClass}` +` ${addClass}` id= id)
-      label.label-text= labelText
-        input.form__dropdown-input.js-form__dropdown-input.visuallyhidden(name=attributeName type="text" autocomplete="off" value="" tabindex="-1" data-validate=`${validate}`)
+      label.label-dropdown-text= labelText
+        input.form__dropdown-input.js-form__dropdown-input.form__dropdown-hidden(name=attributeName type="text" autocomplete="off" value="" tabindex="-1" data-validate=`${validate}`)
       .form__dropdown.js-form__dropdown(tabindex="0")
         .form__dropdown-result.js-form__dropdown-result= textInInput
         span(class="form__dropdown-arrow js-form__dropdown-arrow material-icons") keyboard_arrow_down
@@ -17,13 +17,13 @@ mixin dropdown(options)
         .form__dropdown-wrapper
           each value, element in elements
             .form__dropdown-elem.js-form__dropdown-elem
-              span= element
+              span.form__dropdown-item= element
               .form__dropdown-counter.js-form__dropdown-counter
                 button(disabled type="button" data-dropdown-minus) -
                 span= value
                 button(type="button" data-dropdown-plus) +
         if addBtn
           .form__dropdown-control
-            +button({mod:"simple", text:"Очистить", btnType:"button", btnFunction:"clear"}, addclass="hidden")
+            +button({mod:"simple", text:"Очистить", btnType:"button", btnFunction:"clear"}, addclass="elem-hidden")
             +button({mod:"simple", text:"Применить", btnType:"button", btnFunction:"apply"})
         .form__dropdown-limiter.js-form__dropdown-limiter(tabindex="0")

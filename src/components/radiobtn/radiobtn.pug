@@ -3,11 +3,11 @@ mixin radiobtn(options)
   - const { text, name, checked } = options;
       if checked
         .radiobtn__elem
-          label
-            input.radiobtn__field.visuallyhidden(type="radio", name=name, value=text, checked)
-            span= text
+          label.radiobtn__label
+            input.radiobtn__field.radiobtn__field_hidden(type="radio", name=name, value=text, checked)
+            span.radiobtn__text= text
       else
         .radiobtn__elem
-          label
-           input.radiobtn__field.visuallyhidden(type="radio", name=name, value=text)
-           span= text
+          label.radiobtn__label
+           input.radiobtn__field.radiobtn__field_hidden(type="radio", name=name, value=text)
+           span.radiobtn__text= text

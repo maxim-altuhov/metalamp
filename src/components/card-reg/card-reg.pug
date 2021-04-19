@@ -6,8 +6,8 @@ include ~@comp/button/button.pug
 
 mixin cardReg(options)
   - const { textBtn } = options;
-  .card__block
-    h1.card__title Регистрация аккаунта
+  .card-reg__block
+    h1.card-reg__title Регистрация аккаунта
     form(action="#", method="post", name="card-registration")
       .card-reg__wrapper
         .card-reg__elem
@@ -28,5 +28,5 @@ mixin cardReg(options)
         .card-reg__btn
           +button({mod:"big", text:`${textBtn}`, btnType:"submit"})
     .card-reg__sign-in
-      span Уже есть аккаунт на Toxin
+      span.card-reg__sign-in-text Уже есть аккаунт на Toxin
       +button({mod:"transparent", text:"Войти", isLink: true, href: "/address/change-me"})

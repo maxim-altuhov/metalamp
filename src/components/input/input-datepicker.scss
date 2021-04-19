@@ -210,8 +210,13 @@
     }
   }
 
-  .datepicker--cell.-selected-.-focus- {
+  &--cell.-selected-.-focus- {
     background: $background-gradient;
+  }
+
+  .-selected-.datepicker--cell-day.-other-month-,
+  .-selected-.datepicker--cell-year.-other-decade- {
+    background: linear-gradient(180deg, rgba($color: $purple, $alpha: 0.5) 0%, rgba($color: $purple-gradient, $alpha: 0.5) 100%);
   }
 
   .-in-range-.datepicker--cell-day.-other-month-,

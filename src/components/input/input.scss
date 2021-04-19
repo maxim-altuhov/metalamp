@@ -2,21 +2,6 @@
   display: flex;
   flex-direction: column;
 
-  label {
-    position: relative;
-    cursor: pointer;
-  }
-
-  .label_dropdown {
-    @media (max-width: 410px) {
-      margin-right: 15px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-
   &_dropdown {
     display: flex;
     justify-content: space-between;
@@ -42,6 +27,26 @@
 
   &_max-width {
     max-width: 266px;
+  }
+
+  .label-text-input {
+    position: relative;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15 / 12 * 100%;
+    text-transform: uppercase;
+    color: $dark;
+  }
+
+  .label-for-dropdown {
+    @media (max-width: 410px) {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 
   input {
@@ -70,45 +75,44 @@
     @include placeholder($dark25, 13.6);
 
     @include focus(transparent);
-  }
 
-  input.focused {
-    border: 1px solid $dark50;
-  }
-
-  input.date-dropdown {
-    width: 150px;
-    cursor: pointer;
-
-    @media (max-width: 410px) {
-      width: 100%;
+    &.focused {
+      border: 1px solid $dark50;
     }
 
-    @include placeholder($dark75, 13.6);
+    &.date-dropdown {
+      width: 150px;
+      cursor: pointer;
 
-    @include focus($dark75);
+      @media (max-width: 410px) {
+        width: 100%;
+      }
 
-    &_mini {
-      width: 266px;
+      @include placeholder($dark75, 13.6);
+
+      @include focus($dark75);
+
+      &_small {
+        width: 266px;
+      }
     }
-  }
 
-  input.subscription {
+    &.subscription {
+      &_small {
+        max-width: 266px;
+        padding: 13px 35px 13px 15px;
+      }
 
-    &_mini {
-      max-width: 266px;
-      padding: 13px 35px 13px 15px;
-    }
-
-    &+button {
-      position: absolute;
-      bottom: 1px;
-      right: 2px;
-      height: 40px;
-      width: 40px;
-      background: $background-gradient;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      &+button {
+        position: absolute;
+        bottom: 1px;
+        right: 2px;
+        height: 40px;
+        width: 40px;
+        background: $background-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
   }
 }

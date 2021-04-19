@@ -4,24 +4,24 @@ mixin input(options)
   - const validate = isValidate ? true : false;
     if dateWithDropdown
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
-        label.label-text.label_dropdown= labelText
+        label.label-text-input.label-for-dropdown= labelText
           input(class="date-dropdown" readonly id=id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
           span.material-icons keyboard_arrow_down
-        label.label-text.label_dropdown= labelTextSecond
+        label.label-text-input.label-for-dropdown= labelTextSecond
           input(class="date-dropdown" readonly  id=`${id}-second` data-end autocomplete="off" name= `${attributeName}-2` type=attributeType placeholder=placeholder data-validate=`${validate}`)
           span.material-icons keyboard_arrow_down
     else if dateWithFilter
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
-        label.label-text= labelText
-          input(class="date-dropdown date-dropdown_mini" readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
+        label.label-text-input= labelText
+          input(class="date-dropdown date-dropdown_small" readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
           span.material-icons keyboard_arrow_down
     else if inputTypeEmail
       .form__group-input.form__group-input_max-width
-        label.label-text= labelText
-          input(class="subscription subscription_mini" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-validate=`${validate}`)
+        label.label-text-input= labelText
+          input(class="subscription subscription_small" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-validate=`${validate}`)
           button(type="submit")
             span.material-icons arrow_forward
     else
       .form__group-input
-        label.label-text= labelText
+        label.label-text-input= labelText
           input(class=`${addClass}` name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask data-validate=`${validate}`)

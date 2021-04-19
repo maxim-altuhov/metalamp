@@ -6,10 +6,6 @@
   align-items: center;
   cursor: pointer;
 
-  span {
-    color: $dark50;
-  }
-
   &__block {
     max-width: 256px;
   }
@@ -18,6 +14,9 @@
     padding: 13px 0;
   }
 
+  span {
+    color: $dark50;
+  }
 }
 
 body.using-mouse {

@@ -24,7 +24,7 @@ function initDropdown({ arrowToggle = false }) {
       dCounters.forEach(number => {
         if (number.textContent > 0) {
           number.previousElementSibling.disabled = false;
-          if (dClear) dClear.classList.remove('hidden');
+          if (dClear) dClear.classList.remove('elem-hidden');
         }
       });
 
@@ -71,7 +71,7 @@ function initDropdown({ arrowToggle = false }) {
       dResult.textContent = textInInput;
       counterGuests = 0;
       resultObj = {};
-      if (dClear) dClear.classList.add('hidden');
+      if (dClear) dClear.classList.add('elem-hidden');
 
       dMinus.forEach(elem => {
         elem.disabled = true;
@@ -124,7 +124,7 @@ function initDropdown({ arrowToggle = false }) {
       const elem = parentElem.firstChild.textContent.toLowerCase();
       const isGuests = elem === 'взрослые' || elem === 'дети';
 
-      if (dClear) dClear.classList.remove('hidden');
+      if (dClear) dClear.classList.remove('elem-hidden');
 
       if (e.target.textContent === '+') {
         countElem = e.target.previousElementSibling;

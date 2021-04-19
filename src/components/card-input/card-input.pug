@@ -2,8 +2,8 @@
 include ~@comp/input/input.pug
 include ~@comp/button/button.pug
 
-.card__block
-  h1.card__title Войти
+.card-input__block
+  h1.card-input__title Войти
   form(action="#", method="post", name="card-input")
     .card-input__wrapper
       .card-input__elem
@@ -13,5 +13,5 @@ include ~@comp/button/button.pug
       .card-input__btn
         +button({mod:"big", text:"войти", btnType:"submit"})
   .card-input__sign-in
-    span Нет аккаунта на Toxin?
+    span.card-input__sign-in-text Нет аккаунта на Toxin?
     +button({mod:"transparent", text:"Создать", isLink: true, href: "/address/change-me"})

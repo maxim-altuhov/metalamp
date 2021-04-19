@@ -2,7 +2,7 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
-import datepicker from 'air-datepicker';
+import 'air-datepicker';
 
 function addDatePicker({
   $selectorId,

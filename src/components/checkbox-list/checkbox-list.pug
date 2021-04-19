@@ -1,7 +1,7 @@
 //- components
 include ~@comp/checkbox/checkbox.pug
 //-
-//- const { text, name, open = "false", elements } = options;
+//- const { text, name, open(boolean), elements } = options;
 mixin checkbox-list(options)
   - const { text, name, open = "false", elements } = options;
       .checkbox-list__block

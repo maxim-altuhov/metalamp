@@ -3,14 +3,14 @@ include ~@comp/input/input.pug
 include ~@comp/dropdown/dropdown.pug
 include ~@comp/button/button.pug
 
-.card__block
+.card-booking__block
   .card-booking__top
     .card-booking__info
       span №
       span.card-booking__number 888
       span.card-booking__tag люкс
     .card-booking__price
-      span(data-cost) 9990₽
+      span.card-booking__price-current(data-cost) 9990₽
       |  в сутки
   form(action="#", method="get", name="card-booking")
     .card-booking__wrapper
@@ -28,13 +28,13 @@ include ~@comp/button/button.pug
         .card-booking__details-elem
           p.card-booking__details-text Сбор за услуги: скидка 
             span#booking-sale(data-cost) 2179₽
-          span(class="info__point" data-tooltip="Подсказка") i
-            i#tooltip.info__tooltip
+          span(class="card-booking__info-point" data-tooltip="Подсказка") i
+            i#tooltip.card-booking__info-tooltip
           span#booking-services-result(data-cost) 0₽
         .card-booking__details-elem
           p.card-booking__details-text Сбор за дополнительные услуги
-          span(class="info__point" data-tooltip="Подсказка другая") i
-            i#tooltip.info__tooltip
+          span(class="card-booking__info-point" data-tooltip="Подсказка другая") i
+            i#tooltip.card-booking__info-tooltip
           span#booking-addservices-result(data-cost) 300₽
         .card-booking__details-total
           p Итого

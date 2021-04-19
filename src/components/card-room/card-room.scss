@@ -128,7 +128,7 @@
     line-height: 150%;
     color: rgba(31, 32, 65, 0.5);
 
-    span {
+    &-current {
       font-size: 14px;
       font-weight: 700;
     }
@@ -155,7 +155,7 @@
     color: rgba(31, 32, 65, 0.5);
     text-transform: capitalize;
 
-    span {
+    &-number {
       font-weight: 700;
     }
   }

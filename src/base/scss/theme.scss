@@ -44,62 +44,7 @@ h3 {
   margin-top: 30px;
 }
 
-.label-text {
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15 / 12 * 100%;
-  text-transform: uppercase;
-  color: $dark;
-}
-
-.card {
-  &__block {
-    max-width: 380px;
-    min-height: 358px;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    padding: 39px 28px 30px;
-
-    @media (max-width: 410px) {
-      max-width: initial;
-      width: 100%;
-      padding: 30px 20px;
-    }
-  }
-
-  &__title {
-    @media (max-width: 410px) {
-      font-size: 20px;
-    }
-  }
-}
-
 .line {
   width: 100%;
   border-bottom: 1px solid $dark25;
-}
-
-.visuallyhidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.none {
-  display: none;
-}
-
-.hidden {
-  opacity: 0;
-  overflow: hidden;
-  z-index: -1;
 }

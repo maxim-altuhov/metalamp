@@ -10,69 +10,84 @@
     }
   }
 
-}
+  &__field {
+    &_hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      white-space: nowrap;
+      clip-path: inset(100%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+  }
 
-input.radiobtn__field:checked+span,
-input.radiobtn__field:not(:checked)+span {
-  cursor: pointer;
-  max-width: 230px;
-  display: inline-block;
-  position: relative;
-  padding-left: 30px;
-  font-size: 14px;
-  line-height: 129%;
-  color: $dark50;
-}
+  &__field:checked+span,
+  &__field:not(:checked)+span {
+    cursor: pointer;
+    max-width: 230px;
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    font-size: 14px;
+    line-height: 129%;
+    color: $dark50;
+  }
 
-input.radiobtn__field:checked+span {
-  color: $dark75;
-}
+  &__field:checked+span {
+    color: $dark75;
+  }
 
-input.radiobtn__field:not(:checked)+span:before {
-  content: "";
-  position: absolute;
-  left: 0px;
-  top: -1px;
-  width: 20px;
-  height: 20px;
-  background: #FFFFFF;
-  border: 1px solid $dark25;
-  border-radius: 10px;
-}
+  &__field:not(:checked)+span:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    border: 1px solid $dark25;
+    border-radius: 10px;
+  }
 
-input.radiobtn__field:checked+span:before {
-  content: "";
-  position: absolute;
-  left: 0px;
-  top: -1px;
-  width: 20px;
-  height: 20px;
-  background: #FFFFFF;
-  border: 1px solid $purple;
-  border-radius: 10px;
-}
+  &__field:checked+span:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    border: 1px solid $purple;
+    border-radius: 10px;
+  }
 
-input.radiobtn__field:checked+span:after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  top: 3px;
-  width: 12px;
-  height: 12px;
-  border: 1px solid $purple;
-  border-radius: 10px;
-  background: $background-gradient;
-  opacity: 1;
-  transition: opacity 0.2s ease-in;
-}
+  &__field:checked+span:after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 3px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid $purple;
+    border-radius: 10px;
+    background: $background-gradient;
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+  }
 
-input.radiobtn__field:not(:checked)+span:after {
-  content: "";
-  opacity: 0;
-}
+  &__field:not(:checked)+span:after {
+    content: "";
+    opacity: 0;
+  }
 
-input.radiobtn__field:focus+span:before {
-  outline: $purple auto 2px;
+  &__field:focus+span:before {
+    outline: $purple auto 2px;
+  }
+
 }
 
 body.using-mouse {

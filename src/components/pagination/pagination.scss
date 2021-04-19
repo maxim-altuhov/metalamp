@@ -11,6 +11,10 @@
     background: linear-gradient(180deg, $green 0%, $blue 100%);
     border-radius: 22px;
     color: #fff;
+
+    &_hidden {
+      display: none;
+    }
   }
 
   &__pages {

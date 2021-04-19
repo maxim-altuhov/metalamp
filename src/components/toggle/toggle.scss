@@ -1,21 +1,58 @@
-.toggle__elem {
-  margin-bottom: 13px;
-  backface-visibility: hidden;
-  outline: 1px solid transparent;
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+.toggle {
 
-  &:last-child {
-    margin-bottom: 0;
+  &__elem {
+    margin-bottom: 13px;
+    backface-visibility: hidden;
+    outline: 1px solid transparent;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    input {
+      appearance: none;
+    }
+
+    input:focus~.toggle__block {
+      outline: $purple auto 2px;
+    }
+
+    input:not(:checked)~.toggle__indicator {
+      left: 4px;
+      background: $dark25;
+    }
+
+    input:checked {
+      &~.toggle__indicator {
+        left: 24px;
+        background: $background-gradient;
+      }
+
+      &~.toggle__block {
+        border: 1px solid $purple;
+      }
+    }
+
   }
 
-  input {
-    appearance: none;
+  &__input-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
   }
 
-  .toggle__block {
+  &__block {
     position: relative;
     display: inline-block;
     width: 40px;
@@ -26,11 +63,7 @@
     flex: 0 0 auto;
   }
 
-  input:focus~.toggle__block {
-    outline: $purple auto 2px;
-  }
-
-  .toggle__indicator {
+  &__indicator {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -40,23 +73,7 @@
     transition: left 0.2s linear;
   }
 
-  input:not(:checked)~.toggle__indicator {
-    left: 4px;
-    background: $dark25;
-  }
-
-  input:checked {
-    &~.toggle__indicator {
-      left: 24px;
-      background: $background-gradient;
-    }
-
-    &~.toggle__block {
-      border: 1px solid $purple;
-    }
-  }
-
-  .toggle__name {
+  &__name {
     color: $dark75;
     margin-left: 10px;
     vertical-align: 6px;

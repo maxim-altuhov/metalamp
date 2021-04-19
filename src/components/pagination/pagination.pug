@@ -2,7 +2,7 @@ mixin pagination(options)
   - const { id } = options;
     div(id= id)
       .pagination__wrapper
-        button(class="pagination__btn js-pagination__btn pagination__btn_prev js-pagination__btn_prev material-icons none" type="button") arrow_back
+        button(class="pagination__btn js-pagination__btn pagination__btn_prev js-pagination__btn_prev material-icons pagination__btn_hidden" type="button") arrow_back
         .pagination__pages.js-pagination__pages
         button(class="pagination__btn js-pagination__btn pagination__btn_next js-pagination__btn_next material-icons" type="button") arrow_forward
       .pagination__info 

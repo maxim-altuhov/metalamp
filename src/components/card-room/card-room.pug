@@ -19,11 +19,11 @@ mixin cardRoom(options, ...elements)
             span.card-room__number= number
             span.card-room__tag= tag
           .card-room__price
-            span(data-cost)= `${price}₽`
+            span.card-room__price-current(data-cost)= `${price}₽`
             |  в сутки
         hr.card-room__line
         .card-room__feedback
           +simpleRating({value: `${ratingValue}`})
           .card-room__comment.js-card-room__comment
-            span= numberOfReviews
+            span.card-room__comment-number= numberOfReviews
             |  отзывов

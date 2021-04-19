@@ -8,7 +8,7 @@ mixin header(options)
         .menu__overlay.js-menu__overlay
         .header__wrapper
           a(class="header__logo" href="/")
-            img(src=require("./img/logo-main.svg"), alt="logo")
+            include ~@comp/logo-main/logo-main.pug
           nav.header__navigation
             ul.header__menu.js-header__menu
               li.header__menu-link

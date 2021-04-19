@@ -6,7 +6,7 @@ mixin footerCopyright(options)
         .footer__copyright-wrapper.footer__copyright-wrapper_small
           .footer__copyright-logo_small
             a(class="footer__logo" href="/")
-              img(src=require("./img/logo-main.svg"), alt="logo")
+              include ~@comp/logo-main/logo-main.pug
           p Copyright © 2018 Toxin отель. Все права защищены.
           .footer__copyright-social
             a(href="/address/change-me" target="_blank" rel="noopener noreferrer") <i class="fa fa-twitter footer__copyright-icon" aria-hidden="true"></i>
@@ -18,7 +18,7 @@ mixin footerCopyright(options)
         .footer__copyright-wrapper
           .footer__copyright-logo
             a(class="footer__logo" href="/")
-              img(src=require("./img/logo-main.svg"), alt="logo")
+              include ~@comp/logo-main/logo-main.pug
           p Copyright © 2018 Toxin отель. Все права защищены.
           .footer__copyright-social
             a(href="/address/change-me" target="_blank" rel="noopener noreferrer") <i class="fa fa-twitter footer__copyright-icon" aria-hidden="true"></i>

@@ -5,9 +5,9 @@ mixin checkbox(options)
         .checkbox__elem
           label
             if checked
-              input.checkbox__field.visuallyhidden(type="checkbox", name=name, value=text, checked)
+              input.checkbox__field.checkbox__hidden(type="checkbox", name=name, value=text, checked)
             else
-              input.checkbox__field.visuallyhidden(type="checkbox", name=name, value=text)
+              input.checkbox__field.checkbox__hidden(type="checkbox", name=name, value=text)
             if expanded
               span.checkbox__title.checkbox__title_bold= text
               span.checkbox__subtitle!= subtitle
