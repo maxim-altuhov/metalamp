@@ -4,6 +4,7 @@ extends ~@lo/page/page
 include ~@comp/info-icon/info-icon.pug
 include ~@comp/feedback/feedback.pug
 include ~@comp/bullet-list/bullet-list.pug
+include ~@comp/diagram/diagram.pug
 
 block variables
   - const title = "Toxin - Описание номера"
@@ -27,13 +28,13 @@ block content
         .room-details__rating
           h2 Впечатления от номера
           .room-details__rating-elem
-            .room-details__rating-diagram
-            
-            .room-details__rating-descr              
+            +diagram({ selectorId: 'rating-rooms' ,rating_5: 130, rating_4: 65, rating_3: 65, rating_2: 0 })
         .room-details__feedback
           .room-details__feedback-title
             h2 Отзывы посетителей номера
-            span.room-details__feedback-counter 2 отзыва
+            .room-details__feedback-counter
+              span.room-details__feedback-number 2 
+              |  отзыва
           .room-details__feedback-elem
             +feedback({name: "Мурад Сарафанов", avatarImg:"feedback-avatar-1.jpg", time:"5 дней назад", likeBtnNum: 12, text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."})
           .room-details__feedback-elem

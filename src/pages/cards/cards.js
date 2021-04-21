@@ -9,7 +9,9 @@ import { sliderSwiper, convertComment } from '@comp/card-room/card-room';
 
 function contentLoaded() {
   checkedFocus();
-  initDropdown({});
+  initDropdown({
+    arrowToggle: false
+  });
   addMaskForInput();
   addDatePicker({
     $selectorId: '#card-search-date',

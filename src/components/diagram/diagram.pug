@@ -1,0 +1,42 @@
+mixin diagram(options)
+  - const { selectorId, rating_5, rating_4, rating_3, rating_2 } = options;
+  figure.diagram__wrapper
+    .diagram__rating-block
+      svg.diagram(id=selectorId, width="100%" height="100%" viewBox="0.4 0 34 34" data-rating=`${rating_5},${rating_4},${rating_3},${rating_2}`)
+        defs
+          lineargradient#score-5(x2="0" y2="100%")
+            stop(offset="0%" stop-color="#FFE39C")
+            stop(offset="100%" stop-color="#FFBA9C")
+          lineargradient#score-4(x1="57" y1="1" x2="57" y2="115" gradientUnits="userSpaceOnUse")
+            stop(offset="0%" stop-color="#6FCF97")
+            stop(offset="100%" stop-color="#66D2EA")
+          lineargradient#score-3(x2="0" y2="100%")
+            stop(offset="0%" stop-color="#BC9CFF")
+            stop(offset="100%" stop-color="#8BA4F9")
+          lineargradient#score-2(x2="0" y2="100%")
+            stop(offset="0%" stop-color="#919191")
+            stop(offset="100%" stop-color="#3D4975")
+            
+        circle.diagram__hole(cx="17" cy="17" r="15.91549430918954" fill="#fff")
+        circle.diagram__ring(cx="17" cy="17" r="15.91549430918954" fill="transparent" stroke="#fff" stroke-width="1")
+        circle.diagram__segment.js-diagram__segment(cx="17" cy="17" r="15.91549430918954" fill="transparent" stroke="url(#score-5)" stroke-width="1.2" stroke-dasharray="25 75" stroke-dashoffset="75")
+        circle.diagram__segment.js-diagram__segment(cx="17" cy="17" r="15.91549430918954" fill="transparent" stroke="url(#score-4)" stroke-width="1.2" stroke-dasharray="25 75" stroke-dashoffset="0")
+        circle.diagram__segment.js-diagram__segment(cx="17" cy="17" r="15.91549430918954" fill="transparent" stroke="url(#score-3)" stroke-width="1.2" stroke-dasharray="25 75" stroke-dashoffset="25")
+        circle.diagram__segment.js-diagram__segment(cx="17" cy="17" r="15.91549430918954" fill="transparent" stroke="url(#score-2)" stroke-width="1.2" stroke-dasharray="25 75" stroke-dashoffset="50")
+        g.diagram__text
+          text.diagram__number.js-diagram__number(x="50%" y="50%") 0
+          text.diagram__label.js-diagram__label(x="50%" y="50%") голосов
+    figcaption.diagram__legend-block
+      ul.diagram__legend-list(aria-hidden="true" role="presentation")
+        li.diagram__legend-item
+          span.diagram__legend-point.diagram__legend-point_yellow
+          | Великолепно
+        li.diagram__legend-item
+          span.diagram__legend-point.diagram__legend-point_green
+          | Хорошо
+        li.diagram__legend-item
+          span.diagram__legend-point.diagram__legend-point_purple
+          | Удовлетворительно
+        li.diagram__legend-item
+          span.diagram__legend-point.diagram__legend-point_grey
+          | Разочарован

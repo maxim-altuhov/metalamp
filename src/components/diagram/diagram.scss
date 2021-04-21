@@ -1,0 +1,66 @@
+.diagram {
+  &__wrapper {
+    display: flex;
+    min-height: 155px;
+  }
+
+  &__rating-block {
+    margin-top: 8px;
+    max-width: 123px;
+  }
+
+  &__text {
+    fill: $purple;
+    font-weight: bold;
+    font-size: 6.7px;
+    text-transform: uppercase;
+    text-anchor: middle;
+    transform: translateY(1px);
+  }
+
+  &__number {
+    transform: translateY(-1.3px);
+  }
+
+  &__label {
+    font-size: 3.3px;
+    transform: translateY(3.8px);
+  }
+
+  &__legend-block {
+    padding-left: 28px;
+    margin-top: 53px;
+  }
+
+  &__legend-item {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__legend-point {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin-right: 5px;
+
+    &_yellow {
+      background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
+    }
+
+    &_green {
+      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    }
+
+    &_purple {
+      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    }
+
+    &_grey {
+      background: linear-gradient(180deg, #919191 0%, #3D4975 100%);
+    }
+  }
+}

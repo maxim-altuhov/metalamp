@@ -1,3 +1,8 @@
+import {
+  disableBodyScroll,
+  enableBodyScroll
+} from 'body-scroll-lock';
+
 function initFilterToggle() {
   const blockFilter = document.querySelector('.js-search-room__aside');
   const btnToogleFilter = document.querySelector('.js-search-room__aside-btn');
@@ -9,8 +14,10 @@ function initFilterToggle() {
 
     if (btnToogleFilter.classList.contains('search-room__aside-btn_opened')) {
       btnToogleFilter.textContent = 'Закрыть фильтр';
+      disableBodyScroll(blockFilter);
     } else {
       btnToogleFilter.textContent = 'Открыть фильтр';
+      enableBodyScroll(blockFilter);
     }
   }
 
@@ -20,6 +27,7 @@ function initFilterToggle() {
       blockFilter.classList.remove('search-room__aside_opened');
       btnToogleFilter.classList.remove('search-room__aside-btn_opened');
       btnToogleFilter.textContent = 'Открыть фильтр';
+      enableBodyScroll(blockFilter);
     }
   }
 

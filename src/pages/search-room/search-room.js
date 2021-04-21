@@ -2,7 +2,7 @@ import './search-room.scss';
 
 import { checkedFocus } from '@base/base';
 import initMenu from '@comp/header/header';
-import initFilterToggle from './filter';
+import initFilterToggle from './js/filter';
 import addDatePicker from '@comp/input/input-datepicker';
 import initDropdown from '@comp/dropdown/dropdown';
 import rangeSlider from '@comp/range-slider/range-slider';
@@ -20,7 +20,9 @@ function contentLoaded() {
     startDate: '2019-08-19',
     finishDate: '2019-08-23'
   });
-  initDropdown({});
+  initDropdown({
+    arrowToggle: false
+  });
   rangeSlider({
     selector: '#range-slider-price',
     start: [5000, 10000],

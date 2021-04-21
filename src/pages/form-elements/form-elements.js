@@ -22,7 +22,9 @@ function contentLoaded() {
     startDate: '2019-08-19',
     finishDate: '2019-08-23'
   });
-  initDropdown({});
+  initDropdown({
+    arrowToggle: false
+  });
   toggleLikes();
   rangeSlider({
     selector: '#range-slider-1',

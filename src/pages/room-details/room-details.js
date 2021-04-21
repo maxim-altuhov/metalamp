@@ -2,6 +2,7 @@ import './room-details.scss';
 
 import { checkedFocus } from '@base/base';
 import initMenu from '@comp/header/header';
+import initDiagramRating from '@comp/diagram/diagram';
 import initDropdown from '@comp/dropdown/dropdown';
 import addDatePicker from '@comp/input/input-datepicker';
 import toggleLikes from '@comp/likebtn/likebtn';
@@ -10,7 +11,10 @@ import { showTooltip, convertCost } from '@comp/card-booking/card-booking';
 function contentLoaded() {
   checkedFocus();
   initMenu();
-  initDropdown({});
+  initDiagramRating('#rating-rooms');
+  initDropdown({
+    arrowToggle: false
+  });
   addDatePicker({
     $selectorId: '#card-booking-date',
     secondSelector: true,
