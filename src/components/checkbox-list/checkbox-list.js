@@ -21,14 +21,14 @@ function toggleCheckboxList() {
     }
   }
 
-  function toggleBlockPressEnter(e) {
+  function toggleBlockWithEnter(e) {
     if (e.key === 'Enter') {
       toggleBlock(e);
     }
   }
 
   $selector.on('click', toggleBlock);
-  $selector.on('keydown', toggleBlockPressEnter);
+  $selector.on('keydown', toggleBlockWithEnter);
 }
 
 export default toggleCheckboxList;

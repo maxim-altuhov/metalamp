@@ -13,7 +13,8 @@ function contentLoaded() {
   });
   addDatePicker({
     $selectorId: '#card-search-date',
-    secondSelector: true
+    secondSelector: true,
+    setMinDate: true
   });
 }
 

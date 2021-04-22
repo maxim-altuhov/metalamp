@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: minmax(min-content, 696px) auto;
     justify-items: center;
+    padding-bottom: 50px;
 
     @media (max-width: 767px) {
       grid-template-columns: auto;
@@ -29,7 +30,7 @@
   }
 
   &__item {
-    margin-bottom: 19.9px;
+    margin-bottom: 20px;
 
     &:last-child {
       margin-bottom: 0;
@@ -40,7 +41,7 @@
 .type {
 
   &__wrapper {
-    margin-top: 68px;
+    margin-top: 67px;
     max-width: 443px;
 
     @media (max-width: 767px) {
@@ -49,8 +50,12 @@
   }
 
   &__elem {
-    margin-bottom: 50.8px;
+    margin-bottom: 52px;
     display: flex;
+
+    &:nth-child(3) {
+      margin-bottom: 48px;
+    }
 
     &:last-child {
       margin-bottom: 0;

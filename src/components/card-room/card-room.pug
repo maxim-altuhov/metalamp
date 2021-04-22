@@ -10,8 +10,8 @@ mixin cardRoom(options, ...elements)
             img.swiper-slide(src=require(`./img/${element}`), alt= "photo room hotel")
         .card-room__pagination.js-card-room__pagination
         if arrow
-          .card-room__btn.js-card-room__btn.card-room__btn_prev.js-card-room__btn_prev.material-icons chevron_left
-          .card-room__btn.js-card-room__btn.card-room__btn_next.js-card-room__btn_next.material-icons chevron_right
+          button.card-room__btn.js-card-room__btn.card-room__btn_prev.js-card-room__btn_prev.material-icons chevron_left
+          button.card-room__btn.js-card-room__btn.card-room__btn_next.js-card-room__btn_next.material-icons chevron_right
       a.card-room__wrapper(href=`${href}`)
         .card-room__top
           .card-room__info

@@ -2,6 +2,7 @@
   &__elem {
     display: flex;
     margin-bottom: 12px;
+    max-width: 320px;
 
     &:last-child {
       margin-bottom: 0;
@@ -62,15 +63,15 @@
     font-size: 14px;
     line-height: 129%;
     color: $dark50;
-  }
 
-  &__title_bold {
-    font-weight: 700;
-    color: $dark75;
-    margin-bottom: 6px;
+    &_bold {
+      font-weight: 700;
+      color: $dark75;
+    }
   }
 
   &__subtitle {
+    margin-top: 6px;
     cursor: pointer;
     display: inline-block;
     font-size: 12px;
