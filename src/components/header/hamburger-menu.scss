@@ -1,10 +1,10 @@
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .ham {
     display: none;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   .ham {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -57,7 +57,7 @@
 }
 
 body.using-mouse {
-  .hamRotate.active {
+  .ham {
     outline: none;
   }
 }

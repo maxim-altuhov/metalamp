@@ -4,6 +4,7 @@
 .card-input {
   &__block {
     max-width: 380px;
+    min-width: 270px;
     min-height: 358px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.12);
@@ -11,16 +12,16 @@
     border-radius: 4px;
     padding: 39px 28px 30px;
 
-    @media (max-width: 410px) {
+    @media (max-width: 480px) {
       max-width: initial;
       width: 100%;
-      padding: 30px 20px;
     }
   }
 
   &__title {
-    @media (max-width: 410px) {
-      font-size: 20px;
+    @media (max-width: 480px) {
+      font-size: 19px;
+      text-align: center;
     }
   }
 

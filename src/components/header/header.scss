@@ -10,6 +10,7 @@
   }
 
   &__block {
+    min-width: 280px;
     width: 100%;
     min-height: 70px;
     background: #FFFFFF;
@@ -33,7 +34,7 @@
     font-size: 14px;
     line-height: 121%;
 
-    @media (max-width:991px) {
+    @media (max-width:1199px) {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -64,7 +65,7 @@
     display: flex;
     align-items: center;
 
-    @media (max-width:991px) {
+    @media (max-width:1199px) {
       margin-right: 0;
       align-items: flex-start;
     }
@@ -78,7 +79,7 @@
       color: $dark50;
       transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
 
-      @media (max-width:991px) {
+      @media (max-width:1199px) {
         margin-right: 0;
         position: relative;
         padding: 10px 0;
@@ -94,7 +95,7 @@
         text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
         color: $dark75;
 
-        @media (max-width:991px) {
+        @media (max-width:1199px) {
           text-shadow: none;
           color: $dark75;
         }
@@ -108,7 +109,7 @@
       padding-top: 1px;
       cursor: pointer;
 
-      @media (max-width:991px) {
+      @media (max-width:1199px) {
         color: $dark75;
         font-weight: 700;
       }
@@ -117,7 +118,7 @@
     &:last-child {
       margin-right: 20px;
 
-      @media (max-width:991px) {
+      @media (max-width:1199px) {
         margin-right: 0;
       }
     }
@@ -131,7 +132,7 @@
   }
 
   &__menu-dropdown {
-    @media (max-width:991px) {
+    @media (max-width:1199px) {
       display: flex;
       flex-direction: column;
     }
@@ -149,7 +150,7 @@
     border-radius: 5px;
     transition: all 0.3s ease-out;
 
-    @media (max-width:991px) {
+    @media (max-width:1199px) {
       position: relative;
       top: 0;
       left: 0;
@@ -166,7 +167,7 @@
       margin-bottom: 10px;
       text-align: center;
 
-      @media (max-width: 991px) {
+      @media (max-width: 1199px) {
         text-align: left;
         margin-bottom: 0;
       }
@@ -176,7 +177,7 @@
       }
 
       a {
-        @media (max-width: 991px) {
+        @media (max-width: 1199px) {
           font-size: 14px;
           line-height: 7px;
         }
@@ -187,7 +188,7 @@
   &__submenu_hided {
     display: none;
 
-    @media (max-width: 991px) {
+    @media (max-width: 1199px) {
       display: initial;
       max-height: 0;
       opacity: 0;
@@ -236,7 +237,7 @@
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   .menu__overlay {
     position: fixed;
     width: 100%;

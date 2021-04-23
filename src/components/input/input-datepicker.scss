@@ -11,7 +11,7 @@
   border-radius: 4px;
   z-index: 1200;
 
-  @media (max-width: 410px) {
+  @media (max-width: 480px) {
     width: 245px;
     min-height: auto;
   }
@@ -58,7 +58,7 @@
   &--content {
     padding: 17px 18px 16px 21px;
 
-    @media (max-width: 410px) {
+    @media (max-width: 480px) {
       padding: 18px 10px;
     }
   }
@@ -75,7 +75,7 @@
   &--cell-day {
     height: 40.5px;
 
-    @media (max-width: 410px) {
+    @media (max-width: 480px) {
       width: 14.28571%;
       height: 33px;
     }
@@ -102,7 +102,7 @@
     font-size: 12px;
     color: #FFFFFF;
 
-    @media (max-width: 410px) {
+    @media (max-width: 480px) {
       height: 33px;
     }
   }

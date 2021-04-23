@@ -12,8 +12,8 @@ mixin input(options)
           span.material-icons keyboard_arrow_down
     else if dateWithFilter
       div(class="form__group-input form__group-input_dropdown" data-selector= id)
-        label.label-text-input= labelText
-          input(class="date-dropdown date-dropdown_small" readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
+        label.label-text-input.label-text-input_small= labelText
+          input(class="date-dropdown date-dropdown_max-width" readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
           span.material-icons keyboard_arrow_down
     else if inputTypeEmail
       .form__group-input.form__group-input_max-width

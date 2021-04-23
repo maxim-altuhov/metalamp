@@ -13,11 +13,12 @@ function initMenu() {
   const allLinkInMenu = menu.querySelectorAll('a');
   const menuOverlay = document.querySelector('.js-menu__overlay');
   const hamburger = document.querySelector('.js-ham');
+  const widthWhenMenuIsActivated = 1199;
 
   // устанавливаем доступность при переключений TAB-ом
   function setTabindexForLink() {
     allLinkInMenu.forEach(elem => {
-      if (window.matchMedia('(max-width: 991px)').matches && !hamburger.classList.contains('active')) {
+      if (window.matchMedia(`(max-width: ${widthWhenMenuIsActivated}px)`).matches && !hamburger.classList.contains('active')) {
         elem.setAttribute('tabindex', '-1');
       } else {
         elem.setAttribute('tabindex', '');
@@ -35,7 +36,7 @@ function initMenu() {
   function showBlockmenu(e) {
     e.preventDefault();
 
-    if (window.matchMedia('(min-width: 992px)').matches) {
+    if (window.matchMedia(`(min-width: ${widthWhenMenuIsActivated + 1}px)`).matches) {
       const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
       const currentLink = e.currentTarget.querySelector('.js-header__link-dropdown a');
       blockLinks.classList.remove('header__submenu_hided');
@@ -47,7 +48,7 @@ function initMenu() {
   function hideBlockmenu(e) {
     e.preventDefault();
 
-    if (window.matchMedia('(min-width: 992px)').matches) {
+    if (window.matchMedia(`(min-width: ${widthWhenMenuIsActivated + 1}px)`).matches) {
       let blockLinks;
       let currentLink;
 
@@ -69,7 +70,7 @@ function initMenu() {
   // открытие подменю при клике на мобильной версии
   function openSubmenu(e) {
     e.preventDefault();
-    if (window.matchMedia('(max-width: 991px)').matches) {
+    if (window.matchMedia(`(max-width: ${widthWhenMenuIsActivated}px)`).matches) {
       const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
       const links = e.currentTarget.querySelectorAll('.js-header__submenu a');
       const blockArrow = e.currentTarget.querySelector('.js-header__link-arrow');
@@ -142,7 +143,7 @@ function initMenu() {
       disableBodyScroll(menu);
     }
 
-    if (window.matchMedia('(min-width: 992px)').matches && hamburger.classList.contains('active')) {
+    if (window.matchMedia(`(min-width: ${widthWhenMenuIsActivated + 1}px)`).matches && hamburger.classList.contains('active')) {
       toggleClassesMenu();
     }
     setTabindexForLink();

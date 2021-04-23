@@ -3,23 +3,24 @@
 
 .main-page {
   &__block {
+    min-width: 280px;
     background-image: url('./img/main-page-bg.jpg');
-    background-size: cover;
-    background-position: center;
+    background-size: 107%;
+    background-position: 50% 68%;
     background-repeat: no-repeat;
+
+    @media (max-width: 1439px) {
+      background-size: cover;
+    }
   }
 
   &__content {
     padding-top: 70px;
-    padding-bottom: 22px;
+    padding-bottom: 21px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 830px;
-
-    @media (max-width: 410px) {
-      min-height: 600px;
-    }
+    min-height: 57.6vw;
   }
 
   &__text {
@@ -29,6 +30,11 @@
     color: $dark75;
     text-align: right;
     align-self: flex-end;
-    margin-right: -7px;
+    margin-right: -6px;
+
+    @media (max-width: 991px) {
+      margin-right: 0;
+      padding-top: 10%;
+    }
   }
 }
