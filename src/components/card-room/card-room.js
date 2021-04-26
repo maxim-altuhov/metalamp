@@ -41,11 +41,11 @@ function convertComment() {
     const numberRemainingAfter = numberOfComments % 10;
 
     if (numberRemaining > 5 && numberRemaining < 21) {
-      elem.innerHTML = `<span>${numberOfComments}</span> Отзывов`;
+      elem.innerHTML = `<span class="card-room__comment-number">${numberOfComments}</span> Отзывов`;
     } else if (numberRemainingAfter > 1 && numberRemainingAfter < 5) {
-      elem.innerHTML = `<span>${numberOfComments}</span> Отзыва`;
+      elem.innerHTML = `<span class="card-room__comment-number">${numberOfComments}</span> Отзыва`;
     } else if (numberRemainingAfter === 1) {
-      elem.innerHTML = `<span>${numberOfComments}</span> Отзыв`;
+      elem.innerHTML = `<span class="card-room__comment-number">${numberOfComments}</span> Отзыв`;
     }
   });
 }

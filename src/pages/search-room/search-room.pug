@@ -39,6 +39,7 @@ block content
           +dropdown({labelText:"Удобства номера", attributeName:"dropdown-rooms", textInInput:"Кол-во комнат", mini: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
         .search-room__aside-elem
           +checkbox-list({text:"дополнительные удобства", name:"checkbox-list", elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
+        .search-room__limiter.js-search-room__limiter(tabindex="0")
       main.search-room__content
         h1 Номера, которые мы для вас подобрали
         .search-room__content-wrapper

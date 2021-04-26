@@ -1,14 +1,24 @@
 @import '@lo/page/page';
 @import '@comp/card-input/card-input';
 
-.login__block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url('./img/bg-page-reg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 683px;
-  padding: 0 15px;
+.sign-in {
+  &__wrapper {
+    background-image: url('./img/bg-page-reg.jpg');
+    background-size: 106.7%;
+    background-position: 50% 52%;
+    background-repeat: no-repeat;
+    min-width: 310px;
+    min-height: 46.5vw;
+
+    @media (max-width: 1439px) {
+      background-size: cover;
+    }
+  }
+
+  &__block {
+    padding: 14% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

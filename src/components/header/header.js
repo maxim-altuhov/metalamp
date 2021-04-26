@@ -128,7 +128,7 @@ function initMenu() {
   }
 
   // закрытие меню при клике вне меню
-  function toogleMenuClickOut(e) {
+  function toggleMenuClickOut(e) {
     if (e.target === menuOverlay) {
       toggleClassesMenu();
       setTabindexForLink();
@@ -172,7 +172,7 @@ function initMenu() {
 
   hamburger.addEventListener('keydown', activatingHamburgerWithEnter);
   hamburger.addEventListener('click', activatingHamburger);
-  menuOverlay.addEventListener('click', toogleMenuClickOut);
+  menuOverlay.addEventListener('click', toggleMenuClickOut);
   window.addEventListener('resize', resizeChecker);
 }
 

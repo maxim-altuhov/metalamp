@@ -4,13 +4,13 @@
 .header {
   &__logo img {
 
-    @media (max-width: 575px) {
+    @media (max-width: 650px) {
       width: 90px;
     }
   }
 
   &__block {
-    min-width: 280px;
+    min-width: 310px;
     width: 100%;
     min-height: 70px;
     background: #FFFFFF;
@@ -211,7 +211,7 @@
     &:last-child {
       margin-right: 0;
 
-      @media (max-width: 575px) {
+      @media (max-width: 650px) {
         display: none;
       }
     }

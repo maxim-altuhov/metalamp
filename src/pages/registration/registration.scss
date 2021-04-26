@@ -1,18 +1,23 @@
 @import '@lo/page/page';
 @import '@comp/card-reg/card-reg';
 
-.registration__block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url('./img/bg-page-reg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 683px;
-  padding: 0 15px;
+.registration {
+  &__wrapper {
+    background-image: url('./img/bg-page-reg.jpg');
+    background-size: 106.5%;
+    background-position: 50% 51%;
+    background-repeat: no-repeat;
+    min-width: 310px;
+    min-height: 47vw;
+    padding: 19px 0 17px 0;
 
-  @media (max-width: 380px) {
-    padding: 100px 15px;
+    @media (max-width: 1439px) {
+      background-size: cover;
+    }
+  }
+
+  &__block {
+    display: flex;
+    justify-content: center;
   }
 }

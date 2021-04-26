@@ -3,6 +3,10 @@
     display: flex;
     justify-content: flex-start;
     height: 40px;
+
+    @media (max-width: 767px) {
+      justify-content: center;
+    }
   }
 
   &__btn {
