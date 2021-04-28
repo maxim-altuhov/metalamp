@@ -1,5 +1,5 @@
 mixin diagram(options)
-  - const { selectorId, rating_5, rating_4, rating_3, rating_2 } = options;
+  - const { selectorId, rating_5 = 0, rating_4 = 0, rating_3 = 0, rating_2 = 0 } = options;
   figure.diagram__wrapper
     .diagram__rating-block
       svg.diagram(id=selectorId, width="100%" height="100%" viewBox="0.4 0 34 34" data-rating=`${rating_5},${rating_4},${rating_3},${rating_2}`)

@@ -43,18 +43,18 @@ block content
       main.search-room__content
         h1 Номера, которые мы для вас подобрали
         .search-room__content-wrapper
-          +cardRoom({ number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room1.jpg", "room1.jpg", "room1.jpg", "room1.jpg")
-          +cardRoom({ arrow: false, number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room2.jpg", "room2.jpg", "room2.jpg", "room2.jpg")
-          +cardRoom({ arrow: false, number: 980, tag: "люкс", price: 8500, ratingValue: 3, numberOfReviews: 35 }, elements = "room3.jpg", "room3.jpg", "room3.jpg", "room3.jpg")
-          +cardRoom({ arrow: false, number: 856, price: 7300, ratingValue: 5, numberOfReviews: 19 }, elements = "room4.jpg", "room4.jpg", "room4.jpg", "room4.jpg")
-          +cardRoom({ arrow: false, number: 740, price: 6000, ratingValue: 4, numberOfReviews: 44 }, elements = "room5.jpg", "room5.jpg", "room5.jpg", "room5.jpg")
-          +cardRoom({ arrow: false, number: 982, price: 5800, ratingValue: 3, numberOfReviews: 56 }, elements = "room6.jpg", "room6.jpg", "room6.jpg", "room6.jpg")
-          +cardRoom({ arrow: false, number: 678, price: 5500, ratingValue: 5, numberOfReviews: 45 }, elements = "room7.jpg", "room7.jpg", "room7.jpg", "room7.jpg")
-          +cardRoom({ arrow: false, number: 450, price: 5300, ratingValue: 4, numberOfReviews: 39 }, elements = "room8.jpg", "room8.jpg", "room8.jpg", "room8.jpg")
-          +cardRoom({ arrow: false, number: 350, price: 5000, ratingValue: 3, numberOfReviews: 77 }, elements = "room9.jpg", "room9.jpg", "room9.jpg", "room9.jpg")
-          +cardRoom({ arrow: false, number: 666, price: 5000, ratingValue: 5, numberOfReviews: 25 }, elements = "room10.jpg", "room10.jpg", "room10.jpg", "room10.jpg")
-          +cardRoom({ arrow: false, number: 444, price: 5000, ratingValue: 3, numberOfReviews: 15 }, elements = "room11.jpg", "room11.jpg", "room11.jpg", "room11.jpg")
-          +cardRoom({ arrow: false, number: 352, price: 5000, ratingValue: 3, numberOfReviews: 55 }, elements = "room12.jpg", "room12.jpg", "room12.jpg", "room12.jpg")
+          +cardRoom({ href: "room-details.html", number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room1.jpg", "room1.jpg", "room1.jpg", "room1.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room2.jpg", "room2.jpg", "room2.jpg", "room2.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 980, tag: "люкс", price: 8500, ratingValue: 3, numberOfReviews: 35 }, elements = "room3.jpg", "room3.jpg", "room3.jpg", "room3.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 856, price: 7300, ratingValue: 5, numberOfReviews: 19 }, elements = "room4.jpg", "room4.jpg", "room4.jpg", "room4.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 740, price: 6000, ratingValue: 4, numberOfReviews: 44 }, elements = "room5.jpg", "room5.jpg", "room5.jpg", "room5.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 982, price: 5800, ratingValue: 3, numberOfReviews: 56 }, elements = "room6.jpg", "room6.jpg", "room6.jpg", "room6.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 678, price: 5500, ratingValue: 5, numberOfReviews: 45 }, elements = "room7.jpg", "room7.jpg", "room7.jpg", "room7.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 450, price: 5300, ratingValue: 4, numberOfReviews: 39 }, elements = "room8.jpg", "room8.jpg", "room8.jpg", "room8.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 350, price: 5000, ratingValue: 3, numberOfReviews: 77 }, elements = "room9.jpg", "room9.jpg", "room9.jpg", "room9.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 666, price: 5000, ratingValue: 5, numberOfReviews: 25 }, elements = "room10.jpg", "room10.jpg", "room10.jpg", "room10.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 444, price: 5000, ratingValue: 3, numberOfReviews: 15 }, elements = "room11.jpg", "room11.jpg", "room11.jpg", "room11.jpg")
+          +cardRoom({ href: "room-details.html", arrow: false, number: 352, price: 5000, ratingValue: 3, numberOfReviews: 55 }, elements = "room12.jpg", "room12.jpg", "room12.jpg", "room12.jpg")
         .search-room__pagination
           +pagination({ id:"pagination" })
   .line

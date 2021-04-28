@@ -1,6 +1,7 @@
 import './room-details.scss';
 
 import { checkedFocus } from '@base/base';
+import initSliderPreview from './js/slider-preview';
 import initMenu from '@comp/header/header';
 import initDiagramRating from '@comp/diagram/diagram';
 import initDropdown from '@comp/dropdown/dropdown';
@@ -10,6 +11,7 @@ import { showTooltip, convertCost } from '@comp/card-booking/card-booking';
 
 function contentLoaded() {
   checkedFocus();
+  initSliderPreview();
   initMenu();
   initDiagramRating('#rating-rooms');
   initDropdown({
