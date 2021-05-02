@@ -4,8 +4,8 @@ include ~@comp/checkbox/checkbox.pug
 //- const { text, name, open(boolean), elements } = options;
 mixin checkbox-list(options)
   - const { text, name, open = "false", elements } = options;
-      .checkbox-list__block
-        h3.checkbox-list.js-checkbox-list(tabindex="0")= text
+      .checkbox-list
+        h3.checkbox-list__block.js-checkbox-list__block(tabindex="0")= text
           if open == true
             span(class="material-icons active") keyboard_arrow_up
           else
@@ -13,8 +13,10 @@ mixin checkbox-list(options)
         if open == true
           .checkbox-list__wrapper.checkbox-list__wrapper_active
             each value, element in elements
-              +checkbox({text:`${element}`, name:`${name}[]`, checked: value})
+              .checkbox-list__elem
+                +checkbox({text:`${element}`, name:`${name}[]`, checked: value})
         else
           .checkbox-list__wrapper(style={display: "none"})
             each value, element in elements
-              +checkbox({text:`${element}`, name:`${name}[]`, checked: value})
+              .checkbox-list__elem
+                +checkbox({text:`${element}`, name:`${name}[]`, checked: value})

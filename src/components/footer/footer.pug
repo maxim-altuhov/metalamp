@@ -2,13 +2,13 @@
 include ~@comp/input/input.pug
 include ~@comp/footer-copyright/footer-copyright.pug
 
-footer
+footer.footer
   .footer__block
     .container-content
       .footer__wrapper
         .footer__column
           .footer__logo
-            a(class="footer__logo" href="/")
+            a(href="/")
               include ~@comp/logo-main/logo-main.pug
           p.footer__descr Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
         .footer__column
@@ -43,8 +43,8 @@ footer
             li.footer__menu-link
               a(href="/address/change-me") Связь с нами
         .footer__column
-          h3.footer__block-title.footer__block-title_small-margin Подписка
-          p.footer__descr.footer__descr_no-top-margin Получайте специальные предложения и новости сервиса
+          h3.footer__block-subcribe-title Подписка
+          p.footer__descr.footer__descr_margin-top_null Получайте специальные предложения и новости сервиса
           .footer__sub-block
             form(action="#", method="post", name="footer-subcribe")
               +input({attributeName:"email-footer", attributeType:"email", placeholder:"Email", inputTypeEmail: true})

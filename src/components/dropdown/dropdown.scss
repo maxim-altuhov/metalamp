@@ -1,39 +1,39 @@
 @import '@comp/button/button';
 
-.form {
-  &__group-dropdown {
+.dropdown {
+  &__group-fields {
     position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
 
     &_small {
       max-width: 266px;
     }
 
     &_active {
-      .form__dropdown {
+      .dropdown__field {
         border: 1px solid $dark50;
         border-radius: 4px 4px 0 0;
       }
 
-      .form__dropdown-block {
+      .dropdown__field-block {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
       }
     }
 
-    .label-dropdown-text {
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 15 / 12 * 100%;
-      text-transform: uppercase;
-      color: $dark;
-    }
   }
 
-  &__dropdown {
+  &__label {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15 / 12 * 100%;
+    text-transform: uppercase;
+    color: $dark;
+  }
+
+  &__field {
     cursor: pointer;
     margin-top: 5px;
     width: 100%;
@@ -179,8 +179,8 @@
 
 body.using-mouse {
 
-  .form__dropdown:focus,
-  .form__dropdown-block:focus {
+  .dropdown__field:focus,
+  .dropdown__field-block:focus {
     outline: none;
   }
 }

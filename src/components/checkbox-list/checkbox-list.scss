@@ -1,26 +1,33 @@
 @import '@comp/checkbox/checkbox';
 
 .checkbox-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-
   &__block {
     max-width: 256px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  span {
+    color: $dark50;
   }
 
   &__wrapper {
     padding: 13px 0;
   }
 
-  span {
-    color: $dark50;
+  &__elem {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
 body.using-mouse {
-  .checkbox-list:focus {
+  .checkbox-list__block:focus {
     outline: none;
   }
 }

@@ -38,15 +38,25 @@
       margin-bottom: 0;
     }
 
-    &_big-margin {
+    &:nth-child(4) {
       margin-bottom: 20px;
     }
   }
 
-  &__elem_row {
+  &__elem_in-row {
     display: flex;
     margin-top: 10px;
     padding: 1px;
+  }
+
+  &__radiobtn {
+    margin-right: 20px;
+    margin-bottom: 21px;
+
+    &:last-child {
+      margin-right: 0px;
+      margin-bottom: 0px;
+    }
   }
 
   &__btn {

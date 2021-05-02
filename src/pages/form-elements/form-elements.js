@@ -4,7 +4,7 @@ import { checkedFocus } from '@base/base';
 import addMaskForInput from '@comp/input/input-mask';
 import addDatePicker from '@comp/input/input-datepicker';
 import initDropdown from '@comp/dropdown/dropdown';
-import toggleLikes from '@comp/likebtn/likebtn';
+import toggleLikes from '@comp/like/like';
 import rangeSlider from '@comp/range-slider/range-slider';
 import initPagination from '@comp/pagination/pagination';
 import toggleCheckboxList from '@comp/checkbox-list/checkbox-list';

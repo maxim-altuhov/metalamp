@@ -1,4 +1,4 @@
-@import '@lo/page/page';
+@import '@lo/page-with-aside/page-with-aside';
 @import '@comp/input/input';
 @import '@comp/input/input-datepicker';
 @import '@comp/dropdown/dropdown';
@@ -114,6 +114,14 @@
 
   &__aside-block {
     padding-top: 18px;
+  }
+
+  &__aside-checkbox {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__content {

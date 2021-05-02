@@ -3,7 +3,7 @@ window.jQuery = $;
 window.$ = $;
 
 function toggleCheckboxList() {
-  const $selector = $('.js-checkbox-list');
+  const $selector = $('.js-checkbox-list__block');
 
   function toggleBlock(e) {
     const target = e.currentTarget;

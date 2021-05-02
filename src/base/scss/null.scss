@@ -16,29 +16,6 @@
   outline: $purple auto 2px;
 }
 
-body.using-mouse {
-
-  &:focus,
-  :active {
-    outline: none;
-  }
-
-  a:focus,
-  a:active {
-    outline: none;
-  }
-
-  input:empty,
-  a:empty {
-    outline: 0px solid;
-  }
-
-  button:focus,
-  :active {
-    outline: none;
-  }
-}
-
 aside,
 nav,
 footer,

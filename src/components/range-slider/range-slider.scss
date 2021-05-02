@@ -1,8 +1,6 @@
-@import '~nouislider/distribute/nouislider.css';
+@import '~nouislider/distribute/nouislider.min.css';
 
 .range-slider {
-  margin-top: 23px;
-
   &__wrapper {
     max-width: 266px;
   }
@@ -18,6 +16,10 @@
     text-align: right;
     text-transform: uppercase;
     color: $dark50;
+  }
+
+  &__elem {
+    margin-top: 23px;
   }
 }
 

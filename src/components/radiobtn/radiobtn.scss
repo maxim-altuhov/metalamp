@@ -1,28 +1,16 @@
 .radiobtn {
 
-  &__elem {
-    margin-right: 20px;
-    margin-bottom: 21px;
-
-    &:last-child {
-      margin-right: 0px;
-      margin-bottom: 0px;
-    }
-  }
-
-  &__field {
-    &_hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      border: 0;
-      padding: 0;
-      white-space: nowrap;
-      clip-path: inset(100%);
-      clip: rect(0 0 0 0);
-      overflow: hidden;
-    }
+  &__field_hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
   }
 
   &__field:checked+span,

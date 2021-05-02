@@ -13,14 +13,15 @@ html(lang="ru")
     link(rel="icon", href="./favicon.png", type="image/png")
   body
     .container
-      .ui-header
-        include ~@comp/logo/logo.pug
-    .headers__container
-      +header({addBtn: true })
-    .headers__elem
-      +header({addLogin: true })
-    .headers__elem
-      include ~@comp/footer/footer.pug
-    .headers__elem
-      +footerCopyright({mini: true})
-    .headers__elem &nbsp;
+      include ~@comp/ui-header/ui-header.pug
+    .ui-kit-header
+      .ui-kit-header__elem
+        +header({addBtn: true })
+      .ui-kit-header__elem
+        +header({addLogin: true })
+    .ui-kit-footer
+      .ui-kit-footer__elem
+        include ~@comp/footer/footer.pug
+      .ui-kit-footer__elem
+        +footerCopyright({mini: true})
+      .ui-kit-footer__elem &nbsp;

@@ -10,6 +10,7 @@ function sliderSwiper() {
     const swiper = new SwiperCore(elem, {
       loop: true,
       watchOverflow: true,
+      spaceBetween: 20,
       pagination: {
         el: '.js-card-room__pagination',
         clickable: true

@@ -1,7 +1,6 @@
 @import '~air-datepicker/dist/css/datepicker.min.css';
 @import '@comp/button/button';
 
-
 .datepicker {
   width: 318px;
   min-height: 367px;
@@ -12,7 +11,7 @@
   z-index: 1200;
 
   @media (max-width: 480px) {
-    width: 245px;
+    width: 240px;
     min-height: auto;
   }
 

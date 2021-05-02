@@ -1,11 +1,12 @@
 //-  const { textLabel, id } = options;
 mixin rangeSlider(options)
   - const { textLabel, id } = options;
-      .range-slider__wrapper
-        .range-slider__title
-          h3= textLabel
-          span.range-slider__info
-            span.range-slider__info-min(data-range-min) 0
-            |  - 
-            span.range-slider__info-max(data-range-max) 0
-        div(class="range-slider" id= id)
+      .range-slider
+        .range-slider__wrapper
+          .range-slider__title
+            h3= textLabel
+            span.range-slider__info
+              span.range-slider__info-min(data-range-min) 0
+              |  - 
+              span.range-slider__info-max(data-range-max) 0
+          div(class="range-slider__elem" id= id)

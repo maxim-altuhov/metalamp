@@ -1,12 +1,14 @@
+//- layout
+extends ~@lo/ui-kit/ui-kit
+
 //- components
 include ~@comp/input/input.pug
 include ~@comp/dropdown/dropdown.pug
 include ~@comp/checkbox/checkbox.pug
 include ~@comp/radiobtn/radiobtn.pug
 include ~@comp/toggle/toggle.pug
-include ~@comp/likebtn/likebtn.pug
+include ~@comp/like/like.pug
 include ~@comp/simple-rating/simple-rating.pug
-include ~@comp/rating/rating.pug
 include ~@comp/range-slider/range-slider.pug
 include ~@comp/button/button.pug
 include ~@comp/pagination/pagination.pug
@@ -15,126 +17,132 @@ include ~@comp/bullet-list/bullet-list.pug
 include ~@comp/info-icon/info-icon.pug
 include ~@comp/feedback/feedback.pug
 //-
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    title UI Kit - Form Elements
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(name="description", content="UI Kit - Form Elements")
-    meta(name="keywords", content="ui-kit")
-    link(rel="icon", href="./favicon.png", type="image/png")
-  body
-    .container
-      .ui-header
-        include ~@comp/logo/logo.pug
-      .form-elements__wrapper
-        .form-elements__block
-          .form-elements__item.form-elements__item_min-margin
-            .form-elements__tag Default
-            +input({labelText:"text field", attributeName:"email-simple", attributeType:"email", placeholder:"Email"})
-          .form-elements__item.form-elements__item_min-margin
-            .form-elements__tag Hover / Focus
-            +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome", addClass:"focused"})
-          .form-elements__item.form-elements__item_min-margin
-            +dropdown({labelText:"dropdown", attributeName:"dropdown-guests", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
-          .form-elements__item
-            +input({labelText:"masked text field", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
-          .form-elements__item
-            +input({labelText:"date dropdown", labelTextSecond:"date dropdown", id:'date-dropdown-block', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
-          .form-elements__item
-            +input({labelText:"filter date dropdown", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true})
-          .form-elements__item
-            +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", inputTypeEmail: true})
-        .form-elements__block
-          .form-elements__item
-            h3 Checkbox Buttons
-            .form-elements__flex-wrapper
+
+block variables
+  - const title = "UI Kit - Form Elements"
+  - const keywords = "ui-kit"
+
+block content
+  .form-elements
+    .form-elements__wrapper
+      .form-elements__block
+        .form-elements__item.form-elements__item_margin_mini
+          .form-elements__tag Default
+          +input({labelText:"text field", attributeName:"email-simple", attributeType:"email", placeholder:"Email"})
+        .form-elements__item.form-elements__item_margin_mini
+          .form-elements__tag Hover / Focus
+          +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome", addClass:"focused"})
+        .form-elements__item.form-elements__item_margin_mini
+          +dropdown({labelText:"dropdown", attributeName:"dropdown-guests", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
+        .form-elements__item
+          +input({labelText:"masked text field", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
+        .form-elements__item
+          +input({labelText:"date dropdown", labelTextSecond:"date dropdown", id:'date-dropdown-block', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
+        .form-elements__item
+          +input({labelText:"filter date dropdown", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true})
+        .form-elements__item
+          +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", inputTypeEmail: true})
+      .form-elements__block
+        .form-elements__item
+          h3 Checkbox Buttons
+          .form-elements__flex-wrapper
+            .form-elements__checkbox-item
               +checkbox({text:"Можно курить", name:"checkbox-1"})
+            .form-elements__checkbox-item
               +checkbox({text:"Можно с питомцами", name:"checkbox-2", checked: true})
+            .form-elements__checkbox-item
               +checkbox({text:"Можно пригласить гостей (до 10 человек)", name:"checkbox-3", checked: true})
-          .form-elements__item.form-elements__item_min-margin
-            h3 Radio Buttons
-            .form-elements__flex-wrapper.form-elements__flex-wrapper_flex-row
+        .form-elements__item.form-elements__item_margin_mini
+          h3 Radio Buttons
+          .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
+            .form-elements__radiobtn
               +radiobtn({text:"Мужчина", name:"radio-btn", checked: true})
+            .form-elements__radiobtn
               +radiobtn({text:"Женщина", name:"radio-btn"})
-          .form-elements__item.form-elements__item_big-margin
-            h3 Toggle
-            .form-elements__flex-wrapper
+        .form-elements__item.form-elements__item_margin_big
+          h3 Toggle
+          .form-elements__flex-wrapper
+            .form-elements__toggle
               +toggle({text:"Получать спецпредложения", name:"toggle-1", checked: true})
+            .form-elements__toggle
               +toggle({text:"Получать спецпредложения", name:"toggle-2"})
-          .form-elements__item
-            h3 Like Button
-            .form-elements__flex-wrapper.form-elements__flex-wrapper_flex-row
-              +likebtn({counter:2})
-              +likebtn({counter:12, active: true})
-          .form-elements__item
-            h3 Rate Button
-            .form-elements__flex-wrapper.form-elements__flex-wrapper_flex-row
-              .form-elements__rating
-                +simpleRating({value: 4})
-              .form-elements__rating
-                +simpleRating({value: 5})
-        .form-elements__block
-          .form-elements__item.form-elements__item_big-margin
-            +rangeSlider({textLabel: "Range Slider", id: "range-slider-1"})
-          .form-elements__item
-            h3 Buttons
-            .form-elements__flex-wrapper.form-elements__flex-wrapper_flex-row
-              .form-elements__btn-row
-                .form-elements__btn-elem
-                  +button({mod:"colored", text:"click me", btnType:"button"})
-                .form-elements__btn-elem
-                  +button({mod:"colored", text:"click me", btnType:"button"}, addclass="button_colored-hover")
-              .form-elements__btn-row
-                .form-elements__btn-elem
-                  +button({mod:"transparent", text:"click me", btnType:"button"})
-                .form-elements__btn-elem
-                  +button({mod:"transparent", text:"click me", btnType:"button"}, addclass="button_transparent-hover")
-              .form-elements__btn-row
-                .form-elements__btn-elem
-                  +button({mod:"simple", text:"click me", btnType:"button"})
-                .form-elements__btn-elem
-                  +button({mod:"simple", text:"click me", btnType:"button"}, addclass="button_simple-hover")
-              .form-elements__btn-row
-                  +button({mod:"big", text:"перейти к оплате", btnType:"button"})
-          .form-elements__item
-            h3 Pagination
-              .form-elements__pagination
-                +pagination({ id:"pagination-1" })
-        .form-elements__block
-          .form-elements__item.form-elements__item_limited-width.form-elements__item_min-margin
-            .form-elements__tag.form-elements__tag_fixed-position Default
-            +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms", textInInput:"Кол-во комнат", mini: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
-          .form-elements__item.form-elements__item_limited-width
-            .form-elements__tag.form-elements__tag_fixed-position Expanded
-            +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms2", textInInput:"Кол-во комнат", mini: true, open: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
-        .form-elements__block
-          .form-elements__item.form-elements__item_min-margin
-            +dropdown({labelText:"dropdown", attributeName:"dropdown-guests2", textInInput:"Сколько гостей", open: true, addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
-        .form-elements__block
-          .form-elements__item.form-elements__item_big-margin
-            +dropdown({labelText:"dropdown", attributeName:"dropdown-guests3", textInInput:"Сколько гостей", open: true, addBtn: true, elements:{"Взрослые" : 2, "Дети" : 1, "Младенцы" : 0}})
-        .form-elements__block
-          .form-elements__item
-            +checkbox-list({text:"expandable checkbox list", name:"checkbox-list", elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
-          .form-elements__item
-            +checkbox-list({text:"expandable checkbox list", name:"checkbox-list-2", open: true, elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
-        .form-elements__block
-          .form-elements__item.form-elements__item_added-margin
-            h3 Rich Checkbox Buttons
-            .form-elements__flex-wrapper
+        .form-elements__item
+          h3 Like Button
+          .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
+            .form-elements__like
+              +like({counter:2})
+            .form-elements__like
+              +like({counter:12, active: true})
+        .form-elements__item
+          h3 Rate Button
+          .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
+            .form-elements__rating
+              +simpleRating({value: 4})
+            .form-elements__rating
+              +simpleRating({value: 5})
+      .form-elements__block
+        .form-elements__item.form-elements__item_margin_big
+          +rangeSlider({textLabel: "Range Slider", id: "range-slider-1"})
+        .form-elements__item
+          h3 Buttons
+          .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
+            .form-elements__btn-row
+              .form-elements__btn-elem
+                +button({mod:"colored", text:"click me", btnType:"button"})
+              .form-elements__btn-elem
+                +button({mod:"colored", text:"click me", btnType:"button"}, addclass="button_colored-hover")
+            .form-elements__btn-row
+              .form-elements__btn-elem
+                +button({mod:"transparent", text:"click me", btnType:"button"})
+              .form-elements__btn-elem
+                +button({mod:"transparent", text:"click me", btnType:"button"}, addclass="button_transparent-hover")
+            .form-elements__btn-row
+              .form-elements__btn-elem
+                +button({mod:"simple", text:"click me", btnType:"button"})
+              .form-elements__btn-elem
+                +button({mod:"simple", text:"click me", btnType:"button"}, addclass="button_simple-hover")
+            .form-elements__btn-row
+              +button({mod:"big", text:"перейти к оплате", btnType:"button"})
+        .form-elements__item
+          h3 Pagination
+          .form-elements__pagination
+            +pagination({ id:"pagination-1" })
+      .form-elements__block
+        .form-elements__item.form-elements__item_width_limited.form-elements__item_margin_mini
+          .form-elements__tag.form-elements__tag_position_default Default
+          +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms", textInInput:"Кол-во комнат", mini: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
+        .form-elements__item.form-elements__item_width_limited
+          .form-elements__tag.form-elements__tag_position_default Expanded
+          +dropdown({labelText:"dropdown", attributeName:"dropdown-rooms2", textInInput:"Кол-во комнат", mini: true, open: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
+      .form-elements__block
+        .form-elements__item.form-elements__item_margin_mini
+          +dropdown({labelText:"dropdown", attributeName:"dropdown-guests2", textInInput:"Сколько гостей", open: true, addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
+      .form-elements__block
+        .form-elements__item.form-elements__item_margin_big
+          +dropdown({labelText:"dropdown", attributeName:"dropdown-guests3", textInInput:"Сколько гостей", open: true, addBtn: true, elements:{"Взрослые" : 2, "Дети" : 1, "Младенцы" : 0}})
+      .form-elements__block
+        .form-elements__item
+          +checkbox-list({text:"expandable checkbox list", name:"checkbox-list", elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
+        .form-elements__item
+          +checkbox-list({text:"expandable checkbox list", name:"checkbox-list-2", open: true, elements:{"Завтрак" : false, "Письменный стол" : true, "Стул для кормления" : true, "Кроватка" : true, "Телевизор" : false, "Шампунь" : false}})
+      .form-elements__block
+        .form-elements__item.form-elements__item_margin-top_added
+          h3 Rich Checkbox Buttons
+          .form-elements__flex-wrapper
+            .form-elements__checkbox-item
               +checkbox({text:"Широкий коридор", addText:"Ширина коридоров в номере<br> не менее 91 см.", name:"rich-checkbox-1", expanded: true})
+            .form-elements__checkbox-item
               +checkbox({text:"Помощник для инвалидов", addText:"На 1 этаже вас встретит специалист и проводит до номера.", name:"rich-checkbox-2", expanded: true})
-        .form-elements__block
-          .form-elements__item.form-elements__item_added-margin
-            h3 bullet list
-            .form-elements__bullet-list
-              +bullet-list("Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00")
-        .form-elements__block
-          .form-elements__item.form-elements__item_fix-margin
-            +info-icon({title: "Комфорт", subtitle: "Шумопоглощающие стены", icon: "insert_emoticon"})
-            +info-icon({title: "Удобство", subtitle: "Окно в каждой из спален", icon: "location_city"})
-        .form-elements__block
-          .form-elements__item.form-elements__item_full-width
-            +feedback({name: "Мурад Сарафанов", avatarImg:"feedback-avatar-1.jpg", time:"5 дней назад", likeBtnNum: 12, text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."})
+      .form-elements__block
+        .form-elements__item.form-elements__item_margin-top_added
+          h3 bullet list
+          .form-elements__bullet-list
+            +bullet-list("Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00")
+      .form-elements__block
+        .form-elements__info-icon
+          +info-icon({title: "Комфорт", subtitle: "Шумопоглощающие стены", icon: "insert_emoticon"})
+        .form-elements__info-icon
+          +info-icon({title: "Удобство", subtitle: "Окно в каждой из спален", icon: "location_city"})
+      .form-elements__block
+        .form-elements__feedback
+          +feedback({name: "Мурад Сарафанов", avatarImg:"feedback-avatar-1.jpg", time:"5 дней назад", likeBtnNum: 12, text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."})

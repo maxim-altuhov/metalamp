@@ -2,14 +2,16 @@
 mixin toggle(options)
   - const { text, name, checked } = options;
       if checked
-        label.toggle__elem 
-          input(class="toggle__input-hidden" type="checkbox" name=name  value=text checked)
-          span.toggle__block
-          span.toggle__indicator
-          span.toggle__name= text
+        .toggle
+          label.toggle__elem 
+            input(class="toggle__input-hidden" type="checkbox" name=name  value=text checked)
+            span.toggle__block
+            span.toggle__indicator
+            span.toggle__name= text
       else
-        label.toggle__elem
-          input(class="toggle__input-hidden" type="checkbox" value=text name=name)
-          span.toggle__block
-          span.toggle__indicator
-          span.toggle__name= text
+        .toggle
+          label.toggle__elem
+            input(class="toggle__input-hidden" type="checkbox" value=text name=name)
+            span.toggle__block
+            span.toggle__indicator
+            span.toggle__name= text

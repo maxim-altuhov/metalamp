@@ -1,18 +1,18 @@
 function initDropdown({ arrowToggle = false }) {
-  const dSelector = document.querySelectorAll('.js-form__group-dropdown');
+  const dSelector = document.querySelectorAll('.js-dropdown__group-fields');
 
   dSelector.forEach((item, index) => {
-    const dropdown = item.querySelector('.js-form__dropdown');
-    const dInput = item.querySelector('.js-form__dropdown-input');
-    const dResult = item.querySelector('.js-form__dropdown-result');
-    const dArrow = item.querySelector('.js-form__dropdown-arrow');
-    const dElem = item.querySelectorAll('.js-form__dropdown-elem');
-    const dCounters = item.querySelectorAll('.js-form__dropdown-counter span');
-    const dCounterBtns = item.querySelectorAll('.js-form__dropdown-counter button');
+    const dropdown = item.querySelector('.js-dropdown__field');
+    const dInput = item.querySelector('.js-dropdown__field-input');
+    const dResult = item.querySelector('.js-dropdown__field-result');
+    const dArrow = item.querySelector('.js-dropdown__field-arrow');
+    const dElem = item.querySelectorAll('.js-dropdown__field-elem');
+    const dCounters = item.querySelectorAll('.js-dropdown__field-counter span');
+    const dCounterBtns = item.querySelectorAll('.js-dropdown__field-counter button');
     const dMinus = item.querySelectorAll('[data-dropdown-minus]');
     const dClear = item.querySelector('[data-function="clear"]');
     const dApply = item.querySelector('[data-function="apply"]');
-    const dFocusLimiter = item.querySelector('.js-form__dropdown-limiter');
+    const dFocusLimiter = item.querySelector('.js-dropdown__field-limiter');
     const textInInput = dResult.textContent;
     let resultObj = {};
     let counterGuests = 0;
@@ -30,7 +30,7 @@ function initDropdown({ arrowToggle = false }) {
 
       dElem.forEach(elem => {
         const name = elem.firstChild.textContent.toLowerCase();
-        const value = +elem.querySelector('.js-form__dropdown-counter > span').textContent;
+        const value = +elem.querySelector('.js-dropdown__field-counter > span').textContent;
         const isGuests = name === 'взрослые' || name === 'дети';
 
         if (value !== 0 && !isGuests) {
@@ -42,7 +42,7 @@ function initDropdown({ arrowToggle = false }) {
           resultObj['гость'] = counterGuests;
         }
 
-        if (arrowToggle && item.classList.contains('form__group-dropdown_active')) {
+        if (arrowToggle && item.classList.contains('dropdown__group-fields_active')) {
           dArrow.classList.add('active');
           dArrow.textContent = 'keyboard_arrow_up';
         } else {
@@ -56,7 +56,7 @@ function initDropdown({ arrowToggle = false }) {
 
     // функция открытия/закрытия dropdown
     function toggleDropdown() {
-      item.classList.toggle('form__group-dropdown_active');
+      item.classList.toggle('dropdown__group-fields_active');
       dArrow.classList.toggle('active');
 
       if (arrowToggle && dArrow.classList.contains('active')) {

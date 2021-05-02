@@ -2,9 +2,9 @@
 mixin simpleRating(options)
   - let { value, total = 5} = options;
       .simple-rating
-        .simple-rating__wrapper
-          - for (let i = 0; i < total; i++)
-              if (i < value)
-                span.simple-rating__elem.material-icons star
-              else
-                span.simple-rating__elem.material-icons star_border                   
+        - for (let i = 0; i < total; i++)
+            if (i < value)
+              span.simple-rating__elem.material-icons star
+            else
+              span.simple-rating__elem.material-icons star_border
+              

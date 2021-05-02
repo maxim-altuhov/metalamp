@@ -16,7 +16,7 @@
 
   }
 
-  .hamRotate.active {
+  .ham.active {
     transform: rotate(45deg);
     z-index: 1999;
     position: fixed;
@@ -29,28 +29,28 @@
     }
   }
 
-  .line {
+  .ham-line {
     fill: none;
     transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
     stroke: $dark50;
     stroke-width: 4;
     stroke-linecap: round;
     z-index: 99;
+
+    &_top {
+      stroke-dasharray: 40 139;
+    }
+
+    &_bottom {
+      stroke-dasharray: 40 180;
+    }
   }
 
-  .ham .top {
-    stroke-dasharray: 40 139;
-  }
-
-  .ham .bottom {
-    stroke-dasharray: 40 180;
-  }
-
-  .ham.active .top {
+  .ham.active .ham-line_top {
     stroke-dashoffset: -98px;
   }
 
-  .ham.active .bottom {
+  .ham.active .ham-line_bottom {
     stroke-dashoffset: -138px;
   }
 

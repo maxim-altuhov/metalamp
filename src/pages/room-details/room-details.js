@@ -6,7 +6,7 @@ import initMenu from '@comp/header/header';
 import initDiagramRating from '@comp/diagram/diagram';
 import initDropdown from '@comp/dropdown/dropdown';
 import addDatePicker from '@comp/input/input-datepicker';
-import toggleLikes from '@comp/likebtn/likebtn';
+import toggleLikes from '@comp/like/like';
 import { showTooltip, convertCost } from '@comp/card-booking/card-booking';
 
 function contentLoaded() {

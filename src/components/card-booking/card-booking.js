@@ -3,7 +3,7 @@ function showTooltip() {
   const tooltipsAll = document.querySelectorAll('[data-tooltip]');
 
   tooltipsAll.forEach(elem => {
-    const tooltip = elem.querySelector('#tooltip');
+    const tooltip = elem.querySelector('.card-booking__info-tooltip');
     const tooltipText = elem.dataset.tooltip;
 
     function showBlock() {

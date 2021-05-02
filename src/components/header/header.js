@@ -11,7 +11,7 @@ function initMenu() {
   const lastLinkInDropdown = document.querySelectorAll('.js-header__submenu .header__menu-link:last-child a');
   const menu = document.querySelector('.js-header__menu');
   const allLinkInMenu = menu.querySelectorAll('a');
-  const menuOverlay = document.querySelector('.js-menu__overlay');
+  const menuOverlay = document.querySelector('.js-menu-overlay');
   const hamburger = document.querySelector('.js-ham');
   const widthWhenMenuIsActivated = 1199;
 
@@ -101,7 +101,7 @@ function initMenu() {
   function toggleClassesMenu() {
     hamburger.classList.toggle('active');
     menu.classList.toggle('header__menu_active');
-    menuOverlay.classList.toggle('menu__overlay_active');
+    menuOverlay.classList.toggle('menu-overlay_active');
 
     dropdownArrowsAll.forEach(elem => {
       elem.textContent = 'expand_more';

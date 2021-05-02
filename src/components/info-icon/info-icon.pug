@@ -1,10 +1,11 @@
 //- - const { title, subtitle, icon(matrial-icons), line(boolean) } = options;
 mixin info-icon(options)
   - const { title, subtitle, icon, line = true } = options;
-      .info-icon__block
-        span.info-icon__img.material-icons= icon
-        .info-icon__wrapper
-          .info-icon__title= title
-          .info-icon__subtitle= subtitle
-      if line
-        hr.info-icon__line
+      .info-icon
+        .info-icon__block
+          span.info-icon__img.material-icons= icon
+          .info-icon__wrapper
+            .info-icon__title= title
+            .info-icon__subtitle= subtitle
+        if line
+          hr.info-icon__line

@@ -1,0 +1,15 @@
+//- const { counter, active(boolean) } = options;
+mixin like(options)
+  - const { counter, active } = options;
+      if active
+        .like
+          button.like__block.js-like__block.like__block_active(type="button") 
+            span.like__btn
+              i.material-icons favorite
+              span.like__counter= counter
+      else
+        .like
+          button.like__block.js-like__block(type="button")
+            span.like__btn
+              i.material-icons favorite_border
+              span.like__counter= counter

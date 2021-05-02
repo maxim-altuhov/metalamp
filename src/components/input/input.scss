@@ -1,6 +1,7 @@
-.form__group-input {
+.input {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   &_dropdown {
     display: flex;
@@ -25,11 +26,11 @@
     }
   }
 
-  &_max-width {
+  &_small {
     max-width: 266px;
   }
 
-  .label-text-input {
+  &__label {
     position: relative;
     cursor: pointer;
     font-weight: 700;
@@ -41,14 +42,14 @@
     &_small {
       width: 266px;
     }
-  }
 
-  .label-for-dropdown {
-    @media (max-width: 480px) {
-      margin-bottom: 10px;
+    &_dropdown {
+      @media (max-width: 480px) {
+        margin-bottom: 10px;
 
-      &:last-child {
-        margin-bottom: 0;
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
   }
@@ -61,8 +62,8 @@
     background: #FFFFFF;
     border: 1px solid $dark25;
     border-radius: 4px;
-    padding: 13px 15px;
-    font-size: 13.6px;
+    padding: 13px 14px;
+    font-size: 14px;
     color: $dark75;
     transition: border 0.2s ease-in;
 
@@ -77,13 +78,14 @@
 
     &.focused {
       border: 1px solid $dark50;
+      font-size: 13.6px;
     }
 
     &.date-dropdown {
       width: 150px;
       cursor: pointer;
 
-      &_max-width {
+      &_width_max {
         width: 100%;
       }
 
@@ -102,17 +104,17 @@
         max-width: 266px;
         padding: 13px 35px 13px 15px;
       }
-
-      &+button {
-        position: absolute;
-        bottom: 1px;
-        right: 2px;
-        height: 40px;
-        width: 40px;
-        background: $background-gradient;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
     }
+  }
+
+  .subscription__btn {
+    position: absolute;
+    bottom: 0px;
+    right: 2px;
+    height: 40px;
+    width: 40px;
+    background: $background-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

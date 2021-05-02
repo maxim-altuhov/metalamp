@@ -1,14 +1,12 @@
-@import '@base/base';
-@import '@comp/logo/logo';
+@import '@lo/ui-kit/ui-kit';
 @import '@comp/input/input';
 @import '@comp/input/input-datepicker';
 @import '@comp/dropdown/dropdown';
 @import '@comp/checkbox/checkbox';
 @import '@comp/radiobtn/radiobtn';
 @import '@comp/toggle/toggle';
-@import '@comp/likebtn/likebtn';
+@import '@comp/like/like';
 @import '@comp/simple-rating/simple-rating';
-@import '@comp/rating/rating';
 @import '@comp/range-slider/range-slider';
 @import '@comp/button/button';
 @import '@comp/pagination/pagination';
@@ -23,8 +21,8 @@
     margin-top: 65px;
     display: grid;
     grid-template-columns: auto 375px auto;
+    grid-template-rows: auto minmax(257px, max-content) 311px;
     justify-items: center;
-    grid-template-rows: auto 257px;
     gap: 59px 72px;
 
     @media (max-width: 1199px) {
@@ -39,7 +37,6 @@
   }
 
   &__block {
-    flex: 1 0 auto;
     width: 320px;
 
     &:nth-child(1n) {
@@ -81,34 +78,20 @@
     max-width: 320px;
     position: relative;
 
-    &_min-margin {
+    &_margin_mini {
       margin-bottom: 20.5px;
     }
 
-    &_big-margin {
+    &_margin_big {
       margin-bottom: 44px;
     }
 
-    &_limited-width {
+    &_width_limited {
       max-width: 266px;
     }
 
-    &_added-margin {
+    &_margin-top_added {
       margin-top: 5px;
-    }
-
-    &_fix-margin {
-      margin-top: -12px;
-    }
-
-    &_full-width {
-      max-width: 764px;
-      padding-left: 55px;
-      margin-top: -2px;
-
-      @media (max-width: 767px) {
-        padding-left: 0;
-      }
     }
   }
 
@@ -122,7 +105,7 @@
     text-transform: uppercase;
     color: $dark50;
 
-    &_fixed-position {
+    &_position_default {
       right: 0px;
       top: 0px;
     }
@@ -133,10 +116,45 @@
     display: flex;
     flex-direction: column;
 
-    &_flex-row {
+    &_flex_row {
       flex-direction: row;
       flex-wrap: wrap;
     }
+  }
+
+  &__checkbox-item {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__radiobtn {
+    margin-right: 20px;
+    margin-bottom: 21px;
+
+    &:last-child {
+      margin-right: 0px;
+      margin-bottom: 0px;
+    }
+  }
+
+  &__toggle {
+    margin-bottom: 13px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__like {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
   }
 
   &__rating {
@@ -153,7 +171,6 @@
     margin-bottom: 31px;
 
     &:nth-child(1) {
-
       margin-bottom: 29px;
     }
 
@@ -181,5 +198,24 @@
 
   &__bullet-list {
     margin-top: 13px;
+  }
+
+  &__info-icon {
+    margin-top: 19px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__feedback {
+    max-width: 767px;
+    padding-left: 55px;
+    margin-top: 11px;
+    margin-bottom: 50px;
+
+    @media (max-width: 767px) {
+      padding-left: 0;
+    }
   }
 }

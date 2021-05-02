@@ -1,17 +1,12 @@
 .toggle {
 
   &__elem {
-    margin-bottom: 13px;
     backface-visibility: hidden;
     outline: 1px solid transparent;
     position: relative;
     cursor: pointer;
     display: flex;
     align-items: center;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
 
     input {
       appearance: none;

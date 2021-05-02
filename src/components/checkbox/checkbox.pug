@@ -2,6 +2,7 @@
 mixin checkbox(options)
   - const { text, addText, name, expanded, checked } = options;
   - const subtitle = addText;
+      .checkbox
         .checkbox__elem
           label
             if checked
@@ -12,4 +13,4 @@ mixin checkbox(options)
               span.checkbox__title.checkbox__title_bold= text
               span.checkbox__subtitle!= subtitle
             else
-              span.checkbox__title= text     
+              span.checkbox__title= text

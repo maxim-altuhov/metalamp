@@ -1,7 +1,6 @@
 .like {
 
   &__block {
-    margin-right: 10px;
     position: relative;
     z-index: 2;
     padding: 1px;
@@ -15,10 +14,6 @@
     justify-content: center;
     align-items: center;
     transition: color 0.2s ease-in;
-
-    &:last-child {
-      margin-right: 0;
-    }
 
     &:hover {
       color: $purple;

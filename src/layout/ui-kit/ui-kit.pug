@@ -1,6 +1,3 @@
-//- components
-include ~@comp/header/header.pug
-
 block variables
 
 doctype html
@@ -13,11 +10,7 @@ html(lang="ru")
     meta(name="keywords", content=`${keywords}`)
     link(rel="icon", href="./favicon.png", type="image/png")
   body
-    .page
-      block header
-        +header({addBtn: true })
-      main.page__content
+    block header
+      .container
+        include ~@comp/ui-header/ui-header.pug
         block content
-          
-      block footer
-        include ~@comp/footer/footer.pug

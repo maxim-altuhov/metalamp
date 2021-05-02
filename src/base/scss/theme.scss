@@ -38,12 +38,30 @@ h3 {
   text-transform: uppercase;
 }
 
-// общие классы
-.ui-header {
-  margin-left: 15px;
-  margin-top: 30px;
+body.using-mouse {
+
+  &:focus,
+  :active {
+    outline: none;
+  }
+
+  a:focus,
+  a:active {
+    outline: none;
+  }
+
+  input:empty,
+  a:empty {
+    outline: 0px solid;
+  }
+
+  button:focus,
+  :active {
+    outline: none;
+  }
 }
 
+// общие классы
 .line {
   min-width: 310px;
   width: 100%;

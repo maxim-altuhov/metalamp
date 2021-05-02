@@ -1,12 +1,7 @@
 .checkbox {
   &__elem {
     display: flex;
-    margin-bottom: 12px;
     max-width: 320px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   &__field:checked+&__title:before,

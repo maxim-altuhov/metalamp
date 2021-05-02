@@ -4,26 +4,27 @@ include ~@comp/button/button.pug
 //- const {id, elements, attributeName, labelText, textInInput, addBtn(boolean), open(boolean), mini(boolean), isValidate(boolean), addClass}, ...elements = options;
 mixin dropdown(options)
   - const { id, elements, attributeName, labelText, textInInput, addBtn, open, mini, isValidate, addClass = "" } = options;
-  - const openClass = open ? "form__group-dropdown_active" : "";
-  - const miniClass = mini ? "form__group-dropdown_small" : "";
+  - const openClass = open ? "dropdown__group-fields_active" : "";
+  - const miniClass = mini ? "dropdown__group-fields_small" : "";
   - const validate = isValidate ? true : false;
-    div(class="form__group-input form__group-dropdown js-form__group-dropdown" + ` ${openClass}` + ` ${miniClass}` +` ${addClass}` id= id)
-      label.label-dropdown-text= labelText
-        input.form__dropdown-input.js-form__dropdown-input.form__dropdown-hidden(name=attributeName type="text" autocomplete="off" value="" tabindex="-1" data-validate=`${validate}`)
-      .form__dropdown.js-form__dropdown(tabindex="0")
-        .form__dropdown-result.js-form__dropdown-result= textInInput
-        span(class="form__dropdown-arrow js-form__dropdown-arrow material-icons") keyboard_arrow_down
-      .form__dropdown-block(tabindex="0")
-        .form__dropdown-wrapper
-          each value, element in elements
-            .form__dropdown-elem.js-form__dropdown-elem
-              span.form__dropdown-item= element
-              .form__dropdown-counter.js-form__dropdown-counter
-                button(disabled type="button" data-dropdown-minus) -
-                span= value
-                button(type="button" data-dropdown-plus) +
-        if addBtn
-          .form__dropdown-control
-            +button({mod:"simple", text:"Очистить", btnType:"button", btnFunction:"clear"}, addclass="elem-hidden")
-            +button({mod:"simple", text:"Применить", btnType:"button", btnFunction:"apply"})
-        .form__dropdown-limiter.js-form__dropdown-limiter(tabindex="0")
+    .dropdown
+      div(class="dropdown__group-fields js-dropdown__group-fields" + ` ${openClass}` + ` ${miniClass}` +` ${addClass}` id= id)
+        label.dropdown__label= labelText
+          input.dropdown__field-input.js-dropdown__field-input.dropdown__field-hidden(name=attributeName type="text" autocomplete="off" value="" tabindex="-1" data-validate=`${validate}`)
+        .dropdown__field.js-dropdown__field(tabindex="0")
+          .dropdown__field-result.js-dropdown__field-result= textInInput
+          span(class="dropdown__field-arrow js-dropdown__field-arrow material-icons") keyboard_arrow_down
+        .dropdown__field-block(tabindex="0")
+          .dropdown__field-wrapper
+            each value, element in elements
+              .dropdown__field-elem.js-dropdown__field-elem
+                span.dropdown__field-item= element
+                .dropdown__field-counter.js-dropdown__field-counter
+                  button(disabled type="button" data-dropdown-minus) -
+                  span= value
+                  button(type="button" data-dropdown-plus) +
+          if addBtn
+            .dropdown__field-control
+              +button({mod:"simple", text:"Очистить", btnType:"button", btnFunction:"clear"}, addclass="elem-hidden")
+              +button({mod:"simple", text:"Применить", btnType:"button", btnFunction:"apply"})
+          .dropdown__field-limiter.js-dropdown__field-limiter(tabindex="0")

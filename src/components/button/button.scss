@@ -1,27 +1,27 @@
 .button {
-  background: $background-gradient;
-  min-width: 99px;
-  height: 44px;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  border-radius: 22px;
-  line-height: 44 / 22 * 100%;
-  color: #FFFFFF;
-  font-size: 11.4px;
-  transition: opacity 0.2s ease-in;
   padding: 0 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 99px;
+  height: 44px;
+  font-size: 11.4px;
+  font-weight: 700;
+  line-height: 44 / 22 * 100%;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 22px;
+  color: #FFFFFF;
+  background: $background-gradient;
+  transition: opacity 0.2s ease-in;
 
   &_colored {
 
     &-for-header {
+      padding: 0 20px;
       font-size: 12px;
       line-height: 14px;
       height: 34px;
-      padding: 0 20px;
 
       &:hover,
       &:focus {
@@ -40,9 +40,9 @@
   }
 
   &_transparent {
+    padding: 2px;
     background: $background-gradient;
     color: $purple;
-    padding: 2px;
     animation: opacityBtnOut 0.3s 1 linear forwards;
 
     &:hover,
@@ -51,6 +51,7 @@
     }
 
     .button__text {
+      padding: 0 12px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -58,7 +59,6 @@
       width: 100%;
       height: 100%;
       border-radius: 22px;
-      padding: 0 12px;
     }
   }
 
@@ -73,12 +73,13 @@
   }
 
   &_transparent-for-header {
+    padding: 2px;
     background: $background-gradient;
     color: $purple;
-    padding: 2px;
-    animation: opacityBtnOut 0.3s 1 linear forwards;
     min-width: 86px;
     height: 34px;
+    font-size: 12px;
+    animation: opacityBtnOut 0.3s 1 linear forwards;
 
     &:hover,
     &:focus {
@@ -86,6 +87,7 @@
     }
 
     .button__text {
+      padding: 0 12px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -93,19 +95,18 @@
       width: 100%;
       height: 100%;
       border-radius: 22px;
-      padding: 0 12px;
     }
   }
 
   &_simple {
+    padding: 0;
+    color: $purple;
+    background: #FFFFFF;
     min-width: auto;
     height: auto;
     font-size: 12px;
     line-height: 1;
-    color: $purple;
-    background: #FFFFFF;
     transition: color 0.2s ease-in;
-    padding: 0;
 
     &:hover,
     &:focus {

@@ -27,7 +27,7 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
         if (i === visiblePaginationElem) {
           item.textContent = howManyPages;
         } else if (i === visiblePaginationElem - 1 && howManyPages > visiblePaginationElem) {
-          item.classList.add('pagination__page_off', 'js-pagination__page_off');
+          item.classList.add('pagination__page_disabled', 'js-pagination__page_disabled');
           item.textContent = '...';
         } else {
           item.textContent = i;
@@ -67,7 +67,7 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
   // функция добавления нужных кнопок пагинации при переключении страниц
   function addPaginationPages() {
-    let pageNoNumber = pBlock.querySelector('.js-pagination__page_off');
+    let pageNoNumber = pBlock.querySelector('.js-pagination__page_disabled');
     const fragment = document.createDocumentFragment();
     const item = document.createElement('button');
     item.setAttribute('type', 'button');
@@ -75,12 +75,12 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
     if (pageNoNumber && pageActive === pageTotal) {
       pageNoNumber.textContent = +pageTotal.textContent - 1;
-      pageNoNumber.classList.remove('pagination__page_off', 'js-pagination__page_off');
+      pageNoNumber.classList.remove('pagination__page_disabled', 'js-pagination__page_disabled');
     }
 
     if (pageNoNumber && +pageActive.textContent === +pageTotal.textContent - 3) {
       pageNoNumber.textContent = +pageTotal.textContent - 1;
-      pageNoNumber.classList.remove('pagination__page_off', 'js-pagination__page_off');
+      pageNoNumber.classList.remove('pagination__page_disabled', 'js-pagination__page_disabled');
     }
 
     if (pageNoNumber && pageActive === pPages[pPages.length - 3]) {
@@ -92,7 +92,7 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
     if (pageActive === pPages[0] && pPages[0].textContent !== '1') {
       pPages[pPages.length - 2].textContent = '...';
-      pPages[pPages.length - 2].classList.add('pagination__page_off', 'js-pagination__page_off');
+      pPages[pPages.length - 2].classList.add('pagination__page_disabled', 'js-pagination__page_disabled');
       pPages[pPages.length - 3].remove();
       item.textContent = +pageActive.textContent - 1;
       fragment.append(item);
@@ -128,7 +128,7 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
 
   // переключение активной страницы
   function changeActivePage(e) {
-    if (!e.target.classList.contains('js-pagination__page_off')) {
+    if (!e.target.classList.contains('js-pagination__page_disabled')) {
       pPages.forEach(elem => {
         elem.classList.remove('pagination__page_active', 'js-pagination__page_active');
       });
@@ -160,7 +160,7 @@ function initPagination({ selector, maxItemPerPage, maxPaginationElem }) {
   function addEvent() {
     pPages = pBlock.querySelectorAll('.js-pagination__page');
     pPages.forEach(elem => {
-      if (!elem.classList.contains('js-pagination__page_off')) {
+      if (!elem.classList.contains('js-pagination__page_disabled')) {
         elem.addEventListener('click', changeActivePage);
       }
     });

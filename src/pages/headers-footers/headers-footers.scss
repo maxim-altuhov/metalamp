@@ -1,5 +1,5 @@
 @import '@base/base';
-@import '@comp/logo/logo';
+@import '@comp/ui-header/ui-header';
 @import '@comp/header/header';
 @import '@comp/footer/footer';
 @import '@comp/footer-copyright/footer-copyright';
@@ -8,11 +8,17 @@ html {
   background: $background-grey;
 }
 
-.headers {
-  &__container {
-    margin-top: 62px;
-  }
+.ui-kit-header {
+  &__elem {
+    margin-top: 40px;
 
+    &:first-child {
+      margin-top: 62px;
+    }
+  }
+}
+
+.ui-kit-footer {
   &__elem {
     margin-top: 40px;
   }

@@ -1,8 +1,9 @@
 //- options = { name, hex, color }
 mixin color(options)
   - const { name, hex, color } = options;
-    .colors__elem
-      div(class="colors__sample colors__sample_" +color)
-      .colors__descr
-        p.colors__descr-title= name 
-        span.colors__descr-subtitle= hex 
+    .color
+      .color__elem
+        div(class="color__sample color__sample_" +color)
+        .color__descr
+          p.color__descr-title= name 
+          span.color__descr-subtitle= hex 

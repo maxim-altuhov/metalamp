@@ -1,16 +1,17 @@
 //- components
-include ~@comp/likebtn/likebtn.pug
+include ~@comp/like/like.pug
 //-
 mixin feedback(options)
   - const { name, avatarImg, time, likeBtnNum, likeBtnActive = true, text } = options;
-      .feedback__block
-        .feedback__top
-          .feedback__avatar
-            img(src=require(`./img/${avatarImg}`), alt="avatar")
-          .feedback__info
-            .feedback__info-name= name
-            span.feedback__info-time= time
-        .feedback__main
-          .feedback__btnlike
-            +likebtn({counter:`${likeBtnNum}`, active: likeBtnActive})
-          .feedback__text= text
+      .feedback
+        .feedback__block
+          .feedback__top
+            .feedback__avatar
+              img(src=require(`./img/${avatarImg}`), alt="avatar")
+            .feedback__info
+              .feedback__info-name= name
+              span.feedback__info-time= time
+          .feedback__main
+            .feedback__btnlike
+              +like({counter:`${likeBtnNum}`, active: likeBtnActive})
+            .feedback__text= text

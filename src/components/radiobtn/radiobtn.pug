@@ -1,13 +1,13 @@
 //- const { text, name, checked(boolen) } = options;
 mixin radiobtn(options)
   - const { text, name, checked } = options;
-      if checked
-        .radiobtn__elem
-          label.radiobtn__label
-            input.radiobtn__field.radiobtn__field_hidden(type="radio", name=name, value=text, checked)
-            span.radiobtn__text= text
-      else
-        .radiobtn__elem
-          label.radiobtn__label
-           input.radiobtn__field.radiobtn__field_hidden(type="radio", name=name, value=text)
-           span.radiobtn__text= text
+    if checked
+      .radiobtn
+        label.radiobtn__label
+          input.radiobtn__field.radiobtn__field_hidden(type="radio", name=name, value=text, checked)
+          span.radiobtn__text= text
+    else
+      .radiobtn
+        label.radiobtn__label
+          input.radiobtn__field.radiobtn__field_hidden(type="radio", name=name, value=text)
+          span.radiobtn__text= text

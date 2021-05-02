@@ -1,9 +1,7 @@
-@import '@base/base';
-@import '@comp/logo/logo';
+@import '@lo/ui-kit/ui-kit';
 @import '@comp/color/color';
 
-.colors-type {
-
+.colors-and-type {
   &__wrapper {
     display: grid;
     grid-template-columns: minmax(min-content, 696px) auto;
@@ -30,6 +28,7 @@
   }
 
   &__item {
+    min-width: 300px;
     margin-bottom: 20px;
 
     &:last-child {
@@ -39,7 +38,6 @@
 }
 
 .type {
-
   &__wrapper {
     margin-top: 67px;
     max-width: 443px;
@@ -50,6 +48,7 @@
   }
 
   &__elem {
+    min-width: 300px;
     margin-bottom: 52px;
     display: flex;
 

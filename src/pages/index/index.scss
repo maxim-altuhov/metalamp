@@ -21,6 +21,10 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 57.6vw;
+
+    @media (max-width: 575px) {
+      align-items: center;
+    }
   }
 
   &__text {
