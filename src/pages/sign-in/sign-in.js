@@ -1,11 +1,11 @@
 import './sign-in.scss';
 
-import { checkedFocus } from '@base/base';
-import initMenu from '@comp/header/header';
+import checkedFocus from '@base/js/checkedFocus';
+import initMenu from '@comp/header/js/initMenu';
 
-function contentLoaded() {
+function initFunction() {
   checkedFocus();
   initMenu();
 }
 
-window.addEventListener('DOMContentLoaded', contentLoaded);
+window.addEventListener('DOMContentLoaded', initFunction);

@@ -6,7 +6,7 @@ function addMaskForInput() {
   Inputmask({
     mask: '99.99.9999',
     showMaskOnHover: false,
-    placeholder: 'ДД.ММ.ГГГГ'
+    placeholder: 'ДД.ММ.ГГГГ',
   }).mask(selector);
 }
 

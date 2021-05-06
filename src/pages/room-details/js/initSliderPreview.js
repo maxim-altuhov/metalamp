@@ -6,11 +6,11 @@ function initSliderPreview() {
   let swiper = SwiperCore;
   let init = false;
 
-  function initSwiperMode() {
-    let mobile = window.matchMedia('(max-width: 575px)');
+  const initSwiperMode = () => {
+    let small = window.matchMedia('(max-width: 575px)');
     let another = window.matchMedia('(min-width: 576px)');
 
-    if (mobile.matches) {
+    if (small.matches) {
       if (!init) {
         init = true;
         swiper = new SwiperCore('.js-room-details__photos-block', {
@@ -19,8 +19,8 @@ function initSliderPreview() {
           spaceBetween: 40,
           pagination: {
             el: '.swiper-pagination',
-            clickable: true
-          }
+            clickable: true,
+          },
         });
       }
     } else if (another.matches) {
@@ -29,7 +29,7 @@ function initSliderPreview() {
       }
       init = false;
     }
-  }
+  };
 
   window.addEventListener('load', initSwiperMode);
   window.addEventListener('resize', initSwiperMode);

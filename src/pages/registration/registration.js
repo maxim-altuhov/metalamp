@@ -1,13 +1,13 @@
 import './registration.scss';
 
-import { checkedFocus } from '@base/base';
-import initMenu from '@comp/header/header';
-import addMaskForInput from '@comp/input/input-mask';
+import checkedFocus from '@base/js/checkedFocus';
+import initMenu from '@comp/header/js/initMenu';
+import addMaskForInput from '@comp/input/js/addMaskForInput';
 
-function contentLoaded() {
+function initFunction() {
   checkedFocus();
   initMenu();
   addMaskForInput();
 }
 
-window.addEventListener('DOMContentLoaded', contentLoaded);
+window.addEventListener('DOMContentLoaded', initFunction);

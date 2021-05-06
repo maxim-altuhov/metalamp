@@ -1,31 +1,32 @@
 import './room-details.scss';
 
-import { checkedFocus } from '@base/base';
-import initSliderPreview from './js/slider-preview';
-import initMenu from '@comp/header/header';
-import initDiagramRating from '@comp/diagram/diagram';
-import initDropdown from '@comp/dropdown/dropdown';
-import addDatePicker from '@comp/input/input-datepicker';
-import toggleLikes from '@comp/like/like';
-import { showTooltip, convertCost } from '@comp/card-booking/card-booking';
+import checkedFocus from '@base/js/checkedFocus';
+import initMenu from '@comp/header/js/initMenu';
+import initSliderPreview from './js/initSliderPreview';
+import initDiagramRating from '@comp/diagram/js/initDiagramRating';
+import initDropdown from '@comp/dropdown/js/initDropdown';
+import addDatePicker from '@comp/input/js/addDatePicker';
+import toggleLikes from '@comp/like/js/toggleLikes';
+import showTooltip from '@comp/card-booking/js/showTooltip';
+import convertCost from '@comp/card-booking/js/convertCost';
 
-function contentLoaded() {
+function initFunction() {
   checkedFocus();
-  initSliderPreview();
   initMenu();
+  initSliderPreview();
   initDiagramRating('#rating-rooms');
   initDropdown({
-    arrowToggle: false
+    arrowToggle: false,
   });
   addDatePicker({
     $selectorId: '#card-booking-date',
     secondSelector: true,
     startDate: '2019-08-19',
-    finishDate: '2019-08-23'
+    finishDate: '2019-08-23',
   });
   toggleLikes();
   showTooltip();
   convertCost();
 }
 
-window.addEventListener('DOMContentLoaded', contentLoaded);
+window.addEventListener('DOMContentLoaded', initFunction);

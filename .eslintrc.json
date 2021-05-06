@@ -11,8 +11,9 @@
   },
   "plugins": ["import", "fsd"],
   "rules": {
+    "comma-dangle": ["warn", "always-multiline"],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-use-before-define": ["error", { "functions": false }],
+    "no-use-before-define": "warn",
     "no-param-reassign": ["error", { "props": false }],
     "no-unused-vars": "warn",
     "semi": ["error", "always"],

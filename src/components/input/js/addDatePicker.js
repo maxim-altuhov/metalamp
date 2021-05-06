@@ -10,7 +10,7 @@ function addDatePicker({
   startDate,
   finishDate,
   arrowToggle = false,
-  setMinDate = false
+  setMinDate = false,
 }) {
   const currentDatepicker = $($selectorId).datepicker().data('datepicker');
   let date1 = new Date(startDate);
@@ -22,12 +22,12 @@ function addDatePicker({
   }
 
   // установить минимальной датой, текущую дату
-  function setLimitForDate() {
+  const setLimitForDate = () => {
     if (setMinDate) {
       return new Date();
     }
     return '';
-  }
+  };
 
   let options = {
     classes: `${$selectorId.substr(1)}`,
@@ -36,28 +36,28 @@ function addDatePicker({
     prevHtml: '<span class="material-icons">arrow_back</span>',
     nextHtml: '<span class="material-icons">arrow_forward</span>',
     navTitles: {
-      days: 'MM <i>yyyy</i>'
+      days: 'MM <i>yyyy</i>',
     },
     offset: 5,
     minDate: setLimitForDate(),
-    onSelect: (fd) => {
+    onSelect(fd) {
       if ($secondSelector) {
         $($selectorId).val(fd.split(' - ')[0]);
         $($secondSelector).val(fd.split(' - ')[1]);
       }
     },
-    onShow: () => {
+    onShow() {
       if (arrowToggle) $('input', $(`[data-selector = ${options.classes}]`)).next('.material-icons').addClass('active');
     },
-    onHide: () => {
+    onHide() {
       if (arrowToggle) $('input', $(`[data-selector = ${options.classes}]`)).next('.material-icons').removeClass('active');
-    }
+    },
   };
 
   if (!$secondSelector) {
     options.language = {
       dateFormat: 'dd M',
-      monthsShort: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
+      monthsShort: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
     };
   }
 
@@ -65,7 +65,7 @@ function addDatePicker({
   $($selectorId).datepicker(options);
 
   // функция установки даты
-  function setDate() {
+  const setDate = () => {
     currentDatepicker.selectedDates.push(date1, date2);
     currentDatepicker.selectDate(currentDatepicker.selectedDates);
     if ($($selectorId).val() === 'NaN.NaN.NaN') {
@@ -74,35 +74,36 @@ function addDatePicker({
     if ($($secondSelector).val() === 'NaN.NaN.NaN') {
       $($secondSelector).val('ДД.ММ.ГГГГ');
     }
-  }
+  };
 
   // функция добавляющая кнопки управления в календарь
-  function creatControlBtn() {
+  const creatControlBtn = () => {
     const buttonBlock = `<div class="datepicker--control">
     <button class="button button_simple datepicker__clear js-datepicker__clear" type="button">Очистить</button>
     <button class="button button_simple datepicker__apply js-datepicker__apply" type="button">Применить</button>
     </div>`;
 
     $(`.${options.classes}`).append(buttonBlock);
-  }
+  };
 
   // очистка календаря
-  function clearDatepicker() {
+  const clearDatepicker = () => {
     currentDatepicker.clear();
-  }
+  };
 
   // применение значений календаря
-  function applyDatepicker() {
+  const applyDatepicker = () => {
     currentDatepicker.hide();
-  }
+  };
 
   // показать календарь
-  function showDatepicker() {
+  const showDatepicker = () => {
     currentDatepicker.show();
-  }
+  };
 
   // вызов функций
   creatControlBtn();
+
   if (startDate || finishDate) {
     setDate();
   }

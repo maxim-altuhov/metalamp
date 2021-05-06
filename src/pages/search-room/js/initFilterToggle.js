@@ -1,6 +1,6 @@
 import {
   disableBodyScroll,
-  enableBodyScroll
+  enableBodyScroll,
 } from 'body-scroll-lock';
 
 function initFilterToggle() {
@@ -8,22 +8,23 @@ function initFilterToggle() {
   const btnToggleFilter = document.querySelector('.js-search-room__aside-btn');
   const focusLimiter = document.querySelector('.js-search-room__limiter');
   const allElemCanToggleWithTab = blockWithFilter.querySelectorAll('input, button, [tabindex="0"]:not(input)');
+  const maxWidthFilterIsActivated = 1100;
 
   // устанавливаем полям tabindex
-  function setTabindex(selector) {
+  const setTabindex = (selector) => {
     selector.forEach(elem => {
       if (blockWithFilter.classList.contains('search-room__aside_opened')) {
         elem.setAttribute('tabindex', '0');
-      } else if (window.matchMedia('(max-width: 1100px)').matches) {
+      } else if (window.matchMedia(`(max-width: ${maxWidthFilterIsActivated}px)`).matches) {
         elem.setAttribute('tabindex', '-1');
       } else {
         elem.setAttribute('tabindex', '0');
       }
     });
-  }
+  };
 
   // открытие/закрытие фильтра
-  function toggleFilter() {
+  const toggleFilter = () => {
     blockWithFilter.classList.toggle('search-room__aside_opened');
     btnToggleFilter.classList.toggle('search-room__aside-btn_opened');
 
@@ -35,23 +36,25 @@ function initFilterToggle() {
       enableBodyScroll(blockWithFilter);
     }
     setTabindex(allElemCanToggleWithTab);
-  }
+  };
 
   // отслеживание ресайза и видимости фильтра
-  function resizeChecker() {
-    if (window.matchMedia('(min-width: 1101px)').matches) {
+  const resizeChecker = () => {
+    if (window.matchMedia(`(min-width: ${maxWidthFilterIsActivated + 1}px)`).matches) {
       blockWithFilter.classList.remove('search-room__aside_opened');
       btnToggleFilter.classList.remove('search-room__aside-btn_opened');
       btnToggleFilter.textContent = 'Открыть фильтр';
       enableBodyScroll(blockWithFilter);
     }
     setTabindex(allElemCanToggleWithTab);
-  }
+  };
 
-  function setLimiterForFocus() {
+  // закрытие фильтра при потери фокуса на последнем элементе
+  const setLimiterForFocus = () => {
     if (blockWithFilter.classList.contains('search-room__aside_opened')) toggleFilter();
-  }
+  };
 
+  // вызовы функций и обработчики
   setTabindex(allElemCanToggleWithTab);
   window.addEventListener('resize', resizeChecker);
   btnToggleFilter.addEventListener('click', toggleFilter);

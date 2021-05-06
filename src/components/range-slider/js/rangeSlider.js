@@ -6,7 +6,7 @@ function rangeSlider({
   start,
   min,
   max,
-  step
+  step,
 }) {
   const selectorSlider = document.querySelector(selector);
   const sliderInfo = selectorSlider.previousElementSibling;
@@ -18,20 +18,20 @@ function rangeSlider({
     step: step,
     format: wNumb({
       thousand: ' ',
-      decimals: 0
+      decimals: 0,
     }),
     connect: true,
     range: {
       min: [min],
-      max: [max]
-    }
+      max: [max],
+    },
   });
 
-  function updateInfo() {
+  const updateInfo = () => {
     let infoSlider = selectorSlider.noUiSlider.get();
     sliderMin.textContent = `${infoSlider[0]}₽`;
     sliderMax.textContent = `${infoSlider[1]}₽`;
-  }
+  };
 
   selectorSlider.noUiSlider.on('update', updateInfo);
 }

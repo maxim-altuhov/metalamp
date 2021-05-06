@@ -1,11 +1,10 @@
-import './json/rating.json';
+import '../json/rating.json';
 
 function setRating() {
   const ratings = document.querySelectorAll('.js-rating');
   let activeRating;
   let valueRating;
 
-  // основная функция
   function initRatings() {
     // инициализация переменных
     function initRatingVars(currentRating) {
@@ -44,8 +43,7 @@ function setRating() {
 
             // отправка данных на сервер
             let response = await fetch('./json/rating.json', {
-              method: 'GET'
-              // ,
+              method: 'GET',
               // body: JSON.stringify({
               //   UserRating: value
               // }),

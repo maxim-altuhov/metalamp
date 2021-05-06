@@ -15,7 +15,7 @@ const pathDir = {
   dist: path.join(__dirname, './dist'),
   base: path.join(__dirname, './src/base'),
   comp: path.join(__dirname, './src/components'),
-  pages: path.join(__dirname, './src/pages')
+  pages: path.join(__dirname, './src/pages'),
 };
 const pagesDir = pathDir.pages;
 const allPages = fs.readdirSync(pagesDir);
@@ -32,11 +32,11 @@ const cssLoaders = add => {
     {
       loader: MiniCssExtractPlugin.loader,
       options: {
-        publicPath: '../'
-      }
+        publicPath: '../',
+      },
     },
     {
-      loader: 'css-loader'
+      loader: 'css-loader',
     },
     {
       loader: 'postcss-loader',
@@ -48,17 +48,17 @@ const cssLoaders = add => {
               'postcss-preset-env',
               {
                 autoprefixer: {
-                  grid: true
-                }
-              }
-            ]
-          ]
-        }
-      }
+                  grid: true,
+                },
+              },
+            ],
+          ],
+        },
+      },
     },
     {
-      loader: 'resolve-url-loader'
-    }
+      loader: 'resolve-url-loader',
+    },
   ];
 
   if (add) {
@@ -73,10 +73,9 @@ const babelOptions = presets => {
     presets: [
       ['@babel/preset-env', {
         useBuiltIns: 'usage',
-        corejs: 3
-      }]
+        corejs: 3,
+      }],
     ],
-    plugins: ['@babel/plugin-proposal-class-properties']
   };
   if (presets) {
     option.presets.push(presets);
@@ -92,26 +91,26 @@ const plugins = () => {
       template: `${pagesDir}/${page}/${page}.pug`,
       chunks: [`${page}`],
       minify: {
-        collapseWhitespace: isProd
+        collapseWhitespace: isProd,
       },
       inject: 'body',
-      scriptLoading: 'blocking'
+      scriptLoading: 'blocking',
     })),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [{
         from: path.resolve(__dirname, `${pathDir.base}/assets/`),
-        to: path.resolve(__dirname, 'dist')
-      }]
+        to: path.resolve(__dirname, 'dist'),
+      }],
     }),
     new MiniCssExtractPlugin({
-      filename: `css/${filename('css')}`
+      filename: `css/${filename('css')}`,
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      'window.jQuery': 'jquery'
-    })
+      'window.jQuery': 'jquery',
+    }),
   ];
   if (isDev && !isDevServer) {
     base.push(new ESLintPlugin());
@@ -127,13 +126,13 @@ const plugins = () => {
             {
               plugins: [
                 {
-                  removeViewBox: false
-                }
-              ]
-            }
-          ]
-        ]
-      }
+                  removeViewBox: false,
+                },
+              ],
+            },
+          ],
+        ],
+      },
     }));
   }
   return base;
@@ -143,8 +142,8 @@ const plugins = () => {
 const optimization = () => {
   const config = {
     splitChunks: {
-      chunks: 'all'
-    }
+      chunks: 'all',
+    },
   };
   if (isProd) {
     config.minimize = true;
@@ -156,10 +155,37 @@ const optimization = () => {
         preset: [
           'default',
           {
-            normalizeWhitespace: false
-          }
-        ]
-      }
+            discardDuplicates: true,
+            normalizeWhitespace: false,
+            cssDeclarationSorter: false,
+            calc: false,
+            colormin: false,
+            convertValues: false,
+            discardComments: false,
+            discardEmpty: false,
+            discardOverridden: false,
+            mergeLonghand: false,
+            mergeRules: false,
+            minifyFontValues: false,
+            minifyGradients: false,
+            minifyParams: false,
+            minifySelectors: false,
+            normalizeCharset: false,
+            normalizeDisplayValues: false,
+            normalizePositions: false,
+            normalizeRepeatStyle: false,
+            normalizeString: false,
+            normalizeTimingFunctions: false,
+            normalizeUnicode: false,
+            normalizeUrl: false,
+            orderedValues: false,
+            reduceInitial: false,
+            reduceTransforms: false,
+            svgo: false,
+            uniqueSelectors: false,
+          },
+        ],
+      },
     })];
   }
   return config;
@@ -178,13 +204,13 @@ const entryPoint = () => {
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   stats: {
-    children: false
+    children: false,
   },
   mode: 'development',
   entry: entryPoint(),
   output: {
     filename: `js/${filename('js')}`,
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
     extensions: ['.js', '.json', '.css', '.scss', '.html', '.pug'],
@@ -195,13 +221,13 @@ module.exports = {
       '@libs': path.resolve(__dirname, 'src/base/libs'),
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@comp': path.resolve(__dirname, 'src/components'),
-      '@lo': path.resolve(__dirname, 'src/layout')
-    }
+      '@lo': path.resolve(__dirname, 'src/layout'),
+    },
   },
   optimization: optimization(),
   devServer: {
     port: 4200,
-    open: true
+    open: true,
   },
   target: isDev === true ? 'web' : 'browserslist',
   devtool: isDev === true ? 'source-map' : false,
@@ -213,57 +239,57 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: babelOptions()
-        }
+          options: babelOptions(),
+        },
       },
       {
         test: /\.html$/i,
-        loader: 'html-loader'
+        loader: 'html-loader',
       },
       {
         test: /\.pug$/i,
         loader: 'pug-loader',
         options: {
-          pretty: isDev
-        }
+          pretty: isDev,
+        },
       },
       {
         test: /\.css$/i,
-        use: cssLoaders()
+        use: cssLoaders(),
       },
       {
         test: /\.(sass|scss)$/i,
         use: cssLoaders({
           loader: 'sass-loader',
           options: {
-            sourceMap: true
-          }
-        })
+            sourceMap: true,
+          },
+        }),
       },
       {
         test: /\.(?:ico|png|jpg|jpeg|svg|gif|webp)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'img/[name][ext]'
-        }
+          filename: 'img/[name][ext]',
+        },
       },
       {
         test: /\.(?:json)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'json/[name][ext]'
-        }
+          filename: 'json/[name][ext]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
         type: 'asset/resource',
         include: [
-          path.resolve(__dirname, 'src/base/fonts')
+          path.resolve(__dirname, 'src/base/fonts'),
         ],
         generator: {
-          filename: 'fonts/[name][ext]'
-        }
-      }
-    ]
-  }
+          filename: 'fonts/[name][ext]',
+        },
+      },
+    ],
+  },
 };

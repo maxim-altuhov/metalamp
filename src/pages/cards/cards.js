@@ -1,37 +1,39 @@
 import './cards.scss';
 
-import { checkedFocus } from '@base/base';
-import initDropdown from '@comp/dropdown/dropdown';
-import addMaskForInput from '@comp/input/input-mask';
-import addDatePicker from '@comp/input/input-datepicker';
-import { showTooltip, convertCost } from '@comp/card-booking/card-booking';
-import { sliderSwiper, convertComment } from '@comp/card-room/card-room';
+import checkedFocus from '@base/js/checkedFocus';
+import initDropdown from '@comp/dropdown/js/initDropdown';
+import addMaskForInput from '@comp/input/js/addMaskForInput';
+import addDatePicker from '@comp/input/js/addDatePicker';
+import showTooltip from '@comp/card-booking/js/showTooltip';
+import convertCost from '@comp/card-booking/js/convertCost';
+import initSlider from '@comp/card-room/js/initSlider';
+import convertComment from '@comp/card-room/js/convertComment';
 
-function contentLoaded() {
+function initFunction() {
   checkedFocus();
   initDropdown({
-    arrowToggle: false
+    arrowToggle: false,
   });
   addMaskForInput();
   addDatePicker({
     $selectorId: '#card-search-date',
-    secondSelector: true
+    secondSelector: true,
   });
   addDatePicker({
     $selectorId: '#card-booking-date',
     secondSelector: true,
     startDate: '2019-08-19',
-    finishDate: '2019-08-23'
+    finishDate: '2019-08-23',
   });
-  showTooltip();
   addDatePicker({
     $selectorId: '#date-filter-example',
     startDate: '2019-08-19',
-    finishDate: '2019-08-23'
+    finishDate: '2019-08-23',
   });
+  showTooltip();
   convertCost();
+  initSlider();
   convertComment();
-  sliderSwiper();
 }
 
-window.addEventListener('DOMContentLoaded', contentLoaded);
+window.addEventListener('DOMContentLoaded', initFunction);

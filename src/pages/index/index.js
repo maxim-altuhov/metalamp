@@ -1,21 +1,21 @@
 import './index.scss';
 
-import { checkedFocus } from '@base/base';
-import initDropdown from '@comp/dropdown/dropdown';
-import addDatePicker from '@comp/input/input-datepicker';
-import initMenu from '@comp/header/header';
+import checkedFocus from '@base/js/checkedFocus';
+import initMenu from '@comp/header/js/initMenu';
+import initDropdown from '@comp/dropdown/js/initDropdown';
+import addDatePicker from '@comp/input/js/addDatePicker';
 
-function contentLoaded() {
+function initFunction() {
   checkedFocus();
   initMenu();
   initDropdown({
-    arrowToggle: false
+    arrowToggle: false,
   });
   addDatePicker({
     $selectorId: '#card-search-date',
     secondSelector: true,
-    setMinDate: true
+    setMinDate: true,
   });
 }
 
-window.addEventListener('DOMContentLoaded', contentLoaded);
+window.addEventListener('DOMContentLoaded', initFunction);

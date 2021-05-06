@@ -2,10 +2,11 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
+// плавное открытие/закрытие блока c чекбоксами
 function toggleCheckboxList() {
   const $selector = $('.js-checkbox-list__block');
 
-  function toggleBlock(e) {
+  const toggleBlock = (e) => {
     const target = e.currentTarget;
     const $arrow = $(target).find('span');
     const $checkboxBlock = $(target).next();
@@ -19,16 +20,16 @@ function toggleCheckboxList() {
       $arrow.text('keyboard_arrow_down');
       $checkboxBlock.slideUp('slow');
     }
-  }
+  };
 
-  function toggleBlockWithEnter(e) {
+  const toggleBlockKeydownEnter = (e) => {
     if (e.key === 'Enter') {
       toggleBlock(e);
     }
-  }
+  };
 
   $selector.on('click', toggleBlock);
-  $selector.on('keydown', toggleBlockWithEnter);
+  $selector.on('keydown', toggleBlockKeydownEnter);
 }
 
 export default toggleCheckboxList;
