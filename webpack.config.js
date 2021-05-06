@@ -100,7 +100,7 @@ const plugins = () => {
     new CopyWebpackPlugin({
       patterns: [{
         from: path.resolve(__dirname, `${pathDir.base}/assets/`),
-        to: path.resolve(__dirname, 'dist'),
+        to: path.resolve(__dirname, 'dist/assets/'),
       }],
     }),
     new MiniCssExtractPlugin({
