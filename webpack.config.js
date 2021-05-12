@@ -142,7 +142,7 @@ const plugins = () => {
 const optimization = () => {
   const config = {
     splitChunks: {
-      chunks: 'all',
+      // chunks: 'all',
     },
   };
   if (isProd) {

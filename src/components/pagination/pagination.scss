@@ -1,3 +1,6 @@
+@import '@scss/variables';
+@import '@scss/mixins';
+
 .pagination {
   &__wrapper {
     display: flex;

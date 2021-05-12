@@ -1,3 +1,6 @@
+@import '@scss/variables';
+@import '@scss/mixins';
+
 .diagram {
   &__wrapper {
     display: flex;

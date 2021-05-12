@@ -1,4 +1,6 @@
 @import '~air-datepicker/dist/css/datepicker.css';
+@import '@scss/variables';
+@import '@scss/mixins';
 @import '@comp/button/button';
 
 .datepicker {

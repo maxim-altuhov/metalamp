@@ -1,3 +1,6 @@
+@import '@scss/variables';
+@import '@scss/mixins';
+
 .bullet-list {
   &__wrapper {
     display: flex;

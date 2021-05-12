@@ -1,4 +1,6 @@
 @import './libs/fontawesome/scss/font-awesome.scss';
+@import '@scss/variables';
+@import '@scss/mixins';
 
 .footer {
   &__copyright {

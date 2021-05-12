@@ -1,5 +1,7 @@
-.toggle {
+@import '@scss/variables';
+@import '@scss/mixins';
 
+.toggle {
   &__elem {
     backface-visibility: hidden;
     outline: 1px solid transparent;

@@ -1,5 +1,7 @@
-.radiobtn {
+@import '@scss/variables';
+@import '@scss/mixins';
 
+.radiobtn {
   &__field_hidden {
     position: absolute;
     width: 1px;

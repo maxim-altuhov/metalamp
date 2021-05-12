@@ -1,3 +1,6 @@
+@import '@scss/variables';
+@import '@scss/mixins';
+
 .simple-rating {
   &__elem {
     background: $background-gradient;
