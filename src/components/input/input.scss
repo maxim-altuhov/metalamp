@@ -114,10 +114,16 @@
     position: absolute;
     bottom: 0px;
     right: 2px;
-    height: 40px;
+    height: 43px;
     width: 40px;
-    background: $background-gradient;
+    background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+    span {
+      background: $background-gradient;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    }
   }
 }

@@ -51,8 +51,12 @@
   &__content {
     margin: 71px 0 72px 0;
     display: grid;
-    grid-template-columns: minmax(20.4%, auto) auto minmax(379px, 32.7%);
+    grid-template-columns: minmax(20.4%, auto) minmax(399px, 30%) minmax(379px, 32.7%);
     gap: 0 1.8%;
+
+    @media(max-width: 1439px) {
+      grid-template-columns: minmax(20.4%, auto) auto minmax(379px, 32.7%);
+    }
 
     @media(max-width: 1199px) {
       margin: 45px 0;
