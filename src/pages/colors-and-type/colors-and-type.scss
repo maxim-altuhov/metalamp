@@ -61,16 +61,16 @@
       max-width: 375px;
       line-height: 23px;
     }
+  }
 
-    span {
-      display: inline-block;
-      flex: 0 0 37px;
-      margin-right: 30px;
-      font-weight: 400;
-      font-size: inherit;
-      line-height: inherit;
-      text-align: right;
-      color: $dark25;
-    }
+  &__elem-name {
+    display: inline-block;
+    flex: 0 0 37px;
+    margin-right: 30px;
+    font-weight: 400;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: right;
+    color: $dark25;
   }
 }

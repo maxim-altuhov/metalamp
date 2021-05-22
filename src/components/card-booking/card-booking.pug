@@ -7,7 +7,7 @@ include ~@comp/button/button.pug
   .card-booking__block
     .card-booking__top
       .card-booking__info
-        span №
+        span.card-booking__sym №
         span.card-booking__number 888
         span.card-booking__tag люкс
       .card-booking__price
@@ -38,7 +38,7 @@ include ~@comp/button/button.pug
               i.card-booking__info-tooltip
             span#booking-addservices-result(data-cost) 300₽
           .card-booking__details-total
-            p Итого
+            p.card-booking__details-total-text Итого
               span#booking-total(data-cost) 38081₽
       .card-booking__btn 
         +button({mod:"big", text:"забронировать", btnType:"submit"})

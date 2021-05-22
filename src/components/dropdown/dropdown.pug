@@ -20,9 +20,9 @@ mixin dropdown(options)
               .dropdown__field-elem.js-dropdown__field-elem
                 span.dropdown__field-item= element
                 .dropdown__field-counter.js-dropdown__field-counter
-                  button(disabled type="button" data-dropdown-minus) -
-                  span= value
-                  button(type="button" data-dropdown-plus) +
+                  button.dropdown__field-counter-btn(disabled type="button" data-dropdown-minus) -
+                  span.dropdown__field-item= value
+                  button.dropdown__field-counter-btn(type="button" data-dropdown-plus) +
           if addBtn
             .dropdown__field-control
               +button({mod:"simple", text:"Очистить", btnType:"button", btnFunction:"clear"}, addclass="elem-hidden")

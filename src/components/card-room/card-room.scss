@@ -108,11 +108,11 @@
     line-height: 121%;
     color: $dark;
     margin-left: 1px;
+  }
 
-    span:first-child {
-      font-size: 14px;
-      line-height: 122%;
-    }
+  &__sym {
+    font-size: 14px;
+    line-height: 122%;
   }
 
   &__number {

@@ -40,11 +40,11 @@
     font-size: 24px;
     line-height: 121%;
     color: $dark;
+  }
 
-    span:first-child {
-      font-size: 14px;
-      line-height: 122%;
-    }
+  &__sym {
+    font-size: 14px;
+    line-height: 122%;
   }
 
   &__number {
@@ -151,17 +151,18 @@
     font-size: 19px;
     color: $dark;
 
-    p {
-      display: flex;
-      align-items: baseline;
+  }
 
-      &::before {
-        content: '';
-        border-bottom: 1px dashed $dark25;
-        flex-grow: 1;
-        order: 2;
-        margin: 0 5px;
-      }
+  &__details-total-text {
+    display: flex;
+    align-items: baseline;
+
+    &::before {
+      content: '';
+      border-bottom: 1px dashed $dark25;
+      flex-grow: 1;
+      order: 2;
+      margin: 0 5px;
     }
 
     span {

@@ -15,7 +15,7 @@
       flex-direction: column;
     }
 
-    span {
+    .material-icons {
       position: absolute;
       bottom: 8px;
       right: 10px;
@@ -119,7 +119,7 @@
     background-clip: text;
     -webkit-background-clip: text;
 
-    span {
+    .material-icons {
       background: $background-gradient;
       background-clip: text;
       -webkit-background-clip: text;

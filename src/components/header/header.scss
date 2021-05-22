@@ -76,11 +76,6 @@
       align-items: flex-start;
     }
 
-    span {
-      display: flex;
-      align-items: center;
-    }
-
     a {
       color: $dark50;
       transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
@@ -106,6 +101,11 @@
           color: $dark75;
         }
       }
+    }
+
+    .header__link-dropdown {
+      display: flex;
+      align-items: center;
     }
 
     .header__link-arrow {

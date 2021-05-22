@@ -4,7 +4,8 @@
 @import '@comp/footer/footer';
 @import '@comp/footer-copyright/footer-copyright';
 
-html {
+html,
+body {
   background: $background-grey;
 }
 
