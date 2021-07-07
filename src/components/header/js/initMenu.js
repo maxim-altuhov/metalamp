@@ -34,7 +34,7 @@ function initMenu() {
 
   // открытие подменю при наведении
   const showBlockmenu = (e) => {
-    e.preventDefault();
+    if (e.target.getAttribute('href') === '#') e.preventDefault();
 
     if (window.matchMedia(`(min-width: ${maxWidthMenuIsActivated + 1}px)`).matches) {
       const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
@@ -46,7 +46,7 @@ function initMenu() {
 
   // закрытие подменю
   const hideBlockmenu = (e) => {
-    e.preventDefault();
+    if (e.target.getAttribute('href') === '#') e.preventDefault();
 
     if (window.matchMedia(`(min-width: ${maxWidthMenuIsActivated + 1}px)`).matches) {
       let blockLinks;
@@ -69,7 +69,8 @@ function initMenu() {
 
   // открытие подменю при клике на мобильной версии
   const openSubmenu = (e) => {
-    e.preventDefault();
+    if (e.target.getAttribute('href') === '#') e.preventDefault();
+
     if (window.matchMedia(`(max-width: ${maxWidthMenuIsActivated}px)`).matches) {
       const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
       const links = e.currentTarget.querySelectorAll('.js-header__submenu a');

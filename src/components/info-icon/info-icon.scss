@@ -2,6 +2,7 @@
 @import '@scss/mixins';
 
 .info-icon {
+
   &__block {
     display: flex;
     align-items: center;
@@ -38,8 +39,12 @@
   }
 
   &__line {
-    max-width: 280px;
+    // max-width: 82%;
     height: 1px;
     background-color: $dark10;
+
+    // @media(max-width: 1199px) {
+    //   max-width: 280px;
+    // }
   }
 }
