@@ -23,11 +23,22 @@ const isDev = process.env.NODE_ENV === 'development';
 const isDevServer = process.env.SECOND_ENV === 'devserver';
 const isProd = !isDev;
 
-// формируем имя файла в зависимости от режима сборки
-const filename = ext => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
+// Setting whether to put a hash of the file when uploading to production
+const setHash = true;
 
-// лоадеры
-const cssLoaders = add => {
+// Configuring the type of incoming html or pug file
+const inputTypeFile = 'pug';
+
+// We form the file name depending on the build mode
+const getFileName = (ext) => {
+  if (isProd && setHash) return `[name].[fullhash].min.${ext}`;
+  if (isProd) return `[name].min.${ext}`;
+
+  return `[name].${ext}`;
+};
+
+// Loaders
+const setLoaders = (add) => {
   const loaders = [
     {
       loader: MiniCssExtractPlugin.loader,
@@ -61,34 +72,34 @@ const cssLoaders = add => {
     },
   ];
 
-  if (add) {
-    loaders.push(add);
-  }
+  if (add) loaders.push(add);
+
   return loaders;
 };
 
-// настройки для babel
-const babelOptions = presets => {
-  const option = {
+// Settings for babel
+const setBabelOptions = (presets) => {
+  const options = {
     presets: [
-      ['@babel/preset-env', {
-        useBuiltIns: 'usage',
-        corejs: 3,
-      }],
+      ['@babel/preset-env',
+        {
+          useBuiltIns: 'usage',
+          corejs: { version: '3.8', proposals: true },
+        },
+      ],
     ],
   };
-  if (presets) {
-    option.presets.push(presets);
-  }
-  return option;
+  if (presets) options.presets.push(presets);
+
+  return options;
 };
 
-// плагины
-const plugins = () => {
-  const base = [
-    ...allPages.map(page => new HTMLWebpackPlugin({
+// Plugins
+const setPlugins = () => {
+  const basePlugins = [
+    ...allPages.map((page) => new HTMLWebpackPlugin({
       filename: `${page}.html`,
-      template: `${pagesDir}/${page}/${page}.pug`,
+      template: `${pagesDir}/${page}/${page}.${inputTypeFile}`,
       chunks: [`${page}`],
       minify: {
         collapseWhitespace: isProd,
@@ -104,7 +115,7 @@ const plugins = () => {
       }],
     }),
     new MiniCssExtractPlugin({
-      filename: `css/${filename('css')}`,
+      filename: `css/${getFileName('css')}`,
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -113,103 +124,105 @@ const plugins = () => {
     }),
   ];
   if (isDev && !isDevServer) {
-    base.push(new ESLintPlugin());
+    basePlugins.push(new ESLintPlugin());
   } else if (isProd) {
-    base.push(new ImageMinimizerPlugin({
-      minimizerOptions: {
-        plugins: [
-          ['gifsicle', { interlaced: true }],
-          ['jpegtran', { progressive: true }],
-          ['optipng', { optimizationLevel: 5 }],
-          [
-            'svgo',
-            {
-              plugins: [
-                {
-                  removeViewBox: false,
-                },
-              ],
-            },
+    basePlugins.push(
+      new ImageMinimizerPlugin({
+        minimizerOptions: {
+          plugins: [
+            ['gifsicle', { interlaced: true }],
+            ['jpegtran', { progressive: true }],
+            ['optipng', { optimizationLevel: 5 }],
+            [
+              'svgo',
+              {
+                plugins: [
+                  {
+                    removeViewBox: false,
+                  },
+                ],
+              },
+            ],
           ],
-        ],
-      },
-    }));
+        },
+      }),
+    );
   }
-  return base;
+
+  return basePlugins;
 };
 
-// параметры оптимизации
-const optimization = () => {
-  const config = {
-    splitChunks: {
-      // chunks: 'all',
-    },
-  };
+// Optimization parameters
+const setOptimization = () => {
+  const config = {};
   if (isProd) {
     config.minimize = true;
     config.minimizer = [new CssMinimizerPlugin(), new TerserWebpackPlugin()];
   } else if (isDev) {
     config.minimize = true;
-    config.minimizer = [new CssMinimizerPlugin({
-      minimizerOptions: {
-        preset: [
-          'default',
-          {
-            discardDuplicates: true,
-            normalizeWhitespace: false,
-            cssDeclarationSorter: false,
-            calc: false,
-            colormin: false,
-            convertValues: false,
-            discardComments: false,
-            discardEmpty: false,
-            discardOverridden: false,
-            mergeLonghand: false,
-            mergeRules: false,
-            minifyFontValues: false,
-            minifyGradients: false,
-            minifyParams: false,
-            minifySelectors: false,
-            normalizeCharset: false,
-            normalizeDisplayValues: false,
-            normalizePositions: false,
-            normalizeRepeatStyle: false,
-            normalizeString: false,
-            normalizeTimingFunctions: false,
-            normalizeUnicode: false,
-            normalizeUrl: false,
-            orderedValues: false,
-            reduceInitial: false,
-            reduceTransforms: false,
-            svgo: false,
-            uniqueSelectors: false,
-          },
-        ],
-      },
-    })];
+    config.minimizer = [
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardDuplicates: true,
+              normalizeWhitespace: false,
+              cssDeclarationSorter: false,
+              calc: false,
+              colormin: false,
+              convertValues: false,
+              discardComments: false,
+              discardEmpty: false,
+              discardOverridden: false,
+              mergeLonghand: false,
+              mergeRules: false,
+              minifyFontValues: false,
+              minifyGradients: false,
+              minifyParams: false,
+              minifySelectors: false,
+              normalizeCharset: false,
+              normalizeDisplayValues: false,
+              normalizePositions: false,
+              normalizeRepeatStyle: false,
+              normalizeString: false,
+              normalizeTimingFunctions: false,
+              normalizeUnicode: false,
+              normalizeUrl: false,
+              orderedValues: false,
+              reduceInitial: false,
+              reduceTransforms: false,
+              svgo: false,
+              uniqueSelectors: false,
+            },
+          ],
+        },
+      }),
+    ];
   }
+
   return config;
 };
 
-// определение входных точек
-const entryPoint = () => {
-  const obj = {};
-  allPages.forEach(page => {
-    obj[`${page}`] = `./pages/${page}/${page}.js`;
+// Defining input points
+const getEntryPoints = () => {
+  const entry = {};
+
+  allPages.forEach((page) => {
+    entry[`${page}`] = `./pages/${page}/${page}`;
   });
-  return obj;
+
+  return entry;
 };
 
-// модули и настройки
+// Module with settings
 module.exports = {
   context: path.resolve(__dirname, 'src'),
-  stats: {
-    children: false,
-  },
+  stats: { children: false },
   mode: 'development',
-  entry: entryPoint(),
+  entry: getEntryPoints(),
   output: {
-    filename: `js/${filename('js')}`,
+    filename: `js/${getFileName('js')}`,
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
@@ -224,14 +237,14 @@ module.exports = {
       '@lo': path.resolve(__dirname, 'src/layout'),
     },
   },
-  optimization: optimization(),
+  optimization: setOptimization(),
   devServer: {
     port: 4200,
     open: true,
   },
-  target: isDev === true ? 'web' : 'browserslist',
-  devtool: isDev === true ? 'source-map' : false,
-  plugins: plugins(),
+  target: (isDev === true) ? 'web' : 'browserslist',
+  devtool: (isDev === true) ? 'source-map' : false,
+  plugins: setPlugins(),
   module: {
     rules: [
       {
@@ -239,7 +252,7 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: babelOptions(),
+          options: setBabelOptions(),
         },
       },
       {
@@ -255,11 +268,11 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: cssLoaders(),
+        use: setLoaders(),
       },
       {
         test: /\.(sass|scss)$/i,
-        use: cssLoaders({
+        use: setLoaders({
           loader: 'sass-loader',
           options: {
             sourceMap: true,
