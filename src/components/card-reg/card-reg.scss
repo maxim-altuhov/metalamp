@@ -62,7 +62,9 @@
   }
 
   &__btn {
-    margin-top: 24px;
+    margin-top: 23px;
+    width: 320px;
+    height: 44px;
   }
 
   &__sign-in {
@@ -78,5 +80,10 @@
       color: #000000;
       padding-right: 10px;
     }
+  }
+
+  &__mini-btn {
+    width: 99px;
+    height: 44px
   }
 }

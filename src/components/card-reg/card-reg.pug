@@ -29,7 +29,8 @@ mixin cardReg(options)
           .card-reg__elem.card-reg__elem_in-row
             +toggle({text:"Получать спецпредложения", name:"toggle-subscribe"})
           .card-reg__btn
-            +button({mod:"big", text:`${textBtn}`, btnType:"submit"})
+            +button({theme:"with-arrow", text:`${textBtn}`, btnType:"submit"})
       .card-reg__sign-in
         span.card-reg__sign-in-text Уже есть аккаунт на Toxin
-        +button({mod:"transparent", text:"Войти", isLink: true, href: "sign-in.html"})
+        .card-reg__mini-btn
+          +button({theme:"transparent", text:"Войти", isLink: true, href: "sign-in.html"})

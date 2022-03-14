@@ -205,16 +205,19 @@
 
   &__btn {
     display: flex;
+    height: 34px;
   }
 
   &__btn-elem {
     margin-right: 20px;
+    width: 87px;
 
     @media (max-width: 575px) {
       margin-right: 0;
     }
 
     &:last-child {
+      width: 196px;
       margin-right: 0;
 
       @media (max-width: 650px) {

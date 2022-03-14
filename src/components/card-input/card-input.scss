@@ -41,6 +41,8 @@
 
   &__btn {
     margin-top: 20px;
+    width: 320px;
+    height: 44px;
   }
 
   &__sign-in {
@@ -55,5 +57,10 @@
       color: #000000;
       padding-right: 10px;
     }
+  }
+
+  &__mini-btn {
+    width: 99px;
+    height: 44px
   }
 }

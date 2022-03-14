@@ -1,6 +1,6 @@
 import './form-elements.scss';
 
-import checkedFocus from '@base/js/checkedFocus';
+import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import addMaskForInput from '@comp/input/js/addMaskForInput';
 import addDatePicker from '@comp/input/js/addDatePicker';
 import initDropdown from '@comp/dropdown/js/initDropdown';
@@ -10,7 +10,7 @@ import initPagination from '@comp/pagination/js/initPagination';
 import toggleCheckboxList from '@comp/checkbox-list/js/toggleCheckboxList';
 
 function initFunction() {
-  checkedFocus();
+  checkingTabKeyPress();
   addMaskForInput();
   addDatePicker({
     $selectorId: '#date-dropdown-block',

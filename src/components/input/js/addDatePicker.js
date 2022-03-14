@@ -79,8 +79,8 @@ function addDatePicker({
   // функция добавляющая кнопки управления в календарь
   const creatControlBtn = () => {
     const buttonBlock = `<div class="datepicker--control">
-    <button class="button button_simple datepicker__clear js-datepicker__clear" type="button">Очистить</button>
-    <button class="button button_simple datepicker__apply js-datepicker__apply" type="button">Применить</button>
+    <button class="button button_simple button_size_normal datepicker__clear js-datepicker__clear" type="button">Очистить</button>
+    <button class="button button_simple button_size_normal datepicker__apply js-datepicker__apply" type="button">Применить</button>
     </div>`;
 
     $(`.${options.classes}`).append(buttonBlock);

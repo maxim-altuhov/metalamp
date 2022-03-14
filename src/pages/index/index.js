@@ -1,12 +1,12 @@
 import './index.scss';
 
-import checkedFocus from '@base/js/checkedFocus';
+import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initMenu from '@comp/header/js/initMenu';
 import initDropdown from '@comp/dropdown/js/initDropdown';
 import addDatePicker from '@comp/input/js/addDatePicker';
 
 function initFunction() {
-  checkedFocus();
+  checkingTabKeyPress();
   initMenu();
   initDropdown({
     arrowToggle: false,

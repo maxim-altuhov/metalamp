@@ -88,21 +88,21 @@ block content
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
             .form-elements__btn-row
               .form-elements__btn-elem
-                +button({mod:"colored", text:"click me", btnType:"button"})
+                +button({text:"click me", btnType:"button"})
               .form-elements__btn-elem
-                +button({mod:"colored", text:"click me", btnType:"button"}, addclass="button_colored-hover")
+                +button({text:"click me", btnType:"button", isHoverState: true})
             .form-elements__btn-row
               .form-elements__btn-elem
-                +button({mod:"transparent", text:"click me", btnType:"button"})
+                +button({theme:"transparent", text:"click me", btnType:"button"})
               .form-elements__btn-elem
-                +button({mod:"transparent", text:"click me", btnType:"button"}, addclass="button_transparent-hover")
+                +button({theme:"transparent", text:"click me", btnType:"button", isHoverState: true})
             .form-elements__btn-row
               .form-elements__btn-elem
-                +button({mod:"simple", text:"click me", btnType:"button"})
+                +button({theme:"simple", text:"click me", btnType:"button"})
               .form-elements__btn-elem
-                +button({mod:"simple", text:"click me", btnType:"button"}, addclass="button_simple-hover")
+                +button({theme:"simple", text:"click me", btnType:"button", isHoverState: true})
             .form-elements__btn-row
-              +button({mod:"big", text:"перейти к оплате", btnType:"button"})
+              +button({theme:"with-arrow", text:"перейти к оплате", btnType:"button"})
         .form-elements__item
           h3 Pagination
           .form-elements__pagination

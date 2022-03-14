@@ -1,10 +1,10 @@
 import './404.scss';
 
-import checkedFocus from '@base/js/checkedFocus';
+import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initMenu from '@comp/header/js/initMenu';
 
 function initFunction() {
-  checkedFocus();
+  checkingTabKeyPress();
   initMenu();
 }
 

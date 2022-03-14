@@ -25,6 +25,6 @@ mixin dropdown(options)
                   button.dropdown__field-counter-btn(type="button" data-dropdown-plus) +
           if addBtn
             .dropdown__field-control
-              +button({mod:"simple", text:"Очистить", btnType:"button", btnFunction:"clear"}, addclass="elem-hidden")
-              +button({mod:"simple", text:"Применить", btnType:"button", btnFunction:"apply"})
+              +button({theme:"simple", text:"Очистить", dataFunction:"clear"}, addclass="elem-hidden")
+              +button({theme:"simple", text:"Применить", dataFunction:"apply"})
           .dropdown__field-limiter.js-dropdown__field-limiter(tabindex="0")

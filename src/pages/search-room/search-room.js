@@ -1,6 +1,6 @@
 import './search-room.scss';
 
-import checkedFocus from '@base/js/checkedFocus';
+import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initMenu from '@comp/header/js/initMenu';
 import initFilterToggle from './js/initFilterToggle';
 import addDatePicker from '@comp/input/js/addDatePicker';
@@ -13,7 +13,7 @@ import convertComment from '@comp/card-room/js/convertComment';
 import initPagination from '@comp/pagination/js/initPagination';
 
 function initFunction() {
-  checkedFocus();
+  checkingTabKeyPress();
   initMenu();
   initFilterToggle();
   addDatePicker({

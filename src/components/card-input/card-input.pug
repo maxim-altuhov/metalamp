@@ -12,7 +12,8 @@ include ~@comp/button/button.pug
         .card-input__elem
           +input({attributeName:"password-login", attributeType:"password", placeholder:"Пароль"})
         .card-input__btn
-          +button({mod:"big", text:"войти", btnType:"submit"})
+          +button({theme:"with-arrow", text:"войти", btnType:"submit"})
     .card-input__sign-in
       span.card-input__sign-in-text Нет аккаунта на Toxin?
-      +button({mod:"transparent", text:"Создать", isLink: true, href: "registration.html"})
+      .card-input__mini-btn
+        +button({theme:"transparent", text:"Создать", isLink: true, href: "registration.html"})

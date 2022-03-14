@@ -1,6 +1,6 @@
 import './room-details.scss';
 
-import checkedFocus from '@base/js/checkedFocus';
+import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initMenu from '@comp/header/js/initMenu';
 import initSliderPreview from './js/initSliderPreview';
 import initDiagramRating from '@comp/diagram/js/initDiagramRating';
@@ -11,7 +11,7 @@ import showTooltip from '@comp/card-booking/js/showTooltip';
 import convertCost from '@comp/card-booking/js/convertCost';
 
 function initFunction() {
-  checkedFocus();
+  checkingTabKeyPress();
   initMenu();
   initSliderPreview();
   initDiagramRating('#rating-rooms');

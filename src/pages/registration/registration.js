@@ -1,11 +1,11 @@
 import './registration.scss';
 
-import checkedFocus from '@base/js/checkedFocus';
+import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initMenu from '@comp/header/js/initMenu';
 import addMaskForInput from '@comp/input/js/addMaskForInput';
 
 function initFunction() {
-  checkedFocus();
+  checkingTabKeyPress();
   initMenu();
   addMaskForInput();
 }

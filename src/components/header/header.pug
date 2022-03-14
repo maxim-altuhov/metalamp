@@ -13,35 +13,35 @@ mixin header(options)
             nav.header__navigation
               ul.header__menu.js-header__menu
                 li.header__menu-link
-                  a(href="/address/change-me") О нас
+                  a(href="/mock-address/change-me") О нас
                 li.header__menu-link.header__menu-dropdown.js-header__menu-dropdown
                   span.header__link-dropdown.js-header__link-dropdown
                     a(href="#") Услуги
                     span.header__link-arrow.js-header__link-arrow.material-icons expand_more
                   ul.header__submenu.js-header__submenu.header__submenu_hided
                     li.header__menu-link
-                      a(href="/address/change-me") Ссылка1
+                      a(href="/mock-address/change-me") Ссылка1
                     li.header__menu-link
-                      a(href="/address/change-me") Ссылка2
+                      a(href="/mock-address/change-me") Ссылка2
                     li.header__menu-link
-                      a(href="/address/change-me") Ссылка3
+                      a(href="/mock-address/change-me") Ссылка3
                 li.header__menu-link
-                  a(href="/address/change-me") Вакансии
+                  a(href="/mock-address/change-me") Вакансии
                 li.header__menu-link
-                  a(href="/address/change-me") Новости
+                  a(href="/mock-address/change-me") Новости
                 li.header__menu-link.header__menu-dropdown.js-header__menu-dropdown
                   span.header__link-dropdown.js-header__link-dropdown
                     a(href="#") Соглашения
                     span.header__link-arrow.js-header__link-arrow.material-icons expand_more
                   ul.header__submenu.js-header__submenu.header__submenu_hided
                     li.header__menu-link
-                      a(href="/address/change-me") Ссылка1
+                      a(href="/mock-address/change-me") Ссылка1
                     li.header__menu-link
-                      a(href="/address/change-me") Ссылка2
+                      a(href="/mock-address/change-me") Ссылка2
                     li.header__menu-link
-                      a(href="/address/change-me") Ссылка3
+                      a(href="/mock-address/change-me") Ссылка3
                     li.header__menu-link
-                      a(href="/address/change-me") Ссылка4
+                      a(href="/mock-address/change-me") Ссылка4
             svg.ham.js-ham(viewBox="0 0 100 100" width="60" tabindex="0")
               path.ham-line.ham-line_top(d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40")
               path.ham-line.ham-line_middle(d="m 30,50 h 40")
@@ -49,8 +49,8 @@ mixin header(options)
             if addBtn
               .header__btn
                 .header__btn-elem
-                  +button({mod:"transparent", text:"Войти", isLink: true, href: "sign-in.html"}, addclass="button_transparent-for-header") )
+                  +button({theme:"transparent", text:"Войти", isLink: true, href: "sign-in.html"}) )
                 .header__btn-elem
-                  +button({mod:"colored-for-header", text:"зарегистрироваться", isLink: true, href: "registration.html"})
+                  +button({text:"зарегистрироваться", isLink: true, href: "registration.html"})
             if addLogin
-              a(class="header__login" href="/address/change-me") Юлий Цезарь
+              a(class="header__login" href="/mock-address/change-me") Юлий Цезарь

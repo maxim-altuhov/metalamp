@@ -1,9 +1,26 @@
-//- options = { mod:{colored, colored-for-header, transparent, transparent-for-header, simple, big}, text, btnType, isLink(boolean), href, btnFunction:{clear, apply}, ...addclass }
+//-
+  const options = {
+    theme: "transparent" || "simple" || "with-arrow" || "",
+    text,
+    btnType: "button" || "submit" || "reset",
+    isLink: Boolean,
+    href: "/mock-address/change-me",
+    dataFunction: "clear" || "apply" || undefined,
+    isHoverState: Boolean,
+  }
 mixin button(options, ...addclass)
-  - const {mod, text, btnType, isLink, href, btnFunction} = options;
+  - const {theme = "", text = "", btnType = "button", isLink = false, href = "/mock-address/change-me", dataFunction, isHoverState = false} = options;
+  - const optionTheme = theme ? `button_${theme}` : "";
+  - let optionHover = "";
+
+    if isHoverState && (theme === "")
+      - optionHover = "button_with-hover";
+    else if isHoverState
+      - optionHover = `${optionTheme}-with-hover`;
+
     if isLink
-      a(class="button button_" +mod +` ${addclass}` href=href)
+      a(class=`button ${optionTheme} ${optionHover} ${addclass}` href= href)
         span.button__text= text
     else
-      button(class="button button_" +mod +` ${addclass}` type= btnType data-function= btnFunction)
+      button(class=`button ${optionTheme} ${optionHover} ${addclass}` type= btnType data-function= dataFunction)
         span.button__text= text

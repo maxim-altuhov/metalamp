@@ -1,6 +1,6 @@
 import './cards.scss';
 
-import checkedFocus from '@base/js/checkedFocus';
+import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initDropdown from '@comp/dropdown/js/initDropdown';
 import addMaskForInput from '@comp/input/js/addMaskForInput';
 import addDatePicker from '@comp/input/js/addDatePicker';
@@ -10,7 +10,7 @@ import initSlider from '@comp/card-room/js/initSlider';
 import convertComment from '@comp/card-room/js/convertComment';
 
 function initFunction() {
-  checkedFocus();
+  checkingTabKeyPress();
   initDropdown({
     arrowToggle: false,
   });
