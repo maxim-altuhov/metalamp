@@ -3,7 +3,7 @@
 @import '@comp/input/input-datepicker';
 @import '@comp/dropdown/dropdown';
 @import '@comp/checkbox/checkbox';
-@import '@comp/radiobtn/radiobtn';
+@import '@comp/radio-btn/radio-btn';
 @import '@comp/toggle/toggle';
 @import '@comp/like/like';
 @import '@comp/simple-rating/simple-rating';
@@ -212,6 +212,14 @@
 
     @media (max-width: 767px) {
       max-width: 250px;
+    }
+  }
+
+  &__rich-checkbox-item {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 

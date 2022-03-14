@@ -14,9 +14,9 @@ mixin checkbox-list(options)
           .checkbox-list__wrapper.checkbox-list__wrapper_active
             each value, element in elements
               .checkbox-list__elem
-                +checkbox({text:`${element}`, name:`${name}[]`, checked: value})
+                +checkbox({title:`${element}`, nameCheckbox:`${name}[]`, checked: value})
         else
           .checkbox-list__wrapper(style={display: "none"})
             each value, element in elements
               .checkbox-list__elem
-                +checkbox({text:`${element}`, name:`${name}[]`, checked: value})
+                +checkbox({title:`${element}`, nameCheckbox:`${name}[]`, checked: value})

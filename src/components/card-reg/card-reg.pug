@@ -1,6 +1,6 @@
 //- components
 include ~@comp/input/input.pug
-include ~@comp/radiobtn/radiobtn.pug
+include ~@comp/radio-btn/radio-btn.pug
 include ~@comp/toggle/toggle.pug
 include ~@comp/button/button.pug
 
@@ -17,9 +17,9 @@ mixin cardReg(options)
             +input({attributeName:"surname", attributeType:"text", placeholder:"Фамилия"})
           .card-reg__elem.card-reg__elem_in-row
             .card-reg__radiobtn
-              +radiobtn({text:"Мужчина", name:"radio-btn", checked: true})
+              +radio-btn({text:"Мужчина", name:"radio-btn", checked: true})
             .card-reg__radiobtn
-              +radiobtn({text:"Женщина", name:"radio-btn"})
+              +radio-btn({text:"Женщина", name:"radio-btn"})
           .card-reg__elem
             +input({labelText:"Дата рождения", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
           .card-reg__elem

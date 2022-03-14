@@ -1,16 +1,23 @@
-//- const { text, addText, name, expanded(boolean), checked(boolean) } = options;
+//- 
+  const options = { 
+    title: String,
+    descr: String,
+    nameCheckbox: String,
+    expanded: Boolean,
+    checked: Boolean,
+  };
 mixin checkbox(options)
-  - const { text, addText, name, expanded, checked } = options;
-  - const subtitle = addText;
+  - const { title = "", descr = "", nameCheckbox = "", expanded = false, checked = false } = options;
+  - const subtitle = descr;
       .checkbox
         .checkbox__elem
           label
             if checked
-              input.checkbox__field.checkbox__hidden(type="checkbox", name=name, value=text, checked)
+              input.checkbox__field.checkbox__field_hidden(type="checkbox", name=nameCheckbox, value=text, checked)
             else
-              input.checkbox__field.checkbox__hidden(type="checkbox", name=name, value=text)
+              input.checkbox__field.checkbox__field_hidden(type="checkbox", name=nameCheckbox, value=text)
             if expanded
-              span.checkbox__title.checkbox__title_bold= text
+              span.checkbox__title.checkbox__title_style_bold= title
               span.checkbox__subtitle!= subtitle
             else
-              span.checkbox__title= text
+              span.checkbox__title= title

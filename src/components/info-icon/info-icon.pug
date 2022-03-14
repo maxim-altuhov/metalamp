@@ -1,6 +1,12 @@
-//- - const { title, subtitle, icon(matrial-icons), line(boolean) } = options;
+//- 
+  const options = { 
+    title: String,
+    subtitle: String,
+    icon: String (material icons name),
+    line: Boolean,
+  };
 mixin info-icon(options)
-  - const { title, subtitle, icon, line = true } = options;
+  - const { title = "", subtitle = "", icon = "info", line = true } = options;
       .info-icon
         .info-icon__block
           span.info-icon__img.material-icons= icon

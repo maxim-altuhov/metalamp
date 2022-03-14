@@ -3,12 +3,12 @@
 
 .like {
 
-  &__block {
+  &__btn {
     position: relative;
     z-index: 2;
     padding: 1px;
     width: 40px;
-    height: 21px;
+    height: 20px;
     background: $dark25;
     border-radius: 10px;
     color: $dark25;
@@ -34,7 +34,7 @@
     }
   }
 
-  &__btn {
+  &__text {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -44,7 +44,7 @@
     height: 100%;
     border-radius: 10px;
     padding: 0 8px 0 2px;
-    line-height: 19px;
+    line-height: 20px;
 
     i {
       font-size: 10px;

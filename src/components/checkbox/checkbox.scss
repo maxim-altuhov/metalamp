@@ -7,6 +7,22 @@
     max-width: 320px;
   }
 
+  &__field {
+    &_hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      white-space: nowrap;
+      -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+      clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+  }
+
   &__field:checked+&__title:before,
   &__field:not(:checked)+&__title:before {
     content: "";
@@ -39,19 +55,6 @@
     outline: $purple auto 2px;
   }
 
-  &__hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
-
   &__title {
     cursor: pointer;
     display: inline-block;
@@ -62,14 +65,14 @@
     line-height: 129%;
     color: $dark50;
 
-    &_bold {
+    &_style_bold {
       font-weight: 700;
       color: $dark75;
     }
   }
 
   &__subtitle {
-    margin-top: 6px;
+    margin-top: 5px;
     cursor: pointer;
     display: inline-block;
     font-size: 12px;

@@ -4,7 +4,7 @@ import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import addMaskForInput from '@comp/input/js/addMaskForInput';
 import addDatePicker from '@comp/input/js/addDatePicker';
 import initDropdown from '@comp/dropdown/js/initDropdown';
-import toggleLikes from '@comp/like/js/toggleLikes';
+import switchLikes from '@comp/like/js/switchLikes';
 import rangeSlider from '@comp/range-slider/js/rangeSlider';
 import initPagination from '@comp/pagination/js/initPagination';
 import toggleCheckboxList from '@comp/checkbox-list/js/toggleCheckboxList';
@@ -25,7 +25,7 @@ function initFunction() {
   initDropdown({
     arrowToggle: false,
   });
-  toggleLikes();
+  switchLikes();
   rangeSlider({
     selector: '#range-slider-1',
     start: [5000, 10000],

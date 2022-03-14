@@ -5,7 +5,7 @@ extends ~@lo/ui-kit/ui-kit
 include ~@comp/input/input.pug
 include ~@comp/dropdown/dropdown.pug
 include ~@comp/checkbox/checkbox.pug
-include ~@comp/radiobtn/radiobtn.pug
+include ~@comp/radio-btn/radio-btn.pug
 include ~@comp/toggle/toggle.pug
 include ~@comp/like/like.pug
 include ~@comp/simple-rating/simple-rating.pug
@@ -47,18 +47,18 @@ block content
           h3 Checkbox Buttons
           .form-elements__flex-wrapper
             .form-elements__checkbox-item
-              +checkbox({text:"Можно курить", name:"checkbox-1"})
+              +checkbox({title:"Можно курить", nameCheckbox:"checkbox-1"})
             .form-elements__checkbox-item
-              +checkbox({text:"Можно с питомцами", name:"checkbox-2", checked: true})
+              +checkbox({title:"Можно с питомцами", nameCheckbox:"checkbox-2", checked: true})
             .form-elements__checkbox-item
-              +checkbox({text:"Можно пригласить гостей (до 10 человек)", name:"checkbox-3", checked: true})
+              +checkbox({title:"Можно пригласить гостей (до 10 человек)", nameCheckbox:"checkbox-3", checked: true})
         .form-elements__item.form-elements__item_margin_mini
           h3 Radio Buttons
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
             .form-elements__radiobtn
-              +radiobtn({text:"Мужчина", name:"radio-btn", checked: true})
+              +radio-btn({text:"Мужчина", name:"radio-btn", checked: true})
             .form-elements__radiobtn
-              +radiobtn({text:"Женщина", name:"radio-btn"})
+              +radio-btn({text:"Женщина", name:"radio-btn"})
         .form-elements__item.form-elements__item_margin_big
           h3 Toggle
           .form-elements__flex-wrapper
@@ -128,10 +128,10 @@ block content
         .form-elements__item.form-elements__item_margin-top_added
           h3 Rich Checkbox Buttons
           .form-elements__flex-wrapper
-            .form-elements__checkbox-item
-              +checkbox({text:"Широкий коридор", addText:"Ширина коридоров в номере<br> не менее 91 см.", name:"rich-checkbox-1", expanded: true})
-            .form-elements__checkbox-item
-              +checkbox({text:"Помощник для инвалидов", addText:"На 1 этаже вас встретит специалист и проводит до номера.", name:"rich-checkbox-2", expanded: true})
+            .form-elements__rich-checkbox-item
+              +checkbox({title:"Широкий коридор", descr:"Ширина коридоров в номере<br> не менее 91 см.", nameCheckbox:"rich-checkbox-1", expanded: true})
+            .form-elements__rich-checkbox-item
+              +checkbox({title:"Помощник для инвалидов", descr:"На 1 этаже вас встретит специалист и проводит до номера.", nameCheckbox:"rich-checkbox-2", expanded: true})
       .form-elements__block
         .form-elements__item.form-elements__item_margin-top_added
           h3 bullet list

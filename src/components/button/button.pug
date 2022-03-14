@@ -1,13 +1,13 @@
 //-
   const options = {
     theme: "transparent" || "simple" || "with-arrow" || "",
-    text,
+    text: String,
     btnType: "button" || "submit" || "reset",
     isLink: Boolean,
     href: "/mock-address/change-me",
     dataFunction: "clear" || "apply" || undefined,
     isHoverState: Boolean,
-  }
+  };
 mixin button(options, ...addclass)
   - const {theme = "", text = "", btnType = "button", isLink = false, href = "/mock-address/change-me", dataFunction, isHoverState = false} = options;
   - const optionTheme = theme ? `button_${theme}` : "";

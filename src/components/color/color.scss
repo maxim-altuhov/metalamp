@@ -12,31 +12,31 @@
     height: 70px;
     border-radius: 6px;
 
-    &_dark {
+    &_bg_dark {
       background: $dark;
     }
 
-    &_dark-shade75 {
+    &_bg_dark-shade75 {
       background: $dark75;
     }
 
-    &_dark-shade50 {
+    &_bg_dark-shade50 {
       background: $dark50;
     }
 
-    &_dark-shade25 {
+    &_bg_dark-shade25 {
       background: $dark25;
     }
 
-    &_dark-shade5 {
+    &_bg_dark-shade5 {
       background: $dark5;
     }
 
-    &_purple {
+    &_bg_purple {
       background: $purple;
     }
 
-    &_green {
+    &_bg_green {
       background: $green;
     }
   }

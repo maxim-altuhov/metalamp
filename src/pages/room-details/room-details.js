@@ -6,7 +6,7 @@ import initSliderPreview from './js/initSliderPreview';
 import initDiagramRating from '@comp/diagram/js/initDiagramRating';
 import initDropdown from '@comp/dropdown/js/initDropdown';
 import addDatePicker from '@comp/input/js/addDatePicker';
-import toggleLikes from '@comp/like/js/toggleLikes';
+import switchLikes from '@comp/like/js/switchLikes';
 import showTooltip from '@comp/card-booking/js/showTooltip';
 import convertCost from '@comp/card-booking/js/convertCost';
 
@@ -24,7 +24,7 @@ function initFunction() {
     startDate: '2019-08-19',
     finishDate: '2019-08-23',
   });
-  toggleLikes();
+  switchLikes();
   showTooltip();
   convertCost();
 }

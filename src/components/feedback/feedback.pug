@@ -1,8 +1,16 @@
 //- components
 include ~@comp/like/like.pug
 //-
+  const options = {
+    name: String,
+    avatarImg: String,
+    time: String,
+    likeBtnNum: Number,
+    likeBtnActive = true,
+    text: String,,
+  };
 mixin feedback(options)
-  - const { name, avatarImg, time, likeBtnNum, likeBtnActive = true, text } = options;
+  - const { name = "", avatarImg = "", time = "", likeBtnNum = 0, likeBtnActive = true, text = "" } = options;
       .feedback
         .feedback__block
           .feedback__top
