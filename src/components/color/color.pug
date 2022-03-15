@@ -4,7 +4,7 @@
     subtitle: String,
     color: String,
   };
-mixin color(options)
+mixin color(options = {})
   - const { title = "", subtitle = "", color = "#000" } = options;
     .color
       .color__elem

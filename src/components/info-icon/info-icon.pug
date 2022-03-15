@@ -1,15 +1,16 @@
 //- 
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
   const options = { 
     title: String,
     subtitle: String,
     icon: String (material icons name),
     line: Boolean,
   };
-mixin info-icon(options)
+mixin info-icon(options = {})
   - const { title = "", subtitle = "", icon = "info", line = true } = options;
       .info-icon
         .info-icon__block
-          span.info-icon__img.material-icons= icon
+          span.info-icon__img= icon
           .info-icon__wrapper
             .info-icon__title= title
             .info-icon__subtitle= subtitle

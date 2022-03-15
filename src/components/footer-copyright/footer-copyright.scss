@@ -1,57 +1,62 @@
-@import './libs/fontawesome/scss/font-awesome.scss';
 @import '@scss/variables';
 @import '@scss/mixins';
 
-.footer {
-  &__copyright {
-    margin-top: 1px;
-    min-width: 310px;
-    width: 100%;
-    background: #FFFFFF;
-    box-shadow: 0px 10px 20px $dark5;
+.footer-copyright {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px $dark5;
+  min-width: 310px;
 
-    @media (max-width: 767px) {
-      max-width: 767px;
-      margin: 0 auto;
+  &_size_mini {
+    max-width: 767px;
+    margin: 0 auto;
+
+    .footer-copyright__wrapper {
+      display: block;
+      text-align: center;
+      padding: 16.6% 0;
+      margin-bottom: 50px;
     }
 
-    &_mini-block {
-      max-width: 767px;
-      margin: 0 auto;
+    .footer-copyright__text {
+      margin-top: 21px;
+      margin-bottom: 23px;
+    }
+
+    .footer-copyright__logo {
+      display: block;
     }
   }
 
-  &__copyright-wrapper {
+  &__container {
+    width: 95%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 5px;
+  }
+
+  &__wrapper {
+    margin-top: 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: 70px;
+    width: 100%;
 
     @media (max-width: 767px) {
       display: block;
       text-align: center;
-      padding: 19.6% 0;
+      padding: 16.6% 0;
+      max-width: 767px;
+      margin: 0 auto;
 
-      .footer__copyright-text {
-        margin-top: 21px;
-        margin-bottom: 23px;
-      }
-    }
-
-    &_mini-block {
-      display: block;
-      text-align: center;
-      padding: 19.6% 0;
-      margin-bottom: 150px;
-
-      .footer__copyright-text {
+      .footer-copyright__text {
         margin-top: 21px;
         margin-bottom: 23px;
       }
     }
   }
 
-  &__copyright-logo {
+  &__logo {
     display: none;
 
     @media (max-width: 767px) {
@@ -59,7 +64,7 @@
     }
   }
 
-  &__copyright-social {
+  &__social-icons {
     font-size: 25px;
 
     a {
@@ -76,7 +81,15 @@
     }
   }
 
-  &__copyright-icon {
+  &__icon {
+    font-family: 'Font Awesome';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     background: $background-gradient;
     background-clip: text;
     -webkit-background-clip: text;

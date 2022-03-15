@@ -22,12 +22,12 @@ html(lang="ru")
       include ~@comp/ui-header/ui-header.pug
     .ui-kit-header
       .ui-kit-header__elem
-        +header({addBtn: true })
+        +header({ showBlockWithBtn: true })
       .ui-kit-header__elem
-        +header({addLogin: true })
+        +header({ showBlockWithLogin: true })
     .ui-kit-footer
       .ui-kit-footer__elem
         include ~@comp/footer/footer.pug
       .ui-kit-footer__elem
-        +footerCopyright({mini: true})
+        +footer-copyright({isMiniVersion: true})
       .ui-kit-footer__elem &nbsp;

@@ -6,7 +6,7 @@
     expanded: Boolean,
     checked: Boolean,
   };
-mixin checkbox(options)
+mixin checkbox(options = {})
   - const { title = "", descr = "", nameCheckbox = "", expanded = false, checked = false } = options;
   - const subtitle = descr;
       .checkbox

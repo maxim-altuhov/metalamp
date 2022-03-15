@@ -8,7 +8,7 @@
     dataFunction: "clear" || "apply" || undefined,
     isHoverState: Boolean,
   };
-mixin button(options, ...addclass)
+mixin button(options = {}, ...addclass)
   - const {theme = "", text = "", btnType = "button", isLink = false, href = "/mock-address/change-me", dataFunction, isHoverState = false} = options;
   - const optionTheme = theme ? `button_${theme}` : "";
   - let optionHover = "";

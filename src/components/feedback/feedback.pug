@@ -9,7 +9,7 @@ include ~@comp/like/like.pug
     likeBtnActive = true,
     text: String,,
   };
-mixin feedback(options)
+mixin feedback(options = {})
   - const { name = "", avatarImg = "", time = "", likeBtnNum = 0, likeBtnActive = true, text = "" } = options;
       .feedback
         .feedback__block

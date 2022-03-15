@@ -1,15 +1,17 @@
-//- const options = { counter: Number, active: Boolean };
-mixin like(options)
-  - const { counter, active = false } = options;
+//- 
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
+  const options = { counter: Number, active: Boolean };
+mixin like(options = {})
+  - const { counter = 0, active = false } = options;
       if active
         .like
           button.like__btn.js-like__btn.like__btn_active(type="button") 
             span.like__text
-              i.material-icons favorite
+              i.like__icon favorite
               span.like__counter= counter
       else
         .like
           button.like__btn.js-like__btn(type="button")
             span.like__text
-              i.material-icons favorite_border
+              i.like__icon favorite_border
               span.like__counter= counter

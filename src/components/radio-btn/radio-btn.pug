@@ -4,7 +4,7 @@
     name: String,
     checked: Boolean,
   };
-mixin radio-btn(options)
+mixin radio-btn(options = {})
   - const { text = "", name = "", checked = false } = options;
     if checked
       .radio-btn

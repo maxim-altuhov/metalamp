@@ -1,14 +1,15 @@
 //- 
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
   const options = { 
     value: Number,
     total: Number,
   };
-mixin simpleRating(options)
+mixin simple-rating(options = {})
   - let { value = 5, total = 5 } = options;
       .simple-rating
         - for (let i = 0; i < total; i++)
             if (i < value)
-              span.simple-rating__elem.material-icons star
+              span.simple-rating__elem star
             else
-              span.simple-rating__elem.material-icons star_border
+              span.simple-rating__elem star_border
               

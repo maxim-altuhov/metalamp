@@ -4,177 +4,181 @@ import {
 } from 'body-scroll-lock';
 
 function initMenu() {
-  const linksWithDropdown = document.querySelectorAll('.js-header__menu-dropdown');
-  const dropdownArrowsAll = document.querySelectorAll('.js-header__link-arrow');
-  const blockLinksWithDropdown = document.querySelectorAll('.js-header__submenu');
-  const allLinksInDropdown = document.querySelectorAll('.js-header__submenu a');
-  const lastLinksInDropdown = document.querySelectorAll('.js-header__submenu .header__menu-link:last-child a');
+  const linksWithDropdown = document.querySelectorAll('.js-header__menu-link_with_dropdown');
+  const dropdownArrows = document.querySelectorAll('.js-header__link-arrow');
+  const submenuBlocks = document.querySelectorAll('.js-header__submenu');
+  const allLinksInSubmenu = document.querySelectorAll('.js-header__submenu a');
+  const lastLinksInSubmenu = document.querySelectorAll('.js-header__submenu .header__menu-link:last-child a');
   const menu = document.querySelector('.js-header__menu');
-  const allLinkInMenu = menu.querySelectorAll('a');
+  const allLinksInMenu = menu.querySelectorAll('a');
   const menuOverlay = document.querySelector('.js-menu-overlay');
-  const hamburger = document.querySelector('.js-ham');
-  const maxWidthMenuIsActivated = 1199;
+  const hamburger = document.querySelector('.js-hamburger');
+  const MAX_WIDTH_WHEN_MENU_IS_ACTIVATED = 1199;
 
-  // устанавливаем доступность при переключений TAB-ом
-  const setTabindexForLink = () => {
-    allLinkInMenu.forEach(elem => {
-      if (window.matchMedia(`(max-width: ${maxWidthMenuIsActivated}px)`).matches && !hamburger.classList.contains('active')) {
+  // Устанавливаем доступность при переключений TAB-ом
+  const setTabindexForLinks = () => {
+    allLinksInMenu.forEach((elem) => {
+      if (window.matchMedia(`(max-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED}px)`).matches && !hamburger.classList.contains('hamburger_active')) {
         elem.setAttribute('tabindex', '-1');
       } else {
         elem.setAttribute('tabindex', '');
       }
 
-      if (hamburger.classList.contains('active')) {
-        allLinksInDropdown.forEach(item => {
+      if (hamburger.classList.contains('hamburger_active')) {
+        allLinksInSubmenu.forEach((item) => {
           item.setAttribute('tabindex', '-1');
         });
       }
     });
   };
 
-  // открытие подменю при наведении
-  const showBlockmenu = (e) => {
+  // Открытие подменю при наведении
+  const openSubmenu = (e) => {
     if (e.target.getAttribute('href') === '#') e.preventDefault();
 
-    if (window.matchMedia(`(min-width: ${maxWidthMenuIsActivated + 1}px)`).matches) {
-      const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
-      const currentLink = e.currentTarget.querySelector('.js-header__link-dropdown a');
-      blockLinks.classList.remove('header__submenu_hided');
-      currentLink.classList.add('header__menu-link_active');
+    if (window.matchMedia(`(min-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED + 1}px)`).matches) {
+      const currentSubmenuBlock = e.currentTarget.querySelector('.js-header__submenu');
+      const currentActiveLink = e.currentTarget.querySelector('.js-header__link-dropdown a');
+      currentSubmenuBlock.classList.remove('header__submenu_hidden');
+      currentActiveLink.classList.add('header__menu-link_active');
     }
   };
 
-  // закрытие подменю
-  const hideBlockmenu = (e) => {
+  // Закрытие подменю
+  const closeSubmenu = (e) => {
     if (e.target.getAttribute('href') === '#') e.preventDefault();
 
-    if (window.matchMedia(`(min-width: ${maxWidthMenuIsActivated + 1}px)`).matches) {
-      let blockLinks;
-      let currentLink;
+    if (window.matchMedia(`(min-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED + 1}px)`).matches) {
+      let currentSubmenuBlock;
+      let currentActiveLink;
 
       if (e.type === 'focusout') {
         const topParentSubmenu = e.target.parentElement.parentElement;
         const topParentDrodownBlock = e.target.parentElement.parentElement.parentElement;
-        blockLinks = topParentSubmenu;
-        currentLink = topParentDrodownBlock.querySelector('a');
+        currentSubmenuBlock = topParentSubmenu;
+        currentActiveLink = topParentDrodownBlock.querySelector('a');
       } else {
-        blockLinks = e.currentTarget.querySelector('.js-header__submenu');
-        currentLink = e.currentTarget.querySelector('.js-header__link-dropdown a');
+        currentSubmenuBlock = e.currentTarget.querySelector('.js-header__submenu');
+        currentActiveLink = e.currentTarget.querySelector('.js-header__link-dropdown a');
       }
 
-      blockLinks.classList.add('header__submenu_hided');
-      currentLink.classList.remove('header__menu-link_active');
+      currentSubmenuBlock.classList.add('header__submenu_hidden');
+      currentActiveLink.classList.remove('header__menu-link_active');
     }
   };
 
-  // открытие подменю при клике на мобильной версии
-  const openSubmenu = (e) => {
+  // Открытие подменю при клике на мобильной версии
+  const handleMenuLinkClick = (e) => {
     if (e.target.getAttribute('href') === '#') e.preventDefault();
 
-    if (window.matchMedia(`(max-width: ${maxWidthMenuIsActivated}px)`).matches) {
-      const blockLinks = e.currentTarget.querySelector('.js-header__submenu');
-      const links = e.currentTarget.querySelectorAll('.js-header__submenu a');
-      const blockArrow = e.currentTarget.querySelector('.js-header__link-arrow');
+    if (window.matchMedia(`(max-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED}px)`).matches) {
+      const currentSubmenuBlock = e.currentTarget.querySelector('.js-header__submenu');
+      const currentActiveLink = e.currentTarget.querySelectorAll('.js-header__submenu a');
+      const currentBlockWithArrow = e.currentTarget.querySelector('.js-header__link-arrow');
 
-      if (blockLinks.classList.contains('header__submenu_hided')) {
-        blockLinks.style.opacity = 1;
-        blockLinks.style.maxHeight = blockLinks.scrollHeight + 'px';
-        blockLinks.classList.remove('header__submenu_hided');
-        blockArrow.textContent = 'expand_less';
+      if (currentSubmenuBlock.classList.contains('header__submenu_hidden')) {
+        currentSubmenuBlock.style.opacity = 1;
+        currentSubmenuBlock.style.maxHeight = currentSubmenuBlock.scrollHeight + 'px';
+        currentSubmenuBlock.classList.remove('header__submenu_hidden');
+        currentBlockWithArrow.textContent = 'expand_less';
 
-        links.forEach(item => {
+        currentActiveLink.forEach((item) => {
           item.setAttribute('tabindex', '');
         });
       } else {
-        blockLinks.style.opacity = '';
-        blockLinks.style.maxHeight = '';
-        blockLinks.classList.add('header__submenu_hided');
-        blockArrow.textContent = 'expand_more';
+        currentSubmenuBlock.style.opacity = '';
+        currentSubmenuBlock.style.maxHeight = '';
+        currentSubmenuBlock.classList.add('header__submenu_hidden');
+        currentBlockWithArrow.textContent = 'expand_more';
 
-        links.forEach(item => {
+        currentActiveLink.forEach((item) => {
           item.setAttribute('tabindex', '-1');
         });
       }
     }
   };
 
-  // переключение необходимых классов и установка свойств меню
-  const toggleClassesMenu = () => {
-    hamburger.classList.toggle('active');
+  // Переключение необходимых классов и установка свойств меню
+  const changeMenuProp = () => {
+    hamburger.classList.toggle('hamburger_active');
     menu.classList.toggle('header__menu_active');
     menuOverlay.classList.toggle('menu-overlay_active');
 
-    dropdownArrowsAll.forEach(elem => {
+    dropdownArrows.forEach((elem) => {
       elem.textContent = 'expand_more';
     });
-    blockLinksWithDropdown.forEach(elem => {
+    submenuBlocks.forEach((elem) => {
       elem.style.opacity = '';
       elem.style.maxHeight = '';
-      elem.classList.add('header__submenu_hided');
+      elem.classList.add('header__submenu_hidden');
     });
   };
 
-  // выполнение группы функций при клике на бургер-меню
-  const activatingHamburger = () => {
-    if (hamburger.classList.contains('active')) {
-      toggleClassesMenu();
+  // Выполнение группы функций при клике на бургер-меню
+  const handleHamburgerClick = () => {
+    if (hamburger.classList.contains('hamburger_active')) {
+      changeMenuProp();
       enableBodyScroll(menu);
-    } else if (window.matchMedia('(max-width: 575px)').matches && !hamburger.classList.contains('active')) {
-      toggleClassesMenu();
+    } else if (window.matchMedia('(max-width: 575px)').matches && !hamburger.classList.contains('hamburger_active')) {
+      changeMenuProp();
       disableBodyScroll(menu);
     } else {
-      toggleClassesMenu();
+      changeMenuProp();
     }
-    setTabindexForLink();
+
+    setTabindexForLinks();
   };
 
-  // закрытие меню при клике вне меню
-  const toggleMenuClickOut = (e) => {
+  // Закрытие меню при клике вне меню
+  const handleMenuOverlayClick = (e) => {
     if (e.target === menuOverlay) {
-      toggleClassesMenu();
-      setTabindexForLink();
+      changeMenuProp();
+      setTabindexForLinks();
     }
   };
 
-  // отслеживание ресайза и видимости меню
-  const resizeChecker = () => {
+  // Отслеживание ресайза и видимости меню
+  const handleWindowResize = () => {
     if (window.matchMedia('(min-width: 576px)').matches) {
       enableBodyScroll(menu);
-    } else if (hamburger.classList.contains('active')) {
+    } else if (hamburger.classList.contains('hamburger_active')) {
       disableBodyScroll(menu);
     }
 
-    if (window.matchMedia(`(min-width: ${maxWidthMenuIsActivated + 1}px)`).matches && hamburger.classList.contains('active')) {
-      toggleClassesMenu();
+    if (window.matchMedia(`(min-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED + 1}px)`).matches && hamburger.classList.contains('hamburger_active')) {
+      changeMenuProp();
     }
-    setTabindexForLink();
+    setTabindexForLinks();
   };
 
-  const activatingHamburgerWithEnter = (e) => {
-    if (e.key === 'Enter') {
-      activatingHamburger();
-    }
+  const handleHamburgerKeydownEnter = (e) => {
+    if (e.key === 'Enter') handleHamburgerClick();
   };
 
-  // инициализация функций
-  setTabindexForLink();
+  // Инициализация функций
+  setTabindexForLinks();
 
-  // обработчики событий
-  linksWithDropdown.forEach(elem => {
-    elem.addEventListener('mouseover', showBlockmenu);
-    elem.addEventListener('mouseout', hideBlockmenu);
-    elem.addEventListener('click', openSubmenu);
-    elem.addEventListener('focusin', showBlockmenu);
+  // Обработчики событий
+  const handleMenuLinkFocusout = (e) => closeSubmenu(e);
+  const handleMenuLinkMouseout = (e) => closeSubmenu(e);
+  const handleMenuLinkMouseover = (e) => openSubmenu(e);
+  const handleMenuLinkFocusin = (e) => openSubmenu(e);
+
+  linksWithDropdown.forEach((elem) => {
+    elem.addEventListener('mouseover', handleMenuLinkMouseover);
+    elem.addEventListener('mouseout', handleMenuLinkMouseout);
+    elem.addEventListener('click', handleMenuLinkClick);
+    elem.addEventListener('focusin', handleMenuLinkFocusin);
   });
 
-  lastLinksInDropdown.forEach(elem => {
-    elem.addEventListener('focusout', hideBlockmenu);
+  lastLinksInSubmenu.forEach((elem) => {
+    elem.addEventListener('focusout', handleMenuLinkFocusout);
   });
 
-  hamburger.addEventListener('keydown', activatingHamburgerWithEnter);
-  hamburger.addEventListener('click', activatingHamburger);
-  menuOverlay.addEventListener('click', toggleMenuClickOut);
-  window.addEventListener('resize', resizeChecker);
+  hamburger.addEventListener('keydown', handleHamburgerKeydownEnter);
+  hamburger.addEventListener('click', handleHamburgerClick);
+  menuOverlay.addEventListener('click', handleMenuOverlayClick);
+  window.addEventListener('resize', handleWindowResize);
 }
 
 export default initMenu;

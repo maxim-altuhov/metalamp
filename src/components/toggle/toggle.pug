@@ -4,7 +4,7 @@
     name: String,
     checked: Boolean,
   };
-mixin toggle(options)
+mixin toggle(options = {})
   - const { text = "", name = "", checked = false } = options;
       if checked
         .toggle

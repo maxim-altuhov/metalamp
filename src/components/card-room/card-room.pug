@@ -26,7 +26,7 @@ mixin cardRoom(options, ...elements)
               |  в сутки
           hr.card-room__line
           .card-room__feedback
-            +simpleRating({value: `${ratingValue}`})
+            +simple-rating({value: `${ratingValue}`})
             .card-room__comment.js-card-room__comment
               span.card-room__comment-number= numberOfReviews
               |  отзывов
