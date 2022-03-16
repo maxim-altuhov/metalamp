@@ -1,5 +1,5 @@
 //- components
-include ~@comp/input/input.pug
+include ~@comp/input-datepicker/input-datepicker.pug
 include ~@comp/dropdown/dropdown.pug
 include ~@comp/button/button.pug
 
@@ -16,7 +16,7 @@ include ~@comp/button/button.pug
     form(action="#", method="get", name="card-booking")
       .card-booking__wrapper
         .card-booking__elem
-          +input({labelText:"прибытие", labelTextSecond:"выезд", id:'card-booking-date', attributeName:"card-search-date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
+          +input-datepicker({labelTextFirst:"прибытие", labelTextSecond:"выезд", id:'card-booking-date', attributeName:"card-search-date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", addDateMask: true, dateWithDropdown: true})
         .card-booking__elem
           +dropdown({labelText:"гости", attributeName:"card-booking-guests", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 3, "Дети" : 0, "Младенцы" : 0}})
         .card-booking__details

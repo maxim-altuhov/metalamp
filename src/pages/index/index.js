@@ -3,7 +3,7 @@ import './index.scss';
 import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initMenu from '@comp/header/js/initMenu';
 import initDropdown from '@comp/dropdown/js/initDropdown';
-import addDatePicker from '@comp/input/js/addDatePicker';
+import addDatePicker from '@comp/input-datepicker/js/addDatePicker';
 
 function initFunction() {
   checkingTabKeyPress();
@@ -12,8 +12,8 @@ function initFunction() {
     arrowToggle: false,
   });
   addDatePicker({
-    $selectorId: '#card-search-date',
-    secondSelector: true,
+    selectorId: '#card-search-date',
+    isTwoDropdowns: true,
     setMinDate: true,
   });
 }

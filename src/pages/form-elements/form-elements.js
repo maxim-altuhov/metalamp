@@ -1,8 +1,8 @@
 import './form-elements.scss';
 
 import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
-import addMaskForInput from '@comp/input/js/addMaskForInput';
-import addDatePicker from '@comp/input/js/addDatePicker';
+import addDateMaskForInput from '@comp/input/js/addDateMaskForInput';
+import addDatePicker from '@comp/input-datepicker/js/addDatePicker';
 import initDropdown from '@comp/dropdown/js/initDropdown';
 import switchLikes from '@comp/like/js/switchLikes';
 import rangeSlider from '@comp/range-slider/js/rangeSlider';
@@ -11,14 +11,14 @@ import toggleCheckboxList from '@comp/checkbox-list/js/toggleCheckboxList';
 
 function initFunction() {
   checkingTabKeyPress();
-  addMaskForInput();
+  addDateMaskForInput();
   addDatePicker({
-    $selectorId: '#date-dropdown-block',
-    secondSelector: true,
+    selectorId: '#date-dropdown-block',
+    isTwoDropdowns: true,
     finishDate: '2019-08-19',
   });
   addDatePicker({
-    $selectorId: '#date-filter',
+    selectorId: '#date-filter',
     startDate: '2019-08-19',
     finishDate: '2019-08-23',
   });

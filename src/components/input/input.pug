@@ -1,27 +1,26 @@
-//- const {labelText, labelTextSecond, id, attributeName, attributeType, placeholder, valueInInput, typeMask:{date}, dateWithDropdown(boolean), dateWithFilter(boolean), inputTypeEmail(boolean), isValidate(boolean), addClass} = options;
-mixin input(options)
-  - const {labelText, labelTextSecond, id, attributeName, attributeType, placeholder, valueInInput = "", typeMask, dateWithDropdown, dateWithFilter, inputTypeEmail, isValidate, addClass = ""} = options;
-  - const validate = isValidate ? true : false;
-    if dateWithDropdown
-      div(class="input input_dropdown" data-selector= id)
-        label.input__label.input__label_dropdown= labelText
-          input(class="date-dropdown" readonly id=id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
-          span.material-icons keyboard_arrow_down
-        label.input__label.input__label_dropdown= labelTextSecond
-          input(class="date-dropdown" readonly  id=`${id}-second` data-end autocomplete="off" name= `${attributeName}-2` type=attributeType placeholder=placeholder data-validate=`${validate}`)
-          span.material-icons keyboard_arrow_down
-    else if dateWithFilter
-      div(class="input input_dropdown" data-selector= id)
-        label.input__label.input__label_small= labelText
-          input(class="date-dropdown date-dropdown_width_max" readonly  id= id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
-          span.material-icons keyboard_arrow_down
-    else if inputTypeEmail
-      .input.input_small
+//- 
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
+  const options = {
+    labelText: String,
+    attributeName: String,
+    attributeType: String,
+    placeholder: String,
+    valueInInput: String,
+    addDateMask: Boolean,
+    inputTypeSubsribe: Boolean,
+    isValidate: Boolean,
+    addClass: String,
+  };
+mixin input(options = {})
+  - const { labelText = "label", attributeName = "", attributeType = "text", placeholder = "", valueInInput = "", addDateMask = false, inputTypeSubsribe = false, isValidate = false, addClass = "" } = options;
+  - const maskName = addDateMask ? "date" : null;  
+    if inputTypeSubsribe
+      .input
         label.input__label= labelText
-          input(class="subscription subscription_small" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-validate=`${validate}`)
-        button.subscription__btn(type="submit")
-          span.material-icons arrow_forward
+          input(class="input__sub" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-validate=`${isValidate}`)
+        button.input__sub-btn(type="submit")
+          span.input__icon arrow_forward
     else
       .input
         label.input__label= labelText
-          input(class=`${addClass}` name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=typeMask data-validate=`${validate}`)
+          input(class=`${addClass}` name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=maskName data-validate=`${isValidate}`)

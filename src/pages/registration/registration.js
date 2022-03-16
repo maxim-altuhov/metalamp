@@ -2,12 +2,12 @@ import './registration.scss';
 
 import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initMenu from '@comp/header/js/initMenu';
-import addMaskForInput from '@comp/input/js/addMaskForInput';
+import addDateMaskForInput from '@comp/input/js/addDateMaskForInput';
 
 function initFunction() {
   checkingTabKeyPress();
   initMenu();
-  addMaskForInput();
+  addDateMaskForInput();
 }
 
 window.addEventListener('DOMContentLoaded', initFunction);

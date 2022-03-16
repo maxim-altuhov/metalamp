@@ -21,7 +21,7 @@ mixin cardReg(options)
             .card-reg__radiobtn
               +radio-btn({text:"Женщина", name:"radio-btn"})
           .card-reg__elem
-            +input({labelText:"Дата рождения", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
+            +input({labelText:"Дата рождения", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", addDateMask: true})
           .card-reg__elem
             +input({labelText:"Данные для входа в сервис", attributeName:"email-reg", attributeType:"email", placeholder:"Email"})
           .card-reg__elem

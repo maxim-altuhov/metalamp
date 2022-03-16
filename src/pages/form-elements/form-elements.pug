@@ -3,6 +3,7 @@ extends ~@lo/ui-kit/ui-kit
 
 //- components
 include ~@comp/input/input.pug
+include ~@comp/input-datepicker/input-datepicker.pug
 include ~@comp/dropdown/dropdown.pug
 include ~@comp/checkbox/checkbox.pug
 include ~@comp/radio-btn/radio-btn.pug
@@ -31,17 +32,17 @@ block content
           +input({labelText:"text field", attributeName:"email-simple", attributeType:"email", placeholder:"Email"})
         .form-elements__item.form-elements__item_margin_mini
           .form-elements__tag Hover / Focus
-          +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome", addClass:"focused"})
+          +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome", addClass:"input_focused"})
         .form-elements__item.form-elements__item_margin_mini
           +dropdown({labelText:"dropdown", attributeName:"dropdown-guests", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
         .form-elements__item
-          +input({labelText:"masked text field", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date"})
+          +input({labelText:"masked text field", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", addDateMask: true})
         .form-elements__item
-          +input({labelText:"date dropdown", labelTextSecond:"date dropdown", id:'date-dropdown-block', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", typeMask:"date", dateWithDropdown: true})
-        .form-elements__item
-          +input({labelText:"filter date dropdown", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true})
-        .form-elements__item
-          +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", inputTypeEmail: true})
+          +input-datepicker({labelTextFirst:"date dropdown", labelTextSecond:"date dropdown", id:'date-dropdown-block', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", addDateMask: true, dateWithDropdown: true})
+        .form-elements__item.form-elements__item_width_limited
+          +input-datepicker({labelTextFirst:"filter date dropdown", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true})
+        .form-elements__item.form-elements__item_width_limited
+          +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", inputTypeSubsribe: true})
       .form-elements__block
         .form-elements__item
           h3 Checkbox Buttons

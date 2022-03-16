@@ -15,6 +15,13 @@
     }
   }
 
+  &__container {
+    width: 95%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 5px;
+  }
+
   &__wrapper {
     padding: 100px 0;
     display: grid;
@@ -111,5 +118,6 @@
 
   &__sub-block {
     margin-top: 17px;
+    max-width: 266px;
   }
 }

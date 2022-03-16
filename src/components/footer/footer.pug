@@ -4,7 +4,7 @@ include ~@comp/footer-copyright/footer-copyright.pug
 
 footer.footer
   .footer__block
-    .container-content
+    .footer__container
       .footer__wrapper
         .footer__column
           .footer__logo
@@ -47,5 +47,5 @@ footer.footer
           p.footer__descr.footer__descr_margin-top_null Получайте специальные предложения и новости сервиса
           .footer__sub-block
             form(action="#", method="post", name="footer-subcribe")
-              +input({attributeName:"email-footer", attributeType:"email", placeholder:"Email", inputTypeEmail: true})
+              +input({attributeName:"email-footer", attributeType:"email", placeholder:"Email", inputTypeSubsribe: true})
   +footer-copyright()

@@ -2,8 +2,8 @@ import './cards.scss';
 
 import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initDropdown from '@comp/dropdown/js/initDropdown';
-import addMaskForInput from '@comp/input/js/addMaskForInput';
-import addDatePicker from '@comp/input/js/addDatePicker';
+import addDateMaskForInput from '@comp/input/js/addDateMaskForInput';
+import addDatePicker from '@comp/input-datepicker/js/addDatePicker';
 import showTooltip from '@comp/card-booking/js/showTooltip';
 import convertCost from '@comp/card-booking/js/convertCost';
 import initSlider from '@comp/card-room/js/initSlider';
@@ -14,19 +14,19 @@ function initFunction() {
   initDropdown({
     arrowToggle: false,
   });
-  addMaskForInput();
+  addDateMaskForInput();
   addDatePicker({
-    $selectorId: '#card-search-date',
-    secondSelector: true,
+    selectorId: '#card-search-date',
+    isTwoDropdowns: true,
   });
   addDatePicker({
-    $selectorId: '#card-booking-date',
-    secondSelector: true,
+    selectorId: '#card-booking-date',
+    isTwoDropdowns: true,
     startDate: '2019-08-19',
     finishDate: '2019-08-23',
   });
   addDatePicker({
-    $selectorId: '#date-filter-example',
+    selectorId: '#date-filter-example',
     startDate: '2019-08-19',
     finishDate: '2019-08-23',
   });

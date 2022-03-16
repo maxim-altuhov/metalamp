@@ -29,11 +29,11 @@
         right: 30px;
       }
 
-      .hamburger__line_postion_top {
+      .hamburger__line_position_top {
         stroke-dashoffset: -98px;
       }
 
-      .hamburger__line_postion_bottom {
+      .hamburger__line_position_bottom {
         stroke-dashoffset: -138px;
       }
     }
@@ -46,11 +46,11 @@
       stroke-linecap: round;
       z-index: 99;
 
-      &_postion_top {
+      &_position_top {
         stroke-dasharray: 40 139;
       }
 
-      &_postion_bottom {
+      &_position_bottom {
         stroke-dasharray: 40 180;
       }
     }

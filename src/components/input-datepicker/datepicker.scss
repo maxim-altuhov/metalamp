@@ -1,11 +1,7 @@
-@import '~air-datepicker/dist/css/datepicker.css';
-@import '@scss/variables';
-@import '@scss/mixins';
 @import '@comp/button/button';
 
 .datepicker {
   width: 318px;
-  min-height: 367px;
   background: #FFFFFF;
   border: 1px solid $dark25;
   box-shadow: 0px 10px 20px $dark5;
@@ -45,7 +41,6 @@
       color: inherit;
     }
   }
-
 
   &--day-name {
     font-family: $font-family;

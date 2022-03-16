@@ -1,5 +1,5 @@
 //- components
-include ~@comp/input/input.pug
+include ~@comp/input-datepicker/input-datepicker.pug
 include ~@comp/dropdown/dropdown.pug
 include ~@comp/button/button.pug
 
@@ -9,7 +9,7 @@ include ~@comp/button/button.pug
     form(action="#", method="get", name="card-search")
       .card-search__block
         .card-search__elem
-          +input({labelText:"прибытие", labelTextSecond:"выезд", id:'card-search-date', attributeName:"card-search-date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", dateWithDropdown: true})
+          +input-datepicker({labelTextFirst:"прибытие", labelTextSecond:"выезд", id:'card-search-date', attributeName:"card-search-date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", dateWithDropdown: true})
         .card-search__elem
           +dropdown({labelText:"гости", attributeName:"card-search-guests", textInInput:"Сколько гостей", addBtn: true, elements:{"Взрослые" : 0, "Дети" : 0, "Младенцы" : 0}})
       .card-search__btn 

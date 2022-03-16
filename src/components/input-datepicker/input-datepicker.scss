@@ -1,15 +1,21 @@
+@import '~air-datepicker/dist/css/datepicker.css';
 @import '@scss/variables';
 @import '@scss/mixins';
+@import './datepicker';
 
-.input {
+.input-datepicker {
   display: flex;
-  flex-direction: column;
-  position: relative;
+  justify-content: space-between;
+  flex-direction: row;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 
   input {
     margin-top: 5px;
     display: block;
-    width: 100%;
+    width: 150px;
     min-height: 44px;
     background: #FFFFFF;
     border: 1px solid $dark25;
@@ -18,24 +24,24 @@
     font-size: 14px;
     color: $dark75;
     transition: border 0.2s ease-in;
+    cursor: pointer;
 
     &:hover,
     &:focus {
       border: 1px solid $dark50;
     }
 
-    @include placeholder($dark25, 13.6);
-
-    @include focus(transparent);
-
-    &.input_focused {
-      border: 1px solid $dark50;
-      font-size: 13.6px;
+    &.input-datepicker__date_width_filter {
+      width: 100%;
     }
 
-    &.input__sub {
-      padding: 13px 35px 13px 15px;
+    @media (max-width: 480px) {
+      width: 100%;
     }
+
+    @include placeholder($dark75, 13.6);
+
+    @include focus($dark75);
   }
 
   &__label {
@@ -46,25 +52,31 @@
     line-height: 15 / 12 * 100%;
     text-transform: uppercase;
     color: $dark;
-  }
 
-  &__sub-btn {
-    position: absolute;
-    bottom: 0px;
-    right: 2px;
-    height: 43px;
-    width: 40px;
-    background-clip: text;
-    -webkit-background-clip: text;
+    @media (max-width: 480px) {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &_width_filter {
+      width: 100%;
+    }
   }
 
   &__icon {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    color: $dark50;
     font-family: 'Material Icons';
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
+    font-size: 24px;
     display: inline-block;
     line-height: 1;
-    font-size: 24px;
     text-transform: none;
     letter-spacing: normal;
     word-wrap: normal;
@@ -73,10 +85,18 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-    background: $background-gradient;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    font-feature-settings: "liga";
+    cursor: pointer;
+
+    &_position_not-fixed {
+      position: relative;
+      bottom: auto;
+      right: auto;
+    }
+
+    &_rotated {
+      transform: rotate(180deg);
+      bottom: 10px;
+    }
   }
 }

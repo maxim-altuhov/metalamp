@@ -5,7 +5,7 @@ import initMenu from '@comp/header/js/initMenu';
 import initSliderPreview from './js/initSliderPreview';
 import initDiagramRating from '@comp/diagram/js/initDiagramRating';
 import initDropdown from '@comp/dropdown/js/initDropdown';
-import addDatePicker from '@comp/input/js/addDatePicker';
+import addDatePicker from '@comp/input-datepicker/js/addDatePicker';
 import switchLikes from '@comp/like/js/switchLikes';
 import showTooltip from '@comp/card-booking/js/showTooltip';
 import convertCost from '@comp/card-booking/js/convertCost';
@@ -19,8 +19,8 @@ function initFunction() {
     arrowToggle: false,
   });
   addDatePicker({
-    $selectorId: '#card-booking-date',
-    secondSelector: true,
+    selectorId: '#card-booking-date',
+    isTwoDropdowns: true,
     startDate: '2019-08-19',
     finishDate: '2019-08-23',
   });

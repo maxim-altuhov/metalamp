@@ -21,7 +21,8 @@ function toggleCheckboxList() {
   };
 
   const handleBlockKeydownEnter = (e) => {
-    if (e.key === 'Enter') handleBlockClick(e);
+    const CONTROL_KEY = 'Enter';
+    if (e.key === CONTROL_KEY) handleBlockClick(e);
   };
 
   $selector.on('click', handleBlockClick);

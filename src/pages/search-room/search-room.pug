@@ -1,6 +1,6 @@
 extends ~@lo/page-with-aside/page-with-aside
 //- components
-include ~@comp/input/input.pug
+include ~@comp/input-datepicker/input-datepicker.pug
 include ~@comp/dropdown/dropdown.pug
 include ~@comp/range-slider/range-slider.pug
 include ~@comp/checkbox/checkbox.pug
@@ -20,7 +20,7 @@ block content
         button.search-room__aside-btn.js-search-room__aside-btn(type="button") Открыть фильтр
         aside.search-room__aside.js-search-room__aside
           .search-room__aside-elem
-            +input({labelText:"Даты пребывания в отеле", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Выберите даты", dateWithFilter: true})
+            +input-datepicker({labelTextFirst:"Даты пребывания в отеле", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Выберите даты", dateWithFilter: true})
           .search-room__aside-elem
             +dropdown({labelText:"Гости", attributeName:"dropdown-guests", textInInput:"Сколько гостей", addBtn: true, mini: true, elements:{"Взрослые" : 2, "Дети" : 1, "Младенцы" : 1}})
           .search-room__aside-elem

@@ -14,6 +14,7 @@ function initMenu() {
   const menuOverlay = document.querySelector('.js-menu-overlay');
   const hamburger = document.querySelector('.js-hamburger');
   const MAX_WIDTH_WHEN_MENU_IS_ACTIVATED = 1199;
+  const NO_LINK = '#';
 
   // Устанавливаем доступность при переключений TAB-ом
   const setTabindexForLinks = () => {
@@ -34,7 +35,7 @@ function initMenu() {
 
   // Открытие подменю при наведении
   const openSubmenu = (e) => {
-    if (e.target.getAttribute('href') === '#') e.preventDefault();
+    if (e.target.getAttribute('href') === NO_LINK) e.preventDefault();
 
     if (window.matchMedia(`(min-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED + 1}px)`).matches) {
       const currentSubmenuBlock = e.currentTarget.querySelector('.js-header__submenu');
@@ -46,13 +47,14 @@ function initMenu() {
 
   // Закрытие подменю
   const closeSubmenu = (e) => {
-    if (e.target.getAttribute('href') === '#') e.preventDefault();
+    if (e.target.getAttribute('href') === NO_LINK) e.preventDefault();
 
     if (window.matchMedia(`(min-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED + 1}px)`).matches) {
+      const CONTROL_TYPE = 'focusout';
       let currentSubmenuBlock;
       let currentActiveLink;
 
-      if (e.type === 'focusout') {
+      if (e.type === CONTROL_TYPE) {
         const topParentSubmenu = e.target.parentElement.parentElement;
         const topParentDrodownBlock = e.target.parentElement.parentElement.parentElement;
         currentSubmenuBlock = topParentSubmenu;
@@ -69,7 +71,7 @@ function initMenu() {
 
   // Открытие подменю при клике на мобильной версии
   const handleMenuLinkClick = (e) => {
-    if (e.target.getAttribute('href') === '#') e.preventDefault();
+    if (e.target.getAttribute('href') === NO_LINK) e.preventDefault();
 
     if (window.matchMedia(`(max-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED}px)`).matches) {
       const currentSubmenuBlock = e.currentTarget.querySelector('.js-header__submenu');
@@ -152,7 +154,8 @@ function initMenu() {
   };
 
   const handleHamburgerKeydownEnter = (e) => {
-    if (e.key === 'Enter') handleHamburgerClick();
+    const CONTROL_KEY = 'Enter';
+    if (e.key === CONTROL_KEY) handleHamburgerClick();
   };
 
   // Инициализация функций

@@ -3,7 +3,7 @@ import './search-room.scss';
 import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import initMenu from '@comp/header/js/initMenu';
 import initFilterToggle from './js/initFilterToggle';
-import addDatePicker from '@comp/input/js/addDatePicker';
+import addDatePicker from '@comp/input-datepicker/js/addDatePicker';
 import initDropdown from '@comp/dropdown/js/initDropdown';
 import rangeSlider from '@comp/range-slider/js/rangeSlider';
 import toggleCheckboxList from '@comp/checkbox-list/js/toggleCheckboxList';
@@ -17,7 +17,7 @@ function initFunction() {
   initMenu();
   initFilterToggle();
   addDatePicker({
-    $selectorId: '#date-filter',
+    selectorId: '#date-filter',
     startDate: '2019-08-19',
     finishDate: '2019-08-23',
   });

@@ -1,0 +1,30 @@
+//- 
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
+  const options = {
+    labelTextFirst: String,
+    labelTextSecond: String,
+    id: String,
+    attributeName: String,
+    attributeType: String,
+    placeholder: String,
+    valueInInput: String,
+    dateWithDropdown: Boolean,
+    dateWithFilter: Boolean,
+    isValidate: Boolean,
+    addClass: String,
+  };
+mixin input-datepicker(options = {})
+  - const { labelTextFirst = "label", labelTextSecond = "label", id = "", attributeName = "", attributeType = "text", placeholder = "", valueInInput = "", dateWithDropdown = false, dateWithFilter = false, isValidate = false, addClass = "" } = options;
+    if dateWithDropdown
+      div(class="input-datepicker" data-selector=id)
+        label.input-datepicker__label= labelTextFirst
+          input(class="input-datepicker__date" readonly id=id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
+          span.input-datepicker__icon keyboard_arrow_down
+        label.input-datepicker__label= labelTextSecond
+          input(class="input-datepicker__date" readonly id=`${id}-second` data-end autocomplete="off" name=`${attributeName}-2` type=attributeType placeholder=placeholder data-validate=`${validate}`)
+          span.input-datepicker__icon keyboard_arrow_down
+    else if dateWithFilter
+      div(class="input-datepicker" data-selector=id)
+        label.input-datepicker__label.input-datepicker__label_width_filter= labelTextFirst
+          input(class="input-datepicker__date input-datepicker__date_width_filter" readonly id=id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
+          span.input-datepicker__icon keyboard_arrow_down
