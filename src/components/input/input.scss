@@ -14,7 +14,7 @@
     background: #FFFFFF;
     border: 1px solid $dark25;
     border-radius: 4px;
-    padding: 13px 14px;
+    padding: 10px 14px;
     font-size: 14px;
     color: $dark75;
     transition: border 0.2s ease-in;
@@ -30,7 +30,7 @@
 
     &.input_focused {
       border: 1px solid $dark50;
-      font-size: 13.6px;
+      font-size: 13.7px;
     }
 
     &.input__sub {

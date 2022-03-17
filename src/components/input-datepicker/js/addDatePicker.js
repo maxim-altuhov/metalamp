@@ -6,7 +6,7 @@ function addDatePicker({
   startDate,
   finishDate,
   isTwoDropdowns = false,
-  enableArrowRotation = false,
+  enableArrowRotation = true,
   setMinDate = false,
 }) {
   const $selectorId = $(selectorId);

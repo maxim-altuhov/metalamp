@@ -18,16 +18,16 @@ function initMenu() {
 
   // Устанавливаем доступность при переключений TAB-ом
   const setTabindexForLinks = () => {
-    allLinksInMenu.forEach((elem) => {
+    allLinksInMenu.forEach((linkInMenu) => {
       if (window.matchMedia(`(max-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED}px)`).matches && !hamburger.classList.contains('hamburger_active')) {
-        elem.setAttribute('tabindex', '-1');
+        linkInMenu.setAttribute('tabindex', '-1');
       } else {
-        elem.setAttribute('tabindex', '');
+        linkInMenu.setAttribute('tabindex', '');
       }
 
       if (hamburger.classList.contains('hamburger_active')) {
-        allLinksInSubmenu.forEach((item) => {
-          item.setAttribute('tabindex', '-1');
+        allLinksInSubmenu.forEach((linkInSubmenu) => {
+          linkInSubmenu.setAttribute('tabindex', '-1');
         });
       }
     });
@@ -50,11 +50,10 @@ function initMenu() {
     if (e.target.getAttribute('href') === NO_LINK) e.preventDefault();
 
     if (window.matchMedia(`(min-width: ${MAX_WIDTH_WHEN_MENU_IS_ACTIVATED + 1}px)`).matches) {
-      const CONTROL_TYPE = 'focusout';
       let currentSubmenuBlock;
       let currentActiveLink;
 
-      if (e.type === CONTROL_TYPE) {
+      if (e.type === 'focusout') {
         const topParentSubmenu = e.target.parentElement.parentElement;
         const topParentDrodownBlock = e.target.parentElement.parentElement.parentElement;
         currentSubmenuBlock = topParentSubmenu;
@@ -84,8 +83,8 @@ function initMenu() {
         currentSubmenuBlock.classList.remove('header__submenu_hidden');
         currentBlockWithArrow.textContent = 'expand_less';
 
-        currentActiveLink.forEach((item) => {
-          item.setAttribute('tabindex', '');
+        currentActiveLink.forEach((link) => {
+          link.setAttribute('tabindex', '');
         });
       } else {
         currentSubmenuBlock.style.opacity = '';
@@ -93,8 +92,8 @@ function initMenu() {
         currentSubmenuBlock.classList.add('header__submenu_hidden');
         currentBlockWithArrow.textContent = 'expand_more';
 
-        currentActiveLink.forEach((item) => {
-          item.setAttribute('tabindex', '-1');
+        currentActiveLink.forEach((link) => {
+          link.setAttribute('tabindex', '-1');
         });
       }
     }
@@ -106,13 +105,13 @@ function initMenu() {
     menu.classList.toggle('header__menu_active');
     menuOverlay.classList.toggle('menu-overlay_active');
 
-    dropdownArrows.forEach((elem) => {
-      elem.textContent = 'expand_more';
+    dropdownArrows.forEach((elemWithArrow) => {
+      elemWithArrow.textContent = 'expand_more';
     });
-    submenuBlocks.forEach((elem) => {
-      elem.style.opacity = '';
-      elem.style.maxHeight = '';
-      elem.classList.add('header__submenu_hidden');
+    submenuBlocks.forEach((block) => {
+      block.style.opacity = '';
+      block.style.maxHeight = '';
+      block.classList.add('header__submenu_hidden');
     });
   };
 
@@ -154,8 +153,7 @@ function initMenu() {
   };
 
   const handleHamburgerKeydownEnter = (e) => {
-    const CONTROL_KEY = 'Enter';
-    if (e.key === CONTROL_KEY) handleHamburgerClick();
+    if (e.key === 'Enter') handleHamburgerClick();
   };
 
   // Инициализация функций
@@ -167,15 +165,15 @@ function initMenu() {
   const handleMenuLinkMouseover = (e) => openSubmenu(e);
   const handleMenuLinkFocusin = (e) => openSubmenu(e);
 
-  linksWithDropdown.forEach((elem) => {
-    elem.addEventListener('mouseover', handleMenuLinkMouseover);
-    elem.addEventListener('mouseout', handleMenuLinkMouseout);
-    elem.addEventListener('click', handleMenuLinkClick);
-    elem.addEventListener('focusin', handleMenuLinkFocusin);
+  linksWithDropdown.forEach((link) => {
+    link.addEventListener('mouseover', handleMenuLinkMouseover);
+    link.addEventListener('mouseout', handleMenuLinkMouseout);
+    link.addEventListener('click', handleMenuLinkClick);
+    link.addEventListener('focusin', handleMenuLinkFocusin);
   });
 
-  lastLinksInSubmenu.forEach((elem) => {
-    elem.addEventListener('focusout', handleMenuLinkFocusout);
+  lastLinksInSubmenu.forEach((lastLinkInSubmenu) => {
+    lastLinkInSubmenu.addEventListener('focusout', handleMenuLinkFocusout);
   });
 
   hamburger.addEventListener('keydown', handleHamburgerKeydownEnter);

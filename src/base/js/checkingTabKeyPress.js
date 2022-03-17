@@ -3,8 +3,7 @@ function checkingTabKeyPress() {
   document.body.classList.add('using-mouse');
   const handleAddClassUsingMouse = () => document.body.classList.add('using-mouse');
   const handleCheckingTabKeyPress = (e) => {
-    const CONTROL_KEY = 'Tab';
-    if (e.key === CONTROL_KEY) document.body.classList.remove('using-mouse');
+    if (e.key === 'Tab') document.body.classList.remove('using-mouse');
   };
 
   document.addEventListener('mousedown', handleAddClassUsingMouse);

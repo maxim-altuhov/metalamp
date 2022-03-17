@@ -22,9 +22,7 @@ function initFunction() {
     startDate: '2019-08-19',
     finishDate: '2019-08-23',
   });
-  initDropdown({
-    arrowToggle: false,
-  });
+  initDropdown();
   switchLikes();
   rangeSlider({
     selector: '#range-slider-1',

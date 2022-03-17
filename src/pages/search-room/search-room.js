@@ -21,9 +21,7 @@ function initFunction() {
     startDate: '2019-08-19',
     finishDate: '2019-08-23',
   });
-  initDropdown({
-    arrowToggle: false,
-  });
+  initDropdown();
   rangeSlider({
     selector: '#range-slider-price',
     start: [5000, 10000],

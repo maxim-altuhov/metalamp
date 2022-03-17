@@ -8,9 +8,7 @@ import addDatePicker from '@comp/input-datepicker/js/addDatePicker';
 function initFunction() {
   checkingTabKeyPress();
   initMenu();
-  initDropdown({
-    arrowToggle: false,
-  });
+  initDropdown();
   addDatePicker({
     selectorId: '#card-search-date',
     isTwoDropdowns: true,

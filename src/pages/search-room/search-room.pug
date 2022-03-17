@@ -22,7 +22,17 @@ block content
           .search-room__aside-elem
             +input-datepicker({labelTextFirst:"Даты пребывания в отеле", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Выберите даты", dateWithFilter: true})
           .search-room__aside-elem
-            +dropdown({labelText:"Гости", attributeName:"dropdown-guests", textInInput:"Сколько гостей", addBtn: true, mini: true, elements:{"Взрослые" : 2, "Дети" : 1, "Младенцы" : 1}})
+            +dropdown({
+              labelText:"Гости",
+              attributeName:"dropdown-guests",
+              textInInput:"Сколько гостей",
+              addControlBtn: true,
+              elements:{
+                "Взрослые": 2,
+                "Дети": 1,
+                "Младенцы": 1,
+              }
+            })
           .search-room__aside-elem
             +rangeSlider({textLabel: "Диапазон цены", id: "range-slider-price"})
             span.search-room__aside-range-text Стоимость за сутки пребывания в номере
@@ -43,7 +53,16 @@ block content
               .search-room__aside-checkbox
                 +checkbox({title:"Помощник для инвалидов", descr:"На 1 этаже вас встретит специалист и проводит до номера.", nameCheckbox:"rich-checkbox-2", expanded: true})
           .search-room__aside-elem
-            +dropdown({labelText:"Удобства номера", attributeName:"dropdown-rooms", textInInput:"Кол-во комнат", mini: true, elements:{"Спальни" : 2, "Кровати" : 2, "Ванные комнаты" : 0}})
+            +dropdown({
+              labelText:"Удобства номера",
+              attributeName:"dropdown-rooms",
+              textInInput:"Номер",
+              elements:{
+                "Спальни": 2,
+                "Кровати": 2,
+                "Ванные комнаты": 0,
+              },
+            })
           .search-room__aside-elem
             +checkbox-list({
               title:"дополнительные удобства",

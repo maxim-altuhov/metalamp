@@ -1,6 +1,5 @@
 @import '~air-datepicker/dist/css/datepicker.css';
 @import '@scss/variables';
-@import '@scss/mixins';
 @import './datepicker';
 
 .input-datepicker {
@@ -20,7 +19,7 @@
     background: #FFFFFF;
     border: 1px solid $dark25;
     border-radius: 4px;
-    padding: 13px 14px;
+    padding: 10px 14px;
     font-size: 14px;
     color: $dark75;
     transition: border 0.2s ease-in;
@@ -39,7 +38,7 @@
       width: 100%;
     }
 
-    @include placeholder($dark75, 13.6);
+    @include placeholder($dark75, 13.7);
 
     @include focus($dark75);
   }

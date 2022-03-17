@@ -15,9 +15,7 @@ function initFunction() {
   initMenu();
   initSliderPreview();
   initDiagramRating('#rating-rooms');
-  initDropdown({
-    arrowToggle: false,
-  });
+  initDropdown();
   addDatePicker({
     selectorId: '#card-booking-date',
     isTwoDropdowns: true,

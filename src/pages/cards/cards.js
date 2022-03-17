@@ -11,9 +11,7 @@ import convertComment from '@comp/card-room/js/convertComment';
 
 function initFunction() {
   checkingTabKeyPress();
-  initDropdown({
-    arrowToggle: false,
-  });
+  initDropdown();
   addDateMaskForInput();
   addDatePicker({
     selectorId: '#card-search-date',
