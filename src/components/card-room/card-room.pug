@@ -1,10 +1,19 @@
 //- components
 include ~@comp/simple-rating/simple-rating.pug
 
-//- - const { href, number, arrow(boolean), tag, price, ratingValue, numberOfReviews}
+//- В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
+  const options = {
+    href: String,
+    number: Number,
+    showArrows: Boolean,
+    tag: String,
+    price: Number,
+    ratingValue: Number,
+    numberOfReviews: Number,
+  }
 
-mixin cardRoom(options, ...elements)
-  - const { href = "/mock-address/change-me", number, arrow = true, tag, price, ratingValue, numberOfReviews} = options;
+mixin card-room(options = {}, ...elements)
+  - const { href = "/mock-address/change-me", number = 0, showArrows = false, tag = "", price = 0, ratingValue = 0, numberOfReviews = 0} = options;
     .card-room
       .card-room__wrapper
         .card-room__images.js-card-room__images
@@ -12,21 +21,21 @@ mixin cardRoom(options, ...elements)
             each element in elements
               img.swiper-slide(src=require(`./img/${element}`), alt= "photo of the hotel room")
           .card-room__pagination.js-card-room__pagination
-          if arrow
-            button.card-room__btn.js-card-room__btn.card-room__btn_prev.js-card-room__btn_prev.material-icons chevron_left
-            button.card-room__btn.js-card-room__btn.card-room__btn_next.js-card-room__btn_next.material-icons chevron_right
+          if showArrows
+            button.card-room__btn.js-card-room__btn.card-room__btn_type_prev.js-card-room__btn_type_prev chevron_left
+            button.card-room__btn.js-card-room__btn.card-room__btn_type_next.js-card-room__btn_type_next chevron_right
         a.card-room__block(href=`${href}`)
           .card-room__top
             .card-room__info
-              span.card-room__sym № 
+              span.card-room__symbol № 
               span.card-room__number= number
               span.card-room__tag= tag
-            .card-room__price
-              span.card-room__price-current(data-cost)= `${price}₽`
+            .card-room__price-block
+              span.card-room__price(data-cost)= `${price}₽`
               |  в сутки
           hr.card-room__line
           .card-room__feedback
             +simple-rating({value: `${ratingValue}`})
-            .card-room__comment.js-card-room__comment
-              span.card-room__comment-number= numberOfReviews
+            .card-room__comments.js-card-room__comments
+              span.card-room__comments-meter.js-card-room__comments-meter= numberOfReviews
               |  отзывов

@@ -40,13 +40,13 @@
     color: $dark;
   }
 
-  &__sym {
+  &__symbol {
     font-size: 14px;
     line-height: 122%;
   }
 
   &__number {
-    margin: 0 7px 0 5px;
+    margin: 0 8px 0 5px;
   }
 
   &__tag {
@@ -57,16 +57,15 @@
     text-transform: uppercase;
   }
 
-  &__price {
+  &__price-block {
     font-size: 12px;
     line-height: 150%;
     color: rgba(31, 32, 65, 0.5);
+  }
 
-    &-current {
-      font-size: 14px;
-      font-weight: 700;
-      margin-right: 2px;
-    }
+  &__price {
+    font-size: 14px;
+    font-weight: 700;
   }
 
   &__wrapper {
@@ -82,7 +81,7 @@
   }
 
   &__details {
-    margin-top: 19px;
+    margin-top: 18px;
     font-size: 14px;
     line-height: 20px;
     color: $dark75;
@@ -103,6 +102,7 @@
   &__details-text {
     max-width: 214px;
     line-height: 19px;
+    flex: 1 0 auto;
 
     @media (max-width: 480px) {
       max-width: 60%;
@@ -123,7 +123,7 @@
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    margin: 0 auto 0 6px;
+    margin: 0 auto 0 5px;
     cursor: pointer;
     position: relative;
   }
@@ -144,11 +144,10 @@
   }
 
   &__details-total {
-    margin-top: 30px;
+    margin-top: 31px;
     font-weight: 700;
     font-size: 19px;
     color: $dark;
-
   }
 
   &__details-total-text {
@@ -162,16 +161,15 @@
       order: 2;
       margin: 0 5px;
     }
+  }
 
-    span {
-      order: 3;
-      margin-right: -9px;
-    }
+  &__total {
+    order: 3;
+    margin-right: -9px;
   }
 
   &__btn {
     margin-top: 22px;
-    width: 320px;
     height: 44px;
   }
 }

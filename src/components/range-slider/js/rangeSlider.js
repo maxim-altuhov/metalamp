@@ -3,10 +3,10 @@ import wNumb from 'wNumb';
 
 function rangeSlider({
   selector,
-  start,
-  min,
-  max,
-  step,
+  start = [50, 70],
+  min = 0,
+  max = 100,
+  step = 10,
 }) {
   const selectorSlider = document.querySelector(selector);
   const sliderInfo = selectorSlider.previousElementSibling;
@@ -28,7 +28,7 @@ function rangeSlider({
   });
 
   const updateInfo = () => {
-    let infoSlider = selectorSlider.noUiSlider.get();
+    const infoSlider = selectorSlider.noUiSlider.get();
     sliderMin.textContent = `${infoSlider[0]}₽`;
     sliderMax.textContent = `${infoSlider[1]}₽`;
   };

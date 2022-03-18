@@ -1,6 +1,6 @@
-@import '@scss/variables';
 @import '~swiper/swiper-bundle.css';
 @import '@comp/simple-rating/simple-rating';
+@import '@scss/variables';
 
 .card-room {
   &__wrapper {
@@ -19,7 +19,7 @@
     overflow: hidden;
     border-radius: 4px 4px 0 0;
 
-    img {
+    .swiper-slide {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -28,17 +28,16 @@
   }
 
   .swiper-container-horizontal>.swiper-pagination-bullets {
-    bottom: 13px;
+    bottom: 11px;
     padding-right: 10px;
   }
 
   .swiper-pagination-bullet {
     border-radius: 5px;
     background: transparent;
-    width: 7.5px;
-    height: 7.5px;
+    width: 8px;
+    height: 8px;
     border: 1px solid #FFFFFF;
-    // filter: drop-shadow(0px 5px 5px rgba(31, 32, 65, 0.3));
     opacity: 1;
   }
 
@@ -59,6 +58,20 @@
   }
 
   &__btn {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
     position: absolute;
     width: 42px;
     height: 100%;
@@ -70,24 +83,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
 
-    &_prev {
-      top: 50%;
+    &_type_prev {
       left: 1px;
-      transform: translateY(-50%);
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
     }
 
-    &_next {
-      top: 50%;
+    &_type_next {
       right: -1px;
-      transform: translateY(-50%);
       background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
     }
-  }
 
-  .card-room__btn.swiper-button-disabled {
-    display: none;
+    &.swiper-button-disabled {
+      display: none;
+    }
   }
 
   &__block {
@@ -109,7 +120,7 @@
     margin-left: 1px;
   }
 
-  &__sym {
+  &__symbol {
     font-size: 14px;
     line-height: 122%;
   }
@@ -127,15 +138,15 @@
     text-transform: uppercase;
   }
 
-  &__price {
+  &__price-block {
     font-size: 12px;
     line-height: 150%;
     color: rgba(31, 32, 65, 0.5);
+  }
 
-    &-current {
-      font-size: 14px;
-      font-weight: 700;
-    }
+  &__price {
+    font-size: 14px;
+    font-weight: 700;
   }
 
   &__line {
@@ -143,7 +154,7 @@
     height: 1px;
     background-color: $dark10;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 11px;
   }
 
   &__feedback {
@@ -153,14 +164,14 @@
     align-items: center;
   }
 
-  &__comment {
+  &__comments {
     font-size: 14px;
     line-height: 129%;
     color: rgba(31, 32, 65, 0.5);
     text-transform: capitalize;
+  }
 
-    &-number {
-      font-weight: 700;
-    }
+  &__comments-meter {
+    font-weight: 700;
   }
 }

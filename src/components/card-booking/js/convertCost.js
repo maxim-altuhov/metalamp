@@ -2,7 +2,7 @@
 function convertCost() {
   const selector = document.querySelectorAll('[data-cost]');
 
-  selector.forEach(elem => {
+  selector.forEach((elem) => {
     const costInFormatText = elem.textContent;
     const costInFormatNumber = Number(costInFormatText.substring(0, costInFormatText.length - 1));
     const result = costInFormatNumber.toLocaleString('ru-RU');

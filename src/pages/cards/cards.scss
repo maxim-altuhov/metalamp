@@ -14,7 +14,6 @@ html {
     margin-top: 72px;
     display: grid;
     grid-template-columns: auto 380px auto;
-    justify-items: center;
     gap: 40px;
 
     @media (max-width: 1199px) {

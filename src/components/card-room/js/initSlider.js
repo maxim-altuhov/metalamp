@@ -6,7 +6,7 @@ SwiperCore.use([Navigation, Pagination]);
 function initSlider() {
   const sliders = document.querySelectorAll('.js-card-room__images');
 
-  sliders.forEach(elem => {
+  sliders.forEach((elem) => {
     const swiper = new SwiperCore(elem, {
       loop: true,
       watchOverflow: true,
@@ -16,17 +16,17 @@ function initSlider() {
         clickable: true,
       },
       navigation: {
-        nextEl: elem.querySelector('.js-card-room__btn_next'),
-        prevEl: elem.querySelector('.js-card-room__btn_prev'),
+        nextEl: elem.querySelector('.js-card-room__btn_type_next'),
+        prevEl: elem.querySelector('.js-card-room__btn_type_prev'),
       },
     });
 
-    if (swiper.imagesToLoad.length === 3 || swiper.imagesToLoad.length === 1) {
+    const oneImageInSlider = swiper.imagesToLoad.length === 3 || swiper.imagesToLoad.length === 1;
+
+    if (oneImageInSlider) {
       const navArrows = elem.querySelectorAll('.js-card-room__btn');
 
-      navArrows.forEach(item => {
-        item.remove();
-      });
+      navArrows.forEach((item) => item.remove());
       swiper.destroy();
     }
   });

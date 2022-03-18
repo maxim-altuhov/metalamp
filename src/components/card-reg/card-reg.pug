@@ -4,33 +4,75 @@ include ~@comp/radio-btn/radio-btn.pug
 include ~@comp/toggle/toggle.pug
 include ~@comp/button/button.pug
 
-mixin cardReg(options)
-  - const { textBtn } = options;
+mixin card-reg(options = {})
+  - const { textBtn = "" } = options;
   .card-reg
     .card-reg__block
-      h1.card-reg__title Регистрация аккаунта
+      h2.card-reg__title Регистрация аккаунта
       form(action="#", method="post", name="card-registration")
         .card-reg__wrapper
           .card-reg__elem
-            +input({attributeName:"name", attributeType:"text", placeholder:"Имя"})
+            +input({
+              attributeName:"name",
+              attributeType:"text",
+              placeholder:"Имя",
+            })
           .card-reg__elem
-            +input({attributeName:"surname", attributeType:"text", placeholder:"Фамилия"})
-          .card-reg__elem.card-reg__elem_in-row
+            +input({
+              attributeName:"surname",
+              attributeType:"text",
+              placeholder:"Фамилия",
+            })
+          .card-reg__elem.card-reg__elem_direction_row
             .card-reg__radiobtn
-              +radio-btn({text:"Мужчина", name:"radio-btn", checked: true})
+              +radio-btn({
+                text:"Мужчина",
+                name:"radio-btn",
+                checked: true,
+              })
             .card-reg__radiobtn
-              +radio-btn({text:"Женщина", name:"radio-btn"})
+              +radio-btn({
+                text:"Женщина",
+                name:"radio-btn",
+              })
           .card-reg__elem
-            +input({labelText:"Дата рождения", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", addDateMask: true})
+            +input({
+              labelText:"Дата рождения",
+              attributeName:"date",
+              attributeType:"text",
+              placeholder:"ДД.ММ.ГГГГ",
+              addDateMask: true,
+            })
           .card-reg__elem
-            +input({labelText:"Данные для входа в сервис", attributeName:"email-reg", attributeType:"email", placeholder:"Email"})
+            +input({
+              labelText:"Данные для входа в сервис",
+              attributeName:"email-reg",
+              attributeType:"email",
+              placeholder:"Email",
+            })
           .card-reg__elem
-            +input({attributeName:"password-reg", attributeType:"text", placeholder:"Пароль"})
-          .card-reg__elem.card-reg__elem_in-row
-            +toggle({text:"Получать спецпредложения", name:"toggle-subscribe"})
+            +input({
+              attributeName:"password-reg",
+              attributeType:"text",
+              placeholder:"Пароль",
+            })
+          .card-reg__elem.card-reg__elem_direction_row
+            +toggle({
+            text:"Получать спецпредложения",
+            name:"toggle-subscribe",
+          })
           .card-reg__btn
-            +button({theme:"with-arrow", text:`${textBtn}`, btnType:"submit"})
+            +button({
+              theme:"with-arrow",
+              text:`${textBtn}`,
+              btnType:"submit",
+            })
       .card-reg__sign-in
-        span.card-reg__sign-in-text Уже есть аккаунт на Toxin
+        span.card-reg__text Уже есть аккаунт на Toxin
         .card-reg__mini-btn
-          +button({theme:"transparent", text:"Войти", isLink: true, href: "sign-in.html"})
+          +button({
+            theme:"transparent",
+            text:"Войти",
+            isLink: true,
+            href: "sign-in.html",
+          })

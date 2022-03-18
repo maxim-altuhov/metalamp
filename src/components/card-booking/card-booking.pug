@@ -7,16 +7,25 @@ include ~@comp/button/button.pug
   .card-booking__block
     .card-booking__top
       .card-booking__info
-        span.card-booking__sym №
+        span.card-booking__symbol №
         span.card-booking__number 888
         span.card-booking__tag люкс
-      .card-booking__price
-        span.card-booking__price-current(data-cost) 9990₽
+      .card-booking__price-block
+        span.card-booking__price(data-cost) 9990₽
         |  в сутки
     form(action="#", method="get", name="card-booking")
       .card-booking__wrapper
         .card-booking__elem
-          +input-datepicker({labelTextFirst:"прибытие", labelTextSecond:"выезд", id:'card-booking-date', attributeName:"card-search-date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", addDateMask: true, dateWithDropdown: true})
+          +input-datepicker({
+            labelTextFirst:"прибытие",
+            labelTextSecond:"выезд",
+            id:'card-booking-date',
+            attributeName:"card-search-date-range",
+            attributeType:"text",
+            placeholder:"ДД.ММ.ГГГГ",
+            addDateMask: true,
+            dateWithDropdown: true,
+          })
         .card-booking__elem
           +dropdown({
             labelText:"гости",
@@ -32,23 +41,23 @@ include ~@comp/button/button.pug
         .card-booking__details
           .card-booking__details-elem
             p.card-booking__details-text
-              span#booking-cost(data-cost) 9990₽
+              span.card-booking__cost(data-cost) 9990₽
               |  х 
-              span#booking-day 4 суток
-            span#booking-cost-result(data-cost) 39960₽
+              span.card-booking__day 4 суток
+            span.card-booking__cost-result(data-cost) 39960₽
           .card-booking__details-elem
             p.card-booking__details-text Сбор за услуги: скидка 
-              span#booking-sale(data-cost) 2179₽
+              span.card-booking__sale(data-cost) 2179₽
             span(class="card-booking__info-point" data-tooltip="Подсказка") i
-              i.card-booking__info-tooltip
-            span#booking-services-result(data-cost) 0₽
+              i.card-booking__info-tooltip.js-card-booking__info-tooltip
+            span.card-booking__services-result(data-cost) 0₽
           .card-booking__details-elem
             p.card-booking__details-text Сбор за дополнительные услуги
             span(class="card-booking__info-point" data-tooltip="Другая подсказка") i
-              i.card-booking__info-tooltip
-            span#booking-addservices-result(data-cost) 300₽
+              i.card-booking__info-tooltip.js-card-booking__info-tooltip
+            span.card-booking__addservices-result(data-cost) 300₽
           .card-booking__details-total
             p.card-booking__details-total-text Итого
-              span#booking-total(data-cost) 38081₽
+              span.card-booking__total(data-cost) 38081₽
       .card-booking__btn 
         +button({theme:"with-arrow", text:"забронировать", btnType:"submit"})

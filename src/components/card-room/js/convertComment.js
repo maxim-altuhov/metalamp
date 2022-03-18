@@ -1,18 +1,21 @@
 // функция меняет окончания слова "Отзывы" в зависимости от их кол-ва
 function convertComment() {
-  const comments = document.querySelectorAll('.js-card-room__comment');
+  const comments = document.querySelectorAll('.js-card-room__comments');
 
-  comments.forEach(elem => {
-    const numberOfComments = Number(elem.querySelector('span').textContent);
-    const numberRemainingBy100 = numberOfComments % 100;
-    const numberRemainingBy10 = numberOfComments % 10;
+  comments.forEach((comment) => {
+    const numberOfComments = Number(comment.querySelector('.js-card-room__comments-meter').textContent);
+    const checkNumberOfComments = (startNumber, endNumber, checkTwoDigitNum = true) => {
+      const checkingNumber = checkTwoDigitNum ? numberOfComments % 100 : numberOfComments % 10;
 
-    if (numberRemainingBy100 > 5 && numberRemainingBy100 < 21) {
-      elem.innerHTML = `<span class="card-room__comment-number">${numberOfComments}</span> Отзывов`;
-    } else if (numberRemainingBy10 > 1 && numberRemainingBy10 < 5) {
-      elem.innerHTML = `<span class="card-room__comment-number">${numberOfComments}</span> Отзыва`;
-    } else if (numberRemainingBy10 === 1) {
-      elem.innerHTML = `<span class="card-room__comment-number">${numberOfComments}</span> Отзыв`;
+      return (checkingNumber > startNumber) && (checkingNumber < endNumber);
+    };
+
+    if (checkNumberOfComments(5, 21)) {
+      comment.innerHTML = `<span class="card-room__comments-meter js-card-room__comments-meter">${numberOfComments}</span> отзывов`;
+    } else if (checkNumberOfComments(1, 5, false)) {
+      comment.innerHTML = `<span class="card-room__comments-meter js-card-room__comments-meter">${numberOfComments}</span> отзыва`;
+    } else if ((numberOfComments % 10) === 1) {
+      comment.innerHTML = `<span class="card-room__comments-meter js-card-room__comments-meter">${numberOfComments}</span> отзыв`;
     }
   });
 }

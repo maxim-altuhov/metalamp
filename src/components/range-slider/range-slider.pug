@@ -1,6 +1,6 @@
-//-  const { textLabel, id } = options;
-mixin rangeSlider(options)
-  - const { textLabel, id } = options;
+//-  const options = { textLabel: String, id: String };
+mixin range-slider(options = {})
+  - const { textLabel = "label", id } = options;
       .range-slider
         .range-slider__wrapper
           .range-slider__title

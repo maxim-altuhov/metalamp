@@ -27,7 +27,7 @@ function initFunction() {
   rangeSlider({
     selector: '#range-slider-1',
     start: [5000, 10000],
-    min: 1000,
+    min: 0,
     max: 16000,
     step: 500,
   });
