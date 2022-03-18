@@ -33,8 +33,8 @@ function initFunction() {
   });
   initPagination({
     selector: '#pagination-1',
-    maxItemPerPage: 12,
-    maxPaginationElem: 5,
+    maxElemPerPage: 12,
+    maxPages: 5,
   });
   toggleCheckboxList();
 }

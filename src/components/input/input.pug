@@ -12,7 +12,7 @@
     addClass: String,
   };
 mixin input(options = {})
-  - const { labelText = "label", attributeName = "", attributeType = "text", placeholder = "", valueInInput = "", addDateMask = false, inputTypeSubsribe = false, isValidate = false, addClass = "" } = options;
+  - const { labelText = "", attributeName = "", attributeType = "text", placeholder = "", valueInInput = "", addDateMask = false, inputTypeSubsribe = false, isValidate = false, addClass = "" } = options;
   - const maskName = addDateMask ? "date" : null;  
     if inputTypeSubsribe
       .input

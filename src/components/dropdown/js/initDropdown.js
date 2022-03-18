@@ -1,5 +1,17 @@
 function initDropdown(enableArrowRotation = true) {
   const blocksWithDropdown = document.querySelectorAll('.js-dropdown__group-fields');
+  const variantWordsObj = {
+    гость: ['гость', 'гостя', 'гостей'],
+    младенцы: ['младенец', 'младенца', 'младенцев'],
+    спальни: ['спальня', 'спальни', 'спален'],
+    кровати: ['кровать', 'кровати', 'кроватей'],
+    'ванные комнаты': ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+  };
+  const typeGuests = {
+    ADULT: 'взрослые',
+    CHILDREN: 'дети',
+    BABY: 'младенцы',
+  };
 
   blocksWithDropdown.forEach((block, index) => {
     const dropdown = block.querySelector('.js-dropdown__field');
@@ -14,18 +26,6 @@ function initDropdown(enableArrowRotation = true) {
     const textInInputElem = block.querySelector('.js-dropdown__field-result');
     const dropdownElements = block.querySelectorAll('.js-dropdown__field-elem');
     const textInInput = textInInputElem.textContent;
-    const variantWordsObj = {
-      гость: ['гость', 'гостя', 'гостей'],
-      младенцы: ['младенец', 'младенца', 'младенцев'],
-      спальни: ['спальня', 'спальни', 'спален'],
-      кровати: ['кровать', 'кровати', 'кроватей'],
-      'ванные комнаты': ['ванная комната', 'ванные комнаты', 'ванных комнат'],
-    };
-    const typeGuests = {
-      ADULT: 'взрослые',
-      CHILDREN: 'дети',
-      BABY: 'младенцы',
-    };
     let objWithResult = {};
     let counterGuests = 0;
 

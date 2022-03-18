@@ -35,8 +35,8 @@ function initFunction() {
   convertComment();
   initPagination({
     selector: '#pagination',
-    maxItemPerPage: 12,
-    maxPaginationElem: 5,
+    maxElemPerPage: 12,
+    maxPages: 5,
   });
 }
 
