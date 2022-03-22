@@ -34,24 +34,53 @@ block content
               }
             })
           .search-room__aside-elem
-            +range-slider({textLabel: "Диапазон цены", id: "range-slider-price"})
+            +range-slider({
+              textLabel: "Диапазон цены",
+              data: {
+                start: [5000, 10000],
+                min: 0,
+                max: 16000,
+                step: 500,
+              },
+            })
             span.search-room__aside-range-text Стоимость за сутки пребывания в номере
           .search-room__aside-elem
             h3 Правила дома
             .search-room__aside-block
               .search-room__aside-checkbox
-                +checkbox({title:"Можно курить", nameCheckbox:"checkbox-1"})
+                +checkbox({
+                  title:"Можно курить",
+                  nameCheckbox:"checkbox-1",
+                })
               .search-room__aside-checkbox
-                +checkbox({title:"Можно с питомцами", nameCheckbox:"checkbox-2", checked: true})
+                +checkbox({
+                  title:"Можно с питомцами",
+                  nameCheckbox:"checkbox-2",
+                  isChecked: true
+                })
               .search-room__aside-checkbox
-                +checkbox({title:"Можно пригласить гостей (до 10 человек)", nameCheckbox:"checkbox-3", checked: true})
+                +checkbox({
+                  title:"Можно пригласить гостей (до 10 человек)",
+                  nameCheckbox:"checkbox-3",
+                  isChecked: true
+                })
           .search-room__aside-elem
             h3 Доступность
             .search-room__aside-block
               .search-room__aside-checkbox
-                +checkbox({title:"Широкий коридор", descr:"Ширина коридоров в номере<br> не менее 91 см.", nameCheckbox:"rich-checkbox-1", expanded: true})
+                +checkbox({
+                  title:"Широкий коридор",
+                  subtitle:"Ширина коридоров в номере<br> не менее 91 см.",
+                  nameCheckbox:"rich-checkbox-1",
+                  isExpanded: true
+                })
               .search-room__aside-checkbox
-                +checkbox({title:"Помощник для инвалидов", descr:"На 1 этаже вас встретит специалист и проводит до номера.", nameCheckbox:"rich-checkbox-2", expanded: true})
+                +checkbox({
+                  title:"Помощник для инвалидов",
+                  subtitle:"На 1 этаже вас встретит специалист и проводит до номера.",
+                  nameCheckbox:"rich-checkbox-2",
+                  isExpanded: true
+                })
           .search-room__aside-elem
             +dropdown({
               labelText:"Удобства номера",

@@ -5,7 +5,7 @@
     total: Number,
   };
 mixin simple-rating(options = {})
-  - let { value = 5, total = 5 } = options;
+  - const { value = 5, total = 5 } = options;
       .simple-rating
         - for (let i = 0; i < total; i++)
             if (i < value)

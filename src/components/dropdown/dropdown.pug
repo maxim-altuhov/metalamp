@@ -33,7 +33,15 @@ mixin dropdown(options = {})
           if addControlBtn
             .dropdown__field-control
               .dropdown__field-control-item.dropdown__field-control-item_hidden
-                +button({theme:"simple", text:"Очистить", dataFunction:"clear"})
+                +button({
+                  theme:"simple",
+                  text:"Очистить",
+                  btnFunction:"clear",
+                })
               .dropdown__field-control-item
-                +button({theme:"simple", text:"Применить", dataFunction:"apply"})
+                +button({
+                  theme:"simple",
+                  text:"Применить",
+                  btnFunction:"apply",
+                })
           .dropdown__field-limiter.js-dropdown__field-limiter(tabindex="0")

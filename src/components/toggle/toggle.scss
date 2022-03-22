@@ -1,4 +1,5 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .toggle {
   &__elem {
@@ -6,23 +7,23 @@
     outline: 1px solid transparent;
     position: relative;
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
+  }
 
-    input {
-      appearance: none;
-    }
+  &__input {
+    appearance: none;
 
-    input:focus~.toggle__block {
+    &:focus~.toggle__block {
       outline: $purple auto 2px;
     }
 
-    input:not(:checked)~.toggle__indicator {
+    &:not(:checked)~.toggle__indicator {
       left: 4px;
       background: $dark25;
     }
 
-    input:checked {
+    &:checked {
       &~.toggle__indicator {
         left: 24px;
         background: $background-gradient;
@@ -33,21 +34,8 @@
       }
     }
 
-  }
-
-  &__input {
     &_hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      border: 0;
-      padding: 0;
-      white-space: nowrap;
-      -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-      clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-      clip: rect(0 0 0 0);
-      overflow: hidden;
+      @include hidden;
     }
   }
 

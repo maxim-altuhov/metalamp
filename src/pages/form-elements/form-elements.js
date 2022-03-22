@@ -5,9 +5,14 @@ import addDateMaskForInput from '@comp/input/js/addDateMaskForInput';
 import addDatePicker from '@comp/input-datepicker/js/addDatePicker';
 import initDropdown from '@comp/dropdown/js/initDropdown';
 import switchLikes from '@comp/like/js/switchLikes';
-import rangeSlider from '@comp/range-slider/js/rangeSlider';
 import initPagination from '@comp/pagination/js/initPagination';
-import toggleCheckboxList from '@comp/checkbox-list/js/toggleCheckboxList';
+import '@comp/checkbox-list/checkbox-list';
+import '@comp/checkbox/checkbox';
+import '@comp/toggle/toggle';
+import '@comp/simple-rating/simple-rating';
+import '@comp/range-slider/range-slider';
+import '@comp/button/button';
+import '@comp/bullet-list/bullet-list';
 
 function initFunction() {
   checkingTabKeyPress();
@@ -24,19 +29,11 @@ function initFunction() {
   });
   initDropdown();
   switchLikes();
-  rangeSlider({
-    selector: '#range-slider-1',
-    start: [5000, 10000],
-    min: 0,
-    max: 16000,
-    step: 500,
-  });
   initPagination({
     selector: '#pagination-1',
     maxElemPerPage: 12,
     maxPages: 5,
   });
-  toggleCheckboxList();
 }
 
 window.addEventListener('DOMContentLoaded', initFunction);

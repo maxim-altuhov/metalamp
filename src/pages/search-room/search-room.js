@@ -5,12 +5,13 @@ import initMenu from '@comp/header/js/initMenu';
 import initFilterToggle from './js/initFilterToggle';
 import addDatePicker from '@comp/input-datepicker/js/addDatePicker';
 import initDropdown from '@comp/dropdown/js/initDropdown';
-import rangeSlider from '@comp/range-slider/js/rangeSlider';
-import toggleCheckboxList from '@comp/checkbox-list/js/toggleCheckboxList';
 import initSlider from '@comp/card-room/js/initSlider';
 import convertCost from '@comp/card-booking/js/convertCost';
 import convertComment from '@comp/card-room/js/convertComment';
 import initPagination from '@comp/pagination/js/initPagination';
+import '@comp/checkbox-list/checkbox-list';
+import '@comp/checkbox/checkbox';
+import '@comp/range-slider/range-slider';
 
 function initFunction() {
   checkingTabKeyPress();
@@ -22,14 +23,6 @@ function initFunction() {
     finishDate: '2019-08-23',
   });
   initDropdown();
-  rangeSlider({
-    selector: '#range-slider-price',
-    start: [5000, 10000],
-    min: 0,
-    max: 16000,
-    step: 500,
-  });
-  toggleCheckboxList();
   initSlider();
   convertCost();
   convertComment();

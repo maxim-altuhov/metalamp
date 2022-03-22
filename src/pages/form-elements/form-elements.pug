@@ -58,11 +58,22 @@ block content
           h3 Checkbox Buttons
           .form-elements__flex-wrapper
             .form-elements__checkbox-item
-              +checkbox({title:"Можно курить", nameCheckbox:"checkbox-1"})
+              +checkbox({
+                title:"Можно курить",
+                nameCheckbox:"checkbox-1",
+              })
             .form-elements__checkbox-item
-              +checkbox({title:"Можно с питомцами", nameCheckbox:"checkbox-2", checked: true})
+              +checkbox({
+                title:"Можно с питомцами",
+                nameCheckbox:"checkbox-2",
+                isChecked: true,
+              })
             .form-elements__checkbox-item
-              +checkbox({title:"Можно пригласить гостей (до 10 человек)", nameCheckbox:"checkbox-3", checked: true})
+              +checkbox({
+                title:"Можно пригласить гостей (до 10 человек)",
+                nameCheckbox:"checkbox-3",
+                isChecked: true,
+              })
         .form-elements__item.form-elements__item_margin_mini
           h3 Radio Buttons
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
@@ -70,13 +81,20 @@ block content
               +radio-btn({text:"Мужчина", name:"radio-btn", checked: true})
             .form-elements__radiobtn
               +radio-btn({text:"Женщина", name:"radio-btn"})
-        .form-elements__item.form-elements__item_margin_big
+        .form-elements__item
           h3 Toggle
           .form-elements__flex-wrapper
             .form-elements__toggle
-              +toggle({text:"Получать спецпредложения", name:"toggle-1", checked: true})
+              +toggle({
+                text:"Получать спецпредложения",
+                name:"toggle-1",
+                isChecked: true,
+              })
             .form-elements__toggle
-              +toggle({text:"Получать спецпредложения", name:"toggle-2"})
+              +toggle({
+                text:"Получать спецпредложения",
+                name:"toggle-2",
+              })
         .form-elements__item
           h3 Like Button
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
@@ -93,27 +111,64 @@ block content
               +simple-rating({value: 5})
       .form-elements__block
         .form-elements__item.form-elements__item_margin_big
-          +range-slider({textLabel: "Range Slider", id: "range-slider-1"})
+          +range-slider({
+            textLabel: "Range Slider",
+            data: {
+              start: [5000, 10000],
+              step: 500,
+              min: 0,
+              max: 16000,
+            },
+          })
         .form-elements__item
           h3 Buttons
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
             .form-elements__btn-row
               .form-elements__btn-elem
-                +button({text:"click me", btnType:"button"})
+                +button({
+                  text:"click me",
+                  btnType:"button",
+                })
               .form-elements__btn-elem
-                +button({text:"click me", btnType:"button", isHoverState: true})
+                +button({
+                  text:"click me",
+                  btnType:"button",
+                  isHoverState: true,
+                })
             .form-elements__btn-row
               .form-elements__btn-elem
-                +button({theme:"transparent", text:"click me", btnType:"button"})
+                +button({
+                  theme:"transparent",
+                  text:"click me",
+                  btnType:"button",
+                })
               .form-elements__btn-elem
-                +button({theme:"transparent", text:"click me", btnType:"button", isHoverState: true})
+                +button({
+                  theme:"transparent",
+                  text:"click me",
+                  btnType:"button",
+                  isHoverState: true,
+                })
             .form-elements__btn-row
               .form-elements__btn-elem
-                +button({theme:"simple", text:"click me", btnType:"button"})
+                +button({
+                  theme:"simple",
+                  text:"click me",
+                  btnType:"button",
+                })
               .form-elements__btn-elem
-                +button({theme:"simple", text:"click me", btnType:"button", isHoverState: true})
+                +button({
+                  theme:"simple",
+                  text:"click me",
+                  btnType:"button",
+                  isHoverState: true,
+                })
             .form-elements__btn-row
-              +button({theme:"with-arrow", text:"перейти к оплате", btnType:"button"})
+              +button({
+                theme:"with-arrow",
+                text:"перейти к оплате",
+                btnType:"button",
+              })
         .form-elements__item
           h3 Pagination
           .form-elements__pagination
@@ -197,21 +252,35 @@ block content
             "Кроватка": true,
             "Телевизор": false,
             "Шампунь" : false,
-            },
-          })
+          },
+        })
       .form-elements__block
         .form-elements__item.form-elements__item_margin-top_added
           h3 Rich Checkbox Buttons
           .form-elements__flex-wrapper
             .form-elements__rich-checkbox-item
-              +checkbox({title:"Широкий коридор", descr:"Ширина коридоров в номере<br> не менее 91 см.", nameCheckbox:"rich-checkbox-1", expanded: true})
+              +checkbox({
+                title:"Широкий коридор",
+                subtitle:"Ширина коридоров в номере<br> не менее 91 см.",
+                nameCheckbox:"rich-checkbox-1",
+                isExpanded: true,
+              })
             .form-elements__rich-checkbox-item
-              +checkbox({title:"Помощник для инвалидов", descr:"На 1 этаже вас встретит специалист и проводит до номера.", nameCheckbox:"rich-checkbox-2", expanded: true})
+              +checkbox({
+                title:"Помощник для инвалидов",
+                subtitle:"На 1 этаже вас встретит специалист и проводит до номера.",
+                nameCheckbox:"rich-checkbox-2",
+                isExpanded: true,
+              })
       .form-elements__block
         .form-elements__item.form-elements__item_margin-top_added
           h3 bullet list
           .form-elements__bullet-list
-            +bullet-list("Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00")
+            +bullet-list(
+              "Нельзя с питомцами",
+              "Без вечеринок и мероприятий",
+              "Время прибытия — после 13:00, а выезд до 12:00"
+            )
       .form-elements__block
         .form-elements__info-icon
           +info-icon({title: "Комфорт", subtitle: "Шумопоглощающие стены", icon: "insert_emoticon"})

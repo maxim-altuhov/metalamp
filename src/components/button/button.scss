@@ -23,6 +23,7 @@
 
   &_with-hover {
     opacity: 0.5;
+    cursor: auto;
   }
 
   &_transparent {
@@ -52,6 +53,7 @@
   &_transparent-with-hover {
     background: linear-gradient(180deg, rgba($color: $purple, $alpha: 0.5) 0%, rgba($color: $purple-gradient, $alpha: 0.5) 100%);
     animation: none;
+    cursor: auto;
 
     &:hover,
     &:focus {
@@ -67,8 +69,8 @@
     width: auto;
     height: auto;
     line-height: 1;
-    transition: color 0.2s ease-in;
     border-radius: 0;
+    transition: color 0.2s ease-in;
 
     &:hover,
     &:focus {
@@ -79,6 +81,7 @@
 
   &_simple-with-hover {
     color: $dark50;
+    cursor: auto;
   }
 
   &_with-arrow {
@@ -92,8 +95,7 @@
 
     &::before {
       content: '';
-      background-image: url('./img/arrow-forward.svg');
-      background-repeat: no-repeat;
+      background: url('./img/arrow-forward.svg') no-repeat;
       background-size: contain;
       position: absolute;
       top: 10px;

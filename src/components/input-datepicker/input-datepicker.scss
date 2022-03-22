@@ -38,9 +38,7 @@
       width: 100%;
     }
 
-    @include placeholder($dark75, 13.7);
-
-    @include focus($dark75);
+    @include placeholder($dark75, $dark75, 13.7);
   }
 
   &__label {

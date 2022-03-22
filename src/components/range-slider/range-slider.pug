@@ -1,12 +1,22 @@
-//-  const options = { textLabel: String, id: String };
+//-  
+  const options = { 
+    textLabel: String,
+    data: { 
+      start: [0, 100],
+      step: 1,
+      min: 0,
+      max: 100,
+      decimals: 0,
+    }
+  };
 mixin range-slider(options = {})
-  - const { textLabel = "label", id } = options;
-      .range-slider
-        .range-slider__wrapper
-          .range-slider__title
-            h3= textLabel
-            span.range-slider__info
-              span.range-slider__info-min(data-range-min) 0
-              |  - 
-              span.range-slider__info-max(data-range-max) 0
-          div(class="range-slider__elem" id= id)
+  - const { textLabel = "label", data = {} } = options;
+  .range-slider.js-range-slider
+    .range-slider__wrapper
+      .range-slider__info-block
+        h3.range-slider__title= textLabel
+        span.range-slider__info.js-range-slider__info
+          span.range-slider__info-min.js-range-slider__info-min 0
+          |  - 
+          span.range-slider__info-max.js-range-slider__info-max 0
+      div(class="range-slider__slider js-range-slider__slider" data-options= data)

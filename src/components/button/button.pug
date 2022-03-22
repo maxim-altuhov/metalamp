@@ -1,26 +1,41 @@
 //-
   const options = {
-    theme: "transparent" || "simple" || "with-arrow" || "",
+    theme: "transparent" || "simple" || "with-arrow",
     text: String,
     btnType: "button" || "submit" || "reset",
     isLink: Boolean,
-    href: "/mock-address/change-me",
-    dataFunction: "clear" || "apply" || undefined,
+    href: String,
+    btnFunction: "clear" || "apply" || undefined,
     isHoverState: Boolean,
   };
-mixin button(options = {}, ...addclass)
-  - const {theme = "", text = "", btnType = "button", isLink = false, href = "/mock-address/change-me", dataFunction, isHoverState = false} = options;
-  - const optionTheme = theme ? `button_${theme}` : "";
-  - let optionHover = "";
+mixin button(options = {})
+  - 
+    const {
+      theme,
+      text = "",
+      btnType = "button",
+      isLink = false,
+      href = "/mock-address/change-me",
+      btnFunction,
+      isHoverState = false
+    } = options;
 
-    if isHoverState && (theme === "")
-      - optionHover = "button_with-hover";
-    else if isHoverState
-      - optionHover = `${optionTheme}-with-hover`;
+    const themeModifiers = {
+      transparent: 'button_transparent',
+      simple: 'button_simple',
+      'with-arrow': 'button_with-arrow',
+    };
+    
+    let classWithHover;
 
-    if isLink
-      a(class=`button ${optionTheme} ${optionHover} ${addclass}` href= href)
-        span.button__text= text
-    else
-      button(class=`button ${optionTheme} ${optionHover} ${addclass}` type= btnType data-function= dataFunction)
-        span.button__text= text
+  if isHoverState && !theme
+    - classWithHover = "button_with-hover";
+  else if isHoverState && themeModifiers[theme]
+    - classWithHover = `${themeModifiers[theme]}-with-hover`;
+
+  if isLink
+    a(class=`button ${themeModifiers[theme]} ${classWithHover}` href= href)
+      span.button__text= text
+  else
+    button(class=`button ${themeModifiers[theme]} ${classWithHover}` type= btnType data-function= btnFunction)
+      span.button__text= text

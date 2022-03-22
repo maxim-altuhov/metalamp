@@ -1,4 +1,5 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .checkbox {
   &__elem {
@@ -8,17 +9,7 @@
 
   &__field {
     &_hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      border: 0;
-      padding: 0;
-      white-space: nowrap;
-      -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-      clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-      clip: rect(0 0 0 0);
-      overflow: hidden;
+      @include hidden;
     }
   }
 
@@ -55,7 +46,6 @@
   }
 
   &__title {
-    cursor: pointer;
     display: inline-block;
     max-width: 240px;
     position: relative;
@@ -63,6 +53,7 @@
     font-size: 14px;
     line-height: 129%;
     color: $dark50;
+    cursor: pointer;
 
     &_style_bold {
       font-weight: 700;
@@ -71,14 +62,14 @@
   }
 
   &__subtitle {
-    margin-top: 5px;
-    cursor: pointer;
+    margin-top: 6px;
     display: inline-block;
     font-size: 12px;
     line-height: 14 / 12 * 100%;
     color: $dark50;
     padding-left: 30px;
     max-width: 260px;
+    cursor: pointer;
   }
 }
 

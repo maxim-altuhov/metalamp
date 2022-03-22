@@ -2,16 +2,9 @@
 @import '@comp/input/input';
 @import '@comp/input-datepicker/input-datepicker';
 @import '@comp/dropdown/dropdown';
-@import '@comp/checkbox/checkbox';
 @import '@comp/radio-btn/radio-btn';
-@import '@comp/toggle/toggle';
 @import '@comp/like/like';
-@import '@comp/simple-rating/simple-rating';
-@import '@comp/range-slider/range-slider';
-@import '@comp/button/button';
 @import '@comp/pagination/pagination';
-@import '@comp/checkbox-list/checkbox-list';
-@import '@comp/bullet-list/bullet-list';
 @import '@comp/info-icon/info-icon';
 @import '@comp/feedback/feedback';
 
@@ -141,7 +134,7 @@
   }
 
   &__toggle {
-    margin-bottom: 13px;
+    margin-bottom: 12px;
 
     &:last-child {
       margin-bottom: 0;

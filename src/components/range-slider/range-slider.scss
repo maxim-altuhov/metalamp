@@ -6,7 +6,7 @@
     max-width: 266px;
   }
 
-  &__title {
+  &__info-block {
     display: flex;
     justify-content: space-between;
   }
@@ -19,7 +19,7 @@
     color: $dark50;
   }
 
-  &__elem {
+  &__slider {
     margin-top: 23px;
   }
 

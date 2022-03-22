@@ -12,9 +12,9 @@
 }
 
 // Стилизация placeholder
-// пример: @include placeholder($dark);
-@mixin placeholder($placeholder-color, $font-size) {
-  &::-webkit-input-placeholder {
+// пример: @include placeholder($dark, transparent, 14);
+@mixin placeholder($placeholder-color, $focus-color, $font-size) {
+  &::placeholder {
     color: $placeholder-color;
     font-weight: 400;
     font-size: $font-size + 'px';
@@ -22,47 +22,40 @@
     transition: color 0.2s ease-in;
   }
 
-  &::-moz-placeholder {
-    color: $placeholder-color;
-    font-weight: 400;
-    font-size: $font-size + 'px';
-    line-height: 18 / $font-size * 100%;
-    transition: color 0.2s ease-in;
-  }
-
-  &:-moz-placeholder {
-    color: $placeholder-color;
-    font-weight: 400;
-    font-size: $font-size + 'px';
-    line-height: 18 / $font-size * 100%;
-    transition: color 0.2s ease-in;
-  }
-
-  &:-ms-input-placeholder {
-    color: $placeholder-color;
-    font-weight: 400;
-    font-size: $font-size + 'px';
-    line-height: 18 / $font-size * 100%;
-    transition: color 0.2s ease-in;
+  &:focus::placeholder {
+    color: $focus-color;
   }
 }
 
-// Стилизация focus
-// пример: @include focus($dark);
-@mixin focus($focus-color) {
-  &:focus::-webkit-input-placeholder {
-    color: $focus-color;
-  }
+// Cкрывает элемент
+@mixin hidden() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 
-  &:focus:-moz-placeholder {
-    color: $focus-color;
-  }
-
-  &:focus::-moz-placeholder {
-    color: $focus-color;
-  }
-
-  &:focus:-ms-input-placeholder {
-    color: $focus-color;
-  }
+// Настройки для Material Icons
+@mixin font-material-icons() {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
 }

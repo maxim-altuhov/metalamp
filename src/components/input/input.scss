@@ -24,9 +24,7 @@
       border: 1px solid $dark50;
     }
 
-    @include placeholder($dark25, 13.6);
-
-    @include focus(transparent);
+    @include placeholder($dark25, transparent, 13.6);
 
     &.input_focused {
       border: 1px solid $dark50;

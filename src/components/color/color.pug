@@ -5,10 +5,26 @@
     color: String,
   };
 mixin color(options = {})
-  - const { title = "", subtitle = "", color = "#000" } = options;
-    .color
-      .color__elem
-        div(class="color__sample color__sample_bg_" +color)
-        .color__descr
-          p.color__descr-title= title 
-          span.color__descr-subtitle= subtitle 
+  - 
+    const { 
+      title = "",
+      subtitle = "",
+      color = "",
+    } = options;
+
+    const colorModifiers = {
+      purple: "color__sample_bg_purple",
+      green: "color__sample_bg_green",
+      dark: "color__sample_bg_dark",
+      "dark-shade75": "color__sample_bg_dark-shade75",
+      "dark-shade50": "color__sample_bg_dark-shade50",
+      "dark-shade25": "color__sample_bg_dark-shade25",
+      "dark-shade5": "color__sample_bg_dark-shade5",
+    };
+
+  .color
+    .color__elem
+      div(class=`color__sample ${colorModifiers[color]}`)
+      .color__descr
+        p.color__descr-title= title 
+        span.color__descr-subtitle= subtitle 
