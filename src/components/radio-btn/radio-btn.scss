@@ -1,37 +1,28 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .radio-btn {
   &__field_hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-    clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+    @include hidden;
   }
 
-  &__field:checked+span,
-  &__field:not(:checked)+span {
-    cursor: pointer;
+  &__field:checked+.radio-btn__text,
+  &__field:not(:checked)+.radio-btn__text {
+    position: relative;
     max-width: 230px;
     display: inline-block;
-    position: relative;
     padding-left: 30px;
     font-size: 14px;
     line-height: 129%;
     color: $dark50;
+    cursor: pointer;
   }
 
-  &__field:checked+span {
+  &__field:checked+.radio-btn__text {
     color: $dark75;
   }
 
-  &__field:not(:checked)+span:before {
+  &__field:not(:checked)+.radio-btn__text:before {
     content: "";
     position: absolute;
     left: 0px;
@@ -43,7 +34,7 @@
     border-radius: 10px;
   }
 
-  &__field:checked+span:before {
+  &__field:checked+.radio-btn__text:before {
     content: "";
     position: absolute;
     left: 0px;
@@ -55,7 +46,7 @@
     border-radius: 10px;
   }
 
-  &__field:checked+span:after {
+  &__field:checked+.radio-btn__text:after {
     content: "";
     position: absolute;
     left: 4px;
@@ -69,19 +60,18 @@
     transition: opacity 0.2s ease-in;
   }
 
-  &__field:not(:checked)+span:after {
+  &__field:not(:checked)+.radio-btn__text:after {
     content: "";
     opacity: 0;
   }
 
-  &__field:focus+span:before {
+  &__field:focus+.radio-btn__text:before {
     outline: $purple auto 2px;
   }
-
 }
 
 body.using-mouse {
-  input.radiobtn__field:focus+span:before {
+  .radiobtn__field:focus+.radio-btn__text:before {
     outline: none;
   }
 }

@@ -2,17 +2,17 @@
   const options = {
     text: String,
     name: String,
-    checked: Boolean,
+    isChecked: Boolean,
   };
 mixin radio-btn(options = {})
-  - const { text = "", name = "", checked = false } = options;
-    if checked
-      .radio-btn
-        label.radio-btn__label
-          input.radio-btn__field.radio-btn__field_hidden(type="radio", name=name, value=text, checked)
-          span.radio-btn__text= text
-    else
-      .radio-btn
-        label.radio-btn__label
-          input.radio-btn__field.radio-btn__field_hidden(type="radio", name=name, value=text)
-          span.radio-btn__text= text
+  - 
+    const { 
+      text = "",
+      name = "",
+      isChecked = false,
+    } = options;
+    
+  .radio-btn
+    label.radio-btn__label
+      input.radio-btn__field.radio-btn__field_hidden(type="radio", name=name, value=text, checked=isChecked)
+      span.radio-btn__text= text

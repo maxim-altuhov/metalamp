@@ -26,12 +26,18 @@ block content
               labelText:"Гости",
               attributeName:"dropdown-guests",
               textInInput:"Сколько гостей",
-              addControlBtn: true,
+              hasControlBtn: true,
               elements:{
                 "Взрослые": 2,
                 "Дети": 1,
                 "Младенцы": 1,
-              }
+              },
+              data: {
+                variantsWordsObj: {
+                  гость: ['гость', 'гостя', 'гостей'],
+                  младенцы: ['младенец', 'младенца', 'младенцев'],
+                },
+              },
             })
           .search-room__aside-elem
             +range-slider({
@@ -86,10 +92,17 @@ block content
               labelText:"Удобства номера",
               attributeName:"dropdown-rooms",
               textInInput:"Номер",
-              elements:{
+              elements: {
                 "Спальни": 2,
                 "Кровати": 2,
                 "Ванные комнаты": 0,
+              },
+              data: {
+                variantsWordsObj: {
+                  спальни: ['спальня', 'спальни', 'спален'],
+                  кровати: ['кровать', 'кровати', 'кроватей'],
+                  'ванные комнаты': ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+                },
               },
             })
           .search-room__aside-elem
@@ -122,6 +135,10 @@ block content
             +card-room({ href: "room-details.html", number: 444, price: 5000, ratingValue: 3, numberOfReviews: 15 }, elements = "room11.jpg", "room11.jpg", "room11.jpg", "room11.jpg")
             +card-room({ href: "room-details.html", number: 352, price: 5000, ratingValue: 3, numberOfReviews: 55 }, elements = "room12.jpg", "room12.jpg", "room12.jpg", "room12.jpg")
           .search-room__pagination
-            +pagination({ id:"pagination" })
+            +pagination({
+              maxElemPerPage: 12,
+              numPagesToShow: 5,
+              totalElements: 180,
+            })
   .line
 

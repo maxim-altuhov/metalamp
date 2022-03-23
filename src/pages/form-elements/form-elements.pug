@@ -29,30 +29,60 @@ block content
       .form-elements__block
         .form-elements__item.form-elements__item_margin_mini
           .form-elements__tag Default
-          +input({labelText:"text field", attributeName:"email-simple", attributeType:"email", placeholder:"Email"})
+          +input({
+            labelText:"text field",
+            attributeName:"email-simple",
+            attributeType:"email",
+            placeholder:"Email",
+          })
         .form-elements__item.form-elements__item_margin_mini
           .form-elements__tag Hover / Focus
-          +input({labelText:"text field", attributeName:"text", attributeType:"text", placeholder:"Text", valueInInput:"This is pretty awesome", addClass:"input_focused"})
+          +input({
+            labelText:"text field",
+            attributeName:"text",
+            attributeType:"text",
+            placeholder:"Text",
+            valueInInput:"This is pretty awesome",
+            isFocused: true,
+          })
         .form-elements__item.form-elements__item_margin_mini
           +dropdown({
             labelText:"dropdown",
             attributeName:"dropdown-guests",
             textInInput:"Сколько гостей",
-            addControlBtn: true,
+            hasControlBtn: true,
             elements:{
               "Взрослые": 0,
               "Дети": 0,
-              "Младенцы": 0
-            }
+              "Младенцы": 0,
+            },
+            data: {
+              variantsWordsObj: {
+                гость: ['гость', 'гостя', 'гостей'],
+                младенцы: ['младенец', 'младенца', 'младенцев'],
+              },
+            },
           })
         .form-elements__item
-          +input({labelText:"masked text field", attributeName:"date", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", addDateMask: true})
+          +input({
+            labelText:"masked text field",
+            attributeName:"date",
+            attributeType:"text",
+            placeholder:"ДД.ММ.ГГГГ",
+            addDateMask: true,
+          })
         .form-elements__item
           +input-datepicker({labelTextFirst:"date dropdown", labelTextSecond:"date dropdown", id:'date-dropdown-block', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", addDateMask: true, dateWithDropdown: true})
         .form-elements__item.form-elements__item_width_limited
           +input-datepicker({labelTextFirst:"filter date dropdown", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true})
         .form-elements__item.form-elements__item_width_limited
-          +input({labelText:"subscription text field", attributeName:"email", attributeType:"email", placeholder:"Email", inputTypeSubsribe: true})
+          +input({
+            labelText:"subscription text field",
+            attributeName:"email",
+            attributeType:"email",
+            placeholder:"Email",
+            inputTypeSubsribe: true,
+          })
       .form-elements__block
         .form-elements__item
           h3 Checkbox Buttons
@@ -78,9 +108,16 @@ block content
           h3 Radio Buttons
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
             .form-elements__radiobtn
-              +radio-btn({text:"Мужчина", name:"radio-btn", checked: true})
+              +radio-btn({
+                text:"Мужчина",
+                name:"radio-btn",
+                isChecked: true,
+              })
             .form-elements__radiobtn
-              +radio-btn({text:"Женщина", name:"radio-btn"})
+              +radio-btn({
+                text:"Женщина",
+                name:"radio-btn",
+              })
         .form-elements__item
           h3 Toggle
           .form-elements__flex-wrapper
@@ -101,7 +138,7 @@ block content
             .form-elements__like
               +like({counter:2})
             .form-elements__like
-              +like({counter:12, active: true})
+              +like({counter:12, isActive: true})
         .form-elements__item
           h3 Rate Button
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
@@ -125,14 +162,10 @@ block content
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
             .form-elements__btn-row
               .form-elements__btn-elem
-                +button({
-                  text:"click me",
-                  btnType:"button",
-                })
+                +button({ text:"click me" })
               .form-elements__btn-elem
                 +button({
                   text:"click me",
-                  btnType:"button",
                   isHoverState: true,
                 })
             .form-elements__btn-row
@@ -140,13 +173,11 @@ block content
                 +button({
                   theme:"transparent",
                   text:"click me",
-                  btnType:"button",
                 })
               .form-elements__btn-elem
                 +button({
                   theme:"transparent",
                   text:"click me",
-                  btnType:"button",
                   isHoverState: true,
                 })
             .form-elements__btn-row
@@ -154,25 +185,26 @@ block content
                 +button({
                   theme:"simple",
                   text:"click me",
-                  btnType:"button",
                 })
               .form-elements__btn-elem
                 +button({
                   theme:"simple",
                   text:"click me",
-                  btnType:"button",
                   isHoverState: true,
                 })
             .form-elements__btn-row
               +button({
                 theme:"with-arrow",
                 text:"перейти к оплате",
-                btnType:"button",
               })
         .form-elements__item
           h3 Pagination
           .form-elements__pagination
-            +pagination({ id:"pagination-1" })
+            +pagination({
+              maxElemPerPage: 12,
+              numPagesToShow: 5,
+              totalElements: 180,
+            })
       .form-elements__block
         .form-elements__item.form-elements__item_width_limited.form-elements__item_margin_mini
           .form-elements__tag.form-elements__tag_position_default Default
@@ -180,11 +212,18 @@ block content
             labelText:"dropdown",
             attributeName:"dropdown-rooms",
             textInInput:"Номер",
-            elements:{
+            elements: {
               "Спальни": 2,
               "Кровати": 2,
               "Ванные комнаты": 0,
-            }
+            },
+            data: {
+              variantsWordsObj: {
+                спальни: ['спальня', 'спальни', 'спален'],
+                кровати: ['кровать', 'кровати', 'кроватей'],
+                'ванные комнаты': ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+              },
+            },
           })
         .form-elements__item.form-elements__item_width_limited
           .form-elements__tag.form-elements__tag_position_default Expanded
@@ -197,7 +236,14 @@ block content
               "Спальни": 2,
               "Кровати": 2,
               "Ванные комнаты": 0,
-            }
+            },
+            data: {
+              variantsWordsObj: {
+                спальни: ['спальня', 'спальни', 'спален'],
+                кровати: ['кровать', 'кровати', 'кроватей'],
+                'ванные комнаты': ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+              },
+            },
           })
       .form-elements__block
         .form-elements__item.form-elements__item_margin_mini
@@ -206,12 +252,18 @@ block content
             attributeName:"dropdown-guests2",
             textInInput:"Сколько гостей",
             isOpen: true,
-            addControlBtn: true,
+            hasControlBtn: true,
             elements:{
               "Взрослые": 0,
               "Дети": 0,
               "Младенцы": 0,
-            }
+            },
+            data: {
+              variantsWordsObj: {
+                гость: ['гость', 'гостя', 'гостей'],
+                младенцы: ['младенец', 'младенца', 'младенцев'],
+              },
+            },
           })
       .form-elements__block
         .form-elements__item.form-elements__item_margin_big
@@ -220,12 +272,18 @@ block content
             attributeName:"dropdown-guests3",
             textInInput:"Сколько гостей",
             isOpen: true,
-            addControlBtn: true,
+            hasControlBtn: true,
             elements:{
               "Взрослые": 2,
               "Дети": 1,
               "Младенцы": 0,
-            }
+            },
+            data: {
+              variantsWordsObj: {
+                гость: ['гость', 'гостя', 'гостей'],
+                младенцы: ['младенец', 'младенца', 'младенцев'],
+              },
+            },
           })
       .form-elements__block
         .form-elements__item
@@ -283,9 +341,25 @@ block content
             )
       .form-elements__block
         .form-elements__info-icon
-          +info-icon({title: "Комфорт", subtitle: "Шумопоглощающие стены", icon: "insert_emoticon"})
+          +info-icon({
+            title: "Комфорт",
+            subtitle: "Шумопоглощающие стены",
+            icon: "insert_emoticon",
+          })
         .form-elements__info-icon
-          +info-icon({title: "Удобство", subtitle: "Окно в каждой из спален", icon: "location_city"})
+          +info-icon({
+            title: "Удобство",
+            subtitle: "Окно в каждой из спален",
+            icon: "location_city",
+          })
       .form-elements__block
         .form-elements__feedback
-          +feedback({name: "Мурад Сарафанов", avatarImg:"feedback-avatar-1.jpg", time:"5 дней назад", likeBtnNum: 12, text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."})
+          +feedback({
+            name: "Мурад Сарафанов",
+            avatarImg:"feedback-avatar-1.jpg",
+            time:"5 дней назад",
+            likeBtnNum: 12,
+            hasLikeBtnActive: true,
+            text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.\
+            И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+          })

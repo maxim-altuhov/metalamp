@@ -1,27 +1,20 @@
 //- В данном миксине используются иконки шрифта Font Awesome, необходимо подключить данный шрифт в проект
+
 mixin footer-copyright(options = {})
-  - const { isMiniVersion = false } = options;
-  if isMiniVersion
-    .footer-copyright.footer-copyright_size_mini
-      .footer-copyright__container
-        .footer-copyright__wrapper
-          .footer-copyright__logo
-            a(href="/metalamp/")
-              include ./logo.pug
-          p.footer-copyright__text Copyright © 2018 Toxin отель. Все права защищены.
-          .footer-copyright__social-icons
-            a(href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") <i class="footer-copyright__icon">&#xe901;</i>
-            a(href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") <i class="footer-copyright__icon">&#xe900;</i>
-            a(href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") <i class="footer-copyright__icon">&#xe902;</i>
-  else
-    .footer-copyright
-      .footer-copyright__container
-        .footer-copyright__wrapper
-          .footer-copyright__logo
-            a(href="/metalamp/")
-              include ./logo.pug
-          p.footer-copyright__text Copyright © 2018 Toxin отель. Все права защищены.
-          .footer-copyright__social-icons
-            a(href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") <i class="footer-copyright__icon">&#xe901;</i>
-            a(href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") <i class="footer-copyright__icon">&#xe900;</i>
-            a(href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") <i class="footer-copyright__icon">&#xe902;</i>
+  - 
+    const {
+      copyrightText = "",
+      isMiniVersion = false
+    } = options;
+    const classActiveMiniVersion = isMiniVersion ? "footer-copyright_size_mini" : "";
+
+  div(class=`footer-copyright ${classActiveMiniVersion}`)
+    .footer-copyright__container
+      .footer-copyright__wrapper
+        a(class="footer-copyright__logo" href="/metalamp/")
+          img(src="./img/logo-main.svg" alt="logo")
+        p.footer-copyright__text= copyrightText
+        .footer-copyright__social-icons
+          a(class="footer-copyright__icon" href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") &#xe901;
+          a(class="footer-copyright__icon" href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") &#xe900;
+          a(class="footer-copyright__icon" href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") &#xe902;

@@ -1,16 +1,31 @@
-function initPagination({
-  selector,
-  maxElemPerPage = 12,
-  maxPages = 5,
-  totalElements = 180,
-}) {
-  const mainSelector = document.querySelector(selector);
-  const pagesBlock = mainSelector.querySelector('.js-pagination__pages');
-  const controlButtons = mainSelector.querySelectorAll('.js-pagination__btn');
-  const btnPrev = mainSelector.querySelector('.js-pagination__btn_type_prev');
-  const btnNext = mainSelector.querySelector('.js-pagination__btn_type_next');
-  const infoCurrentElemOnPage = mainSelector.querySelector('.js-pagination__current');
-  const infoTotalElem = mainSelector.querySelector('.js-pagination__total');
+function initPagination(selector) {
+  const pagesBlock = selector.querySelector('.js-pagination__pages');
+  const controlButtons = selector.querySelectorAll('.js-pagination__btn');
+  const btnPrev = selector.querySelector('.js-pagination__btn_type_prev');
+  const btnNext = selector.querySelector('.js-pagination__btn_type_next');
+  const infoCurrentElemOnPage = selector.querySelector('.js-pagination__current');
+  const infoTotalElem = selector.querySelector('.js-pagination__total');
+  let options;
+
+  try {
+    options = JSON.parse(selector.dataset.options);
+  } catch {
+    // Incorrect options are passed to the script. Will use the default options.
+    options = {
+      maxElemPerPage: 1,
+      numPagesToShow: 1,
+      totalElements: 1,
+    };
+  }
+
+  /* beautify preserve:start */
+  const {
+    maxElemPerPage = 1,
+    numPagesToShow = 1,
+    totalElements = 1,
+  } = options;
+  /* beautify preserve:end */
+
   let allPages;
   let pageActive;
   let pageActiveAsNumber;
@@ -23,13 +38,13 @@ function initPagination({
     return new Promise((resolve) => {
       const fragment = document.createDocumentFragment();
 
-      for (let index = 1; index <= totalPages && index <= maxPages; index++) {
+      for (let index = 1; index <= totalPages && index <= numPagesToShow; index++) {
         const btn = document.createElement('button');
-        const isBtnWithEllipsis = (index === maxPages - 1) && (totalPages > maxPages);
+        const isBtnWithEllipsis = (index === numPagesToShow - 1) && (totalPages > numPagesToShow);
         btn.setAttribute('type', 'button');
         btn.classList.add('pagination__page', 'js-pagination__page');
 
-        if (index === maxPages) {
+        if (index === numPagesToShow) {
           btn.textContent = totalPages;
         } else if (isBtnWithEllipsis) {
           btn.classList.add('pagination__page_with_ellipsis', 'js-pagination__page_with_ellipsis');
@@ -58,9 +73,9 @@ function initPagination({
 
   // обновление информации по кол-ву текущих элементов на странице
   const refreshInfoCurrentElemOnPage = () => {
-    pageActive = mainSelector.querySelector('.js-pagination__page_active');
+    pageActive = selector.querySelector('.js-pagination__page_active');
     pageActiveAsNumber = Number(pageActive.textContent);
-    pageTotal = mainSelector.querySelector('.js-pagination__page_total');
+    pageTotal = selector.querySelector('.js-pagination__page_total');
     pageTotalAsNumber = Number(pageTotal.textContent);
     let upperLimitOfTheRange = maxElemPerPage * pageActiveAsNumber;
 
@@ -74,7 +89,7 @@ function initPagination({
   const addPaginationPages = () => {
     const fragment = document.createDocumentFragment();
     const btn = document.createElement('button');
-    let pageWithEllipsis = mainSelector.querySelector('.js-pagination__page_with_ellipsis');
+    let pageWithEllipsis = selector.querySelector('.js-pagination__page_with_ellipsis');
 
     btn.setAttribute('type', 'button');
     btn.classList.add('pagination__page', 'js-pagination__page');
@@ -124,14 +139,20 @@ function initPagination({
 
   // переключение видимости кнопок переключения страниц
   const toggleActiveBtn = () => {
-    pageActive = mainSelector.querySelector('.js-pagination__page_active');
+    pageActive = selector.querySelector('.js-pagination__page_active');
+    const moreThanOnePage = totalPages !== 1;
+    const firstPageIsActive = pageActive.textContent === '1';
+    const lastPageIsActive = pageActive.textContent === pageTotal.textContent;
 
-    if (pageActive.textContent === '1') {
+    if (firstPageIsActive && moreThanOnePage) {
       btnPrev.classList.add('pagination__btn_hidden');
       btnNext.classList.remove('pagination__btn_hidden');
-    } else if (pageActive.textContent === pageTotal.textContent) {
+    } else if (lastPageIsActive && moreThanOnePage) {
       btnNext.classList.add('pagination__btn_hidden');
       btnPrev.classList.remove('pagination__btn_hidden');
+    } else if (totalPages === 1) {
+      btnNext.classList.add('pagination__btn_hidden');
+      btnPrev.classList.add('pagination__btn_hidden');
     } else {
       btnPrev.classList.remove('pagination__btn_hidden');
       btnNext.classList.remove('pagination__btn_hidden');
@@ -170,7 +191,7 @@ function initPagination({
 
   // навешиваем обработчик на кнопки переключения страниц
   function setEventForPageButtons() {
-    allPages = mainSelector.querySelectorAll('.js-pagination__page');
+    allPages = selector.querySelectorAll('.js-pagination__page');
     allPages.forEach((page) => {
       if (!page.classList.contains('js-pagination__page_with_ellipsis')) {
         page.addEventListener('click', handlePageClick);
@@ -181,7 +202,8 @@ function initPagination({
   // обработчики и вызов функций
   creatPaginationPages()
     .then(refreshInfoCurrentElemOnPage)
-    .then(setEventForPageButtons);
+    .then(setEventForPageButtons)
+    .then(toggleActiveBtn);
   showInfoTotalElem();
 
   controlButtons.forEach((btn) => btn.addEventListener('click', handleBtnClick));

@@ -2,46 +2,70 @@
 include ~@comp/button/button.pug
 
 //- 
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
   const options = {
     elements: {String: Number},
     attributeName: String,
     labelText: String,
     textInInput: String,
-    addControlBtn: Boolean,
+    hasControlBtn: Boolean,
     isOpen: Boolean,
-    isValidate: Boolean,
+    data: {
+      enableArrowRotation: Boolean,
+      variantsWordsObj: {
+        String: String[],
+      },
+    },
   };
+
 mixin dropdown(options = {})
-  - const { elements = {}, attributeName = "", labelText = "label", textInInput = "", addControlBtn = false, isOpen = false, isValidate = false } = options;
-  - const openClass = isOpen ? "dropdown__group-fields_opened" : "";
-    .dropdown
-      div(class=`dropdown__group-fields js-dropdown__group-fields ${openClass}` id= id)
-        label.dropdown__label= labelText
-          input.dropdown__field-input.js-dropdown__field-input.dropdown__field_hidden(name=attributeName type="text" autocomplete="off" value="" tabindex="-1" data-validate=`${isValidate}`)
-        .dropdown__field.js-dropdown__field(tabindex="0")
-          .dropdown__field-result.js-dropdown__field-result= textInInput
-          span(class="dropdown__field-arrow js-dropdown__field-arrow") keyboard_arrow_down
-        .dropdown__field-block(tabindex="0")
-          .dropdown__field-wrapper
-            each value, element in elements
-              .dropdown__field-elem.js-dropdown__field-elem
-                span.dropdown__field-item= element
-                .dropdown__field-counter.js-dropdown__field-counter
-                  button.dropdown__field-counter-btn(disabled type="button" data-dropdown-minus) -
-                  span.dropdown__field-item= value
-                  button.dropdown__field-counter-btn(type="button" data-dropdown-plus) +
-          if addControlBtn
-            .dropdown__field-control
-              .dropdown__field-control-item.dropdown__field-control-item_hidden
-                +button({
-                  theme:"simple",
-                  text:"Очистить",
-                  btnFunction:"clear",
-                })
-              .dropdown__field-control-item
-                +button({
-                  theme:"simple",
-                  text:"Применить",
-                  btnFunction:"apply",
-                })
-          .dropdown__field-limiter.js-dropdown__field-limiter(tabindex="0")
+  - 
+    const {
+      elements = {},
+      attributeName = "",
+      labelText = "label",
+      textInInput = "",
+      hasControlBtn = false,
+      isOpen = false,
+      data = {},
+    } = options;
+  - const classWithOpenDropdown = isOpen ? "dropdown__group_opened" : "";
+
+  .dropdown
+    div(class=`dropdown__group js-dropdown__group ${classWithOpenDropdown}` data-options=data)
+      label.dropdown__label= labelText
+        input(
+          class="dropdown__input js-dropdown__input dropdown__input_hidden"
+          name=attributeName
+          type="text"
+          autocomplete="off"
+          value=""
+          tabindex="-1"
+        )
+      .dropdown__field.js-dropdown__field(tabindex="0")
+        .dropdown__result.js-dropdown__result= textInInput
+        span(class="dropdown__arrow js-dropdown__arrow") keyboard_arrow_down
+      .dropdown__block(tabindex="0")
+        .dropdown__wrapper
+          each value, element in elements
+            .dropdown__elem.js-dropdown__elem
+              span.dropdown__elem-text= element
+              .dropdown__counter.js-dropdown__counter
+                button.dropdown__counter-btn.js-dropdown__counter-btn(disabled type="button" data-dropdown-minus) -
+                span.dropdown__elem-text(data-dropdown-counter)= value
+                button.dropdown__counter-btn.js-dropdown__counter-btn(type="button" data-dropdown-plus) +
+        if hasControlBtn
+          .dropdown__control
+            .dropdown__control-item.dropdown__control-item_hidden
+              +button({
+                theme:"simple",
+                text:"Очистить",
+                btnFunction:"clear",
+              })
+            .dropdown__control-item
+              +button({
+                theme:"simple",
+                text:"Применить",
+                btnFunction:"apply",
+              })
+        .dropdown__limiter.js-dropdown__limiter(tabindex="0")

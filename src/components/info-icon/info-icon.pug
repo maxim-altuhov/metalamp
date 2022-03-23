@@ -4,15 +4,22 @@
     title: String,
     subtitle: String,
     icon: String (material icons name),
-    line: Boolean,
+    hasBorder: Boolean,
   };
 mixin info-icon(options = {})
-  - const { title = "", subtitle = "", icon = "info", line = true } = options;
-      .info-icon
-        .info-icon__block
-          span.info-icon__img= icon
-          .info-icon__wrapper
-            .info-icon__title= title
-            .info-icon__subtitle= subtitle
-        if line
-          hr.info-icon__line
+  - 
+    const {
+      title = "",
+      subtitle = "",
+      icon = "info",
+      hasBorder = true,
+    } = options;
+
+  .info-icon
+    .info-icon__block
+      span.info-icon__img= icon
+      .info-icon__wrapper
+        .info-icon__title= title
+        .info-icon__subtitle= subtitle
+    if hasBorder
+      hr.info-icon__line

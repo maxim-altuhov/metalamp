@@ -29,5 +29,8 @@ html(lang="ru")
       .ui-kit-footer__elem
         include ~@comp/footer/footer.pug
       .ui-kit-footer__elem
-        +footer-copyright({isMiniVersion: true})
+        +footer-copyright({ 
+          copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
+          isMiniVersion: true,
+        })
       .ui-kit-footer__elem &nbsp;

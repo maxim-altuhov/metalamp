@@ -4,9 +4,17 @@
 .input {
   display: flex;
   flex-direction: column;
-  position: relative;
 
-  input {
+  &__label {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15 / 12 * 100%;
+    text-transform: uppercase;
+    color: $dark;
+  }
+
+  &__field {
     margin-top: 5px;
     display: block;
     width: 100%;
@@ -22,59 +30,39 @@
     &:hover,
     &:focus {
       border: 1px solid $dark50;
+
+      &::placeholder {
+        color: $dark75;
+      }
     }
 
     @include placeholder($dark25, transparent, 13.6);
 
-    &.input_focused {
+    &_focused {
       border: 1px solid $dark50;
       font-size: 13.7px;
     }
 
-    &.input__sub {
+    &_variant_subscribe {
       padding: 13px 35px 13px 15px;
+      position: relative;
     }
   }
 
-  &__label {
-    position: relative;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15 / 12 * 100%;
-    text-transform: uppercase;
-    color: $dark;
-  }
-
-  &__sub-btn {
+  &__btn {
     position: absolute;
     bottom: 0px;
     right: 2px;
     height: 43px;
     width: 40px;
     background-clip: text;
-    -webkit-background-clip: text;
   }
 
   &__icon {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    line-height: 1;
+    @include font-material-icons;
     font-size: 24px;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
     background: $background-gradient;
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: rgba(0, 0, 0, 0);
   }
 }

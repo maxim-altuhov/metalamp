@@ -47,5 +47,10 @@ footer.footer
           p.footer__descr.footer__descr_margin-top_null Получайте специальные предложения и новости сервиса
           .footer__sub-block
             form(action="#", method="post", name="footer-subcribe")
-              +input({attributeName:"email-footer", attributeType:"email", placeholder:"Email", inputTypeSubsribe: true})
-  +footer-copyright()
+              +input({
+                attributeName:"email-footer",
+                attributeType:"email",
+                placeholder:"Email",
+                inputTypeSubsribe: true,
+              })
+  +footer-copyright({ copyrightText: "Copyright © 2018 Toxin отель. Все права защищены." })

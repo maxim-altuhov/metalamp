@@ -1,15 +1,7 @@
 @import '@lo/ui-kit/ui-kit';
-@import '@comp/input/input';
 @import '@comp/input-datepicker/input-datepicker';
-@import '@comp/dropdown/dropdown';
-@import '@comp/radio-btn/radio-btn';
-@import '@comp/like/like';
-@import '@comp/pagination/pagination';
-@import '@comp/info-icon/info-icon';
-@import '@comp/feedback/feedback';
 
 .form-elements {
-
   &__wrapper {
     margin-top: 65px;
     display: grid;

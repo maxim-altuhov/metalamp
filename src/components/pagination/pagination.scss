@@ -1,14 +1,13 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .pagination {
   &__wrapper {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     height: 40px;
-
-    @media (max-width: 767px) {
-      justify-content: center;
-    }
+    max-width: 241px;
   }
 
   &__btn {
@@ -17,21 +16,8 @@
     background: linear-gradient(180deg, $green 0%, $blue 100%);
     border-radius: 22px;
     color: #fff;
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    line-height: 1;
     font-size: 24px;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
+    @include font-material-icons;
 
     &_hidden {
       display: none;
@@ -82,8 +68,7 @@
   }
 
   &__info {
-    padding-top: 13px;
-    padding-left: 6px;
+    padding: 13px 6px 0px;
     font-weight: 400;
     font-size: 14px;
     text-transform: lowercase;

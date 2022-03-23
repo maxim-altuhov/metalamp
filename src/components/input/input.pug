@@ -8,19 +8,33 @@
     valueInInput: String,
     addDateMask: Boolean,
     inputTypeSubsribe: Boolean,
-    isValidate: Boolean,
-    addClass: String,
+    isFocused: Boolean,
   };
 mixin input(options = {})
-  - const { labelText = "", attributeName = "", attributeType = "text", placeholder = "", valueInInput = "", addDateMask = false, inputTypeSubsribe = false, isValidate = false, addClass = "" } = options;
-  - const maskName = addDateMask ? "date" : null;  
+  - 
+    const { 
+      labelText = "",
+      attributeName = "",
+      attributeType = "text",
+      placeholder = "",
+      valueInInput = "",
+      addDateMask = false,
+      inputTypeSubsribe = false,
+      isFocused = false,
+    } = options;
+  - const classInputWithSubscribe = inputTypeSubsribe ? "input__field_variant_subscribe" : "";
+  - const classInputFocused = isFocused ? "input__field_focused" : "";
+
+  .input
+    label.input__label= labelText
+      input(
+        class=`input__field ${classInputWithSubscribe} ${classInputFocused}`
+        name= attributeName
+        type= attributeType
+        placeholder= placeholder
+        value= valueInInput
+        data-mask-date= addDateMask
+      )
     if inputTypeSubsribe
-      .input
-        label.input__label= labelText
-          input(class="input__sub" name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-validate=`${isValidate}`)
-        button.input__sub-btn(type="submit")
+        button.input__btn(type="submit")
           span.input__icon arrow_forward
-    else
-      .input
-        label.input__label= labelText
-          input(class=`${addClass}` name=attributeName type=attributeType placeholder=placeholder value=valueInInput data-typemask=maskName data-validate=`${isValidate}`)

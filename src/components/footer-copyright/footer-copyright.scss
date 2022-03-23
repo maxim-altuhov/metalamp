@@ -22,7 +22,7 @@
     }
 
     .footer-copyright__logo {
-      display: block;
+      display: initial;
     }
   }
 
@@ -59,7 +59,7 @@
     display: none;
 
     @media (max-width: 767px) {
-      display: block;
+      display: initial;
     }
   }
 
@@ -87,11 +87,10 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     background: $background-gradient;
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

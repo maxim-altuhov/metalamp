@@ -11,7 +11,7 @@
 mixin button(options = {})
   - 
     const {
-      theme,
+      theme = "",
       text = "",
       btnType = "button",
       isLink = false,
@@ -21,21 +21,29 @@ mixin button(options = {})
     } = options;
 
     const themeModifiers = {
-      transparent: 'button_transparent',
-      simple: 'button_simple',
-      'with-arrow': 'button_with-arrow',
+      transparent: "button_transparent",
+      simple: "button_simple",
+      "with-arrow": "button_with-arrow",
     };
-    
-    let classWithHover;
+
+    const buttonTag = isLink ? "a" : "button";
+    const buttonAttributes = {
+      a: {
+        href: href,
+      },
+      button: {
+        type: btnType,
+        "data-function": btnFunction,
+      },
+    };
+    let classWithHover = "";
 
   if isHoverState && !theme
     - classWithHover = "button_with-hover";
   else if isHoverState && themeModifiers[theme]
     - classWithHover = `${themeModifiers[theme]}-with-hover`;
 
-  if isLink
-    a(class=`button ${themeModifiers[theme]} ${classWithHover}` href= href)
-      span.button__text= text
-  else
-    button(class=`button ${themeModifiers[theme]} ${classWithHover}` type= btnType data-function= btnFunction)
-      span.button__text= text
+  #{buttonTag}.button(
+      class=[themeModifiers[theme], classWithHover]
+    )&attributes(buttonAttributes[buttonTag])
+    span.button__text= text

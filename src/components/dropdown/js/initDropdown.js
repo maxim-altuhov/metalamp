@@ -1,12 +1,5 @@
-function initDropdown(enableArrowRotation = true) {
-  const blocksWithDropdown = document.querySelectorAll('.js-dropdown__group-fields');
-  const variantWordsObj = {
-    гость: ['гость', 'гостя', 'гостей'],
-    младенцы: ['младенец', 'младенца', 'младенцев'],
-    спальни: ['спальня', 'спальни', 'спален'],
-    кровати: ['кровать', 'кровати', 'кроватей'],
-    'ванные комнаты': ['ванная комната', 'ванные комнаты', 'ванных комнат'],
-  };
+function initDropdown() {
+  const blocksWithDropdown = document.querySelectorAll('.js-dropdown__group');
   const typeGuests = {
     ADULT: 'взрослые',
     CHILDREN: 'дети',
@@ -14,27 +7,46 @@ function initDropdown(enableArrowRotation = true) {
   };
 
   blocksWithDropdown.forEach((block, index) => {
+    let options;
+
+    try {
+      options = JSON.parse(block.dataset.options);
+    } catch {
+      // Incorrect options are passed to the script. Will use the default options.
+      options = {
+        enableArrowRotation: true,
+        variantsWordsObj: {},
+      };
+    }
+
+    /* beautify preserve:start */
+    const {
+      enableArrowRotation = true,
+      variantsWordsObj = {},
+    } = options;
+    /* beautify preserve:end */
+
     const dropdown = block.querySelector('.js-dropdown__field');
-    const input = block.querySelector('.js-dropdown__field-input');
-    const arrow = block.querySelector('.js-dropdown__field-arrow');
-    const counters = block.querySelectorAll('.js-dropdown__field-counter span');
-    const counterBtns = block.querySelectorAll('.js-dropdown__field-counter button');
+    const input = block.querySelector('.js-dropdown__input');
+    const arrow = block.querySelector('.js-dropdown__arrow');
+    const counters = block.querySelectorAll('[data-dropdown-counter]');
+    const counterBtns = block.querySelectorAll('.js-dropdown__counter-btn');
     const buttonMinus = block.querySelectorAll('[data-dropdown-minus]');
     const buttonClear = block.querySelector('[data-function="clear"]');
     const buttonApply = block.querySelector('[data-function="apply"]');
-    const focusLimiter = block.querySelector('.js-dropdown__field-limiter');
-    const textInInputElem = block.querySelector('.js-dropdown__field-result');
-    const dropdownElements = block.querySelectorAll('.js-dropdown__field-elem');
+    const focusLimiter = block.querySelector('.js-dropdown__limiter');
+    const textInInputElem = block.querySelector('.js-dropdown__result');
+    const dropdownElements = block.querySelectorAll('.js-dropdown__elem');
     const textInInput = textInInputElem.textContent;
     let objWithResult = {};
     let counterGuests = 0;
 
     // функция открытия/закрытия dropdown
     const toggleDropdown = () => {
-      block.classList.toggle('dropdown__group-fields_opened');
-      arrow.classList.toggle('dropdown__field-arrow_rotated');
+      block.classList.toggle('dropdown__group_opened');
+      arrow.classList.toggle('dropdown__arrow_rotated');
 
-      if (enableArrowRotation && arrow.classList.contains('dropdown__field-arrow_rotated')) {
+      if (enableArrowRotation && arrow.classList.contains('dropdown__arrow_rotated')) {
         arrow.textContent = 'keyboard_arrow_up';
       } else {
         arrow.textContent = 'keyboard_arrow_down';
@@ -47,7 +59,7 @@ function initDropdown(enableArrowRotation = true) {
       counterGuests = 0;
       objWithResult = {};
 
-      if (buttonClear) buttonClear.parentElement.classList.add('dropdown__field-control-item_hidden');
+      if (buttonClear) buttonClear.parentElement.classList.add('dropdown__control-item_hidden');
 
       buttonMinus.forEach((elem) => {
         elem.disabled = true;
@@ -82,8 +94,8 @@ function initDropdown(enableArrowRotation = true) {
         const resultText = Object.entries(objWithResult).map(([inputText, numberOfGuest]) => {
           let newText = '';
 
-          if (inputText in variantWordsObj) {
-            newText = changingWordEndings(numberOfGuest, variantWordsObj[inputText]);
+          if (inputText in variantsWordsObj) {
+            newText = changingWordEndings(numberOfGuest, variantsWordsObj[inputText]);
           }
 
           return `${numberOfGuest} ${newText}`;
@@ -96,14 +108,14 @@ function initDropdown(enableArrowRotation = true) {
 
     // изменение кол-ва элементов
     const handleFieldCounterBtnClick = (e) => {
-      const dropdownField = e.target.parentElement.parentElement;
+      const dropdownField = e.target.closest('.js-dropdown__elem');
       const elemName = dropdownField.firstChild.textContent.toLowerCase();
       const isGuests = elemName === typeGuests.ADULT || elemName === typeGuests.CHILDREN;
       let counterElem;
       let counter;
       let btnMinus;
 
-      if (buttonClear) buttonClear.parentElement.classList.remove('dropdown__field-control-item_hidden');
+      if (buttonClear) buttonClear.parentElement.classList.remove('dropdown__control-item_hidden');
 
       if (e.target.textContent === '+') {
         counterElem = e.target.previousElementSibling;
@@ -126,9 +138,9 @@ function initDropdown(enableArrowRotation = true) {
       if (counterGuests === 0) delete objWithResult['гость'];
 
       const totalValueInCounter = Number(counterElem.textContent);
-      const isNotGuestTypeAndNotNull = totalValueInCounter !== 0 && !isGuests;
+      const totalValueInCounterNotNull = totalValueInCounter !== 0;
 
-      if (isNotGuestTypeAndNotNull) {
+      if (totalValueInCounterNotNull && !isGuests) {
         objWithResult[elemName] = totalValueInCounter;
       } else {
         delete objWithResult[elemName];
@@ -145,26 +157,27 @@ function initDropdown(enableArrowRotation = true) {
       counters.forEach((counter) => {
         if (counter.textContent > 0) {
           counter.previousElementSibling.disabled = false;
-          if (buttonClear) buttonClear.parentElement.classList.remove('dropdown__field-control-item_hidden');
+          if (buttonClear) buttonClear.parentElement.classList.remove('dropdown__control-item_hidden');
         }
       });
 
       dropdownElements.forEach((elemWithDropdown) => {
         const elemName = elemWithDropdown.firstChild.textContent.toLowerCase();
-        const counter = Number(elemWithDropdown.querySelector('.js-dropdown__field-counter > span').textContent);
+        const counter = Number(elemWithDropdown.querySelector('[data-dropdown-counter]').textContent);
         const isGuests = elemName === typeGuests.ADULT || elemName === typeGuests.CHILDREN;
+        const counterIsNotNull = counter !== 0;
 
-        if (counter !== 0 && !isGuests) {
+        if (counterIsNotNull && !isGuests) {
           objWithResult[elemName] = counter;
         }
 
-        if (counter !== 0 && isGuests) {
+        if (counterIsNotNull && isGuests) {
           counterGuests += counter;
           objWithResult['гость'] = counterGuests;
         }
 
-        if (enableArrowRotation && block.classList.contains('dropdown__group-fields_opened')) {
-          arrow.classList.add('dropdown__field-arrow_rotated');
+        if (enableArrowRotation && block.classList.contains('dropdown__group_opened')) {
+          arrow.classList.add('dropdown__arrow_rotated');
           arrow.textContent = 'keyboard_arrow_up';
         } else {
           arrow.textContent = 'keyboard_arrow_down';
@@ -207,12 +220,12 @@ function initDropdown(enableArrowRotation = true) {
   });
 
   const handleDocumentClick = (e) => {
-    if (!e.target.closest('.js-dropdown__group-fields')) {
+    if (!e.target.closest('.js-dropdown__group')) {
       blocksWithDropdown.forEach((block) => {
-        const dropdownArrows = block.querySelector('.js-dropdown__field-arrow');
+        const dropdownArrows = block.querySelector('.js-dropdown__arrow');
 
-        block.classList.remove('dropdown__group-fields_opened');
-        dropdownArrows.classList.remove('dropdown__field-arrow_rotated');
+        block.classList.remove('dropdown__group_opened');
+        dropdownArrows.classList.remove('dropdown__arrow_rotated');
         dropdownArrows.textContent = 'keyboard_arrow_down';
       });
     }

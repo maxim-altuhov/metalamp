@@ -1,25 +1,36 @@
 //- components
 include ~@comp/like/like.pug
+
 //-
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
   const options = {
     name: String,
     avatarImg: String,
     time: String,
     likeBtnNum: Number,
-    likeBtnActive = true,
-    text: String,,
+    hasLikeBtnActive: Boolean,
+    text: String,
   };
 mixin feedback(options = {})
-  - const { name = "", avatarImg = "", time = "", likeBtnNum = 0, likeBtnActive = true, text = "" } = options;
-      .feedback
-        .feedback__block
-          .feedback__top
-            .feedback__avatar
-              img(src=require(`./img/${avatarImg}`), alt="avatar")
-            .feedback__info
-              .feedback__info-name= name
-              span.feedback__info-time= time
-          .feedback__main
-            .feedback__btnlike
-              +like({counter:`${likeBtnNum}`, active: likeBtnActive})
-            .feedback__text= text
+  - 
+    const { 
+      name = "",
+      avatarImg = "",
+      time = "",
+      likeBtnNum = 0,
+      hasLikeBtnActive = false,
+      text = "",
+    } = options;
+
+  .feedback
+    .feedback__block
+      .feedback__top
+        .feedback__avatar
+          img(class="feedback__photo" src=require(`./img/${avatarImg}`), alt="avatar")
+        .feedback__info
+          .feedback__info-name= name
+          span.feedback__info-time= time
+      .feedback__main
+        .feedback__btnlike
+          +like({counter:`${likeBtnNum}`, isActive: hasLikeBtnActive})
+        .feedback__text= text

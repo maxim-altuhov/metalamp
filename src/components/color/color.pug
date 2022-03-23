@@ -24,7 +24,9 @@ mixin color(options = {})
 
   .color
     .color__elem
-      div(class=`color__sample ${colorModifiers[color]}`)
+      div.color__sample(
+        class=[colorModifiers[color]]
+      )
       .color__descr
         p.color__descr-title= title 
         span.color__descr-subtitle= subtitle 

@@ -23,11 +23,17 @@ include ~@comp/button/button.pug
             labelText:"гости",
             attributeName:"card-search-guests",
             textInInput:"Сколько гостей",
-            addControlBtn: true,
+            hasControlBtn: true,
             elements:{
               "Взрослые": 0,
               "Дети": 0,
               "Младенцы": 0,
+            },
+            data: {
+              variantsWordsObj: {
+                гость: ['гость', 'гостя', 'гостей'],
+                младенцы: ['младенец', 'младенца', 'младенцев'],
+              },
             },
           })
       .card-search__btn 

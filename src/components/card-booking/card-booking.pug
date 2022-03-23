@@ -31,11 +31,17 @@ include ~@comp/button/button.pug
             labelText:"гости",
             attributeName:"card-booking-guests",
             textInInput:"Сколько гостей",
-            addControlBtn: true,
+            hasControlBtn: true,
             elements: {
               "Взрослые": 3,
               "Дети": 0,
               "Младенцы": 0,
+            },
+            data: {
+              variantsWordsObj: {
+                гость: ['гость', 'гостя', 'гостей'],
+                младенцы: ['младенец', 'младенца', 'младенцев'],
+              },
             },
           })
         .card-booking__details
