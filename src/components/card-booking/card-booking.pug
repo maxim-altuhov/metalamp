@@ -19,12 +19,9 @@ include ~@comp/button/button.pug
           +input-datepicker({
             labelTextFirst:"прибытие",
             labelTextSecond:"выезд",
-            id:'card-booking-date',
             attributeName:"card-search-date-range",
             attributeType:"text",
             placeholder:"ДД.ММ.ГГГГ",
-            addDateMask: true,
-            dateWithDropdown: true,
           })
         .card-booking__elem
           +dropdown({

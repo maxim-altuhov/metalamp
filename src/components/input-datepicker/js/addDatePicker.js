@@ -1,24 +1,41 @@
 import $ from 'jquery';
 import 'air-datepicker';
 
-function addDatePicker({
-  selectorId,
-  startDate,
-  finishDate,
-  isTwoDropdowns = false,
-  enableArrowRotation = true,
-  setMinDate = false,
-}) {
-  const $selectorId = $(selectorId);
-  const $inputDatepicker = $(`[data-selector = ${selectorId.substr(1)}]`);
-  const currentDatepicker = $selectorId.datepicker().data('datepicker');
+import createUniqueID from './createUniqueID';
+
+function addDatePicker(selector) {
+  let settings;
+
+  try {
+    settings = JSON.parse(selector.dataset.options);
+  } catch {
+    // Incorrect options are passed to the script. Will use the default options.
+    settings = {
+      startDate: '',
+      finishDate: '',
+      setMinDate: false,
+      enableArrowRotation: true,
+    };
+  }
+
+  /* beautify preserve:start */
+  const {
+    startDate = '',
+    finishDate = '',
+    setMinDate = false,
+    enableArrowRotation = true,
+  } = settings;
+  /* beautify preserve:end */
+
+  const $datepicker = $(selector);
+  const $datepickerInputs = $datepicker.find('.js-input-datepicker__date');
+  const $dropdownArrow = $datepicker.find('.input-datepicker__icon');
+  const currentDatepicker = $datepickerInputs.eq(0).datepicker().data('datepicker');
   const dateStart = new Date(startDate);
-  const dateFinish = new Date(finishDate);
-  let $secondSelectorId;
+  const dateFinish = finishDate ? new Date(finishDate) : '';
+  const hasTwoDropdowns = $datepickerInputs.length > 1;
 
-  if (isTwoDropdowns) $secondSelectorId = $(`${selectorId}-second`);
-
-  // установить минимальной датой, текущую дату
+  // Установить минимальной датой, текущую дату
   const setLimitForDate = () => {
     if (setMinDate) return new Date();
 
@@ -26,7 +43,7 @@ function addDatePicker({
   };
 
   let options = {
-    classes: `${selectorId.substr(1)}`,
+    classes: createUniqueID(),
     range: true,
     multipleDatesSeparator: ' - ',
     prevHtml: '<span class="input-datepicker__icon input-datepicker__icon_position_not-fixed">arrow_back</span>',
@@ -37,20 +54,20 @@ function addDatePicker({
     offset: 5,
     minDate: setLimitForDate(),
     onSelect(fd) {
-      if (isTwoDropdowns) {
-        $selectorId.val(fd.split(' - ')[0]);
-        $secondSelectorId.val(fd.split(' - ')[1]);
+      if (hasTwoDropdowns) {
+        $datepickerInputs.eq(0).val(fd.split(' - ')[0]);
+        $datepickerInputs.eq(1).val(fd.split(' - ')[1]);
       }
     },
     onShow() {
-      if (enableArrowRotation) $inputDatepicker.find('.input-datepicker__icon').addClass('input-datepicker__icon_rotated');
+      if (enableArrowRotation) $dropdownArrow.addClass('input-datepicker__icon_rotated');
     },
     onHide() {
-      if (enableArrowRotation) $inputDatepicker.find('.input-datepicker__icon').removeClass('input-datepicker__icon_rotated');
+      if (enableArrowRotation) $dropdownArrow.removeClass('input-datepicker__icon_rotated');
     },
   };
 
-  if (!isTwoDropdowns) {
+  if (!hasTwoDropdowns) {
     options.language = {
       dateFormat: 'dd M',
       monthsShort: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
@@ -58,17 +75,32 @@ function addDatePicker({
   }
 
   // инициализация календаря
-  $selectorId.datepicker(options);
+  $datepickerInputs.eq(0).datepicker(options);
   const $blockWithDatepicker = $(`.${options.classes}`);
 
   // функция установки даты
   const setDate = () => {
+    const PLACEHOLDER = 'ДД.ММ.ГГГГ';
+    const PLACEHOLDER_FILTER = 'дд.мм';
+
     currentDatepicker.selectedDates.push(dateStart, dateFinish);
     currentDatepicker.selectDate(currentDatepicker.selectedDates);
-    const NO_DATE = 'NaN.NaN.NaN';
 
-    if ($selectorId.val() === NO_DATE) $selectorId.val('ДД.ММ.ГГГГ');
-    if ($secondSelectorId && $secondSelectorId.val() === NO_DATE) $secondSelectorId.val('ДД.ММ.ГГГГ');
+    if (hasTwoDropdowns) {
+      if (startDate === '') $datepickerInputs.eq(0).val(PLACEHOLDER);
+      if (finishDate === '') $datepickerInputs.eq(1).val(PLACEHOLDER);
+    } else {
+      if (startDate === '') {
+        const inputValue = $datepickerInputs.eq(0).val().split(' - ');
+        inputValue.splice(0, 1, PLACEHOLDER_FILTER);
+        $datepickerInputs.eq(0).val(inputValue.join(' - '));
+      }
+      if (finishDate === '') {
+        const inputValue = $datepickerInputs.eq(0).val().split(' - ');
+        inputValue.splice(1, 1, PLACEHOLDER_FILTER);
+        $datepickerInputs.eq(0).val(inputValue.join(' - '));
+      }
+    }
   };
 
   // функция добавляющая кнопки управления в календарь
@@ -100,10 +132,10 @@ function addDatePicker({
   $blockWithDatepicker.find('[data-function = "clear"]').on('click', handleButtonClearClick);
   $blockWithDatepicker.find('[data-function = "apply"]').on('click', handleButtonApplyClick);
 
-  if (isTwoDropdowns) {
-    $secondSelectorId.on('click', handleInputDateClick);
-    $secondSelectorId.on('focus', handleInputDateFocus);
-    $secondSelectorId.on('blur', handleButtonApplyBlur);
+  if (hasTwoDropdowns) {
+    $datepickerInputs.eq(1).on('click', handleInputDateClick);
+    $datepickerInputs.eq(1).on('focus', handleInputDateFocus);
+    $datepickerInputs.eq(1).on('blur', handleButtonApplyBlur);
   }
 }
 

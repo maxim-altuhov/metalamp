@@ -1,6 +1,5 @@
 @import '@scss/variables';
 @import '@scss/mixins';
-@import './datepicker';
 
 .input-datepicker {
   display: flex;
@@ -9,36 +8,6 @@
 
   @media (max-width: 480px) {
     flex-direction: column;
-  }
-
-  input {
-    margin-top: 5px;
-    display: block;
-    width: 150px;
-    min-height: 44px;
-    background: #FFFFFF;
-    border: 1px solid $dark25;
-    border-radius: 4px;
-    padding: 10px 14px;
-    font-size: 14px;
-    color: $dark75;
-    transition: border 0.2s ease-in;
-    cursor: pointer;
-
-    &:hover,
-    &:focus {
-      border: 1px solid $dark50;
-    }
-
-    &.input-datepicker__date_width_filter {
-      width: 100%;
-    }
-
-    @media (max-width: 480px) {
-      width: 100%;
-    }
-
-    @include placeholder($dark75, $dark75, 13.7);
   }
 
   &__label {
@@ -58,9 +27,43 @@
       }
     }
 
-    &_width_filter {
+    &_with_filter {
       width: 100%;
     }
+  }
+
+  &__date {
+    margin-top: 5px;
+    display: block;
+    width: 150px;
+    min-height: 44px;
+    background: #FFFFFF;
+    border: 1px solid $dark25;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: $dark75;
+    transition: border 0.2s ease-in;
+    cursor: pointer;
+
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px solid $dark50;
+
+      &::placeholder {
+        color: $dark75;
+      }
+    }
+
+    &_with_filter {
+      width: 100%;
+    }
+
+    @include placeholder($dark75, $dark75, 13.7);
   }
 
   &__icon {
@@ -68,22 +71,10 @@
     bottom: 8px;
     right: 10px;
     color: $dark50;
-    font-family: 'Material Icons';
-    font-weight: 400;
-    font-style: normal;
     font-size: 24px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "liga";
     cursor: pointer;
+    pointer-events: none;
+    @include font-material-icons;
 
     &_position_not-fixed {
       position: relative;

@@ -14,7 +14,13 @@ mixin toggle(options = {})
     
   .toggle
     label.toggle__elem 
-      input(class="toggle__input toggle__input_hidden" type="checkbox" name=name  value=text checked=isChecked)
+      input(
+        class="toggle__input toggle__input_hidden"
+        type="checkbox"
+        name=name
+        value=text
+        checked=isChecked
+      )
       span.toggle__block
       span.toggle__indicator
       span.toggle__name= text

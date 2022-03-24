@@ -20,7 +20,13 @@ block content
         button.search-room__aside-btn.js-search-room__aside-btn(type="button") Открыть фильтр
         aside.search-room__aside.js-search-room__aside
           .search-room__aside-elem
-            +input-datepicker({labelTextFirst:"Даты пребывания в отеле", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Выберите даты", dateWithFilter: true})
+            +input-datepicker({
+              labelTextFirst:"Даты пребывания в отеле",
+              attributeName:"date-filter",
+              attributeType:"text",
+              placeholder:"Выберите даты",
+              hasOneInput: true,
+            })
           .search-room__aside-elem
             +dropdown({
               labelText:"Гости",

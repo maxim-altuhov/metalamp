@@ -14,5 +14,11 @@ mixin radio-btn(options = {})
     
   .radio-btn
     label.radio-btn__label
-      input.radio-btn__field.radio-btn__field_hidden(type="radio", name=name, value=text, checked=isChecked)
+      input(
+        class="radio-btn__field radio-btn__field_hidden"
+        type="radio"
+        name=name
+        value=text
+        checked=isChecked
+      )
       span.radio-btn__text= text

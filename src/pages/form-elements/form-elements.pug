@@ -72,9 +72,28 @@ block content
             addDateMask: true,
           })
         .form-elements__item
-          +input-datepicker({labelTextFirst:"date dropdown", labelTextSecond:"date dropdown", id:'date-dropdown-block', attributeName:"date-range", attributeType:"text", placeholder:"ДД.ММ.ГГГГ", addDateMask: true, dateWithDropdown: true})
+          +input-datepicker({
+            labelTextFirst:"date dropdown",
+            labelTextSecond:"date dropdown",
+            attributeName:"date-range",
+            attributeType:"text",
+            placeholder:"ДД.ММ.ГГГГ",
+            data: {
+              finishDate: "2019-08-19",
+            },
+          })
         .form-elements__item.form-elements__item_width_limited
-          +input-datepicker({labelTextFirst:"filter date dropdown", id:"date-filter", attributeName:"date-filter", attributeType:"text", placeholder:"Date", dateWithFilter: true})
+          +input-datepicker({
+            labelTextFirst:"filter date dropdown",
+            attributeName:"date-filter",
+            attributeType:"text",
+            placeholder:"Выберите даты",
+            hasOneInput: true,
+            data: {
+              startDate: "2019-08-19",
+              finishDate: "2019-08-23",
+            },
+          })
         .form-elements__item.form-elements__item_width_limited
           +input({
             labelText:"subscription text field",

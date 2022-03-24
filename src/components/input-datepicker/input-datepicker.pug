@@ -3,28 +3,47 @@
   const options = {
     labelTextFirst: String,
     labelTextSecond: String,
-    id: String,
     attributeName: String,
     attributeType: String,
     placeholder: String,
     valueInInput: String,
-    dateWithDropdown: Boolean,
-    dateWithFilter: Boolean,
-    isValidate: Boolean,
-    addClass: String,
+    hasOneInput: Boolean,
+    data: {
+      startDate: "2019-08-19",
+      finishDate: "2019-08-23",
+      enableArrowRotation: Boolean,
+      setMinDate: Boolean,
+    },
   };
+
 mixin input-datepicker(options = {})
-  - const { labelTextFirst = "label", labelTextSecond = "label", id = "", attributeName = "", attributeType = "text", placeholder = "", valueInInput = "", dateWithDropdown = false, dateWithFilter = false, isValidate = false, addClass = "" } = options;
-    if dateWithDropdown
-      div(class="input-datepicker" data-selector=id)
-        label.input-datepicker__label= labelTextFirst
-          input(class="input-datepicker__date" readonly id=id data-start autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
-          span.input-datepicker__icon keyboard_arrow_down
-        label.input-datepicker__label= labelTextSecond
-          input(class="input-datepicker__date" readonly id=`${id}-second` data-end autocomplete="off" name=`${attributeName}-2` type=attributeType placeholder=placeholder data-validate=`${validate}`)
-          span.input-datepicker__icon keyboard_arrow_down
-    else if dateWithFilter
-      div(class="input-datepicker" data-selector=id)
-        label.input-datepicker__label.input-datepicker__label_width_filter= labelTextFirst
-          input(class="input-datepicker__date input-datepicker__date_width_filter" readonly id=id autocomplete="off" name=attributeName type=attributeType placeholder=placeholder data-validate=`${validate}`)
-          span.input-datepicker__icon keyboard_arrow_down
+  - 
+    const {
+      labelTextFirst = "label",
+      labelTextSecond = "label",
+      attributeName = "",
+      attributeType = "text",
+      placeholder = "",
+      valueInInput = "",
+      hasOneInput = false,
+      data = {},
+    } = options;
+  - const numberOfElements = hasOneInput ? 1 : 2
+  - const classLabelWithFilter = hasOneInput ? "input-datepicker__label_with_filter" : "";
+  - const classInputWithFilter = hasOneInput ? "input-datepicker__date_with_filter" : "";
+  - let index = 0;  
+
+  div.input-datepicker.js-input-datepicker(data-options=data)
+    while index < numberOfElements
+      - index++
+      label(class=`input-datepicker__label ${classLabelWithFilter}`)= labelTextFirst
+        input(
+          class=`input-datepicker__date js-input-datepicker__date ${classInputWithFilter}`
+          readonly
+          autocomplete="off"
+          name=`${attributeName}-${index}`
+          value=valueInInput
+          type=attributeType
+          placeholder=placeholder
+        )
+        span.input-datepicker__icon keyboard_arrow_down
