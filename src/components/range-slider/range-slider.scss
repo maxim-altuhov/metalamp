@@ -2,10 +2,6 @@
 @import '@scss/variables';
 
 .range-slider {
-  &__wrapper {
-    max-width: 266px;
-  }
-
   &__info-block {
     display: flex;
     justify-content: space-between;

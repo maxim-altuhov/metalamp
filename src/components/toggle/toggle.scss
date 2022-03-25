@@ -68,7 +68,7 @@
 }
 
 body.using-mouse {
-  input:focus~.toggle__block {
+  .toggle__input:focus~.toggle__block {
     outline: none;
   }
 }

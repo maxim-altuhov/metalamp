@@ -18,9 +18,7 @@ function switchLikes() {
     target.classList.toggle('like__btn_active');
   };
 
-  likeButtons.forEach((btn) => {
-    btn.addEventListener('click', handleLikeBtnClick);
-  });
+  likeButtons.forEach((btn) => btn.addEventListener('click', handleLikeBtnClick));
 }
 
 export default switchLikes;

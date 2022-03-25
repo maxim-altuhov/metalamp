@@ -29,11 +29,12 @@ function addDatePicker(selector) {
 
   const $datepicker = $(selector);
   const $datepickerInputs = $datepicker.find('.js-input-datepicker__date');
-  const $dropdownArrow = $datepicker.find('.input-datepicker__icon');
+  const $dropdownArrow = $datepicker.find('.js-input-datepicker__icon');
   const currentDatepicker = $datepickerInputs.eq(0).datepicker().data('datepicker');
   const dateStart = new Date(startDate);
   const dateFinish = finishDate ? new Date(finishDate) : '';
   const hasTwoDropdowns = $datepickerInputs.length > 1;
+  const styleClassForFilter = !hasTwoDropdowns ? 'datepicker_style_filter' : '';
 
   // Установить минимальной датой, текущую дату
   const setLimitForDate = () => {
@@ -43,11 +44,11 @@ function addDatePicker(selector) {
   };
 
   let options = {
-    classes: createUniqueID(),
+    classes: `${createUniqueID()} ${styleClassForFilter}`,
     range: true,
     multipleDatesSeparator: ' - ',
-    prevHtml: '<span class="input-datepicker__icon input-datepicker__icon_position_not-fixed">arrow_back</span>',
-    nextHtml: '<span class="input-datepicker__icon input-datepicker__icon_position_not-fixed">arrow_forward</span>',
+    prevHtml: '<span class="datepicker--nav-action-arrow">arrow_back</span>',
+    nextHtml: '<span class="datepicker--nav-action-arrow">arrow_forward</span>',
     navTitles: {
       days: 'MM <i>yyyy</i>',
     },
@@ -58,6 +59,8 @@ function addDatePicker(selector) {
         $datepickerInputs.eq(0).val(fd.split(' - ')[0]);
         $datepickerInputs.eq(1).val(fd.split(' - ')[1]);
       }
+
+      showControlBtnClear();
     },
     onShow() {
       if (enableArrowRotation) $dropdownArrow.addClass('input-datepicker__icon_rotated');
@@ -76,7 +79,8 @@ function addDatePicker(selector) {
 
   // инициализация календаря
   $datepickerInputs.eq(0).datepicker(options);
-  const $blockWithDatepicker = $(`.${options.classes}`);
+  const uniqueClass = options.classes.split(' ');
+  const $blockWithDatepicker = $(`.${uniqueClass[0]}`);
 
   // функция установки даты
   const setDate = () => {
@@ -106,8 +110,12 @@ function addDatePicker(selector) {
   // функция добавляющая кнопки управления в календарь
   const creatControlBtn = () => {
     const buttonBlock = `<div class="datepicker--control">
-    <button class="button button_simple" type="button" data-function="clear">Очистить</button>
-    <button class="button button_simple" type="button" data-function="apply">Применить</button>
+      <div class="datepicker--control-btn datepicker--control-btn_hidden">
+        <button class="button button_simple" type="button" data-function="clear">Очистить</button>
+      </div>
+      <div class="datepicker--control-btn">  
+        <button class="button button_simple" type="button" data-function="apply">Применить</button>
+      </div> 
     </div>`;
 
     $blockWithDatepicker.append(buttonBlock);
@@ -116,10 +124,22 @@ function addDatePicker(selector) {
   // вызов функций и обработчики
   creatControlBtn();
 
+  const $btnClear = $blockWithDatepicker.find('[data-function = "clear"]');
+  const $btnApply = $blockWithDatepicker.find('[data-function = "apply"]');
+  const $blockWithClearBtn = $btnClear.parent();
+
   if (startDate || finishDate) setDate();
 
+  // показать кнопку очистить для календаря
+  function showControlBtnClear() {
+    $blockWithClearBtn.removeClass('datepicker--control-btn_hidden');
+  }
+
   // очистка календаря
-  const handleButtonClearClick = () => currentDatepicker.clear();
+  const handleButtonClearClick = () => {
+    currentDatepicker.clear();
+    $blockWithClearBtn.addClass('datepicker--control-btn_hidden');
+  };
 
   // применение значений календаря
   const handleButtonApplyClick = () => currentDatepicker.hide();
@@ -129,8 +149,8 @@ function addDatePicker(selector) {
   const handleInputDateClick = () => currentDatepicker.show();
   const handleInputDateFocus = () => currentDatepicker.show();
 
-  $blockWithDatepicker.find('[data-function = "clear"]').on('click', handleButtonClearClick);
-  $blockWithDatepicker.find('[data-function = "apply"]').on('click', handleButtonApplyClick);
+  $btnClear.on('click', handleButtonClearClick);
+  $btnApply.on('click', handleButtonApplyClick);
 
   if (hasTwoDropdowns) {
     $datepickerInputs.eq(1).on('click', handleInputDateClick);

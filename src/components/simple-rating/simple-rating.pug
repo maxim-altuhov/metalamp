@@ -4,12 +4,14 @@
     value: Number,
     total: Number,
   };
+
 mixin simple-rating(options = {})
   - const { value = 5, total = 5 } = options;
-      .simple-rating
-        - for (let i = 0; i < total; i++)
-            if (i < value)
-              span.simple-rating__elem star
-            else
-              span.simple-rating__elem star_border
+
+  .simple-rating
+    - for (let i = 0; i < total; i++)
+        if (i < value)
+          span.simple-rating__elem star
+        else
+          span.simple-rating__elem star_border
               

@@ -107,6 +107,7 @@
   }
 
   &__checkbox-item {
+    max-width: 320px;
     margin-bottom: 12px;
 
     &:last-child {
@@ -193,9 +194,15 @@
 
   &__pagination {
     margin-top: 15px;
+    max-width: 241px;
+  }
 
-    @media (max-width: 767px) {
-      max-width: 250px;
+  &__checkbox-list {
+    max-width: 256px;
+    margin-bottom: 41px;
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -209,22 +216,22 @@
 
   &__bullet-list {
     margin-top: 13px;
+    max-width: 260px;
   }
 
   &__info-icon {
-    margin-top: 19px;
+    margin-bottom: 19px;
     max-width: 280px;
 
-    &:first-child {
-      margin-top: 0;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
   &__feedback {
     max-width: 767px;
     padding-left: 55px;
-    margin-top: 11px;
-    margin-bottom: 50px;
+    margin: 11px 0px 50px;
 
     @media (max-width: 767px) {
       padding-left: 0;

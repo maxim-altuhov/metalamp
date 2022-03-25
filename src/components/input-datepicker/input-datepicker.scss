@@ -76,12 +76,6 @@
     pointer-events: none;
     @include font-material-icons;
 
-    &_position_not-fixed {
-      position: relative;
-      bottom: auto;
-      right: auto;
-    }
-
     &_rotated {
       transform: rotate(180deg);
       bottom: 10px;

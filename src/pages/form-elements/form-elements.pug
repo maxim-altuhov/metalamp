@@ -166,7 +166,7 @@ block content
             .form-elements__rating
               +simple-rating({value: 5})
       .form-elements__block
-        .form-elements__item.form-elements__item_margin_big
+        .form-elements__item.form-elements__item_margin_big.form-elements__item_width_limited
           +range-slider({
             textLabel: "Range Slider",
             data: {
@@ -305,7 +305,7 @@ block content
             },
           })
       .form-elements__block
-        .form-elements__item
+        .form-elements__checkbox-list
           +checkbox-list({
             title:"expandable checkbox list",
             name:"checkbox-list",
@@ -318,19 +318,20 @@ block content
               "Шампунь": false,
             },
           })
-        +checkbox-list({
-          title:"expandable checkbox list",
-          name:"checkbox-list-2",
-          isOpen: true,
-          objWithElem: {
-            "Завтрак": false,
-            "Письменный стол": true,
-            "Стул для кормления": true,
-            "Кроватка": true,
-            "Телевизор": false,
-            "Шампунь" : false,
-          },
-        })
+        .form-elements__checkbox-list
+          +checkbox-list({
+            title:"expandable checkbox list",
+            name:"checkbox-list-2",
+            isOpen: true,
+            objWithElem: {
+              "Завтрак": false,
+              "Письменный стол": true,
+              "Стул для кормления": true,
+              "Кроватка": true,
+              "Телевизор": false,
+              "Шампунь" : false,
+            },
+          })
       .form-elements__block
         .form-elements__item.form-elements__item_margin-top_added
           h3 Rich Checkbox Buttons

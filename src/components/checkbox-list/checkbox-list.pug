@@ -29,7 +29,7 @@ mixin checkbox-list(options = {})
     - checkboxStyle = null;
   .checkbox-list
     h3.checkbox-list__block.js-checkbox-list__block(tabindex="0")= title
-      span(class="checkbox-list__arrow")= checkboxArrow
+      span(class="checkbox-list__arrow js-checkbox-list__arrow")= checkboxArrow
     div(class=`checkbox-list__wrapper ${checkboxActiveClass}` style=checkboxStyle)
       each isChecked, element in objWithElem
         .checkbox-list__elem

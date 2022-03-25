@@ -1,5 +1,6 @@
 @import '~air-datepicker/dist/css/datepicker.css';
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .datepicker {
   width: 318px;
@@ -10,8 +11,27 @@
   z-index: 1200;
 
   @media (max-width: 480px) {
-    width: 240px;
-    min-height: auto;
+    width: 290px;
+  }
+
+  &_style_filter {
+    width: 266px;
+
+    .datepicker--nav {
+      min-height: 50px;
+    }
+
+    .datepicker--content {
+      padding: 5px 15px 15px
+    }
+
+    .datepicker--cell-day {
+      height: 32.42px;
+    }
+
+    .datepicker--cell-day.-current- {
+      height: 32.42px;
+    }
   }
 
   &--pointer {
@@ -25,10 +45,10 @@
     padding: 4px 16px;
   }
 
-  &--nav-action {
-    span {
-      color: $purple;
-    }
+  &--nav-action-arrow {
+    font-size: 24px;
+    color: $purple;
+    @include font-material-icons;
   }
 
   &--nav-title {
@@ -227,5 +247,13 @@
     padding: 0 19px 19px 19px;
     display: flex;
     justify-content: space-between;
+  }
+
+  &--control-btn {
+    &_hidden {
+      opacity: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
   }
 }

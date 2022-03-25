@@ -1,12 +1,14 @@
 //- 
   В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
   const options = { counter: Number, isActive: Boolean };
+  
 mixin like(options = {})
   - const { counter = 0, isActive = false } = options;
   - const likeActiveClass = isActive ? "like__btn_active" : "";
+  - const likeActiveIcon = isActive ? "favorite" : "favorite_border";
   
   .like
     button(class=`like__btn js-like__btn ${likeActiveClass}` type="button") 
       span.like__text
-        i.like__icon favorite
+        i.like__icon= likeActiveIcon
         span.like__counter= counter

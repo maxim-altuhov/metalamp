@@ -13,7 +13,7 @@
   "rules": {
     "comma-dangle": ["warn", "always-multiline"],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-use-before-define": "warn",
+    "no-use-before-define": ["warn", { "functions": false }],
     "no-param-reassign": ["error", { "props": false }],
     "no-unused-vars": "warn",
     "semi": ["error", "always"],

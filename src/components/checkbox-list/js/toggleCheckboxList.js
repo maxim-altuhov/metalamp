@@ -6,7 +6,7 @@ function toggleCheckboxList() {
 
   const handleBlockClick = (e) => {
     const target = e.currentTarget;
-    const $arrow = $(target).find('.checkbox-list__arrow');
+    const $arrow = $(target).find('.js-checkbox-list__arrow');
     const $checkboxBlock = $(target).next();
 
     $checkboxBlock.toggleClass('checkbox-list__wrapper_active');

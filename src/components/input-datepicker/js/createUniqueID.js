@@ -1,8 +1,3 @@
-function createUniqueID() {
-  const IDPartOne = Date.now().toString(36);
-  const IDPartTwo = Math.random().toString(36).substring(2);
-
-  return IDPartOne + IDPartTwo;
-}
+const createUniqueID = () => Math.random().toString(36).substring(2);
 
 export default createUniqueID;

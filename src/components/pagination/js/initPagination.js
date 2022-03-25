@@ -5,6 +5,13 @@ function initPagination(selector) {
   const btnNext = selector.querySelector('.js-pagination__btn_type_next');
   const infoCurrentElemOnPage = selector.querySelector('.js-pagination__current');
   const infoTotalElem = selector.querySelector('.js-pagination__total');
+  const classesForPages = {
+    DEFAULT: ['pagination__page', 'js-pagination__page'],
+    WITH_ELLIPSIS: ['pagination__page_with_ellipsis', 'js-pagination__page_with_ellipsis'],
+    ACTIVE: ['pagination__page_active', 'js-pagination__page_active'],
+    HIDDEN: ['pagination__btn_hidden'],
+    TOTAL: ['pagination__page_total', 'js-pagination__page_total'],
+  };
   let options;
 
   try {
@@ -37,17 +44,18 @@ function initPagination(selector) {
   const creatPaginationPages = () => {
     return new Promise((resolve) => {
       const fragment = document.createDocumentFragment();
+      const classesForLastPage = [...classesForPages.DEFAULT, ...classesForPages.TOTAL];
 
       for (let index = 1; index <= totalPages && index <= numPagesToShow; index++) {
         const btn = document.createElement('button');
         const isBtnWithEllipsis = (index === numPagesToShow - 1) && (totalPages > numPagesToShow);
         btn.setAttribute('type', 'button');
-        btn.classList.add('pagination__page', 'js-pagination__page');
+        btn.classList.add(...classesForPages.DEFAULT);
 
         if (index === numPagesToShow) {
           btn.textContent = totalPages;
         } else if (isBtnWithEllipsis) {
-          btn.classList.add('pagination__page_with_ellipsis', 'js-pagination__page_with_ellipsis');
+          btn.classList.add(...classesForPages.WITH_ELLIPSIS);
           btn.textContent = '...';
         } else {
           btn.textContent = index;
@@ -55,8 +63,8 @@ function initPagination(selector) {
 
         fragment.append(btn);
       }
-      fragment.lastElementChild.classList.add('pagination__page', 'js-pagination__page', 'pagination__page_total', 'js-pagination__page_total');
-      fragment.firstElementChild.classList.add('pagination__page_active', 'js-pagination__page_active');
+      fragment.lastElementChild.classList.add(...classesForLastPage);
+      fragment.firstElementChild.classList.add(...classesForPages.ACTIVE);
       pagesBlock.append(fragment);
       resolve();
     });
@@ -73,9 +81,9 @@ function initPagination(selector) {
 
   // обновление информации по кол-ву текущих элементов на странице
   const refreshInfoCurrentElemOnPage = () => {
-    pageActive = selector.querySelector('.js-pagination__page_active');
+    pageActive = selector.querySelector(`.${classesForPages.ACTIVE[1]}`);
     pageActiveAsNumber = Number(pageActive.textContent);
-    pageTotal = selector.querySelector('.js-pagination__page_total');
+    pageTotal = selector.querySelector(`.${classesForPages.TOTAL[1]}`);
     pageTotalAsNumber = Number(pageTotal.textContent);
     let upperLimitOfTheRange = maxElemPerPage * pageActiveAsNumber;
 
@@ -89,20 +97,20 @@ function initPagination(selector) {
   const addPaginationPages = () => {
     const fragment = document.createDocumentFragment();
     const btn = document.createElement('button');
-    let pageWithEllipsis = selector.querySelector('.js-pagination__page_with_ellipsis');
+    let pageWithEllipsis = selector.querySelector(`.${classesForPages.WITH_ELLIPSIS[1]}`);
 
     btn.setAttribute('type', 'button');
-    btn.classList.add('pagination__page', 'js-pagination__page');
+    btn.classList.add(...classesForPages.DEFAULT);
 
     if (pageWithEllipsis) {
       if (pageActive === pageTotal) {
         pageWithEllipsis.textContent = pageTotalAsNumber - 1;
-        pageWithEllipsis.classList.remove('pagination__page_with_ellipsis', 'js-pagination__page_with_ellipsis');
+        pageWithEllipsis.classList.remove(...classesForPages.WITH_ELLIPSIS);
       }
 
       if (pageActiveAsNumber === pageTotalAsNumber - 3) {
         pageWithEllipsis.textContent = pageTotalAsNumber - 1;
-        pageWithEllipsis.classList.remove('pagination__page_with_ellipsis', 'js-pagination__page_with_ellipsis');
+        pageWithEllipsis.classList.remove(...classesForPages.WITH_ELLIPSIS);
       }
 
       if (pageActive === allPages[allPages.length - 3]) {
@@ -126,46 +134,45 @@ function initPagination(selector) {
 
     if (firstPageIsActiveAndIsNotEqualOne) {
       allPages[allPages.length - 2].textContent = '...';
-      allPages[allPages.length - 2].classList.add('pagination__page_with_ellipsis', 'js-pagination__page_with_ellipsis');
+      allPages[allPages.length - 2].classList.add(...classesForPages.WITH_ELLIPSIS);
       allPages[allPages.length - 3].remove();
       btn.textContent = pageActiveAsNumber - 1;
       fragment.append(btn);
       pageActive.before(fragment);
     }
 
-    // eslint-disable-next-line no-use-before-define
     setEventForPageButtons();
   };
 
   // переключение видимости кнопок переключения страниц
   const toggleActiveBtn = () => {
-    pageActive = selector.querySelector('.js-pagination__page_active');
+    pageActive = selector.querySelector(`.${classesForPages.ACTIVE[1]}`);
     const moreThanOnePage = totalPages !== 1;
     const firstPageIsActive = pageActive.textContent === '1';
     const lastPageIsActive = pageActive.textContent === pageTotal.textContent;
 
     if (firstPageIsActive && moreThanOnePage) {
-      btnPrev.classList.add('pagination__btn_hidden');
-      btnNext.classList.remove('pagination__btn_hidden');
+      btnPrev.classList.add(...classesForPages.HIDDEN);
+      btnNext.classList.remove(...classesForPages.HIDDEN);
     } else if (lastPageIsActive && moreThanOnePage) {
-      btnNext.classList.add('pagination__btn_hidden');
-      btnPrev.classList.remove('pagination__btn_hidden');
+      btnNext.classList.add(...classesForPages.HIDDEN);
+      btnPrev.classList.remove(...classesForPages.HIDDEN);
     } else if (totalPages === 1) {
-      btnNext.classList.add('pagination__btn_hidden');
-      btnPrev.classList.add('pagination__btn_hidden');
+      btnNext.classList.add(...classesForPages.HIDDEN);
+      btnPrev.classList.add(...classesForPages.HIDDEN);
     } else {
-      btnPrev.classList.remove('pagination__btn_hidden');
-      btnNext.classList.remove('pagination__btn_hidden');
+      btnPrev.classList.remove(...classesForPages.HIDDEN);
+      btnNext.classList.remove(...classesForPages.HIDDEN);
     }
   };
 
   // переключение активной страницы
   const handlePageClick = (e) => {
-    if (!e.target.classList.contains('js-pagination__page_with_ellipsis')) {
+    if (!e.target.classList.contains(`.${classesForPages.WITH_ELLIPSIS[1]}`)) {
       allPages.forEach((page) => {
-        page.classList.remove('pagination__page_active', 'js-pagination__page_active');
+        page.classList.remove(...classesForPages.ACTIVE);
       });
-      e.target.classList.add('pagination__page_active', 'js-pagination__page_active');
+      e.target.classList.add(...classesForPages.ACTIVE);
       toggleActiveBtn();
       refreshInfoCurrentElemOnPage();
       addPaginationPages();
@@ -178,11 +185,11 @@ function initPagination(selector) {
     const prevPageLink = pageActive.previousElementSibling;
 
     if (e.target.classList.contains('js-pagination__btn_type_prev')) {
-      pageActive.classList.remove('pagination__page_active', 'js-pagination__page_active');
-      prevPageLink.classList.add('pagination__page_active', 'js-pagination__page_active');
+      pageActive.classList.remove(...classesForPages.ACTIVE);
+      prevPageLink.classList.add(...classesForPages.ACTIVE);
     } else {
-      pageActive.classList.remove('pagination__page_active', 'js-pagination__page_active');
-      nextPageLink.classList.add('pagination__page_active', 'js-pagination__page_active');
+      pageActive.classList.remove(...classesForPages.ACTIVE);
+      nextPageLink.classList.add(...classesForPages.ACTIVE);
     }
     toggleActiveBtn();
     refreshInfoCurrentElemOnPage();
@@ -191,9 +198,9 @@ function initPagination(selector) {
 
   // навешиваем обработчик на кнопки переключения страниц
   function setEventForPageButtons() {
-    allPages = selector.querySelectorAll('.js-pagination__page');
+    allPages = selector.querySelectorAll(`.${classesForPages.DEFAULT[1]}`);
     allPages.forEach((page) => {
-      if (!page.classList.contains('js-pagination__page_with_ellipsis')) {
+      if (!page.classList.contains(`.${classesForPages.WITH_ELLIPSIS[1]}`)) {
         page.addEventListener('click', handlePageClick);
       }
     });
