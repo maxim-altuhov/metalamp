@@ -1,6 +1,6 @@
-import './form-elements.scss';
-
 import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
+import '@lo/ui-kit/ui-kit';
+import '@comp/ui-header/ui-header';
 import '@comp/checkbox-list/checkbox-list';
 import '@comp/checkbox/checkbox';
 import '@comp/toggle/toggle';
@@ -17,8 +17,6 @@ import '@comp/feedback/feedback';
 import '@comp/dropdown/dropdown';
 import '@comp/input-datepicker/input-datepicker';
 
-function initFunction() {
-  checkingTabKeyPress();
-}
+import './form-elements.scss';
 
-window.addEventListener('DOMContentLoaded', initFunction);
+window.addEventListener('DOMContentLoaded', checkingTabKeyPress);

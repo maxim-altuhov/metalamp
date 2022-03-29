@@ -1,4 +1,3 @@
-.ui-header
-  .ui-header__wrapper
-    .ui-header__logo
-      img(src=require("./img/ui-header-logo.svg"), alt="logo")
+mixin ui-header(img = "")
+  .ui-header
+    img.ui-header__logo(src=require(`./img/${img}`), alt='logo')

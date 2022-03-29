@@ -1,7 +1,4 @@
 @import '@scss/variables';
-@import '@comp/input-datepicker/input-datepicker';
-@import '@comp/dropdown/dropdown';
-@import '@comp/button/button';
 
 .card-booking {
   &__block {
@@ -10,20 +7,13 @@
     min-height: 358px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.12);
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
     padding: 39px 29px 28px 28px;
 
     @media (max-width: 480px) {
       max-width: initial;
       width: 100%;
-    }
-  }
-
-  &__title {
-    @media (max-width: 480px) {
-      font-size: 19px;
-      text-align: center;
     }
   }
 
@@ -129,6 +119,7 @@
   }
 
   &__info-tooltip {
+    min-width: 100px;
     max-width: 250px;
     z-index: 999;
     position: absolute;
@@ -138,8 +129,8 @@
     background-color: $dark;
     padding: 10px;
     font-weight: 700;
-    color: white;
-    opacity: 0.6;
+    color: #FFFFFF;
+    opacity: 0.8;
     border-radius: 5px;
   }
 

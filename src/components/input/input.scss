@@ -4,6 +4,7 @@
 .input {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   &__label {
     cursor: pointer;
@@ -45,7 +46,6 @@
 
     &_variant_subscribe {
       padding: 13px 35px 13px 15px;
-      position: relative;
     }
   }
 

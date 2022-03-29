@@ -1,20 +1,32 @@
-//- В данном миксине используются иконки шрифта Font Awesome, необходимо подключить данный шрифт в проект
+//- 
+  В данном миксине используются иконки шрифта Font Awesome, необходимо подключить данный шрифт в проект
+  const options = {
+    copyrightText: String,
+    logoLink: String,
+    logoImg: String,
+    isMiniVersion: Boolean,
+    socialLinks: {
+       "icon": "href",
+    },
+  };
 
 mixin footer-copyright(options = {})
   - 
     const {
       copyrightText = "",
-      isMiniVersion = false
+      logoLink = "/mock-address/change-me",
+      logoImg = "",
+      isMiniVersion = false,
+      socialLinks = {},
     } = options;
-    const classActiveMiniVersion = isMiniVersion ? "footer-copyright_size_mini" : "";
+  - const classActiveMiniVersion = isMiniVersion ? "footer-copyright_size_mini" : "";
 
   div(class=`footer-copyright ${classActiveMiniVersion}`)
     .footer-copyright__container
       .footer-copyright__wrapper
-        a(class="footer-copyright__logo" href="/metalamp/")
-          img(src="./img/logo-main.svg" alt="logo")
+        a(class="footer-copyright__logo" href=logoLink)
+          img(src=require(`./img/${logoImg}`) alt="logo")
         p.footer-copyright__text= copyrightText
         .footer-copyright__social-icons
-          a(class="footer-copyright__icon" href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") &#xe901;
-          a(class="footer-copyright__icon" href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") &#xe900;
-          a(class="footer-copyright__icon" href="/mock-address/change-me" target="_blank" rel="noopener noreferrer") &#xe902;
+          each href, icon in socialLinks
+            a(class="footer-copyright__icon" href=href target="_blank" rel="noopener noreferrer")!= icon

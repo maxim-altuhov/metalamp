@@ -1,6 +1,6 @@
-// функция показывает подсказку при наведении на элемент
+// показывает подсказку при наведении на элемент
 function showTooltip() {
-  const tooltips = document.querySelectorAll('[data-tooltip]');
+  const tooltips = document.querySelectorAll('.js-card-booking__info-point');
 
   tooltips.forEach((elem) => {
     const tooltip = elem.querySelector('.js-card-booking__info-tooltip');

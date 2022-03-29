@@ -3,68 +3,89 @@ include ~@comp/input-datepicker/input-datepicker.pug
 include ~@comp/dropdown/dropdown.pug
 include ~@comp/button/button.pug
 
-.card-booking
-  .card-booking__block
-    .card-booking__top
-      .card-booking__info
-        span.card-booking__symbol №
-        span.card-booking__number 888
-        span.card-booking__tag люкс
-      .card-booking__price-block
-        span.card-booking__price(data-cost) 9990₽
-        |  в сутки
-    form(action="#", method="get", name="card-booking")
-      .card-booking__wrapper
-        .card-booking__elem
-          +input-datepicker({
-            labelTextFirst:"прибытие",
-            labelTextSecond:"выезд",
-            attributeName:"card-search-date-range",
-            attributeType:"text",
-            placeholder:"ДД.ММ.ГГГГ",
-          })
-        .card-booking__elem
-          +dropdown({
-            labelText:"гости",
-            attributeName:"card-booking-guests",
-            textInInput:"Сколько гостей",
-            hasControlBtn: true,
-            elements: {
-              "Взрослые": 3,
-              "Дети": 0,
-              "Младенцы": 0,
-            },
-            data: {
-              variantsWordsObj: {
-                гость: ['гость', 'гостя', 'гостей'],
-                младенцы: ['младенец', 'младенца', 'младенцев'],
-              },
-            },
-          })
-        .card-booking__details
-          .card-booking__details-elem
-            p.card-booking__details-text
-              span.card-booking__cost(data-cost) 9990₽
-              |  х 
-              span.card-booking__day 4 суток
-            span.card-booking__cost-result(data-cost) 39960₽
-          .card-booking__details-elem
-            p.card-booking__details-text Сбор за услуги: скидка 
-              span.card-booking__sale(data-cost) 2179₽
-            span(class="card-booking__info-point" data-tooltip="Подсказка") i
-              i.card-booking__info-tooltip.js-card-booking__info-tooltip
-            span.card-booking__services-result(data-cost) 0₽
-          .card-booking__details-elem
-            p.card-booking__details-text Сбор за дополнительные услуги
-            span(class="card-booking__info-point" data-tooltip="Другая подсказка") i
-              i.card-booking__info-tooltip.js-card-booking__info-tooltip
-            span.card-booking__addservices-result(data-cost) 300₽
-          .card-booking__details-total
-            p.card-booking__details-total-text Итого
-              span.card-booking__total(data-cost) 38081₽
-      .card-booking__btn 
-        +button({
-          theme:"with-arrow",
-          text:"забронировать",
-          btnType:"submit",
-        })
+//- 
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
+  const options = {
+      roomNumber: Number,
+      roomType: String,
+      roomPrice: Number,
+      days: Number,
+      discount: Number,
+      services: Number,
+      servicesInfo: String,
+      additionalServices: Number,
+      additionalServicesInfo: String,
+      formAction: String,
+      datepickerOptions: Object,
+      dropdownOptions: Object,
+      submitBtnOptions: Object,
+  };
+
+mixin card-booking(options = {})
+  - 
+    const { 
+      roomNumber = 0,
+      roomType = "",
+      roomPrice = 0,
+      days = 0,
+      discount = 0,
+      services = 0,
+      servicesText = "",
+      servicesInfo = "Подсказка",
+      additionalServices = 0,
+      additionalServicesText = "",
+      additionalServicesInfo = "Подсказка",
+      formAction = "/mock-address/action",
+      datepickerOptions = {},
+      dropdownOptions = {},
+      submitBtnOptions = {},
+    } = options
+  - const costRoom = roomPrice * days;
+  - const costTotal = costRoom - discount + services + additionalServices;
+  - const convertCost = (cost) => cost.toLocaleString('ru-RU');
+
+  .card-booking
+    .card-booking__block
+      .card-booking__top
+        .card-booking__info
+          span.card-booking__symbol №
+          span.card-booking__number= roomNumber
+          span.card-booking__tag= roomType
+        .card-booking__price-block
+          span.card-booking__price #{convertCost(roomPrice)}₽
+          |  в сутки
+      form(class="card-booking__form" action=formAction  method="post" name="card-booking")
+        .card-booking__wrapper
+          .card-booking__elem
+            +input-datepicker(datepickerOptions)
+          .card-booking__elem
+            +dropdown(dropdownOptions)
+          .card-booking__details
+            .card-booking__details-elem
+              p.card-booking__details-text
+                span.card-booking__cost #{convertCost(roomPrice)}₽
+                |  х 
+                span.card-booking__day #{days} суток
+              span.card-booking__cost-result #{convertCost(costRoom)}₽
+            .card-booking__details-elem
+              p.card-booking__details-text #{servicesText}
+                span.card-booking__discount= ` ${convertCost(discount)}₽`
+              span(
+                class="card-booking__info-point js-card-booking__info-point"
+                data-tooltip= servicesInfo
+              ) i
+                i.card-booking__info-tooltip.js-card-booking__info-tooltip
+              span.card-booking__services-result #{convertCost(services)}₽
+            .card-booking__details-elem
+              p.card-booking__details-text #{additionalServicesText}
+              span(
+                class="card-booking__info-point js-card-booking__info-point"
+                data-tooltip= additionalServicesInfo
+              ) i
+                i.card-booking__info-tooltip.js-card-booking__info-tooltip
+              span.card-booking__addservices-result #{convertCost(additionalServices)}₽
+            .card-booking__details-total
+              p.card-booking__details-total-text Итого
+                span.card-booking__total #{convertCost(costTotal)}₽
+        .card-booking__btn 
+          +button(submitBtnOptions)

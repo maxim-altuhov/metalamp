@@ -1,36 +1,123 @@
+//- layout
+extends ~@lo/ui-kit/ui-kit
+
 //- components
 include ~@comp/header/header.pug
+include ~@comp/footer/footer.pug
 include ~@comp/footer-copyright/footer-copyright.pug
+include ~@comp/ui-header/ui-header.pug
 
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    title UI Kit - Headers & Footers
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(name="description", content="UI Kit - Headers & Footers")
-    meta(name="keywords", content="ui-kit")
-    meta(name="msapplication-TileColor" content="#da532c")
-    meta(name="theme-color" content="#ffffff")
-    link(rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png")
-    link(rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png")
-    link(rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png")
-    link(rel="manifest" href="./assets/site.webmanifest")
-    link(rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5")
-  body
-    .container
-      include ~@comp/ui-header/ui-header.pug
-    .ui-kit-header
-      .ui-kit-header__elem
-        +header({ showBlockWithBtn: true })
-      .ui-kit-header__elem
-        +header({ showBlockWithLogin: true })
-    .ui-kit-footer
-      .ui-kit-footer__elem
-        include ~@comp/footer/footer.pug
-      .ui-kit-footer__elem
-        +footer-copyright({ 
-          copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
-          isMiniVersion: true,
-        })
-      .ui-kit-footer__elem &nbsp;
+
+block variables
+  - const title = "UI Kit - Headers & Footers"
+  - const keywords = "ui-kit"
+
+block content
+  +ui-header("ui-header-logo.svg")
+
+block content-outdoor
+  .ui-kit-header
+    .ui-kit-header__elem
+      +header({
+        logoImg: "logo-main.svg",
+        logoLink: "/metalamp/",
+        menuLink: {
+          "О нас": "/mock-address/change-me",
+          "Услуги": {
+            "Ссылка1": "/mock-address/change-me",
+            "Ссылка2": "/mock-address/change-me",
+            "Ссылка3": "/mock-address/change-me",
+          },
+          "Вакансии": "/mock-address/change-me",
+          "Новости": "/mock-address/change-me",
+          "Соглашения": {
+            "Ссылка1": "/mock-address/change-me",
+            "Ссылка2": "/mock-address/change-me",
+            "Ссылка3": "/mock-address/change-me",
+            "Ссылка4": "/mock-address/change-me",
+          },
+        },
+        btnBlock: [
+          {
+            theme:"transparent",
+            text:"Войти",
+            isLink: true,
+            href: "sign-in.html",
+          },
+          {
+            text:"зарегистрироваться",
+            isLink: true,
+            href: "registration.html",
+          },
+        ],
+      })
+    .ui-kit-header__elem
+      +header({
+        logoImg: "logo-main.svg",
+        logoLink: "/metalamp/",
+        hasUserLogin: true,
+        userLogin: "Юлий Цезарь",
+        menuLink: {
+          "О нас": "/mock-address/change-me",
+          "Услуги": {
+            "Ссылка1": "/mock-address/change-me",
+            "Ссылка2": "/mock-address/change-me",
+            "Ссылка3": "/mock-address/change-me",
+          },
+          "Вакансии": "/mock-address/change-me",
+          "Новости": "/mock-address/change-me",
+          "Соглашения": {
+            "Ссылка1": "/mock-address/change-me",
+            "Ссылка2": "/mock-address/change-me",
+            "Ссылка3": "/mock-address/change-me",
+            "Ссылка4": "/mock-address/change-me",
+          },
+        },
+      })
+  .ui-kit-footer
+    .ui-kit-footer__elem
+      +footer({ 
+        copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
+        logoLink: "/metalamp/",
+        logoImg: "logo-main.svg",
+        footerDescr: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
+        subBlockTitle: "Подписка",
+        subBlockDescr: "Получайте специальные предложения и новости сервиса",
+        socialLinks: {
+          "&#xe901": "/mock-address/change-me",
+          "&#xe900": "/mock-address/change-me",
+          "&#xe902": "/mock-address/change-me",
+        },
+          menuLink: {
+          "Навигация": {
+            "О нас": "/mock-address/change-me",
+            "Новости": "/mock-address/change-me",
+            "Служба поддержки": "/mock-address/change-me",
+            "Услуги": "/mock-address/change-me",
+          },
+          "О нас": {
+            "О сервисе": "/mock-address/change-me",
+            "Наша команда": "/mock-address/change-me",
+            "Вакансии": "/mock-address/change-me",
+            "Инвесторы": "/mock-address/change-me",
+          },
+          "Служба поддержки": {
+            "Соглашения": "/mock-address/change-me",
+            "Сообщества": "/mock-address/change-me",
+            "Связь с нами": "/mock-address/change-me",
+          },
+        },
+      })
+    .ui-kit-footer__elem
+      +footer-copyright({ 
+        copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
+        logoLink: "/metalamp/",
+        logoImg: "logo-main.svg",
+        isMiniVersion: true,
+        socialLinks: {
+          "&#xe901": "/mock-address/change-me",
+          "&#xe900": "/mock-address/change-me",
+          "&#xe902": "/mock-address/change-me",
+        },
+      })
+    .ui-kit-footer__elem &nbsp;

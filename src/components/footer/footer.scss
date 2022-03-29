@@ -1,6 +1,4 @@
 @import '@scss/variables';
-@import '@comp/input/input';
-@import '@comp/footer-copyright/footer-copyright';
 
 .footer {
   &__block {
@@ -25,7 +23,7 @@
     padding: 100px 0;
     display: grid;
     grid-template-columns: 22.4% repeat(3, 1fr) 22.4%;
-    gap: 0 40px;
+    gap: 20px 40px;
 
     @media (max-width: 1439px) {
       grid-template-columns: repeat(4, 1fr);
@@ -62,35 +60,12 @@
     }
   }
 
-  &__block-title {
-    margin-top: 4px;
-    margin-bottom: 22px;
-  }
-
-  &__menu-link {
-    margin-bottom: 21px;
-    font-size: 14px;
-    line-height: 17px;
-    color: $dark50;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    a {
-      color: $dark50;
-      transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
-
-      &:hover,
-      &:focus {
-        text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
-        color: $dark75;
-      }
-    }
+  &__logo {
+    display: inline-block;
+    margin-bottom: 16px;
   }
 
   &__descr {
-    margin-top: 16px;
     font-size: 14px;
     line-height: 172%;
     color: $dark75;
@@ -104,18 +79,39 @@
     @media (max-width: 991px) {
       display: none;
     }
+  }
 
-    &_margin-top_null {
-      margin-top: 0;
+  &__block-title {
+    margin: 4px 0px 22px;
+  }
+
+  &__menu-elem {
+    margin-bottom: 21px;
+    font-size: 14px;
+    line-height: 17px;
+    color: $dark50;
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
-  &__block-subcribe-title {
-    margin-top: 4px;
-    margin-bottom: 19px;
+  &__menu-link {
+    color: $dark50;
+    transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
+
+    &:hover,
+    &:focus {
+      text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
+      color: $dark75;
+    }
   }
 
-  &__sub-block {
+  &__block-subscribe-title {
+    margin: 4px 0px 19px;
+  }
+
+  &__subscribe-block {
     margin-top: 17px;
     max-width: 266px;
   }

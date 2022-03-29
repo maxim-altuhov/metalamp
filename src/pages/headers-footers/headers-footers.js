@@ -1,12 +1,14 @@
-import './headers-footers.scss';
-
 import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
-import initMenu from '@comp/header/js/initMenu';
+import '@lo/ui-kit/ui-kit';
+import '@comp/ui-header/ui-header';
+import '@comp/header/header';
+import '@comp/footer/footer';
 import '@comp/footer-copyright/footer-copyright';
+
+import './headers-footers.scss';
 
 function initFunction() {
   checkingTabKeyPress();
-  initMenu();
 }
 
 window.addEventListener('DOMContentLoaded', initFunction);

@@ -2,6 +2,7 @@
 extends ~@lo/ui-kit/ui-kit
 
 //- components
+include ~@comp/ui-header/ui-header.pug
 include ~@comp/color/color.pug
 
 block variables
@@ -9,6 +10,7 @@ block variables
   - const keywords = "ui-kit"
 
 block content
+  +ui-header("ui-header-logo.svg")
   .colors-and-type
     .colors-and-type__wrapper
       .colors

@@ -1,4 +1,4 @@
-extends ~@lo/page-with-aside/page-with-aside
+extends ~@lo/page/page
 //- components
 include ~@comp/input-datepicker/input-datepicker.pug
 include ~@comp/dropdown/dropdown.pug
@@ -23,7 +23,6 @@ block content
             +input-datepicker({
               labelTextFirst:"Даты пребывания в отеле",
               attributeName:"date-filter",
-              attributeType:"text",
               placeholder:"Выберите даты",
               hasOneInput: true,
             })

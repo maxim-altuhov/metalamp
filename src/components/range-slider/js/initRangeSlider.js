@@ -11,7 +11,6 @@ function initRangeSlider(selector) {
   try {
     options = JSON.parse(initSliderElem.dataset.options);
   } catch {
-    // Incorrect options are passed to the script. Will use the default options.
     options = {
       start: [0, 100],
       step: 1,

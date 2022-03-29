@@ -1,7 +1,4 @@
 @import '@base/base';
-@import '@comp/ui-header/ui-header';
-@import '@comp/header/header';
-@import '@comp/footer/footer';
 
 html,
 body {
@@ -13,7 +10,7 @@ body {
     margin-top: 40px;
 
     &:first-child {
-      margin-top: 62px;
+      margin-top: 60px;
     }
   }
 }

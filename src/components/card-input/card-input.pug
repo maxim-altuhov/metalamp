@@ -2,35 +2,36 @@
 include ~@comp/input/input.pug
 include ~@comp/button/button.pug
 
-.card-input
-  .card-input__block
-    h2.card-input__title Войти
-    form(action="#", method="post", name="card-input")
-      .card-input__wrapper
-        .card-input__elem
-          +input({
-            attributeName:"email-login",
-            attributeType:"email",
-            placeholder:"Email"
-          })
-        .card-input__elem
-          +input({
-            attributeName:"password-login",
-            attributeType:"password",
-            placeholder:"Пароль"
-          })
-        .card-input__btn
+mixin card-input(options = {})
+  .card-input
+    .card-input__block
+      h1.card-input__title Войти
+      form(action="#" method="post" name="card-input")
+        .card-input__wrapper
+          .card-input__elem
+            +input({
+              attributeName:"email-login",
+              attributeType:"email",
+              placeholder:"Email"
+            })
+          .card-input__elem
+            +input({
+              attributeName:"password-login",
+              attributeType:"password",
+              placeholder:"Пароль"
+            })
+          .card-input__btn
+            +button({
+              theme:"with-arrow",
+              text:"войти",
+              btnType:"submit",
+            })
+      .card-input__sign-in
+        span.card-input__text Нет аккаунта на Toxin?
+        .card-input__mini-btn
           +button({
-            theme:"with-arrow",
-            text:"войти",
-            btnType:"submit",
+            theme:"transparent",
+            text:"Создать",
+            isLink: true,
+            href: "registration.html",
           })
-    .card-input__sign-in
-      span.card-input__text Нет аккаунта на Toxin?
-      .card-input__mini-btn
-        +button({
-          theme:"transparent",
-          text:"Создать",
-          isLink: true,
-          href: "registration.html",
-        })

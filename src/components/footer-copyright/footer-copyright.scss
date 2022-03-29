@@ -17,8 +17,7 @@
     }
 
     .footer-copyright__text {
-      margin-top: 21px;
-      margin-bottom: 23px;
+      margin: 21px 0px 23px;
     }
 
     .footer-copyright__logo {
@@ -49,8 +48,7 @@
       margin: 0 auto;
 
       .footer-copyright__text {
-        margin-top: 21px;
-        margin-bottom: 23px;
+        margin: 21px 0px 23px;
       }
     }
   }
@@ -65,32 +63,28 @@
 
   &__social-icons {
     font-size: 25px;
-
-    a {
-      margin-right: 23px;
-
-      &:first-child {
-        font-size: 27px;
-        margin-right: 20px;
-      }
-
-      &:last-child {
-        margin-right: 1px;
-      }
-    }
   }
 
   &__icon {
+    margin-right: 23px;
     font-family: 'Font Awesome';
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    line-height: 1;
     background: $background-gradient;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &:first-child {
+      font-size: 27px;
+      margin-right: 20px;
+    }
+
+    &:last-child {
+      margin-right: 1px;
+    }
   }
 }

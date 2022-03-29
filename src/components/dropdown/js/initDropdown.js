@@ -12,7 +12,6 @@ function initDropdown() {
     try {
       options = JSON.parse(block.dataset.options);
     } catch {
-      // Incorrect options are passed to the script. Will use the default options.
       options = {
         enableArrowRotation: true,
         variantsWordsObj: {},
@@ -189,12 +188,10 @@ function initDropdown() {
     // обработчики событий и инициализация функций
     startInitDropdown();
 
-    // функция отслеживания нажатия клавиши Enter для открытия/закрытия dropdown
     const handleFieldKeydownEnter = (e) => {
       if (e.key === 'Enter') toggleDropdown();
     };
 
-    // функция включения обводки при переключении с помощью клавиши TAB
     const handleFieldFocus = () => {
       if ((!document.body.classList.contains('using-mouse'))) toggleDropdown();
     };
@@ -219,6 +216,7 @@ function initDropdown() {
     }
   });
 
+  // закрытие dropdown при клике вне блока
   const handleDocumentClick = (e) => {
     if (!e.target.closest('.js-dropdown__group')) {
       blocksWithDropdown.forEach((block) => {

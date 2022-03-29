@@ -1,15 +1,12 @@
 import $ from 'jquery';
 import 'air-datepicker';
 
-import createUniqueID from './createUniqueID';
-
 function addDatePicker(selector) {
   let settings;
 
   try {
     settings = JSON.parse(selector.dataset.options);
   } catch {
-    // Incorrect options are passed to the script. Will use the default options.
     settings = {
       startDate: '',
       finishDate: '',
@@ -30,7 +27,8 @@ function addDatePicker(selector) {
   const $datepicker = $(selector);
   const $datepickerInputs = $datepicker.find('.js-input-datepicker__date');
   const $dropdownArrow = $datepicker.find('.js-input-datepicker__icon');
-  const currentDatepicker = $datepickerInputs.eq(0).datepicker().data('datepicker');
+  const $firstInput = $datepickerInputs.eq(0);
+  const $secondInput = $datepickerInputs.eq(1);
   const dateStart = new Date(startDate);
   const dateFinish = finishDate ? new Date(finishDate) : '';
   const hasTwoDropdowns = $datepickerInputs.length > 1;
@@ -44,8 +42,9 @@ function addDatePicker(selector) {
   };
 
   let options = {
-    classes: `${createUniqueID()} ${styleClassForFilter}`,
+    classes: styleClassForFilter,
     range: true,
+    keyboardNav: true,
     multipleDatesSeparator: ' - ',
     prevHtml: '<span class="datepicker--nav-action-arrow">arrow_back</span>',
     nextHtml: '<span class="datepicker--nav-action-arrow">arrow_forward</span>',
@@ -56,10 +55,9 @@ function addDatePicker(selector) {
     minDate: setLimitForDate(),
     onSelect(fd) {
       if (hasTwoDropdowns) {
-        $datepickerInputs.eq(0).val(fd.split(' - ')[0]);
-        $datepickerInputs.eq(1).val(fd.split(' - ')[1]);
+        $firstInput.val(fd.split(' - ')[0]);
+        $secondInput.val(fd.split(' - ')[1]);
       }
-
       showControlBtnClear();
     },
     onShow() {
@@ -75,14 +73,16 @@ function addDatePicker(selector) {
       dateFormat: 'dd M',
       monthsShort: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
     };
+  } else {
+    $secondInput.attr('tabindex', -1);
   }
 
-  // инициализация календаря
-  $datepickerInputs.eq(0).datepicker(options);
-  const uniqueClass = options.classes.split(' ');
-  const $blockWithDatepicker = $(`.${uniqueClass[0]}`);
+  // Инициализация календаря
+  $firstInput.datepicker(options);
+  const currentDatepicker = $firstInput.data('datepicker');
+  const $blockWithDatepicker = currentDatepicker.$datepicker;
 
-  // функция установки даты
+  // Функция установки даты
   const setDate = () => {
     const PLACEHOLDER = 'ДД.ММ.ГГГГ';
     const PLACEHOLDER_FILTER = 'дд.мм';
@@ -91,23 +91,24 @@ function addDatePicker(selector) {
     currentDatepicker.selectDate(currentDatepicker.selectedDates);
 
     if (hasTwoDropdowns) {
-      if (startDate === '') $datepickerInputs.eq(0).val(PLACEHOLDER);
-      if (finishDate === '') $datepickerInputs.eq(1).val(PLACEHOLDER);
+      if (startDate === '') $firstInput.val(PLACEHOLDER);
+      if (finishDate === '') $secondInput.val(PLACEHOLDER);
     } else {
       if (startDate === '') {
-        const inputValue = $datepickerInputs.eq(0).val().split(' - ');
+        const inputValue = $firstInput.val().split(' - ');
         inputValue.splice(0, 1, PLACEHOLDER_FILTER);
-        $datepickerInputs.eq(0).val(inputValue.join(' - '));
+        $firstInput.val(inputValue.join(' - '));
       }
+
       if (finishDate === '') {
-        const inputValue = $datepickerInputs.eq(0).val().split(' - ');
+        const inputValue = $firstInput.val().split(' - ');
         inputValue.splice(1, 1, PLACEHOLDER_FILTER);
-        $datepickerInputs.eq(0).val(inputValue.join(' - '));
+        $firstInput.val(inputValue.join(' - '));
       }
     }
   };
 
-  // функция добавляющая кнопки управления в календарь
+  // Функция добавляющая контр.кнопки в календарь
   const creatControlBtn = () => {
     const buttonBlock = `<div class="datepicker--control">
       <div class="datepicker--control-btn datepicker--control-btn_hidden">
@@ -121,7 +122,6 @@ function addDatePicker(selector) {
     $blockWithDatepicker.append(buttonBlock);
   };
 
-  // вызов функций и обработчики
   creatControlBtn();
 
   const $btnClear = $blockWithDatepicker.find('[data-function = "clear"]');
@@ -130,32 +130,27 @@ function addDatePicker(selector) {
 
   if (startDate || finishDate) setDate();
 
-  // показать кнопку очистить для календаря
+  // Показать кнопку очистить при выбранных датах
   function showControlBtnClear() {
     $blockWithClearBtn.removeClass('datepicker--control-btn_hidden');
   }
 
-  // очистка календаря
+  // Очистить даты
   const handleButtonClearClick = () => {
     currentDatepicker.clear();
     $blockWithClearBtn.addClass('datepicker--control-btn_hidden');
   };
 
-  // применение значений календаря
+  const handleInputDateClickAndFocus = () => $firstInput.trigger('focus');
+  const handleInputDateBlur = () => currentDatepicker.hide();
   const handleButtonApplyClick = () => currentDatepicker.hide();
-  const handleButtonApplyBlur = () => currentDatepicker.hide();
-
-  // показать календарь
-  const handleInputDateClick = () => currentDatepicker.show();
-  const handleInputDateFocus = () => currentDatepicker.show();
 
   $btnClear.on('click', handleButtonClearClick);
   $btnApply.on('click', handleButtonApplyClick);
 
   if (hasTwoDropdowns) {
-    $datepickerInputs.eq(1).on('click', handleInputDateClick);
-    $datepickerInputs.eq(1).on('focus', handleInputDateFocus);
-    $datepickerInputs.eq(1).on('blur', handleButtonApplyBlur);
+    $secondInput.on('click focus', handleInputDateClickAndFocus);
+    $secondInput.on('blur', handleInputDateBlur);
   }
 }
 

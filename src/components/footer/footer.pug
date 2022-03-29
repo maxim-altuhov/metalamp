@@ -2,55 +2,69 @@
 include ~@comp/input/input.pug
 include ~@comp/footer-copyright/footer-copyright.pug
 
-footer.footer
-  .footer__block
-    .footer__container
-      .footer__wrapper
-        .footer__column
-          .footer__logo
-            a(href="/metalamp/")
-              include ./logo.pug
-          p.footer__descr Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-        .footer__column
-          h3.footer__block-title Навигация
-          ul
-            li.footer__menu-link
-              a(href="/mock-address/change-me") О нас
-            li.footer__menu-link
-              a(href="/mock-address/change-me") Новости
-            li.footer__menu-link
-              a(href="/mock-address/change-me") Служба поддержки
-            li.footer__menu-link
-              a(href="/mock-address/change-me") Услуги
-        .footer__column
-          h3.footer__block-title О нас
-          ul
-            li.footer__menu-link
-              a(href="/mock-address/change-me") О сервисе
-            li.footer__menu-link
-              a(href="/mock-address/change-me") Наша команда
-            li.footer__menu-link
-              a(href="/mock-address/change-me") Вакансии
-            li.footer__menu-link
-              a(href="/mock-address/change-me") Инвесторы
-        .footer__column
-          h3.footer__block-title Служба поддержки
-          ul
-            li.footer__menu-link
-              a(href="/mock-address/change-me") Соглашения
-            li.footer__menu-link
-              a(href="/mock-address/change-me") Сообщества
-            li.footer__menu-link
-              a(href="/mock-address/change-me") Связь с нами
-        .footer__column
-          h3.footer__block-subcribe-title Подписка
-          p.footer__descr.footer__descr_margin-top_null Получайте специальные предложения и новости сервиса
-          .footer__sub-block
-            form(action="#", method="post", name="footer-subcribe")
-              +input({
-                attributeName:"email-footer",
-                attributeType:"email",
-                placeholder:"Email",
-                inputTypeSubsribe: true,
-              })
-  +footer-copyright({ copyrightText: "Copyright © 2018 Toxin отель. Все права защищены." })
+//-
+  В данном миксине используются иконки шрифта Font Awesome, необходимо подключить данный шрифт в проект
+  const options = {
+    logoImg: String,
+    logoLink: String,
+    footerDescr: String,
+    subBlockTitle: String,
+    subBlockDescr: String,
+    subFormAction: String,
+    copyrightText: String,
+    socialLinks: {
+       "icon": "href",
+    },
+    menuLink: {
+      "title": {
+         "linkText": "href",
+      }
+    },
+  };
+
+mixin footer(options = {})
+  - 
+    const {
+      logoImg = "",
+      logoLink = "/mock-address/change-me",
+      footerDescr = "",
+      subBlockTitle = "",
+      subBlockDescr = "",
+      subFormAction = "/mock-address/action",
+      copyrightText = "",
+      socialLinks = {},
+      menuLink = {},
+    } = options;
+
+  footer.footer
+    .footer__block
+      .footer__container
+        .footer__wrapper
+          .footer__column
+            a.footer__logo(href=logoLink)
+              img(src=require(`./img/${logoImg}`) alt="logo")
+            p.footer__descr= footerDescr
+          each menuElem, title in menuLink
+            .footer__column
+              h3.footer__block-title= title
+              ul.footer__menu-block
+                each href, linkText in menuElem
+                  li.footer__menu-elem
+                    a(class="footer__menu-link" href= href)= linkText
+          .footer__column
+            h3.footer__block-subscribe-title= subBlockTitle
+            p.footer__descr= subBlockDescr
+            .footer__subscribe-block
+              form(class="footer__subscribe-form" action= subFormAction, method="post", name="footer-subscribe-form")
+                +input({
+                  attributeName:"email-footer",
+                  attributeType:"email",
+                  placeholder:"Email",
+                  inputTypeSubscribe: true,
+                })
+    +footer-copyright({ 
+      copyrightText: copyrightText,
+      logoLink: logoLink,
+      logoImg: logoImg,
+      socialLinks: socialLinks,
+    })

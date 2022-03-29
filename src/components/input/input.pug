@@ -7,9 +7,10 @@
     placeholder: String,
     valueInInput: String,
     addDateMask: Boolean,
-    inputTypeSubsribe: Boolean,
+    inputTypeSubscribe: Boolean,
     isFocused: Boolean,
   };
+  
 mixin input(options = {})
   - 
     const { 
@@ -19,10 +20,10 @@ mixin input(options = {})
       placeholder = "",
       valueInInput = "",
       addDateMask = false,
-      inputTypeSubsribe = false,
+      inputTypeSubscribe = false,
       isFocused = false,
     } = options;
-  - const classInputWithSubscribe = inputTypeSubsribe ? "input__field_variant_subscribe" : "";
+  - const classInputWithSubscribe = inputTypeSubscribe ? "input__field_variant_subscribe" : "";
   - const classInputFocused = isFocused ? "input__field_focused" : "";
 
   .input
@@ -35,6 +36,6 @@ mixin input(options = {})
         value= valueInInput
         data-mask-date= addDateMask
       )
-    if inputTypeSubsribe
+    if inputTypeSubscribe
         button.input__btn(type="submit")
           span.input__icon arrow_forward

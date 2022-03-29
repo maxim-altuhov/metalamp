@@ -17,7 +17,6 @@ function initPagination(selector) {
   try {
     options = JSON.parse(selector.dataset.options);
   } catch {
-    // Incorrect options are passed to the script. Will use the default options.
     options = {
       maxElemPerPage: 1,
       numPagesToShow: 1,
@@ -168,7 +167,7 @@ function initPagination(selector) {
 
   // переключение активной страницы
   const handlePageClick = (e) => {
-    if (!e.target.classList.contains(`.${classesForPages.WITH_ELLIPSIS[1]}`)) {
+    if (!e.target.classList.contains(classesForPages.WITH_ELLIPSIS[1])) {
       allPages.forEach((page) => {
         page.classList.remove(...classesForPages.ACTIVE);
       });
@@ -200,7 +199,7 @@ function initPagination(selector) {
   function setEventForPageButtons() {
     allPages = selector.querySelectorAll(`.${classesForPages.DEFAULT[1]}`);
     allPages.forEach((page) => {
-      if (!page.classList.contains(`.${classesForPages.WITH_ELLIPSIS[1]}`)) {
+      if (!page.classList.contains(classesForPages.WITH_ELLIPSIS[1])) {
         page.addEventListener('click', handlePageClick);
       }
     });

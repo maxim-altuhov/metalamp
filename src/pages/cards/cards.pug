@@ -2,6 +2,9 @@
 extends ~@lo/ui-kit/ui-kit
 
 //- components
+include ~@comp/ui-header/ui-header.pug
+include ~@comp/card-booking/card-booking
+include ~@comp/card-input/card-input
 include ~@comp/card-room/card-room.pug
 include ~@comp/card-reg/card-reg
 
@@ -10,6 +13,7 @@ block variables
   - const keywords = "ui-kit"
 
 block content
+  +ui-header("ui-header-logo.svg")
   .cards
     .cards__wrapper
       .cards__column
@@ -19,13 +23,51 @@ block content
           +card-reg({ textBtn: "перейти к оплате" })
       .cards__column
         .cards__cell
-          include ~@comp/card-booking/card-booking.pug
+          +card-booking({
+            roomNumber: 888,
+            roomType: "люкс",
+            roomPrice: 9990,
+            days: 4,
+            discount: 2179,
+            servicesText: "Сбор за услуги: скидка",
+            servicesInfo: "Сбор за услуги",
+            additionalServicesText: "Сбор за дополнительные услуги",
+            additionalServices: 300,
+            additionalServicesInfo: "Сбор за дополнительные услуги",
+            datepickerOptions: {
+              labelTextFirst:"прибытие",
+              labelTextSecond:"выезд",
+              attributeName:"card-booking-date-range",
+            },
+            dropdownOptions: {
+              labelText:"гости",
+              attributeName:"card-booking-guests",
+              textInInput:"Сколько гостей",
+              hasControlBtn: true,
+              elements: {
+                "Взрослые": 3,
+                "Дети": 0,
+                "Младенцы": 0,
+              },
+              data: {
+                variantsWordsObj: {
+                  гость: ['гость', 'гостя', 'гостей'],
+                  младенцы: ['младенец', 'младенца', 'младенцев'],
+                },
+              },
+            },
+            submitBtnOptions: {
+              theme:"with-arrow",
+              text:"забронировать",
+              btnType:"submit",
+            },
+          })
         .cards__cell
-          include ~@comp/card-input/card-input.pug
+          +card-input()
       .cards__column
         .cards__cell
           #date-filter-example
         .cards__cell
-          +card-room({ showArrows: true, number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room1.jpg", "room1.jpg", "room1.jpg", "room1.jpg")
+          +card-room({ showArrows: true, number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room-1.jpg", "room-1.jpg", "room-1.jpg", "room-1.jpg")
         .cards__cell
-          +card-room({ number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room2.jpg", "room2.jpg", "room2.jpg", "room2.jpg")
+          +card-room({ number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room-2.jpg", "room-2.jpg", "room-2.jpg", "room-2.jpg")

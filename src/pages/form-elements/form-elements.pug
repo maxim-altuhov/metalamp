@@ -2,9 +2,10 @@
 extends ~@lo/ui-kit/ui-kit
 
 //- components
+include ~@comp/ui-header/ui-header.pug
 include ~@comp/input/input.pug
-include ~@comp/input-datepicker/input-datepicker.pug
 include ~@comp/dropdown/dropdown.pug
+include ~@comp/input-datepicker/input-datepicker.pug
 include ~@comp/checkbox/checkbox.pug
 include ~@comp/radio-btn/radio-btn.pug
 include ~@comp/toggle/toggle.pug
@@ -24,6 +25,7 @@ block variables
   - const keywords = "ui-kit"
 
 block content
+  +ui-header("ui-header-logo.svg")
   .form-elements
     .form-elements__wrapper
       .form-elements__block
@@ -76,8 +78,6 @@ block content
             labelTextFirst:"date dropdown",
             labelTextSecond:"date dropdown",
             attributeName:"date-range",
-            attributeType:"text",
-            placeholder:"ДД.ММ.ГГГГ",
             data: {
               finishDate: "2019-08-19",
             },
@@ -86,7 +86,6 @@ block content
           +input-datepicker({
             labelTextFirst:"filter date dropdown",
             attributeName:"date-filter",
-            attributeType:"text",
             placeholder:"Выберите даты",
             hasOneInput: true,
             data: {
@@ -100,7 +99,7 @@ block content
             attributeName:"email",
             attributeType:"email",
             placeholder:"Email",
-            inputTypeSubsribe: true,
+            inputTypeSubscribe: true,
           })
       .form-elements__block
         .form-elements__item

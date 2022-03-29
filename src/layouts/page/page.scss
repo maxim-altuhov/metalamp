@@ -1,6 +1,4 @@
 @import '@base/base';
-@import '@comp/header/header';
-@import '@comp/footer/footer';
 
 .page {
   display: flex;
@@ -12,6 +10,6 @@
   }
 }
 
-footer {
+.footer {
   flex: 0 0 auto;
 }
