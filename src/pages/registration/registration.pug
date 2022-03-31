@@ -1,3 +1,4 @@
+//- layout
 extends ~@lo/page/page
 
 //- components
@@ -12,4 +13,65 @@ block content
     .registration__wrapper
       .container-content
         .registration__block
-          +card-reg({ textBtn: "зарегистрироваться" })
+          +card-reg({
+            inputOptions: {
+              name: {
+                attributeName:"name",
+                attributeType:"text",
+                placeholder:"Имя",
+              },
+              surname: {
+                attributeName:"surname",
+                attributeType:"text",
+                placeholder:"Фамилия",
+              },
+              birthday: {
+                labelText:"Дата рождения",
+                attributeName:"date",
+                attributeType:"text",
+                placeholder:"ДД.ММ.ГГГГ",
+                addDateMask: true,
+              },
+              email: {
+                labelText:"Данные для входа в сервис",
+                attributeName:"email-reg",
+                attributeType:"email",
+                placeholder:"Email",
+              },
+              password: {
+                attributeName:"password-reg",
+                attributeType:"text",
+                placeholder:"Пароль",
+              }, 
+            },
+            radioBtnOptions: [
+              {
+                text:"Мужчина",
+                name:"radio-btn",
+                isChecked: true,
+              },
+              {
+                text:"Женщина",
+                name:"radio-btn",
+              },
+            ],
+            toggleBtnOptions: [
+              {
+                text:"Получать спецпредложения",
+                name:"toggle-subscribe",
+              },
+            ],
+            buttonOptions: {
+              submit: {
+                theme:"with-arrow",
+                text:"зарегистрироваться",
+                btnType:"submit",
+              },
+              enter: {
+                theme:"transparent",
+                text:"Войти",
+                isLink: true,
+                href: "sign-in.html",
+              },
+            },
+          })

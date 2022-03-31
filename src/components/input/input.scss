@@ -23,7 +23,7 @@
     background: #FFFFFF;
     border: 1px solid $dark25;
     border-radius: 4px;
-    padding: 10px 14px;
+    padding: 0px 15px;
     font-size: 14px;
     color: $dark75;
     transition: border 0.2s ease-in;
@@ -37,24 +37,24 @@
       }
     }
 
-    @include placeholder($dark25, transparent, 13.6);
+    @include placeholder($dark25, transparent, 14);
 
     &_focused {
       border: 1px solid $dark50;
-      font-size: 13.7px;
+      font-size: 14px;
     }
 
     &_variant_subscribe {
-      padding: 13px 35px 13px 15px;
+      padding: 0px 35px 0px 15px;
     }
   }
 
   &__btn {
     position: absolute;
     bottom: 0px;
-    right: 2px;
-    height: 43px;
-    width: 40px;
+    right: 0px;
+    height: 44px;
+    width: 44px;
     background-clip: text;
   }
 
@@ -64,5 +64,6 @@
     background: $background-gradient;
     background-clip: text;
     -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    vertical-align: middle;
   }
 }

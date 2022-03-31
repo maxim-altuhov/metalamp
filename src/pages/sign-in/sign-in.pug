@@ -1,4 +1,8 @@
+//- layout
 extends ~@lo/page/page
+
+//- components
+include ~@comp/card-input/card-input
 
 block variables
   - const title = "Toxin - Войти в аккаунт"
@@ -9,4 +13,30 @@ block content
     .sign-in__wrapper
       .container-content
         .sign-in__block
-          include ~@comp/card-input/card-input.pug
+          +card-input({
+            inputOptions: {
+              email: {
+                attributeName:"email-login",
+                attributeType:"email",
+                placeholder:"Email",
+              },
+              password: {
+                attributeName:"password-login",
+                attributeType:"password",
+                placeholder:"Пароль",
+              },
+            },
+            buttonOptions: {
+              submit: {
+                theme:"with-arrow",
+                text:"войти",
+                btnType:"submit",
+              },
+              create: {
+                theme:"transparent",
+                text:"Создать",
+                isLink: true,
+                href: "registration.html",
+              }
+            },
+          })

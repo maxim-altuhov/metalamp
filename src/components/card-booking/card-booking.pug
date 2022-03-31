@@ -1,24 +1,25 @@
 //- components
-include ~@comp/input-datepicker/input-datepicker.pug
-include ~@comp/dropdown/dropdown.pug
-include ~@comp/button/button.pug
+include ~@comp/input-datepicker/input-datepicker
+include ~@comp/dropdown/dropdown
+include ~@comp/button/button
 
 //- 
   В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
   const options = {
-      roomNumber: Number,
-      roomType: String,
-      roomPrice: Number,
-      days: Number,
-      discount: Number,
-      services: Number,
-      servicesInfo: String,
-      additionalServices: Number,
-      additionalServicesInfo: String,
-      formAction: String,
-      datepickerOptions: Object,
-      dropdownOptions: Object,
-      submitBtnOptions: Object,
+    roomNumber: Number,
+    roomType: String,
+    roomPrice: Number,
+    days: Number,
+    discount: Number,
+    services: Number,
+    servicesInfo: String,
+    additionalServices: Number,
+    additionalServicesInfo: String,
+    formAction: String,
+    formName: String,
+    datepickerOptions: Object,
+    dropdownOptions: Object,
+    submitBtnOptions: Object,
   };
 
 mixin card-booking(options = {})
@@ -36,6 +37,7 @@ mixin card-booking(options = {})
       additionalServicesText = "",
       additionalServicesInfo = "Подсказка",
       formAction = "/mock-address/action",
+      formName = "card-booking",
       datepickerOptions = {},
       dropdownOptions = {},
       submitBtnOptions = {},
@@ -54,7 +56,12 @@ mixin card-booking(options = {})
         .card-booking__price-block
           span.card-booking__price #{convertCost(roomPrice)}₽
           |  в сутки
-      form(class="card-booking__form" action=formAction  method="post" name="card-booking")
+      form(
+        class="card-booking__form"
+        action=formAction
+        method="post"
+        name=formName
+      )
         .card-booking__wrapper
           .card-booking__elem
             +input-datepicker(datepickerOptions)

@@ -19,4 +19,8 @@ import '@comp/input-datepicker/input-datepicker';
 
 import './form-elements.scss';
 
-window.addEventListener('DOMContentLoaded', checkingTabKeyPress);
+function initFunction() {
+  checkingTabKeyPress();
+}
+
+window.addEventListener('DOMContentLoaded', initFunction);

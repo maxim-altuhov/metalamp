@@ -59,11 +59,29 @@
       }
     }
 
+    &_inline {
+      width: 0px;
+      height: auto;
+      min-height: auto;
+      border: none;
+      padding: 0;
+      margin: 0;
+
+      &:hover,
+      &:focus {
+        border: none;
+
+        &::placeholder {
+          color: none;
+        }
+      }
+    }
+
     &_with_filter {
       width: 100%;
     }
 
-    @include placeholder($dark75, $dark75, 13.7);
+    @include placeholder($dark75, $dark75, 14);
   }
 
   &__icon {

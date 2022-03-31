@@ -1,4 +1,5 @@
-import '../button/button';
+import '@comp/button/button';
+
 import addDatePicker from './js/addDatePicker';
 import './datepicker.scss';
 import './input-datepicker.scss';

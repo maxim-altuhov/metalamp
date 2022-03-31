@@ -2,8 +2,8 @@
 extends ~@lo/ui-kit/ui-kit
 
 //- components
-include ~@comp/ui-header/ui-header.pug
-include ~@comp/color/color.pug
+include ~@comp/ui-header/ui-header
+include ~@comp/color/color
 
 block variables
   - const title = "UI Kit - Colors & Type"
@@ -16,19 +16,47 @@ block content
       .colors
         .colors__wrapper
           .colors__item
-            +color({title:"Dark Shade 100%", subtitle:"#1F2041", color:"dark"})
+            +color({
+              title:"Dark Shade 100%",
+              subtitle:"#1F2041",
+              color:"dark",
+            })
           .colors__item
-            +color({title:"Dark Shade 75%", subtitle:"#1F2041", color:"dark-shade75"})
+            +color({
+              title:"Dark Shade 75%",
+              subtitle:"#1F2041",
+              color:"dark-shade75",
+            })
           .colors__item
-            +color({title:"Dark Shade 50%", subtitle:"#1F2041", color:"dark-shade50"})
+            +color({
+              title:"Dark Shade 50%",
+              subtitle:"#1F2041",
+              color:"dark-shade50",
+            })
           .colors__item
-            +color({title:"Dark Shade 25%", subtitle:"#1F2041", color:"dark-shade25"})
+            +color({
+              title:"Dark Shade 25%",
+              subtitle:"#1F2041",
+              color:"dark-shade25",
+            })
           .colors__item
-            +color({title:"Dark Shade 5%", subtitle:"#1F2041", color:"dark-shade5"})
+            +color({
+              title:"Dark Shade 5%",
+              subtitle:"#1F2041",
+              color:"dark-shade5",
+            })
           .colors__item
-            +color({title:"Purple", subtitle:"#BC9CFF", color:"purple"})
+            +color({
+              title:"Purple",
+              subtitle:"#BC9CFF",
+              color:"purple",
+            })
           .colors__item
-            +color({title:"Green", subtitle:"#6FCF97", color:"green"})
+            +color({
+              title:"Green",
+              subtitle:"#6FCF97",
+              color:"green",
+            })
       .type
         .type__wrapper 
           h1.type__elem

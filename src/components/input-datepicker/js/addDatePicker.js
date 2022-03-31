@@ -32,7 +32,7 @@ function addDatePicker(selector) {
   const dateStart = new Date(startDate);
   const dateFinish = finishDate ? new Date(finishDate) : '';
   const hasTwoDropdowns = $datepickerInputs.length > 1;
-  const styleClassForFilter = !hasTwoDropdowns ? 'datepicker_style_filter' : '';
+  const styleClassForFilter = !hasTwoDropdowns && !$firstInput.hasClass('input-datepicker__date_inline') ? 'datepicker_style_filter' : '';
 
   // Установить минимальной датой, текущую дату
   const setLimitForDate = () => {

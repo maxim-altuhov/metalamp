@@ -1,4 +1,5 @@
-import '../button/button';
+import '@comp/button/button';
+
 import initDropdown from './js/initDropdown';
 import './dropdown.scss';
 

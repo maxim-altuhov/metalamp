@@ -1,40 +1,43 @@
 //- components
-include ~@comp/input-datepicker/input-datepicker.pug
-include ~@comp/dropdown/dropdown.pug
-include ~@comp/button/button.pug
+include ~@comp/input-datepicker/input-datepicker
+include ~@comp/dropdown/dropdown
+include ~@comp/button/button
 
-.card-search
-  .card-search__wrapper
-    h2.card-search__title Найдём номера под ваши пожелания
-    form(action="#", method="get", name="card-search")
-      .card-search__block
-        .card-search__elem
-          +input-datepicker({
-            labelTextFirst:"прибытие",
-            labelTextSecond:"выезд",
-            attributeName:"card-search-date-range",
-          })
-        .card-search__elem
-          +dropdown({
-            labelText:"гости",
-            attributeName:"card-search-guests",
-            textInInput:"Сколько гостей",
-            hasControlBtn: true,
-            elements:{
-              "Взрослые": 0,
-              "Дети": 0,
-              "Младенцы": 0,
-            },
-            data: {
-              variantsWordsObj: {
-                гость: ['гость', 'гостя', 'гостей'],
-                младенцы: ['младенец', 'младенца', 'младенцев'],
-              },
-            },
-          })
-      .card-search__btn 
-        +button({
-          theme:"with-arrow",
-          text:"подобрать номер",
-          btnType:"submit",
-        })
+//- 
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
+  const options = {
+    title: String,
+    formAction: String,
+    formName: String,
+    datepickerOptions: Object,
+    dropdownOptions: Object,
+    submitBtnOptions: Object,
+  };
+
+mixin card-search(options = {})
+  - 
+    const {
+      title = "Найдём номера под ваши пожелания",
+      formAction = "/mock-address/action",
+      formName = "card-search",
+      datepickerOptions = {},
+      dropdownOptions = {},
+      submitBtnOptions = {},
+    } = options;
+
+  .card-search
+    .card-search__wrapper
+      h1.card-search__title #{title}
+      form(
+        class="card-search__form"
+        action=formAction
+        method="get"
+        name=formName
+      )
+        .card-search__block
+          .card-search__elem
+            +input-datepicker(datepickerOptions)
+          .card-search__elem
+            +dropdown(dropdownOptions)
+        .card-search__btn 
+          +button(submitBtnOptions)

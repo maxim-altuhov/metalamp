@@ -1,41 +1,54 @@
 //- components
-include ~@comp/simple-rating/simple-rating.pug
+include ~@comp/simple-rating/simple-rating
 
 //- В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
   const options = {
-    href: String,
-    number: Number,
-    showArrows: Boolean,
-    tag: String,
-    price: Number,
+    link: String,
+    roomNumber: Number,
+    roomType: String,
+    roomPrice: Number,
     ratingValue: Number,
     numberOfReviews: Number,
+    showArrows: Boolean,
+    sliderImg: Array
   }
 
-mixin card-room(options = {}, ...elements)
-  - const { href = "/mock-address/change-me", number = 0, showArrows = false, tag = "", price = 0, ratingValue = 0, numberOfReviews = 0} = options;
-    .card-room
-      .card-room__wrapper
-        .card-room__images.js-card-room__images
-          .swiper-wrapper
-            each element in elements
-              img.swiper-slide(src=require(`./img/${element}`), alt= "photo of the hotel room")
-          .card-room__pagination.js-card-room__pagination
-          if showArrows
-            button.card-room__btn.js-card-room__btn.card-room__btn_type_prev.js-card-room__btn_type_prev chevron_left
-            button.card-room__btn.js-card-room__btn.card-room__btn_type_next.js-card-room__btn_type_next chevron_right
-        a.card-room__block(href=`${href}`)
-          .card-room__top
-            .card-room__info
-              span.card-room__symbol № 
-              span.card-room__number= number
-              span.card-room__tag= tag
-            .card-room__price-block
-              span.card-room__price(data-cost)= `${price}₽`
-              |  в сутки
-          hr.card-room__line
-          .card-room__feedback
-            +simple-rating({value: `${ratingValue}`})
-            .card-room__comments.js-card-room__comments
-              span.card-room__comments-meter.js-card-room__comments-meter= numberOfReviews
-              |  отзывов
+mixin card-room(options = {})
+  - 
+    const {
+      link = "/mock-address/change-me",
+      roomNumber = 0,
+      roomType = "",
+      roomPrice = 0,
+      ratingValue = 0,
+      numberOfReviews = 0,
+      showArrows = false,
+      sliderImg = [],
+    } = options;
+  - const convertCost = (cost) => cost.toLocaleString('ru-RU');
+
+  .card-room
+    .card-room__wrapper
+      .card-room__images.js-card-room__images
+        .swiper-wrapper
+          each img in sliderImg
+            img.swiper-slide(src=require(`./img/${img}`), alt= "photo of the hotel room")
+        .card-room__pagination.js-card-room__pagination
+        if showArrows
+          button.card-room__btn.js-card-room__btn.card-room__btn_type_prev.js-card-room__btn_type_prev chevron_left
+          button.card-room__btn.js-card-room__btn.card-room__btn_type_next.js-card-room__btn_type_next chevron_right
+      a.card-room__block(href=link)
+        .card-room__top
+          .card-room__info
+            span.card-room__symbol № 
+            span.card-room__number #{roomNumber}
+            span.card-room__tag #{roomType}
+          .card-room__price-block
+            span.card-room__price #{convertCost(roomPrice)}₽
+            |  в сутки
+        hr.card-room__line
+        .card-room__feedback
+          +simple-rating({value: ratingValue})
+          .card-room__comments.js-card-room__comments
+            span.card-room__comments-meter.js-card-room__comments-meter #{numberOfReviews}
+            |  отзывов

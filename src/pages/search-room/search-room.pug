@@ -1,13 +1,14 @@
+//- layout
 extends ~@lo/page/page
+
 //- components
-include ~@comp/input-datepicker/input-datepicker.pug
-include ~@comp/dropdown/dropdown.pug
-include ~@comp/range-slider/range-slider.pug
-include ~@comp/checkbox/checkbox.pug
-include ~@comp/checkbox-list/checkbox-list.pug
-include ~@comp/card-room/card-room.pug
-include ~@comp/pagination/pagination.pug
-//-
+include ~@comp/input-datepicker/input-datepicker
+include ~@comp/dropdown/dropdown
+include ~@comp/range-slider/range-slider
+include ~@comp/checkbox/checkbox
+include ~@comp/checkbox-list/checkbox-list
+include ~@comp/card-room/card-room
+include ~@comp/pagination/pagination
 
 block variables
   - const title = "Toxin - Поиск номеров"
@@ -127,18 +128,165 @@ block content
         main.search-room__content
           h1 Номера, которые мы для вас подобрали
           .search-room__content-wrapper
-            +card-room({ href: "room-details.html", showArrows: true, number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room1.jpg", "room1.jpg", "room1.jpg", "room1.jpg")
-            +card-room({ href: "room-details.html", number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room2.jpg", "room2.jpg", "room2.jpg", "room2.jpg")
-            +card-room({ href: "room-details.html", number: 980, tag: "люкс", price: 8500, ratingValue: 3, numberOfReviews: 35 }, elements = "room3.jpg", "room3.jpg", "room3.jpg", "room3.jpg")
-            +card-room({ href: "room-details.html", number: 856, price: 7300, ratingValue: 5, numberOfReviews: 19 }, elements = "room4.jpg", "room4.jpg", "room4.jpg", "room4.jpg")
-            +card-room({ href: "room-details.html", number: 740, price: 6000, ratingValue: 4, numberOfReviews: 44 }, elements = "room5.jpg", "room5.jpg", "room5.jpg", "room5.jpg")
-            +card-room({ href: "room-details.html", number: 982, price: 5800, ratingValue: 3, numberOfReviews: 56 }, elements = "room6.jpg", "room6.jpg", "room6.jpg", "room6.jpg")
-            +card-room({ href: "room-details.html", number: 678, price: 5500, ratingValue: 5, numberOfReviews: 45 }, elements = "room7.jpg", "room7.jpg", "room7.jpg", "room7.jpg")
-            +card-room({ href: "room-details.html", number: 450, price: 5300, ratingValue: 4, numberOfReviews: 39 }, elements = "room8.jpg", "room8.jpg", "room8.jpg", "room8.jpg")
-            +card-room({ href: "room-details.html", number: 350, price: 5000, ratingValue: 3, numberOfReviews: 77 }, elements = "room9.jpg", "room9.jpg", "room9.jpg", "room9.jpg")
-            +card-room({ href: "room-details.html", number: 666, price: 5000, ratingValue: 5, numberOfReviews: 25 }, elements = "room10.jpg", "room10.jpg", "room10.jpg", "room10.jpg")
-            +card-room({ href: "room-details.html", number: 444, price: 5000, ratingValue: 3, numberOfReviews: 15 }, elements = "room11.jpg", "room11.jpg", "room11.jpg", "room11.jpg")
-            +card-room({ href: "room-details.html", number: 352, price: 5000, ratingValue: 3, numberOfReviews: 55 }, elements = "room12.jpg", "room12.jpg", "room12.jpg", "room12.jpg")
+            +card-room({
+              link: "room-details.html",
+              showArrows: true,
+              roomNumber: 888,
+              roomType: "люкс",
+              roomPrice: 9990,
+              ratingValue: 5,
+              numberOfReviews: 145,
+              sliderImg: [
+                "room-1.jpg",
+                "room-1.jpg",
+                "room-1.jpg",
+                "room-1.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 840,
+              roomPrice: 9900,
+              ratingValue: 4,
+              numberOfReviews: 65,
+              sliderImg: [
+                "room-2.jpg",
+                "room-2.jpg",
+                "room-2.jpg",
+                "room-2.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 980,
+              roomType: "люкс",
+              roomPrice: 8500,
+              ratingValue: 3,
+              numberOfReviews: 35,
+              sliderImg: [
+                "room-3.jpg",
+                "room-3.jpg",
+                "room-3.jpg",
+                "room-3.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 856,
+              roomPrice: 7300,
+              ratingValue: 5,
+              numberOfReviews: 19,
+              sliderImg: [
+                "room-4.jpg",
+                "room-4.jpg",
+                "room-4.jpg",
+                "room-4.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 740,
+              roomPrice: 6000,
+              ratingValue: 4,
+              numberOfReviews: 44,
+              sliderImg: [
+                "room-5.jpg",
+                "room-5.jpg",
+                "room-5.jpg",
+                "room-5.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 982,
+              roomPrice: 5800,
+              ratingValue: 3,
+              numberOfReviews: 56,
+              sliderImg: [
+                "room-6.jpg",
+                "room-6.jpg",
+                "room-6.jpg",
+                "room-6.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 678,
+              roomPrice: 5500,
+              ratingValue: 5,
+              numberOfReviews: 45,
+              sliderImg: [
+                "room-7.jpg",
+                "room-7.jpg",
+                "room-7.jpg",
+                "room-7.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 450,
+              roomPrice: 5300,
+              ratingValue: 4,
+              numberOfReviews: 39,
+              sliderImg: [
+                "room-8.jpg",
+                "room-8.jpg",
+                "room-8.jpg",
+                "room-8.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 350,
+              roomPrice: 5000,
+              ratingValue: 3,
+              numberOfReviews: 77,
+              sliderImg: [
+                "room-9.jpg",
+                "room-9.jpg",
+                "room-9.jpg",
+                "room-9.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 666,
+              roomPrice: 5000,
+              ratingValue: 5,
+              numberOfReviews: 25,
+              sliderImg: [
+                "room-10.jpg",
+                "room-10.jpg",
+                "room-10.jpg",
+                "room-10.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 444,
+              roomPrice: 5000,
+              ratingValue: 3,
+              numberOfReviews: 15,
+              sliderImg: [
+                "room-11.jpg",
+                "room-11.jpg",
+                "room-11.jpg",
+                "room-11.jpg",
+              ],
+            })
+            +card-room({
+              link: "room-details.html",
+              roomNumber: 352,
+              roomPrice: 5000,
+              ratingValue: 3,
+              numberOfReviews: 55,
+              sliderImg: [
+                "room-12.jpg",
+                "room-12.jpg",
+                "room-12.jpg",
+                "room-12.jpg",
+              ],
+            })
           .search-room__pagination
             +pagination({
               maxElemPerPage: 12,

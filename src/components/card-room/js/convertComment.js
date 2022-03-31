@@ -11,11 +11,11 @@ function convertComment() {
     };
 
     if (checkNumberOfComments(5, 21)) {
-      comment.innerHTML = `<span class="card-room__comments-meter js-card-room__comments-meter">${numberOfComments}</span> отзывов`;
+      comment.lastChild.textContent = ' отзывов';
     } else if (checkNumberOfComments(1, 5, false)) {
-      comment.innerHTML = `<span class="card-room__comments-meter js-card-room__comments-meter">${numberOfComments}</span> отзыва`;
+      comment.lastChild.textContent = ' отзыва';
     } else if ((numberOfComments % 10) === 1) {
-      comment.innerHTML = `<span class="card-room__comments-meter js-card-room__comments-meter">${numberOfComments}</span> отзыв`;
+      comment.lastChild.textContent = ' отзыв';
     }
   });
 }

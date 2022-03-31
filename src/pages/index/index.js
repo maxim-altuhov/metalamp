@@ -1,17 +1,11 @@
-import './index.scss';
-
 import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
-import initDropdown from '@comp/dropdown/js/initDropdown';
-import addDatePicker from '@comp/input-datepicker/js/addDatePicker';
+import '@lo/page/page';
+import '@comp/card-search/card-search';
+
+import './index.scss';
 
 function initFunction() {
   checkingTabKeyPress();
-  initDropdown();
-  addDatePicker({
-    selectorId: '#card-search-date',
-    isTwoDropdowns: true,
-    setMinDate: true,
-  });
 }
 
 window.addEventListener('DOMContentLoaded', initFunction);

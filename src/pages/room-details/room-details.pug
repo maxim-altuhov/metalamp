@@ -1,10 +1,11 @@
 extends ~@lo/page/page
 
 //- components
-include ~@comp/info-icon/info-icon.pug
-include ~@comp/feedback/feedback.pug
-include ~@comp/bullet-list/bullet-list.pug
-include ~@comp/diagram/diagram.pug
+include ~@comp/info-icon/info-icon
+include ~@comp/feedback/feedback
+include ~@comp/bullet-list/bullet-list
+include ~@comp/diagram/diagram
+include ~@comp/card-booking/card-booking
 
 block variables
   - const title = "Toxin - Описание номера"
@@ -15,11 +16,11 @@ block content
     .room-details__photos-block.js-room-details__photos-block.swiper-container
       .room-details__photos-wrapper.swiper-wrapper
         .room-details__photos-elem.swiper-slide
-          img(src=require("./img/preview3.jpg"), alt="photo room")
+          img(src=require("./img/preview-3.jpg"), alt="room photo")
         .room-details__photos-elem.swiper-slide
-          img(src=require("./img/preview2.jpg"), alt="photo room")
+          img(src=require("./img/preview-2.jpg"), alt="room photo")
         .room-details__photos-elem.swiper-slide
-          img(src=require("./img/preview1.jpg"), alt="photo room")
+          img(src=require("./img/preview-1.jpg"), alt="room photo")
       .swiper-pagination
     .container-content
       .room-details__content
@@ -47,9 +48,57 @@ block content
         .room-details__rating
           h2 Впечатления от номера
           .room-details__rating-elem
-            +diagram({ selectorId: 'rating-rooms', rating_5: 130, rating_4: 65, rating_3: 65, rating_2: 0 })
+            +diagram({
+              selectorId: 'rating-rooms',
+              rating_5: 130,
+              rating_4: 65,
+              rating_3: 65,
+              rating_2: 0
+            })
         .room-details__booking
-          include ~@comp/card-booking/card-booking.pug
+          +card-booking({
+            roomNumber: 888,
+            roomType: "люкс",
+            roomPrice: 9990,
+            days: 4,
+            discount: 2179,
+            servicesText: "Сбор за услуги: скидка",
+            servicesInfo: "Сбор за услуги",
+            additionalServicesText: "Сбор за дополнительные услуги",
+            additionalServices: 300,
+            additionalServicesInfo: "Сбор за дополнительные услуги",
+            datepickerOptions: {
+              labelTextFirst:"прибытие",
+              labelTextSecond:"выезд",
+              attributeName:"card-booking-date-range",
+              data: {
+                startDate: "2019-08-19",
+                finishDate: "2019-08-23",
+              },
+            },
+            dropdownOptions: {
+              labelText:"гости",
+              attributeName:"card-booking-guests",
+              textInInput:"Сколько гостей",
+              hasControlBtn: true,
+              elements: {
+                "Взрослые": 3,
+                "Дети": 0,
+                "Младенцы": 0,
+              },
+              data: {
+                variantsWordsObj: {
+                  гость: ['гость', 'гостя', 'гостей'],
+                  младенцы: ['младенец', 'младенца', 'младенцев'],
+                },
+              },
+            },
+            submitBtnOptions: {
+              theme:"with-arrow",
+              text:"забронировать",
+              btnType:"submit",
+            },
+          })
         .room-details__feedback
           .room-details__feedback-title
             h2 Отзывы посетителей номера

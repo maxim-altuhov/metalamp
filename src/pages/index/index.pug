@@ -1,4 +1,8 @@
+//- layout
 extends ~@lo/page/page
+
+//- components
+include ~@comp/card-search/card-search
 
 block variables
   - const title = "Toxin - Бронирование отелей"
@@ -9,5 +13,36 @@ block content
     .main-page__block
       .container-content
         .main-page__content
-          include ~@comp/card-search/card-search
+          +card-search({
+            datepickerOptions: {
+              labelTextFirst:"прибытие",
+              labelTextSecond:"выезд",
+              attributeName:"card-search-date-range",
+              data: {
+                setMinDate: true,
+              }
+            },
+            dropdownOptions: {
+              labelText:"гости",
+              attributeName:"card-search-guests",
+              textInInput:"Сколько гостей",
+              hasControlBtn: true,
+              elements: {
+                "Взрослые": 0,
+                "Дети": 0,
+                "Младенцы": 0,
+              },
+              data: {
+                variantsWordsObj: {
+                  гость: ['гость', 'гостя', 'гостей'],
+                  младенцы: ['младенец', 'младенца', 'младенцев'],
+                },
+              },
+            },
+            submitBtnOptions: {
+              theme:"with-arrow",
+              text:"подобрать номер",
+              btnType:"submit",
+            },
+          })
           .main-page__text Лучшие номера для вашей работы, отдыха и просто вдохновения

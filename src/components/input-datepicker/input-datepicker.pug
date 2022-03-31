@@ -8,6 +8,7 @@
     placeholder: String,
     valueInInput: String,
     hasOneInput: Boolean,
+    isInline: Boolean,
     data: {
       startDate: "2019-08-19",
       finishDate: "2019-08-23",
@@ -26,24 +27,28 @@ mixin input-datepicker(options = {})
       placeholder = "ДД.ММ.ГГГГ",
       valueInInput = "",
       hasOneInput = false,
+      isInline = false,
       data = {},
     } = options;
   - const numberOfElements = hasOneInput ? 1 : 2
   - const classLabelWithFilter = hasOneInput ? "input-datepicker__label_with_filter" : "";
   - const classInputWithFilter = hasOneInput ? "input-datepicker__date_with_filter" : "";
   - let index = 0;  
-
-  div.input-datepicker.js-input-datepicker(data-options=data)
-    while index < numberOfElements
-      - index++
-      label(class=`input-datepicker__label ${classLabelWithFilter}`)= labelTextFirst
-        input(
-          class=`input-datepicker__date js-input-datepicker__date ${classInputWithFilter}`
-          readonly
-          autocomplete="off"
-          name=`${attributeName}-${index}`
-          value=valueInInput
-          type=attributeType
-          placeholder=placeholder
-        )
-        span.input-datepicker__icon.js-input-datepicker__icon keyboard_arrow_down
+  if !isInline
+    div.input-datepicker.js-input-datepicker(data-options=data)
+      while index < numberOfElements
+        - index++
+        label(class=`input-datepicker__label ${classLabelWithFilter}`) #{index === 1 ? labelTextFirst : labelTextSecond}
+          input(
+            class=`input-datepicker__date js-input-datepicker__date ${classInputWithFilter}`
+            readonly
+            autocomplete="off"
+            name=`${attributeName}-${index}`
+            value=valueInInput
+            type=attributeType
+            placeholder=placeholder
+          )
+          span.input-datepicker__icon.js-input-datepicker__icon keyboard_arrow_down
+  else
+    div.input-datepicker.js-input-datepicker(data-options=data)
+      div.input-datepicker__date.input-datepicker__date_inline.js-input-datepicker__date

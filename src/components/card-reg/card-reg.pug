@@ -1,78 +1,73 @@
 //- components
-include ~@comp/input/input.pug
-include ~@comp/radio-btn/radio-btn.pug
-include ~@comp/toggle/toggle.pug
-include ~@comp/button/button.pug
+include ~@comp/input/input
+include ~@comp/radio-btn/radio-btn
+include ~@comp/toggle/toggle
+include ~@comp/button/button
+
+//- 
+  В данном миксине используется шрифт Material Icons, необходимо подключить данный шрифт в проект
+  const options = {
+    title: String,
+    formAction: String,
+    formName: String,
+    inputOptions: {
+      name: {},
+      surname: {},
+      birthday: {},
+      email: {},
+      password: {},
+    },
+    radioBtnOptions: [...options],
+    toggleBtnOptions: [...options],
+    buttonOptions: {
+      submit: {},
+      enter: {},
+    },
+  };
 
 mixin card-reg(options = {})
-  - const { textBtn = "" } = options;
+  - 
+    const {
+      title = "Регистрация аккаунта",
+      formAction = "/mock-address/action",
+      formName = "card-registration",
+      inputOptions = {},
+      radioBtnOptions = [],
+      toggleBtnOptions = [],
+      buttonOptions = {},
+    } = options;
+
   .card-reg
     .card-reg__block
-      h2.card-reg__title Регистрация аккаунта
-      form(action="#", method="post", name="card-registration")
+      h1.card-reg__title #{title}
+      form(
+        class="card-reg__form"
+        action=formAction
+        method="post"
+        name=formName
+      )
         .card-reg__wrapper
           .card-reg__elem
-            +input({
-              attributeName:"name",
-              attributeType:"text",
-              placeholder:"Имя",
-            })
+            +input(inputOptions.name)
           .card-reg__elem
-            +input({
-              attributeName:"surname",
-              attributeType:"text",
-              placeholder:"Фамилия",
-            })
+            +input(inputOptions.surname)
           .card-reg__elem.card-reg__elem_direction_row
-            .card-reg__radiobtn
-              +radio-btn({
-                text:"Мужчина",
-                name:"radio-btn",
-                isChecked: true,
-              })
-            .card-reg__radiobtn
-              +radio-btn({
-                text:"Женщина",
-                name:"radio-btn",
-              })
+            each options in radioBtnOptions
+              .card-reg__radiobtn
+                +radio-btn(options)
           .card-reg__elem
-            +input({
-              labelText:"Дата рождения",
-              attributeName:"date",
-              attributeType:"text",
-              placeholder:"ДД.ММ.ГГГГ",
-              addDateMask: true,
-            })
+            +input(inputOptions.birthday)
           .card-reg__elem
-            +input({
-              labelText:"Данные для входа в сервис",
-              attributeName:"email-reg",
-              attributeType:"email",
-              placeholder:"Email",
-            })
+            +input(inputOptions.email)
           .card-reg__elem
-            +input({
-              attributeName:"password-reg",
-              attributeType:"text",
-              placeholder:"Пароль",
-            })
+            +input(inputOptions.password)
           .card-reg__elem.card-reg__elem_direction_row
-            +toggle({
-            text:"Получать спецпредложения",
-            name:"toggle-subscribe",
-          })
+            each options in toggleBtnOptions
+              .card-reg__toggle
+                +toggle(options)
           .card-reg__btn
-            +button({
-              theme:"with-arrow",
-              text:`${textBtn}`,
-              btnType:"submit",
-            })
+            +button(buttonOptions.submit)
       .card-reg__sign-in
         span.card-reg__text Уже есть аккаунт на Toxin
         .card-reg__mini-btn
-          +button({
-            theme:"transparent",
-            text:"Войти",
-            isLink: true,
-            href: "sign-in.html",
-          })
+          +button(buttonOptions.enter)

@@ -2,11 +2,13 @@
 extends ~@lo/ui-kit/ui-kit
 
 //- components
-include ~@comp/ui-header/ui-header.pug
+include ~@comp/ui-header/ui-header
+include ~@comp/card-search/card-search
 include ~@comp/card-booking/card-booking
-include ~@comp/card-input/card-input
-include ~@comp/card-room/card-room.pug
 include ~@comp/card-reg/card-reg
+include ~@comp/card-input/card-input
+include ~@comp/card-room/card-room
+include ~@comp/input-datepicker/input-datepicker
 
 block variables
   - const title = "UI Kit - Cards"
@@ -18,9 +20,98 @@ block content
     .cards__wrapper
       .cards__column
         .cards__cell
-          include ~@comp/card-search/card-search.pug
+          +card-search({
+            datepickerOptions: {
+              labelTextFirst:"прибытие",
+              labelTextSecond:"выезд",
+              attributeName:"card-search-date-range",
+            },
+            dropdownOptions: {
+              labelText:"гости",
+              attributeName:"card-search-guests",
+              textInInput:"Сколько гостей",
+              hasControlBtn: true,
+              elements: {
+                "Взрослые": 0,
+                "Дети": 0,
+                "Младенцы": 0,
+              },
+              data: {
+                variantsWordsObj: {
+                  гость: ['гость', 'гостя', 'гостей'],
+                  младенцы: ['младенец', 'младенца', 'младенцев'],
+                },
+              },
+            },
+            submitBtnOptions: {
+              theme:"with-arrow",
+              text:"подобрать номер",
+              btnType:"submit",
+            },
+          })
         .cards__cell
-          +card-reg({ textBtn: "перейти к оплате" })
+          +card-reg({
+            inputOptions: {
+              name: {
+                attributeName:"name",
+                attributeType:"text",
+                placeholder:"Имя",
+              },
+              surname: {
+                attributeName:"surname",
+                attributeType:"text",
+                placeholder:"Фамилия",
+              },
+              birthday: {
+                labelText:"Дата рождения",
+                attributeName:"date",
+                attributeType:"text",
+                placeholder:"ДД.ММ.ГГГГ",
+                addDateMask: true,
+              },
+              email: {
+                labelText:"Данные для входа в сервис",
+                attributeName:"email-reg",
+                attributeType:"email",
+                placeholder:"Email",
+              },
+              password: {
+                attributeName:"password-reg",
+                attributeType:"text",
+                placeholder:"Пароль",
+              }, 
+            },
+            radioBtnOptions: [
+              {
+                text:"Мужчина",
+                name:"radio-btn",
+                isChecked: true,
+              },
+              {
+                text:"Женщина",
+                name:"radio-btn",
+              },
+            ],
+            toggleBtnOptions: [
+              {
+                text:"Получать спецпредложения",
+                name:"toggle-subscribe",
+              },
+            ],
+            buttonOptions: {
+              submit: {
+                theme:"with-arrow",
+                text:"перейти к оплате",
+                btnType:"submit",
+              },
+              enter: {
+                theme:"transparent",
+                text:"Войти",
+                isLink: true,
+                href: "sign-in.html",
+              },
+            },
+          })
       .cards__column
         .cards__cell
           +card-booking({
@@ -38,6 +129,10 @@ block content
               labelTextFirst:"прибытие",
               labelTextSecond:"выезд",
               attributeName:"card-booking-date-range",
+              data: {
+                startDate: "2019-08-19",
+                finishDate: "2019-08-23",
+              },
             },
             dropdownOptions: {
               labelText:"гости",
@@ -63,11 +158,67 @@ block content
             },
           })
         .cards__cell
-          +card-input()
+          +card-input({
+            inputOptions: {
+              email: {
+                attributeName:"email-login",
+                attributeType:"email",
+                placeholder:"Email",
+              },
+              password: {
+                attributeName:"password-login",
+                attributeType:"password",
+                placeholder:"Пароль",
+              },
+            },
+            buttonOptions: {
+              submit: {
+                theme:"with-arrow",
+                text:"войти",
+                btnType:"submit",
+              },
+              create: {
+                theme:"transparent",
+                text:"Создать",
+                isLink: true,
+                href: "registration.html",
+              }
+            },
+          })
       .cards__column
         .cards__cell
-          #date-filter-example
+          +input-datepicker({
+            isInline: true,
+            data: {
+              startDate: "2019-08-19",
+              finishDate: "2019-08-23",
+            }
+          })
         .cards__cell
-          +card-room({ showArrows: true, number: 888, tag: "люкс", price: 9990, ratingValue: 5, numberOfReviews: 145 }, elements = "room-1.jpg", "room-1.jpg", "room-1.jpg", "room-1.jpg")
+          +card-room({
+            showArrows: true,
+            roomNumber: 888,
+            roomType: "люкс",
+            roomPrice: 9990,
+            ratingValue: 5,
+            numberOfReviews: 145,
+            sliderImg: [
+              "room-1.jpg",
+              "room-1.jpg",
+              "room-1.jpg",
+              "room-1.jpg",
+            ],
+          })
         .cards__cell
-          +card-room({ number: 840, price: 9900, ratingValue: 4, numberOfReviews: 65 }, elements = "room-2.jpg", "room-2.jpg", "room-2.jpg", "room-2.jpg")
+          +card-room({
+            roomNumber: 840,
+            roomPrice: 9900,
+            ratingValue: 4,
+            numberOfReviews: 65,
+            sliderImg: [
+              "room-2.jpg",
+              "room-2.jpg",
+              "room-2.jpg",
+              "room-2.jpg",
+            ],
+          })

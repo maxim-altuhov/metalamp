@@ -1,4 +1,5 @@
-import '../button/button';
+import '@comp/button/button';
+
 import initMenu from './js/initMenu';
 import './header.scss';
 

@@ -1,10 +1,10 @@
 @import '~swiper/swiper-bundle.css';
-@import '@comp/simple-rating/simple-rating';
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .card-room {
   &__wrapper {
-    max-width: 270px;
+    width: 270px;
     min-width: 270px;
     min-height: 257px;
     background: #FFFFFF;
@@ -14,7 +14,7 @@
 
   &__images {
     position: relative;
-    max-width: 270px;
+    width: 270px;
     height: 151.38px;
     overflow: hidden;
     border-radius: 4px 4px 0 0;
@@ -28,7 +28,7 @@
   }
 
   .swiper-container-horizontal>.swiper-pagination-bullets {
-    bottom: 11px;
+    bottom: 12px;
     padding-right: 10px;
   }
 
@@ -58,20 +58,7 @@
   }
 
   &__btn {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
+    @include font-material-icons;
     position: absolute;
     width: 42px;
     height: 100%;
@@ -87,12 +74,12 @@
     transform: translateY(-50%);
 
     &_type_prev {
-      left: 1px;
+      left: 2px;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
     }
 
     &_type_next {
-      right: -1px;
+      right: 0px;
       background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
     }
 
