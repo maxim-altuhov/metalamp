@@ -1,4 +1,5 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .card-booking {
   &__block {
@@ -25,7 +26,7 @@
   &__info {
     font-weight: 700;
     font-size: 24px;
-    line-height: 121%;
+    line-height: 29px;
     color: $dark;
   }
 
@@ -155,7 +156,6 @@
 
   &__total {
     order: 3;
-    margin-right: -9px;
   }
 
   &__btn {

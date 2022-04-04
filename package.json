@@ -58,7 +58,6 @@
     "body-scroll-lock": "^3.1.5",
     "inputmask": "^5.0.5",
     "jquery": "^3.6.0",
-    "normalize.css": "^8.0.1",
     "nouislider": "^14.6.3",
     "swiper": "^6.5.3",
     "wnumb": "^1.2.0"

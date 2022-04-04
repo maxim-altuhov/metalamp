@@ -3,17 +3,15 @@ import SwiperCore, { Pagination } from 'swiper/core';
 SwiperCore.use([Pagination]);
 
 function initSliderPreview() {
-  let swiper = SwiperCore;
-  let init = false;
+  const MAX_WIDTH_ACTIVATED_SLIDER = 575;
+  let slider;
+  let hasInitSlider = false;
 
   const initSwiperMode = () => {
-    let small = window.matchMedia('(max-width: 575px)');
-    let another = window.matchMedia('(min-width: 576px)');
-
-    if (small.matches) {
-      if (!init) {
-        init = true;
-        swiper = new SwiperCore('.js-room-details__photos-block', {
+    if (window.matchMedia(`(max-width: ${MAX_WIDTH_ACTIVATED_SLIDER}px)`).matches) {
+      if (!hasInitSlider) {
+        hasInitSlider = true;
+        slider = new SwiperCore('.js-swiper-container', {
           loop: true,
           autoHeight: true,
           spaceBetween: 40,
@@ -23,16 +21,16 @@ function initSliderPreview() {
           },
         });
       }
-    } else if (another.matches) {
-      if (init) {
-        swiper.destroy();
-      }
-      init = false;
+    } else if (window.matchMedia(`(min-width: ${MAX_WIDTH_ACTIVATED_SLIDER + 1}px)`).matches) {
+      if (hasInitSlider) slider.destroy();
+      hasInitSlider = false;
     }
   };
 
-  window.addEventListener('load', initSwiperMode);
-  window.addEventListener('resize', initSwiperMode);
+  const handleWindowLoad = () => initSwiperMode();
+  const handleWindowResize = () => initSwiperMode();
+  window.addEventListener('load', handleWindowLoad);
+  window.addEventListener('resize', handleWindowResize);
 }
 
 export default initSliderPreview;

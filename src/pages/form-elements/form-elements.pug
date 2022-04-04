@@ -3,6 +3,7 @@ extends ~@lo/ui-kit/ui-kit
 
 //- components
 include ~@comp/ui-header/ui-header
+include ~@comp/heading/heading
 include ~@comp/input/input
 include ~@comp/dropdown/dropdown
 include ~@comp/input-datepicker/input-datepicker
@@ -103,7 +104,7 @@ block content
           })
       .form-elements__block
         .form-elements__item
-          h3 Checkbox Buttons
+          +heading({text:"Checkbox Buttons"}) 
           .form-elements__flex-wrapper
             .form-elements__checkbox-item
               +checkbox({
@@ -123,7 +124,7 @@ block content
                 isChecked: true,
               })
         .form-elements__item.form-elements__item_margin_mini
-          h3 Radio Buttons
+          +heading({text:"Radio Buttons"})
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
             .form-elements__radiobtn
               +radio-btn({
@@ -137,7 +138,7 @@ block content
                 name:"radio-btn",
               })
         .form-elements__item
-          h3 Toggle
+          +heading({text:"Toggle"})
           .form-elements__flex-wrapper
             .form-elements__toggle
               +toggle({
@@ -151,14 +152,14 @@ block content
                 name:"toggle-2",
               })
         .form-elements__item
-          h3 Like Button
+          +heading({text:"Like Button"})
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
             .form-elements__like
               +like({counter:2})
             .form-elements__like
               +like({counter:12, isActive: true})
         .form-elements__item
-          h3 Rate Button
+          +heading({text:"Rate Button"})
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
             .form-elements__rating
               +simple-rating({value: 4})
@@ -176,7 +177,7 @@ block content
             },
           })
         .form-elements__item
-          h3 Buttons
+          +heading({text:"Buttons"})
           .form-elements__flex-wrapper.form-elements__flex-wrapper_flex_row
             .form-elements__btn-row
               .form-elements__btn-elem
@@ -216,7 +217,7 @@ block content
                 text:"перейти к оплате",
               })
         .form-elements__item
-          h3 Pagination
+          +heading({text:"Pagination"})
           .form-elements__pagination
             +pagination({
               maxElemPerPage: 12,
@@ -333,7 +334,7 @@ block content
           })
       .form-elements__block
         .form-elements__item.form-elements__item_margin-top_added
-          h3 Rich Checkbox Buttons
+          +heading({text:"rich checkbox buttons"})
           .form-elements__flex-wrapper
             .form-elements__rich-checkbox-item
               +checkbox({
@@ -351,7 +352,7 @@ block content
               })
       .form-elements__block
         .form-elements__item.form-elements__item_margin-top_added
-          h3 bullet list
+          +heading({text:"bullet list"}) 
           .form-elements__bullet-list
             +bullet-list(
               "Нельзя с питомцами",

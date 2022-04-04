@@ -1,4 +1,5 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .card-search {
   &__wrapper {
@@ -17,8 +18,7 @@
   }
 
   &__title {
-    font-size: 24px;
-    line-height: 29px;
+    @include level-h1;
 
     @media (max-width: 480px) {
       font-size: 19px;

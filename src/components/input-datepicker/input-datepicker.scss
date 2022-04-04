@@ -13,11 +13,7 @@
   &__label {
     position: relative;
     cursor: pointer;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15 / 12 * 100%;
-    text-transform: uppercase;
-    color: $dark;
+    @include level-h3;
 
     @media (max-width: 480px) {
       margin-bottom: 10px;

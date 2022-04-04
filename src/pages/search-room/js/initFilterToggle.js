@@ -8,14 +8,14 @@ function initFilterToggle() {
   const btnToggleFilter = document.querySelector('.js-search-room__aside-btn');
   const focusLimiter = document.querySelector('.js-search-room__limiter');
   const allElemCanToggleWithTab = blockWithFilter.querySelectorAll('input, button, [tabindex="0"]:not(input)');
-  const maxWidthFilterIsActivated = 1100;
+  const WIDTH_WHEN_FILTER_IS_ACTIVATED = 1100;
 
   // устанавливаем полям tabindex
-  const setTabindex = (selector) => {
-    selector.forEach(elem => {
+  const setTabindex = (elements) => {
+    elements.forEach((elem) => {
       if (blockWithFilter.classList.contains('search-room__aside_opened')) {
         elem.setAttribute('tabindex', '0');
-      } else if (window.matchMedia(`(max-width: ${maxWidthFilterIsActivated}px)`).matches) {
+      } else if (window.matchMedia(`(max-width: ${WIDTH_WHEN_FILTER_IS_ACTIVATED}px)`).matches) {
         elem.setAttribute('tabindex', '-1');
       } else {
         elem.setAttribute('tabindex', '0');
@@ -35,30 +35,34 @@ function initFilterToggle() {
       btnToggleFilter.textContent = 'Открыть фильтр';
       enableBodyScroll(blockWithFilter);
     }
+
     setTabindex(allElemCanToggleWithTab);
   };
 
   // отслеживание ресайза и видимости фильтра
-  const resizeChecker = () => {
-    if (window.matchMedia(`(min-width: ${maxWidthFilterIsActivated + 1}px)`).matches) {
+  const handleWindowResize = () => {
+    if (window.matchMedia(`(min-width: ${WIDTH_WHEN_FILTER_IS_ACTIVATED + 1}px)`).matches) {
       blockWithFilter.classList.remove('search-room__aside_opened');
       btnToggleFilter.classList.remove('search-room__aside-btn_opened');
       btnToggleFilter.textContent = 'Открыть фильтр';
       enableBodyScroll(blockWithFilter);
     }
+
     setTabindex(allElemCanToggleWithTab);
   };
 
   // закрытие фильтра при потери фокуса на последнем элементе
-  const setLimiterForFocus = () => {
+  const handleLimiterFocusout = () => {
     if (blockWithFilter.classList.contains('search-room__aside_opened')) toggleFilter();
   };
 
+  const handleAsideBtnClick = () => toggleFilter();
+
   // вызовы функций и обработчики
   setTabindex(allElemCanToggleWithTab);
-  window.addEventListener('resize', resizeChecker);
-  btnToggleFilter.addEventListener('click', toggleFilter);
-  focusLimiter.addEventListener('focusout', setLimiterForFocus);
+  window.addEventListener('resize', handleWindowResize);
+  btnToggleFilter.addEventListener('click', handleAsideBtnClick);
+  focusLimiter.addEventListener('focusout', handleLimiterFocusout);
 }
 
 export default initFilterToggle;

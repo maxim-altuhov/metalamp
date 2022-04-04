@@ -52,7 +52,7 @@ mixin footer(options = {})
                   li.footer__menu-elem
                     a(class="footer__menu-link" href= href)= linkText
           .footer__column
-            h3.footer__block-subscribe-title= subBlockTitle
+            h3.footer__block-title.footer__block-title_type_subscribe= subBlockTitle
             p.footer__descr= subBlockDescr
             .footer__subscribe-block
               form(class="footer__subscribe-form" action= subFormAction, method="post", name="footer-subscribe-form")

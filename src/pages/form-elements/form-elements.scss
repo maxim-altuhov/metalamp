@@ -2,7 +2,7 @@
 
 .form-elements {
   &__wrapper {
-    margin-top: 63px;
+    padding-top: 63px;
     display: grid;
     grid-template-columns: auto 375px auto;
     grid-template-rows: auto minmax(257px, max-content) minmax(311px, max-content);
@@ -143,7 +143,6 @@
   }
 
   &__rating {
-    margin-top: -2px;
     margin-right: 20px;
 
     &:last-child {

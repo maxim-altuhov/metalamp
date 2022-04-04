@@ -8,11 +8,7 @@
 
   &__label {
     cursor: pointer;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15 / 12 * 100%;
-    text-transform: uppercase;
-    color: $dark;
+    @include level-h3;
   }
 
   &__field {
@@ -31,6 +27,7 @@
     &:hover,
     &:focus {
       border: 1px solid $dark50;
+      outline: none;
 
       &::placeholder {
         color: $dark75;

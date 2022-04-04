@@ -1,4 +1,5 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .footer {
   &__block {
@@ -83,6 +84,15 @@
 
   &__block-title {
     margin: 4px 0px 22px;
+    @include level-h3;
+
+    &_type_subscribe {
+      margin: 4px 0px 19px;
+    }
+  }
+
+  &__menu-block {
+    list-style: none;
   }
 
   &__menu-elem {
@@ -99,16 +109,13 @@
   &__menu-link {
     color: $dark50;
     transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
+    text-decoration: none;
 
     &:hover,
     &:focus {
       text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
       color: $dark75;
     }
-  }
-
-  &__block-subscribe-title {
-    margin: 4px 0px 19px;
   }
 
   &__subscribe-block {

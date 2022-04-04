@@ -1,6 +1,7 @@
 extends ~@lo/page/page
 
 //- components
+include ~@comp/heading/heading
 include ~@comp/info-icon/info-icon
 include ~@comp/feedback/feedback
 include ~@comp/bullet-list/bullet-list
@@ -13,19 +14,20 @@ block variables
 
 block content
   .room-details
-    .room-details__photos-block.js-room-details__photos-block.swiper-container
-      .room-details__photos-wrapper.swiper-wrapper
-        .room-details__photos-elem.swiper-slide
-          img(src=require("./img/preview-3.jpg"), alt="room photo")
-        .room-details__photos-elem.swiper-slide
-          img(src=require("./img/preview-2.jpg"), alt="room photo")
-        .room-details__photos-elem.swiper-slide
-          img(src=require("./img/preview-1.jpg"), alt="room photo")
-      .swiper-pagination
+    .room-details__photos-block
+      .swiper-container.js-swiper-container
+        .swiper-wrapper
+          .swiper-slide
+            img(class="swiper-slide-img" src=require("./img/preview-3.jpg"), alt="room photo")
+          .swiper-slide
+            img(class="swiper-slide-img" src=require("./img/preview-2.jpg"), alt="room photo")
+          .swiper-slide
+            img(class="swiper-slide-img" src=require("./img/preview-1.jpg"), alt="room photo")
+        .swiper-pagination
     .container-content
       .room-details__content
         .room-details__about
-          h2 Сведения о номере
+          +heading({text: "Сведения о номере", level: "h2"})
           .room-details__info-icon
             +info-icon({
               title: "Комфорт",
@@ -46,7 +48,7 @@ block content
               hasBorder: false,
             })
         .room-details__rating
-          h2 Впечатления от номера
+          +heading({text: "Впечатления от номера", level: "h2"})
           .room-details__rating-elem
             +diagram({
               selectorId: 'rating-rooms',
@@ -101,7 +103,7 @@ block content
           })
         .room-details__feedback
           .room-details__feedback-title
-            h2 Отзывы посетителей номера
+            +heading({text: "Отзывы посетителей номера", level: "h2"})
             .room-details__feedback-counter 2 отзыва
           .room-details__feedback-elem
             +feedback({
@@ -123,7 +125,7 @@ block content
               каждый день новое блюдо и десерт как комплимент"
             })
         .room-details__rules
-          h2 Правила
+          +heading({text: "Правила", level: "h2"})
           .room-details__rules-elem
             +bullet-list(
               "Нельзя с питомцами",
@@ -131,7 +133,8 @@ block content
               "Время прибытия — после 13:00, а выезд до 12:00"
             )
         .room-details__cancel
-          h2 Отмена
-          .room-details__cancel-elem
-            p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+          +heading({text: "Отмена", level: "h2"})
+          p.room-details__cancel-elem 
+            | Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн.
+            | до прибытия вы получите полный возврат за вычетом сбора за услуги.
   .line

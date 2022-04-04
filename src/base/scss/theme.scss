@@ -1,4 +1,10 @@
 // основные настройки
+*,
+*:before,
+*:after {
+  font-family: $font-family;
+}
+
 html {
   font-family: $font-family;
   background-color: #fff;
@@ -6,63 +12,6 @@ html {
   font-size: 14px;
   line-height: 24px;
   color: $dark75;
-}
-
-input,
-button,
-textarea {
-  font-family: $font-family;
-}
-
-h1,
-h2,
-h3 {
-  font-family: $font-family;
-  font-weight: 700;
-  color: $dark;
-}
-
-h1 {
-  font-size: 24px;
-  line-height: 29px;
-}
-
-h2 {
-  font-size: 19px;
-  line-height: 23px;
-}
-
-h3 {
-  font-size: 12px;
-  line-height: 15px;
-  text-transform: uppercase;
-}
-
-:focus {
-  outline: $purple auto 2px;
-}
-
-body.using-mouse {
-
-  &:focus,
-  :active {
-    outline: none;
-  }
-
-  a:focus,
-  a:active {
-    outline: none;
-  }
-
-  input:empty,
-  a:empty {
-    outline: 0px solid;
-  }
-
-  button:focus,
-  :active {
-    outline: none;
-  }
 }
 
 // общие классы

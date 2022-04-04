@@ -160,6 +160,7 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
   &__link {
     color: $dark50;
     transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
+    text-decoration: none;
 
     @media (max-width:#{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
       margin-right: 0;
@@ -322,6 +323,7 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
     padding-left: 20px;
     color: $dark50;
     transition: color 0.2s ease-in;
+    text-decoration: none;
 
     @media (max-width: 575px) {
       padding-left: 15px;

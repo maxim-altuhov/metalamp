@@ -22,11 +22,7 @@
   }
 
   &__label {
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15 / 12 * 100%;
-    text-transform: uppercase;
-    color: $dark;
+    @include level-h3;
   }
 
   &__input {
@@ -108,7 +104,7 @@
     color: $dark;
     flex: 0 1 auto;
     text-align: left;
-    max-width: 65%;
+    max-width: 55%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -142,7 +138,9 @@
     background-color: #FFFFFF;
     color: $dark50;
     transition: border 0.2s ease-in;
+    cursor: pointer;
 
+    &:hover,
     &:focus {
       border: 1px solid $dark50;
     }

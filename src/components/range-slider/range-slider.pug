@@ -1,3 +1,6 @@
+//- components
+include ~@comp/heading/heading
+
 //-  
   const options = { 
     textLabel: String,
@@ -16,7 +19,7 @@ mixin range-slider(options = {})
   .range-slider.js-range-slider
     .range-slider__wrapper
       .range-slider__info-block
-        h3.range-slider__title= textLabel
+        +heading({ text:textLabel })
         span.range-slider__info.js-range-slider__info
           span.range-slider__info-min.js-range-slider__info-min 0
           |  - 

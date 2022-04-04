@@ -1,22 +1,33 @@
 @import '@scss/variables';
 
-html,
-body {
+html {
   background: $background-grey;
 }
 
 .ui-kit-header {
+  &__wrapper {
+    padding-top: 60px;
+  }
+
   &__elem {
     margin-top: 40px;
 
     &:first-child {
-      margin-top: 60px;
+      margin-top: 0;
     }
   }
 }
 
 .ui-kit-footer {
+  &__wrapper {
+    padding: 40px 0;
+  }
+
   &__elem {
     margin-top: 40px;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }

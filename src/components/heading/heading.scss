@@ -1,0 +1,22 @@
+@import '@scss/variables';
+
+.heading {
+  font-weight: 700;
+  color: $dark;
+
+  &_level_h1 {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  &_level_h2 {
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  &_level_h3 {
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+  }
+}

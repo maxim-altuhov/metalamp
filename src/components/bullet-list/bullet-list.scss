@@ -13,6 +13,7 @@
     line-height: 24 / 14 * 100%;
     color: $dark75;
     position: relative;
+    list-style: none;
 
     &::before {
       content: '';

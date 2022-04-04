@@ -30,7 +30,6 @@
 [`Air-datepicker 2.2.3`](https://github.com/t1m0n/air-datepicker)  
 [`Body-scroll-lock 3.1.5`](https://github.com/willmcpo/body-scroll-lock)  
 [`Inputmask 5.0.5`](https://github.com/RobinHerbots/Inputmask)  
-[`Normalize 8.0.1`](https://necolas.github.io/normalize.css/)  
 [`NoUiSlider 14.6.3`](https://github.com/leongersen/noUiSlider)  
 [`Swiper 6.5.3`](https://github.com/nolimits4web/swiper)  
 [`Wnumb 1.2.0`](https://github.com/leongersen/wnumb)  

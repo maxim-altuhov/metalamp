@@ -1,0 +1,14 @@
+mixin heading(options = {})
+  - 
+    const { 
+      text = "",
+      level = "h3"
+    } = options;
+
+    const levelsList = {
+      h1: "heading_level_h1",
+      h2: "heading_level_h2",
+      h3: "heading_level_h3",
+    };
+
+  #{level}.heading(class=[levelsList[level]]) #{text}

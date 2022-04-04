@@ -1,3 +1,5 @@
+import '@comp/heading/heading';
+
 import initRangeSlider from './js/initRangeSlider';
 import './range-slider.scss';
 

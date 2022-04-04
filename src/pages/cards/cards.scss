@@ -7,7 +7,8 @@ html {
 .cards {
   &__wrapper {
     max-width: 1160px;
-    margin: 70px auto auto;
+    padding-top: 70px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: auto auto 320px;
     gap: 40px;
@@ -24,20 +25,8 @@ html {
   }
 
   &__column {
-    &:nth-child(1) {
-      justify-self: right;
-
-      @media (max-width: 1199px) {
-        justify-self: center;
-      }
-    }
-
-    &:nth-child(3) {
-      justify-self: left;
-
-      @media (max-width: 1199px) {
-        justify-self: center;
-      }
+    @media (max-width: 1199px) {
+      justify-self: center;
     }
   }
 

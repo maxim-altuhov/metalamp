@@ -1,6 +1,7 @@
 import checkingTabKeyPress from '@base/js/checkingTabKeyPress';
 import '@lo/ui-kit/ui-kit';
 import '@comp/ui-header/ui-header';
+import '@comp/heading/heading';
 import '@comp/checkbox-list/checkbox-list';
 import '@comp/checkbox/checkbox';
 import '@comp/toggle/toggle';

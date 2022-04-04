@@ -1,3 +1,5 @@
+@import './variables';
+
 // добавление шрифтов
 // пример:  @include font('Roboto', 'RobotoSlab-Bold', '700', 'normal');
 @mixin font($font_name, $file_name, $weight, $style) {
@@ -54,8 +56,30 @@
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+@mixin level-h1() {
+  font-weight: 700;
+  color: $dark;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@mixin level-h2() {
+  font-weight: 700;
+  color: $dark;
+  font-size: 19px;
+  line-height: 23px;
+}
+
+@mixin level-h3() {
+  font-weight: 700;
+  color: $dark;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
 }

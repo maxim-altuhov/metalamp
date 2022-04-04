@@ -14,12 +14,11 @@
   }
 
   &__content {
-    padding-top: 70px;
-    padding-bottom: 21px;
+    padding: 70px 0 21px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 57.6vw;
+    min-height: 830px;
 
     @media (max-width: 575px) {
       align-items: center;
@@ -33,10 +32,8 @@
     color: $dark75;
     text-align: right;
     align-self: flex-end;
-    margin-right: -6px;
 
     @media (max-width: 991px) {
-      margin-right: 0;
       padding: 1% 0;
     }
   }

@@ -17,107 +17,108 @@ block content
 
 block content-outdoor
   .ui-kit-header
-    .ui-kit-header__elem
-      +header({
-        logoImg: "logo-main.svg",
-        logoLink: "/metalamp/",
-        menuLink: {
-          "О нас": "/mock-address/change-me",
-          "Услуги": {
-            "Ссылка1": "/mock-address/change-me",
-            "Ссылка2": "/mock-address/change-me",
-            "Ссылка3": "/mock-address/change-me",
-          },
-          "Вакансии": "/mock-address/change-me",
-          "Новости": "/mock-address/change-me",
-          "Соглашения": {
-            "Ссылка1": "/mock-address/change-me",
-            "Ссылка2": "/mock-address/change-me",
-            "Ссылка3": "/mock-address/change-me",
-            "Ссылка4": "/mock-address/change-me",
-          },
-        },
-        btnBlock: [
-          {
-            theme:"transparent",
-            text:"Войти",
-            isLink: true,
-            href: "sign-in.html",
-          },
-          {
-            text:"зарегистрироваться",
-            isLink: true,
-            href: "registration.html",
-          },
-        ],
-      })
-    .ui-kit-header__elem
-      +header({
-        logoImg: "logo-main.svg",
-        logoLink: "/metalamp/",
-        hasUserLogin: true,
-        userLogin: "Юлий Цезарь",
-        menuLink: {
-          "О нас": "/mock-address/change-me",
-          "Услуги": {
-            "Ссылка1": "/mock-address/change-me",
-            "Ссылка2": "/mock-address/change-me",
-            "Ссылка3": "/mock-address/change-me",
-          },
-          "Вакансии": "/mock-address/change-me",
-          "Новости": "/mock-address/change-me",
-          "Соглашения": {
-            "Ссылка1": "/mock-address/change-me",
-            "Ссылка2": "/mock-address/change-me",
-            "Ссылка3": "/mock-address/change-me",
-            "Ссылка4": "/mock-address/change-me",
-          },
-        },
-      })
-  .ui-kit-footer
-    .ui-kit-footer__elem
-      +footer({ 
-        copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
-        logoLink: "/metalamp/",
-        logoImg: "logo-main.svg",
-        footerDescr: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
-        subBlockTitle: "Подписка",
-        subBlockDescr: "Получайте специальные предложения и новости сервиса",
-        socialLinks: {
-          "&#xe901": "/mock-address/change-me",
-          "&#xe900": "/mock-address/change-me",
-          "&#xe902": "/mock-address/change-me",
-        },
+    .ui-kit-header__wrapper 
+      .ui-kit-header__elem
+        +header({
+          logoImg: "logo-main.svg",
+          logoLink: "/metalamp/",
           menuLink: {
-          "Навигация": {
             "О нас": "/mock-address/change-me",
-            "Новости": "/mock-address/change-me",
-            "Служба поддержки": "/mock-address/change-me",
-            "Услуги": "/mock-address/change-me",
-          },
-          "О нас": {
-            "О сервисе": "/mock-address/change-me",
-            "Наша команда": "/mock-address/change-me",
+            "Услуги": {
+              "Ссылка1": "/mock-address/change-me",
+              "Ссылка2": "/mock-address/change-me",
+              "Ссылка3": "/mock-address/change-me",
+            },
             "Вакансии": "/mock-address/change-me",
-            "Инвесторы": "/mock-address/change-me",
+            "Новости": "/mock-address/change-me",
+            "Соглашения": {
+              "Ссылка1": "/mock-address/change-me",
+              "Ссылка2": "/mock-address/change-me",
+              "Ссылка3": "/mock-address/change-me",
+              "Ссылка4": "/mock-address/change-me",
+            },
           },
-          "Служба поддержки": {
-            "Соглашения": "/mock-address/change-me",
-            "Сообщества": "/mock-address/change-me",
-            "Связь с нами": "/mock-address/change-me",
+          btnBlock: [
+            {
+              theme:"transparent",
+              text:"Войти",
+              isLink: true,
+              href: "sign-in.html",
+            },
+            {
+              text:"зарегистрироваться",
+              isLink: true,
+              href: "registration.html",
+            },
+          ],
+        })
+      .ui-kit-header__elem
+        +header({
+          logoImg: "logo-main.svg",
+          logoLink: "/metalamp/",
+          hasUserLogin: true,
+          userLogin: "Юлий Цезарь",
+          menuLink: {
+            "О нас": "/mock-address/change-me",
+            "Услуги": {
+              "Ссылка1": "/mock-address/change-me",
+              "Ссылка2": "/mock-address/change-me",
+              "Ссылка3": "/mock-address/change-me",
+            },
+            "Вакансии": "/mock-address/change-me",
+            "Новости": "/mock-address/change-me",
+            "Соглашения": {
+              "Ссылка1": "/mock-address/change-me",
+              "Ссылка2": "/mock-address/change-me",
+              "Ссылка3": "/mock-address/change-me",
+              "Ссылка4": "/mock-address/change-me",
+            },
           },
-        },
-      })
-    .ui-kit-footer__elem
-      +footer-copyright({ 
-        copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
-        logoLink: "/metalamp/",
-        logoImg: "logo-main.svg",
-        isMiniVersion: true,
-        socialLinks: {
-          "&#xe901": "/mock-address/change-me",
-          "&#xe900": "/mock-address/change-me",
-          "&#xe902": "/mock-address/change-me",
-        },
-      })
-    .ui-kit-footer__elem &nbsp;
+        })
+  .ui-kit-footer
+    .ui-kit-footer__wrapper 
+      .ui-kit-footer__elem
+        +footer({ 
+          copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
+          logoLink: "/metalamp/",
+          logoImg: "logo-main.svg",
+          footerDescr: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
+          subBlockTitle: "Подписка",
+          subBlockDescr: "Получайте специальные предложения и новости сервиса",
+          socialLinks: {
+            "&#xe901": "/mock-address/change-me",
+            "&#xe900": "/mock-address/change-me",
+            "&#xe902": "/mock-address/change-me",
+          },
+            menuLink: {
+            "Навигация": {
+              "О нас": "/mock-address/change-me",
+              "Новости": "/mock-address/change-me",
+              "Служба поддержки": "/mock-address/change-me",
+              "Услуги": "/mock-address/change-me",
+            },
+            "О нас": {
+              "О сервисе": "/mock-address/change-me",
+              "Наша команда": "/mock-address/change-me",
+              "Вакансии": "/mock-address/change-me",
+              "Инвесторы": "/mock-address/change-me",
+            },
+            "Служба поддержки": {
+              "Соглашения": "/mock-address/change-me",
+              "Сообщества": "/mock-address/change-me",
+              "Связь с нами": "/mock-address/change-me",
+            },
+          },
+        })
+      .ui-kit-footer__elem
+        +footer-copyright({ 
+          copyrightText: "Copyright © 2018 Toxin отель. Все права защищены.",
+          logoLink: "/metalamp/",
+          logoImg: "logo-main.svg",
+          isMiniVersion: true,
+          socialLinks: {
+            "&#xe901": "/mock-address/change-me",
+            "&#xe900": "/mock-address/change-me",
+            "&#xe902": "/mock-address/change-me",
+          },
+        })
