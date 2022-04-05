@@ -116,12 +116,12 @@
     margin: 0 auto 0 5px;
     cursor: pointer;
     position: relative;
+    z-index: 1;
   }
 
   &__info-tooltip {
     min-width: 100px;
     max-width: 250px;
-    z-index: 999;
     position: absolute;
     display: none;
     top: 0px;

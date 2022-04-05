@@ -38,7 +38,7 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
       text-transform: uppercase;
       border-radius: 0 0 10px 10px;
       color: #FFFFFF;
-      z-index: 1000;
+      z-index: 99;
       transition: left 0.5s linear;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -57,7 +57,7 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
         left: 50%;
         transform: rotate(0deg) translateX(-50%);
         transition: left 0s linear;
-        z-index: 1100;
+        z-index: 100;
       }
     }
   }
@@ -73,7 +73,7 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
       left: -300px;
       width: 300px;
       height: 100%;
-      z-index: 1000;
+      z-index: 99;
       padding: 90px 15px 15px;
       box-shadow: 0 10px 20px $dark5;
 

@@ -151,7 +151,7 @@ function initDropdown() {
     /* инициализируем dropdown, выставляем z-index для
      перекрытия других возможных dropdown эл-тов на странице */
     const startInitDropdown = () => {
-      block.style.zIndex = 100 - index;
+      block.style.zIndex = 98 - index;
 
       counters.forEach((counter) => {
         if (counter.textContent > 0) {
