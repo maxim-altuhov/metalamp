@@ -23,6 +23,10 @@
     opacity: 0.5;
   }
 
+  &:focus {
+    outline: $focus-color auto 2px;
+  }
+
   &_with-hover {
     opacity: 0.5;
     cursor: auto;
@@ -158,5 +162,11 @@
 
   100% {
     background: linear-gradient(180deg, rgba($color: $purple, $alpha: 1) 0%, rgba($color: $purple-gradient, $alpha: 1) 100%);
+  }
+}
+
+body.using-mouse {
+  .button:focus {
+    outline: none;
   }
 }

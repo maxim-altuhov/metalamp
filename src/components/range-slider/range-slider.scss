@@ -37,6 +37,10 @@
     border-radius: 100%;
     box-shadow: none;
     cursor: pointer;
+
+    &:focus {
+      outline: $focus-color auto 2px;
+    }
   }
 
   .noUi-connect {

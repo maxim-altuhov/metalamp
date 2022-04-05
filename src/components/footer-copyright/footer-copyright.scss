@@ -56,6 +56,10 @@
   &__logo {
     display: none;
 
+    &:focus {
+      outline: $focus-color auto 2px;
+    }
+
     @media (max-width: 767px) {
       display: initial;
     }
@@ -77,6 +81,10 @@
     -webkit-text-fill-color: transparent;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &:focus {
+      outline: $focus-color auto 2px;
+    }
 
     &:first-child {
       font-size: 27px;

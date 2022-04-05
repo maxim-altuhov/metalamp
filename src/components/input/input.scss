@@ -27,11 +27,14 @@
     &:hover,
     &:focus {
       border: 1px solid $dark50;
-      outline: none;
 
       &::placeholder {
         color: $dark75;
       }
+    }
+
+    &:focus {
+      outline: $focus-color auto 2px;
     }
 
     @include placeholder($dark25, transparent, 14);
@@ -53,6 +56,11 @@
     height: 44px;
     width: 44px;
     background-clip: text;
+    cursor: pointer;
+
+    &:focus {
+      outline: $focus-color auto 2px;
+    }
   }
 
   &__icon {
@@ -62,5 +70,13 @@
     background-clip: text;
     -webkit-text-fill-color: rgba(0, 0, 0, 0);
     vertical-align: middle;
+  }
+}
+
+body.using-mouse {
+
+  .input__field:focus,
+  .input__btn:focus {
+    outline: none;
   }
 }

@@ -41,7 +41,7 @@
   }
 
   &__field:focus+&__title:before {
-    outline: $purple auto 2px;
+    outline: $focus-color auto 2px;
   }
 
   &__title {

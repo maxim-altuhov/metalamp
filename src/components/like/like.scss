@@ -20,6 +20,10 @@
       animation: likeBtnIn 0.2s 1 linear forwards;
     }
 
+    &:focus {
+      outline: $focus-color auto 2px;
+    }
+
     &_active {
       color: $purple;
       background: linear-gradient(180deg, rgba($color: $purple, $alpha: 1) 0%, rgba($color: $purple-gradient, $alpha: 1) 100%);
@@ -73,5 +77,11 @@
 
   100% {
     background: linear-gradient(180deg, rgba($color: $purple, $alpha: 1) 0%, rgba($color: $purple-gradient, $alpha: 1) 100%);
+  }
+}
+
+body.using-mouse {
+  .like__btn:focus {
+    outline: none;
   }
 }

@@ -19,6 +19,10 @@
     cursor: pointer;
     @include font-material-icons;
 
+    &:focus {
+      outline: $focus-color auto 2px;
+    }
+
     &_hidden {
       display: none;
     }
@@ -44,6 +48,10 @@
 
     &:hover {
       text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
+    }
+
+    &:focus {
+      outline: $focus-color auto 2px;
     }
 
     &_with_ellipsis {
@@ -74,5 +82,13 @@
     text-transform: lowercase;
     color: $dark75;
     text-align: center;
+  }
+}
+
+body.using-mouse {
+
+  .pagination__btn:focus,
+  .pagination__page:focus {
+    outline: none;
   }
 }

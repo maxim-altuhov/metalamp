@@ -44,6 +44,10 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
       text-overflow: ellipsis;
       overflow: hidden;
 
+      &:focus {
+        outline: $focus-color auto 2px;
+      }
+
       @media (max-width: 375px) {
         transition: left 0s linear;
       }
@@ -152,5 +156,11 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
   &__pagination {
     display: flex;
     justify-content: center;
+  }
+}
+
+body.using-mouse {
+  .search-room__aside-btn:focus {
+    outline: none;
   }
 }

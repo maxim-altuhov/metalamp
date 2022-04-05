@@ -64,6 +64,10 @@
   &__logo {
     display: inline-block;
     margin-bottom: 16px;
+
+    &:focus {
+      outline: $focus-color auto 2px;
+    }
   }
 
   &__descr {
@@ -115,6 +119,10 @@
     &:focus {
       text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
       color: $dark75;
+    }
+
+    &:focus {
+      outline: $focus-color auto 2px;
     }
   }
 

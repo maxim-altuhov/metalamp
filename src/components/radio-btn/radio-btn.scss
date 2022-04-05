@@ -65,7 +65,7 @@
   }
 
   &__field:focus+.radio-btn__text:before {
-    outline: $purple auto 2px;
+    outline: $focus-color auto 2px;
   }
 }
 

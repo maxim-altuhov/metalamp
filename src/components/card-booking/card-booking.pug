@@ -79,6 +79,7 @@ mixin card-booking(options = {})
                 span.card-booking__discount= ` ${convertCost(discount)}₽`
               span(
                 class="card-booking__info-point js-card-booking__info-point"
+                tabindex="0"
                 data-tooltip= servicesInfo
               ) i
                 i.card-booking__info-tooltip.js-card-booking__info-tooltip
@@ -87,6 +88,7 @@ mixin card-booking(options = {})
               p.card-booking__details-text #{additionalServicesText}
               span(
                 class="card-booking__info-point js-card-booking__info-point"
+                tabindex="0"
                 data-tooltip= additionalServicesInfo
               ) i
                 i.card-booking__info-tooltip.js-card-booking__info-tooltip

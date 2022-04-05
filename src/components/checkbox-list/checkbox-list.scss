@@ -8,6 +8,10 @@
     align-items: center;
     cursor: pointer;
     @include level-h3;
+
+    &:focus {
+      outline: $focus-color auto 2px;
+    }
   }
 
   &__arrow {

@@ -15,7 +15,7 @@
     appearance: none;
 
     &:focus~.toggle__block {
-      outline: $purple auto 2px;
+      outline: $focus-color auto 2px;
     }
 
     &:not(:checked)~.toggle__indicator {

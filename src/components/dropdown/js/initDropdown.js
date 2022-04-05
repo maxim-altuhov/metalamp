@@ -192,10 +192,6 @@ function initDropdown() {
       if (e.key === 'Enter') toggleDropdown();
     };
 
-    const handleFieldFocus = () => {
-      if ((!document.body.classList.contains('using-mouse'))) toggleDropdown();
-    };
-
     const handleButtonClearClick = () => clearDropdown();
     const handleButtonApplyClick = () => toggleDropdown();
     const handleFieldClick = () => toggleDropdown();
@@ -203,7 +199,6 @@ function initDropdown() {
 
     dropdown.addEventListener('click', handleFieldClick);
     dropdown.addEventListener('keydown', handleFieldKeydownEnter);
-    dropdown.addEventListener('focus', handleFieldFocus);
     focusLimiter.addEventListener('focusout', handleFieldFocusout);
 
     counterBtns.forEach((btn) => {
