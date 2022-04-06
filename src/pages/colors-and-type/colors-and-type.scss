@@ -46,24 +46,24 @@
 
   &__elem {
     min-width: 300px;
-    margin-bottom: 52px;
+    margin-bottom: 51px;
     display: flex;
     font-weight: 700;
     color: $dark;
 
     &_style_h1 {
-      font-size: 24px;
-      line-height: 29px;
+      font-size: (24 / 14) + rem;
+      line-height: (29 / 24);
     }
 
     &_style_h2 {
-      font-size: 19px;
-      line-height: 23px;
+      font-size: (19 / 14) + rem;
+      line-height: (23 / 19);
     }
 
     &_style_h3 {
-      font-size: 12px;
-      line-height: 15px;
+      font-size: (12 / 14) + rem;
+      line-height: (15 / 12);
       text-transform: uppercase;
     }
 
@@ -78,7 +78,7 @@
     &:last-child {
       margin-bottom: 0;
       max-width: 375px;
-      line-height: 23px;
+      line-height: (24 / 14);
     }
   }
 

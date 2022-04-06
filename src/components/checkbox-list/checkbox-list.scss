@@ -16,7 +16,7 @@
 
   &__arrow {
     color: $dark50;
-    font-size: 24px;
+    font-size: (24 / 14) + rem;
     @include font-material-icons;
   }
 

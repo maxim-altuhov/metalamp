@@ -25,14 +25,14 @@
 
   &__info {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: (24 / 14) + rem;
+    line-height: (29 / 24);
     color: $dark;
   }
 
   &__symbol {
-    font-size: 14px;
-    line-height: 122%;
+    font-size: 1rem;
+    line-height: (17 / 14);
   }
 
   &__number {
@@ -40,21 +40,22 @@
   }
 
   &__tag {
-    font-size: 12px;
-    line-height: 150%;
+    font-size: (12 / 14) + rem;
+    line-height: (15 / 12);
     color: $purple;
     text-align: right;
     text-transform: uppercase;
   }
 
   &__price-block {
-    font-size: 12px;
-    line-height: 150%;
+    font-size: (12 / 14) + rem;
+    line-height: (18 / 12);
     color: rgba(31, 32, 65, 0.5);
   }
 
   &__price {
-    font-size: 14px;
+    font-size: 1rem;
+    line-height: (18 / 14);
     font-weight: 700;
   }
 
@@ -72,8 +73,8 @@
 
   &__details {
     margin-top: 18px;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: (20 / 14);
     color: $dark75;
     padding: 1px 0 0 1px;
   }
@@ -91,7 +92,7 @@
 
   &__details-text {
     max-width: 214px;
-    line-height: 19px;
+    line-height: (18 / 14);
     flex: 1 0 auto;
 
     @media (max-width: 480px) {
@@ -105,8 +106,8 @@
     border: 1px solid $dark25;
     border-radius: 50%;
     font-weight: 700;
-    font-size: 12px;
-    line-height: 117%;
+    font-size: (12 / 14) + rem;
+    line-height: 1;
     color: $dark25;
     text-align: center;
     display: flex;
@@ -141,7 +142,8 @@
   &__details-total {
     margin-top: 31px;
     font-weight: 700;
-    font-size: 19px;
+    font-size: (19 / 14) + rem;
+    line-height: (23 / 19);
     color: $dark;
   }
 

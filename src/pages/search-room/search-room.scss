@@ -31,10 +31,10 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
       height: 40px;
       max-width: 165px;
       padding: 0 20px;
-      line-height: 40px;
       background: $background-gradient;
       font-weight: 700;
-      font-size: 12px;
+      font-size: (12 / 14) + rem;
+      line-height: 1;
       text-transform: uppercase;
       border-radius: 0 0 10px 10px;
       color: #FFFFFF;
@@ -112,8 +112,8 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
   &__aside-range-text {
     display: inline-block;
     margin-top: 15px;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: (12 / 14) + rem;
+    line-height: 1;
     color: $dark50;
   }
 

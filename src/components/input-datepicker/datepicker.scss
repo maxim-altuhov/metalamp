@@ -45,7 +45,7 @@
   }
 
   &--nav-action-arrow {
-    font-size: 24px;
+    font-size: (24 / 14) + rem;
     color: $purple;
     @include font-material-icons;
   }
@@ -53,8 +53,8 @@
   &--nav-title {
     font-family: $font-family;
     font-weight: 700;
-    font-size: 19px;
-    line-height: 29px;
+    font-size: (19 / 14) + rem;
+    line-height: (29 / 19);
     color: $dark;
 
     i {
@@ -65,8 +65,8 @@
   &--day-name {
     font-family: $font-family;
     font-weight: 700;
-    font-size: 12px;
-    line-height: 15 / 12 * 100%;
+    font-size: (12 / 14) + rem;
+    line-height: (15 / 12);
     color: $purple;
     text-transform: capitalize;
   }
@@ -83,8 +83,8 @@
     margin-top: 11px;
     font-family: $font-family;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 15 / 12 * 100%;
+    font-size: (12 / 14) + rem;
+    line-height: (15 / 12);
     color: $dark50;
   }
 
@@ -115,7 +115,7 @@
 
     border-radius: 100%;
     font-weight: 700;
-    font-size: 12px;
+    font-size: (12 / 14) + rem;
     color: #FFFFFF;
 
     @media (max-width: 480px) {

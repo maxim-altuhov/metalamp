@@ -15,17 +15,15 @@
 
 // Стилизация placeholder
 // пример: @include placeholder($dark, transparent, 14);
-@mixin placeholder($placeholder-color, $focus-color, $font-size) {
+@mixin placeholder($placeholderColor, $focusColor, $fontSizeInRem) {
   &::placeholder {
-    color: $placeholder-color;
-    font-weight: 400;
-    font-size: $font-size + 'px';
-    line-height: 18 / $font-size * 100%;
+    color: $placeholderColor;
+    font-size: $fontSizeInRem + 'rem';
     transition: color 0.2s ease-in;
   }
 
   &:focus::placeholder {
-    color: $focus-color;
+    color: $focusColor;
   }
 }
 
@@ -65,21 +63,21 @@
 @mixin level-h1() {
   font-weight: 700;
   color: $dark;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: (24 / 14) + rem;
+  line-height: (29 / 24);
 }
 
 @mixin level-h2() {
   font-weight: 700;
   color: $dark;
-  font-size: 19px;
-  line-height: 23px;
+  font-size: (19 / 14) + rem;
+  line-height: (23 / 19);
 }
 
 @mixin level-h3() {
   font-weight: 700;
   color: $dark;
-  font-size: 12px;
-  line-height: 15px;
+  font-size: (12 / 14) + rem;
+  line-height: (15 / 12);
   text-transform: uppercase;
 }

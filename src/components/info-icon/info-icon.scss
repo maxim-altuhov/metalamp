@@ -12,16 +12,16 @@
     @include font-material-icons;
     width: 48px;
     height: 48px;
-    font-size: 48px;
-    line-height: 47px;
+    font-size: (48 / 14) + rem;
+    line-height: 1;
     background: $background-gradient;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   &__wrapper {
-    font-size: 14px;
-    line-height: 24 / 14 * 100%;
+    font-size: 1rem;
+    line-height: (24 / 14);
     color: $dark75;
     padding-left: 10px;
   }

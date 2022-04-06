@@ -42,8 +42,8 @@
 
   &__descr {
     padding-left: 40px;
-    font-size: 19px;
-    line-height: 28px;
+    font-size: (19 / 14) + rem;
+    line-height: (28 / 19);
     align-items: center;
     color: $dark;
   }

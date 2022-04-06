@@ -63,7 +63,7 @@
     z-index: 2;
     width: 42px;
     height: 100%;
-    font-size: 24px;
+    font-size: (24 / 14) + rem;
     font-weight: 400;
     color: #FFFFFF;
     cursor: pointer;
@@ -110,38 +110,39 @@
 
   &__info {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 121%;
+    font-size: (24 / 14) + rem;
+    line-height: (29 / 24);
     color: $dark;
     margin-left: 1px;
   }
 
   &__symbol {
-    font-size: 14px;
-    line-height: 122%;
+    font-size: 1rem;
+    line-height: (17 / 14);
   }
 
   &__number {
     margin: 0 8px 0 1px;
-    font-size: 19px;
-    line-height: 23px;
+    font-size: (19 / 14) + rem;
+    line-height: (23 / 19);
   }
 
   &__tag {
-    font-size: 12px;
-    line-height: 150%;
+    font-size: (12 / 14) + rem;
+    line-height: (15 / 12);
     color: $purple;
     text-transform: uppercase;
   }
 
   &__price-block {
-    font-size: 12px;
-    line-height: 150%;
+    font-size: (12 / 14) + rem;
+    line-height: (18 / 12);
     color: rgba(31, 32, 65, 0.5);
   }
 
   &__price {
-    font-size: 14px;
+    font-size: 1rem;
+    line-height: (18 / 14);
     font-weight: 700;
   }
 
@@ -161,8 +162,8 @@
   }
 
   &__comments {
-    font-size: 14px;
-    line-height: 129%;
+    font-size: 1rem;
+    line-height: (18 / 14);
     color: rgba(31, 32, 65, 0.5);
     text-transform: capitalize;
   }

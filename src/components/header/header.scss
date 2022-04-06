@@ -79,8 +79,8 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
     align-items: center;
     flex-wrap: wrap;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 121%;
+    font-size: 1rem;
+    line-height: (17 / 14);
 
     @media (max-width:#{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
       flex-direction: column;
@@ -134,7 +134,7 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
 
     .header__link-arrow {
       @include font-material-icons;
-      font-size: 24px;
+      font-size: (24 / 14) + rem;
       text-shadow: none;
       color: $dark50;
       padding-top: 1px;
@@ -172,8 +172,8 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
       font-weight: 700;
       color: $dark75;
       text-transform: uppercase;
-      font-size: 16px;
-      line-height: 16px;
+      font-size: (16 / 14) + rem;
+      line-height: 1;
     }
 
     &:hover,
@@ -232,8 +232,8 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
 
       .header__link {
         @media (max-width: #{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
-          font-size: 14px;
-          line-height: 7px;
+          font-size: 1rem;
+          line-height: (7 / 14);
         }
       }
     }

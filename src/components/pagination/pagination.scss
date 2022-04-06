@@ -15,7 +15,7 @@
     background: linear-gradient(180deg, $green 0%, $blue 100%);
     border-radius: 22px;
     color: #fff;
-    font-size: 24px;
+    font-size: (24 / 14) + rem;
     cursor: pointer;
     @include font-material-icons;
 
@@ -39,8 +39,8 @@
   &__page {
     width: 40px;
     height: 40px;
-    font-size: 12px;
-    line-height: 40px;
+    font-size: (12 / 14) + rem;
+    line-height: 1;
     color: $dark50;
     border-radius: 22px;
     background-color: transparent;
@@ -78,7 +78,7 @@
   &__info {
     padding: 13px 6px 0px;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 1rem;
     text-transform: lowercase;
     color: $dark75;
     text-align: center;

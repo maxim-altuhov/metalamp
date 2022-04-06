@@ -82,10 +82,10 @@
   &__tag {
     position: absolute;
     right: -1px;
-    top: -1px;
+    top: -2px;
     font-weight: 400;
-    font-size: 11.8px;
-    line-height: 14.7 / 12 * 100%;
+    font-size: (12 / 14) + rem;
+    line-height: (15 / 12);
     text-transform: uppercase;
     color: $dark50;
 

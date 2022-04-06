@@ -20,7 +20,7 @@
     border: 1px solid $dark25;
     border-radius: 4px;
     padding: 0px 15px;
-    font-size: 14px;
+    font-size: 1rem;
     color: $dark75;
     transition: border 0.2s ease-in;
 
@@ -37,11 +37,11 @@
       outline: $focus-color auto 2px;
     }
 
-    @include placeholder($dark25, transparent, 14);
+    @include placeholder($placeholderColor: $dark25, $focusColor: transparent, $fontSizeInRem: 1);
 
     &_focused {
       border: 1px solid $dark50;
-      font-size: 14px;
+      font-size: 1rem;
     }
 
     &_variant_subscribe {
@@ -65,7 +65,7 @@
 
   &__icon {
     @include font-material-icons;
-    font-size: 24px;
+    font-size: (24 / 14) + rem;
     background: $background-gradient;
     background-clip: text;
     -webkit-text-fill-color: rgba(0, 0, 0, 0);

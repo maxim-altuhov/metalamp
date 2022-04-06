@@ -37,7 +37,7 @@
     border: 1px solid $dark25;
     border-radius: 4px;
     padding: 10px 14px;
-    font-size: 14px;
+    font-size: 1rem;
     color: $dark75;
     transition: border 0.2s ease-in;
     cursor: pointer;
@@ -81,7 +81,7 @@
       width: 100%;
     }
 
-    @include placeholder($dark75, $dark75, 14);
+    @include placeholder($placeholderColor: $dark75, $focusColor: $dark75, $fontSizeInRem: 1);
   }
 
   &__icon {
@@ -89,7 +89,7 @@
     bottom: 8px;
     right: 10px;
     color: $dark50;
-    font-size: 24px;
+    font-size: (24 / 14) + rem;
     cursor: pointer;
     pointer-events: none;
     @include font-material-icons;

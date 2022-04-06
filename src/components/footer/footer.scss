@@ -71,8 +71,8 @@
   }
 
   &__descr {
-    font-size: 14px;
-    line-height: 172%;
+    font-size: 1rem;
+    line-height: (24 / 14);
     color: $dark75;
 
     @media (max-width: 1439px) {
@@ -101,8 +101,8 @@
 
   &__menu-elem {
     margin-bottom: 21px;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 1rem;
+    line-height: (17 / 14);
     color: $dark50;
 
     &:last-child {

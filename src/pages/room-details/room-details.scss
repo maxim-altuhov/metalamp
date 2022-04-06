@@ -263,7 +263,8 @@
   &__cancel-elem {
     max-width: 341px;
     padding-top: 18px;
-    line-height: 24px;
+    font-size: 1rem;
+    line-height: (24 / 14);
 
     @media(max-width: 1439px) {
       max-width: initial;

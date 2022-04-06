@@ -4,7 +4,7 @@
 .simple-rating {
   &__elem {
     @include font-material-icons;
-    font-size: 24px;
+    font-size: (24 / 14) + rem;
     cursor: default;
     background: $background-gradient;
     background-clip: text;

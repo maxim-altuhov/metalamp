@@ -66,7 +66,7 @@
   }
 
   &__social-icons {
-    font-size: 25px;
+    font-size: (25 / 14) + rem;
   }
 
   &__icon {
@@ -87,7 +87,7 @@
     }
 
     &:first-child {
-      font-size: 27px;
+      font-size: (27 / 14) + rem;
       margin-right: 20px;
     }
 

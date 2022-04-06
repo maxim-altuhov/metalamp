@@ -8,8 +8,8 @@
   }
 
   &__info {
-    font-size: 12px;
-    line-height: 15 / 12 * 100%;
+    font-size: (12 / 14) + rem;
+    line-height: (15 / 12);
     text-align: right;
     text-transform: uppercase;
     color: $dark50;
