@@ -5,7 +5,7 @@
     display: grid;
     grid-template-columns: minmax(min-content, 696px) auto;
     justify-items: center;
-    padding: 66px 0 50px;
+    padding: 65px 0 50px;
 
     @media (max-width: 767px) {
       grid-template-columns: auto;
@@ -46,7 +46,7 @@
 
   &__elem {
     min-width: 300px;
-    margin-bottom: 51px;
+    margin-bottom: 52px;
     display: flex;
     font-weight: 700;
     color: $dark;

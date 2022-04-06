@@ -63,7 +63,7 @@
     position: relative;
 
     &_margin_mini {
-      margin-bottom: 20.5px;
+      margin-bottom: 20.6px;
     }
 
     &_margin_big {
@@ -125,8 +125,12 @@
     }
   }
 
+  &__toggle-block {
+    margin-top: 15px;
+  }
+
   &__toggle {
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 
     &:last-child {
       margin-bottom: 0;
@@ -198,7 +202,7 @@
 
   &__checkbox-list {
     max-width: 256px;
-    margin-bottom: 41px;
+    margin-bottom: 40px;
 
     &:last-child {
       margin-bottom: 0;

@@ -78,12 +78,12 @@
     }
 
     &_type_prev {
-      left: 2px;
+      left: 0;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
     }
 
     &_type_next {
-      right: 0px;
+      right: 0;
       background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
     }
 
