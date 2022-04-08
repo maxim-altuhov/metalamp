@@ -50,12 +50,23 @@ block content
         .room-details__rating
           +heading({text: "Впечатления от номера", level: "h2"})
           .room-details__rating-elem
-            +diagram({
-              selectorId: 'rating-rooms',
-              rating_5: 130,
-              rating_4: 65,
-              rating_3: 65,
-              rating_2: 0
+            +diagram({ 
+              великолепно: {
+                value: 522,
+                colors: ['#FFE39C', '#FFBA9C'],
+              },
+              хорошо: {
+                value: 261,
+                colors: ['#66D2EA', '#6FCF97'],
+              },
+              удовлетворительно: {
+                value: 261,
+                colors: ['#BC9CFF', '#8BA4F9'],
+              },
+              разочарован: {
+                value: 0,
+                colors: ['#919191', '#3D4975'],
+              },
             })
         .room-details__booking
           +card-booking({

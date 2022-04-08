@@ -10,12 +10,9 @@ import '@comp/feedback/feedback';
 import initSliderPreview from './js/initSliderPreview';
 import './room-details.scss';
 
-import initDiagramRating from '@comp/diagram/js/initDiagramRating';
-
 function initFunction() {
   checkingTabKeyPress();
   initSliderPreview();
-  initDiagramRating('#rating-rooms');
 }
 
 window.addEventListener('DOMContentLoaded', initFunction);

@@ -13,12 +13,17 @@
   }
 
   &__text {
-    fill: $purple;
+    fill: $dark;
     font-weight: bold;
     font-size: 6.7px;
     text-transform: uppercase;
     text-anchor: middle;
     transform: translateY(1px);
+  }
+
+  &__segment {
+    transition: stroke-width 0.2s ease-in;
+    cursor: pointer;
   }
 
   &__number {
@@ -36,8 +41,16 @@
   }
 
   &__legend-item {
+    cursor: pointer;
     margin-bottom: 10px;
     list-style: none;
+    text-transform: capitalize;
+    transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
+
+    &:hover {
+      text-shadow: 0 0 1px $dark50, 0 0 1px $dark50, 0 0 1px $dark50;
+      color: $dark;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -48,23 +61,7 @@
     display: inline-block;
     width: 10px;
     height: 10px;
-    border-radius: 100%;
+    border-radius: 50%;
     margin-right: 5px;
-
-    &_yellow {
-      background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
-    }
-
-    &_green {
-      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-    }
-
-    &_purple {
-      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-    }
-
-    &_grey {
-      background: linear-gradient(180deg, #919191 0%, #3D4975 100%);
-    }
   }
 }
