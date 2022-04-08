@@ -8,6 +8,7 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "start": "cross-env NODE_ENV=development SECOND_ENV=devserver webpack serve --mode development --open",
+    "eslint": "eslint --ext .js src/",
     "deploy": "gh-pages -d dist"
   },
   "author": "Maxim Altuhov [max_work86@mail.ru]",

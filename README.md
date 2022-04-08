@@ -16,6 +16,7 @@
 * `npm run dev` - сборка проекта в режиме "development";
 * `npm run build` - сборка проекта в режиме "production";
 * `npm run start` - запуск для разработки в режиме "dev server";
+* `npm run eslint` - проверка проекта ESLint`ом;
 * `npm run deploy` - выгрузка проекта из папки dist на GitHub Pages;
 
 ## Использованные в проекте инструменты и плагины
