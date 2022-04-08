@@ -25,6 +25,7 @@ function addDatePicker(selector) {
   /* beautify preserve:end */
 
   const $datepicker = $(selector);
+  const $datepickerLabels = $datepicker.find('.js-input-datepicker__label');
   const $datepickerInputs = $datepicker.find('.js-input-datepicker__date');
   const $dropdownArrow = $datepicker.find('.js-input-datepicker__icon');
   const $firstInput = $datepickerInputs.eq(0);
@@ -62,9 +63,17 @@ function addDatePicker(selector) {
     },
     onShow() {
       if (enableArrowRotation) $dropdownArrow.addClass('input-datepicker__icon_rotated');
+
+      setTimeout(() => {
+        $datepickerLabels.css('pointer-events', 'none');
+      }, 200);
     },
     onHide() {
       if (enableArrowRotation) $dropdownArrow.removeClass('input-datepicker__icon_rotated');
+
+      setTimeout(() => {
+        $datepickerLabels.css('pointer-events', '');
+      }, 200);
     },
   };
 
@@ -141,7 +150,7 @@ function addDatePicker(selector) {
     $blockWithClearBtn.addClass('datepicker--control-btn_hidden');
   };
 
-  const handleInputDateClickAndFocus = () => $firstInput.trigger('focus');
+  const handleInputDateClick = () => $firstInput.trigger('focus');
   const handleInputDateBlur = () => currentDatepicker.hide();
   const handleButtonApplyClick = () => currentDatepicker.hide();
 
@@ -149,7 +158,7 @@ function addDatePicker(selector) {
   $btnApply.on('click', handleButtonApplyClick);
 
   if (hasTwoDropdowns) {
-    $secondInput.on('click focus', handleInputDateClickAndFocus);
+    $secondInput.on('click', handleInputDateClick);
     $secondInput.on('blur', handleInputDateBlur);
   }
 }

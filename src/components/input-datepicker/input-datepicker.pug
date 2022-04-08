@@ -38,7 +38,7 @@ mixin input-datepicker(options = {})
     div.input-datepicker.js-input-datepicker(data-options=data)
       while index < numberOfElements
         - index++
-        label(class=`input-datepicker__label ${classLabelWithFilter}`) #{index === 1 ? labelTextFirst : labelTextSecond}
+        label(class=`input-datepicker__label js-input-datepicker__label ${classLabelWithFilter}`) #{index === 1 ? labelTextFirst : labelTextSecond}
           input(
             class=`input-datepicker__date js-input-datepicker__date ${classInputWithFilter}`
             readonly
