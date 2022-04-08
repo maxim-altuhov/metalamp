@@ -4,24 +4,17 @@
 .input-datepicker {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
 
-  @media (max-width: 480px) {
-    flex-direction: column;
+  @media (max-width: 410px) {
+    justify-content: flex-start;
+    gap: 10px;
   }
 
   &__label {
+    min-width: 120px;
     position: relative;
     cursor: pointer;
     @include level-h3;
-
-    @media (max-width: 480px) {
-      margin-bottom: 10px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
 
     &_with_filter {
       width: 100%;
@@ -42,8 +35,9 @@
     transition: border 0.2s ease-in;
     cursor: pointer;
 
-    @media (max-width: 480px) {
+    @media (max-width: 410px) {
       width: 100%;
+      padding: 8px;
     }
 
     &:hover,
@@ -79,6 +73,15 @@
 
     &_with_filter {
       width: 100%;
+
+      @media (max-width: 410px) {
+        padding: 10px 14px;
+
+        +.input-datepicker__icon {
+          right: 10px;
+        }
+      }
+
     }
 
     @include placeholder($placeholderColor: $dark75, $focusColor: $dark75, $fontSizeInRem: 1);
@@ -93,6 +96,10 @@
     cursor: pointer;
     pointer-events: none;
     @include font-material-icons;
+
+    @media (max-width: 410px) {
+      right: 4px;
+    }
 
     &_rotated {
       transform: rotate(180deg);

@@ -2,7 +2,7 @@
 
 .main-page {
   &__block {
-    min-width: 310px;
+    min-width: 320px;
     background-image: url('~./img/main-page-bg.jpg');
     background-size: 107%;
     background-position: 50% 68%;
@@ -20,7 +20,7 @@
     justify-content: space-between;
     min-height: 830px;
 
-    @media (max-width: 575px) {
+    @media (max-width: 650px) {
       align-items: center;
     }
   }

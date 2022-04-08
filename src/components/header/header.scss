@@ -5,7 +5,7 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
 
 .header {
   &__block {
-    min-width: 310px;
+    min-width: 320px;
     width: 100%;
     min-height: 70px;
     background: #FFFFFF;
@@ -13,11 +13,10 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
   }
 
   &__container {
-    width: 95%;
-    min-width: 310px;
-    max-width: 1170px;
+    min-width: 320px;
+    max-width: 1190px;
     margin: 0 auto;
-    padding: 0 5px;
+    padding: 0 15px;
   }
 
   &__menu-overlay {
@@ -75,12 +74,12 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
 
   &__menu {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     font-weight: 400;
     font-size: 1rem;
     line-height: (17 / 14);
+    list-style: none;
 
     @media (max-width:#{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
       flex-direction: column;
@@ -111,19 +110,14 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
   &__menu-link {
     position: relative;
     margin-right: 21px;
-    display: flex;
-    align-items: center;
 
     &:last-child {
       margin-right: 20px;
-
-      @media (max-width:#{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
-        margin-right: 0;
-      }
     }
 
     @media (max-width:#{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
       margin-right: 0;
+      display: flex;
       align-items: flex-start;
     }
 
@@ -137,7 +131,6 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
       font-size: (24 / 14) + rem;
       text-shadow: none;
       color: $dark50;
-      padding-top: 1px;
       cursor: pointer;
 
       @media (max-width:#{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
@@ -195,19 +188,20 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
   &__submenu {
     background-color: #FFFFFF;
     width: auto;
-    padding: 10px;
+    max-width: 300px;
+    padding: 15px;
     position: absolute;
     top: 100%;
-    left: 30%;
+    left: 0;
     z-index: 99;
     box-shadow: 0px 10px 20px $dark5;
     border-radius: 5px;
     transition: all 0.3s ease-out;
+    list-style: none;
 
     @media (max-width:#{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
       position: relative;
       top: 0;
-      left: 0;
       padding: 0;
       background-color: transparent;
       box-shadow: none;
@@ -217,13 +211,15 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
 
     .header__menu-link {
       padding: 5px;
-      margin-right: 0;
-      margin-bottom: 10px;
-      text-align: center;
+      margin: 0 0 5px 0;
+      text-align: left;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
 
       @media (max-width: #{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
-        text-align: left;
         margin-bottom: 0;
+        white-space: normal;
       }
 
       &:last-child {
@@ -233,7 +229,8 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
       .header__link {
         @media (max-width: #{$MAX_WIDTH_ACTIVATED_MOBILE_MENU}px) {
           font-size: 1rem;
-          line-height: (7 / 14);
+          line-height: 1.1;
+          padding: 5px 0;
         }
       }
     }
@@ -312,7 +309,7 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
     margin-right: 20px;
     width: 87px;
 
-    @media (max-width: 575px) {
+    @media (max-width: 650px) {
       margin-right: 0;
     }
 
@@ -334,6 +331,10 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
     color: $dark50;
     transition: color 0.2s ease-in, text-shadow 0.2s ease-in;
     text-decoration: none;
+    max-width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     @media (max-width: 575px) {
       padding-left: 15px;

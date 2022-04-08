@@ -12,16 +12,17 @@
     border-radius: 4px;
     padding: 39px 28px 28px 29px;
 
-    @media (max-width: 480px) {
+    @media (max-width: 410px) {
       width: 100%;
+      padding: 39px 20px 28px;
     }
   }
 
   &__title {
     @include level-h1;
 
-    @media (max-width: 480px) {
-      font-size: (19 / 14) + rem;
+    @media (max-width: 410px) {
+      font-size: (22 / 14) + rem;
       text-align: center;
     }
   }
@@ -50,10 +51,6 @@
 
   &__radiobtn {
     margin: 0px 20px 20px 0px;
-
-    &:last-child {
-      margin: 0;
-    }
   }
 
   &__toggle {
@@ -81,11 +78,12 @@
     font-size: 1rem;
     line-height: (18 / 14);
     color: #000000;
+    padding-right: 20px;
   }
 
   &__mini-btn {
-    max-width: 99px;
+    min-width: 99px;
     height: 44px;
-    flex: 1 0 auto;
+    flex: 0 0 auto;
   }
 }

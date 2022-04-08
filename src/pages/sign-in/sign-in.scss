@@ -4,7 +4,7 @@
     background-size: 106.7%;
     background-position: 50% 52%;
     background-repeat: no-repeat;
-    min-width: 310px;
+    min-width: 320px;
     min-height: 35.6vw;
 
     @media (max-width: 1439px) {
@@ -17,9 +17,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @media (max-width: 575px) {
-      padding: 30% 0;
-    }
   }
 }

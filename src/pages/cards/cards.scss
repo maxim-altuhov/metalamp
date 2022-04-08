@@ -17,9 +17,10 @@ html {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
       gap: normal;
+      justify-content: center;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 850px) {
       grid-template-columns: auto;
     }
   }
@@ -27,6 +28,10 @@ html {
   &__column {
     @media (max-width: 1199px) {
       justify-self: center;
+    }
+
+    @media (max-width: 850px) {
+      width: 100%;
     }
   }
 

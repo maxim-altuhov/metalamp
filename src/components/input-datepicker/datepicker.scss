@@ -9,12 +9,12 @@
   box-shadow: 0px 10px 20px $dark5;
   border-radius: 4px;
 
-  @media (max-width: 480px) {
-    width: 290px;
+  @media (max-width: 380px) {
+    width: 256px;
   }
 
   &_style_filter {
-    width: 266px;
+    width: 264px;
 
     .datepicker--nav {
       min-height: 50px;
@@ -74,7 +74,7 @@
   &--content {
     padding: 17px 18px 16px 21px;
 
-    @media (max-width: 480px) {
+    @media (max-width: 380px) {
       padding: 18px 10px;
     }
   }
@@ -91,7 +91,7 @@
   &--cell-day {
     height: 40.5px;
 
-    @media (max-width: 480px) {
+    @media (max-width: 380px) {
       width: 14.28571%;
       height: 33px;
     }
@@ -118,7 +118,7 @@
     font-size: (12 / 14) + rem;
     color: #FFFFFF;
 
-    @media (max-width: 480px) {
+    @media (max-width: 380px) {
       height: 33px;
     }
   }

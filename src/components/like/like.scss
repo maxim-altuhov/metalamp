@@ -4,7 +4,7 @@
 .like {
   &__btn {
     padding: 1px;
-    width: 40px;
+    min-width: 39.5px;
     height: 20px;
     background: $dark25;
     border-radius: 10px;
@@ -37,19 +37,19 @@
 
   &__text {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     background: #fff;
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    padding: 0 7px 0 2px;
+    padding: 0 4px;
     font-size: (10 / 14) + rem;
     line-height: 1;
   }
 
   &__icon {
     @include font-material-icons;
+    padding-right: 6px;
   }
 }
 

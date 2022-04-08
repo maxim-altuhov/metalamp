@@ -5,13 +5,8 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
 .search-room {
   &__wrapper {
     padding-top: 30px;
-    min-width: 300px;
     display: grid;
     grid-template-columns: 325px auto;
-
-    @media (max-width: 1199px) {
-      grid-template-columns: 300px auto;
-    }
 
     @media (max-width: #{$WIDTH_WHEN_FILTER_IS_ACTIVATED}px) {
       grid-template-columns: auto;
@@ -78,7 +73,7 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
       width: 300px;
       height: 100%;
       z-index: 99;
-      padding: 90px 15px 15px;
+      padding: 90px 15px 90px;
       box-shadow: 0 10px 20px $dark5;
 
       @media (max-width: 375px) {
@@ -95,6 +90,12 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
 
   &__aside-elem {
     margin-bottom: 31px;
+
+    @media (max-width: #{$WIDTH_WHEN_FILTER_IS_ACTIVATED}px) {
+      max-width: 266px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     &:first-child {
       margin-bottom: 20px;
@@ -146,6 +147,12 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
 
     @media (max-width: #{$WIDTH_WHEN_FILTER_IS_ACTIVATED}px) {
       text-align: center;
+    }
+
+    .heading {
+      @media (max-width: 575px) {
+        font-size: 1.5rem;
+      }
     }
   }
 

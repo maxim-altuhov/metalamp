@@ -8,11 +8,11 @@ function initTooltip() {
     tooltip.textContent = tooltipText;
 
     const showTooltip = () => {
-      tooltip.style.cssText = 'top: 20px; left: 10px; display: block';
+      tooltip.style.cssText = 'top: 20px; right: -50%; display: block;';
     };
 
     const hideTooltip = () => {
-      tooltip.style.cssText = 'top: 0; left: 0; display: none';
+      tooltip.style.cssText = 'top: 0; right: 0; display: none';
     };
 
     const handleInfoPointMousemove = () => showTooltip();

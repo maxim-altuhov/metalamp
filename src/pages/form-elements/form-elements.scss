@@ -23,6 +23,10 @@
   &__block {
     width: 320px;
 
+    @media (max-width: 410px) {
+      width: 100%;
+    }
+
     &:nth-child(1n) {
       justify-self: right;
 
@@ -39,10 +43,6 @@
         justify-self: center;
       }
 
-    }
-
-    @media (max-width: 375px) {
-      width: 290px;
     }
 
     &:last-child {
@@ -198,6 +198,10 @@
   &__pagination {
     margin-top: 15px;
     max-width: 241px;
+
+    @media(max-width: 1199px) {
+      max-width: none;
+    }
   }
 
   &__checkbox-list {
@@ -232,7 +236,7 @@
   }
 
   &__feedback {
-    max-width: 767px;
+    max-width: 765px;
     padding-left: 55px;
     margin: 11px 0px 50px;
 
