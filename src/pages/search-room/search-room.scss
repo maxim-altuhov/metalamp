@@ -15,6 +15,7 @@ $WIDTH_WHEN_FILTER_IS_ACTIVATED: 1100;
   }
 
   &__aside-btn {
+    cursor: pointer;
     display: none;
 
     @media (max-width: #{$WIDTH_WHEN_FILTER_IS_ACTIVATED}px) {

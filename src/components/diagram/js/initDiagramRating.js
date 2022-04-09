@@ -97,19 +97,12 @@ function initDiagramRating(selector) {
   };
 
   // обработчики событий
-  const handleLegendItemMouseEnter = (e) => showCurrentRating(e);
+  const handleLegendItemMouseOver = (e) => showCurrentRating(e);
   const handleLegendItemMouseOut = () => showTotalRating();
-  const handleSegmentMouseEnter = (e) => showCurrentRating(e);
-  const handleSegmentMouseOut = () => showTotalRating();
 
   diagramLegends.forEach((elem) => {
-    elem.addEventListener('mouseenter', handleLegendItemMouseEnter);
+    elem.addEventListener('mouseover', handleLegendItemMouseOver);
     elem.addEventListener('mouseout', handleLegendItemMouseOut);
-  });
-
-  diagramSegments.forEach((segment) => {
-    segment.addEventListener('mouseenter', handleSegmentMouseEnter);
-    segment.addEventListener('mouseout', handleSegmentMouseOut);
   });
 }
 

@@ -354,7 +354,8 @@ $MAX_WIDTH_ACTIVATED_MOBILE_MENU: 991;
 
 body.using-mouse {
 
-  .header__hamburger:focus {
+  .header__hamburger:focus,
+  .header__link:focus {
     outline: none;
   }
 }
