@@ -18,7 +18,7 @@
 @mixin placeholder($placeholderColor, $focusColor, $fontSizeInRem) {
   &::placeholder {
     color: $placeholderColor;
-    font-size: $fontSizeInRem + 'rem';
+    font-size: $fontSizeInRem;
     transition: color 0.2s ease-in;
   }
 
@@ -36,9 +36,9 @@
   border: 0;
   padding: 0;
   white-space: nowrap;
-  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
   clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-  clip: rect(0 0 0 0);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  clip: rect(0, 0, 0, 0);
   overflow: hidden;
 }
 

@@ -37,7 +37,7 @@
       outline: $focus-color auto 2px;
     }
 
-    @include placeholder($placeholderColor: $dark25, $focusColor: transparent, $fontSizeInRem: 1);
+    @include placeholder($placeholderColor: $dark25, $focusColor: transparent, $fontSizeInRem: 1rem);
 
     &_focused {
       border: 1px solid $dark50;
